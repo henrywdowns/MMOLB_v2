@@ -19,10 +19,12 @@ sample of team_data['Players']:
 
 class Team:
     def __init__(self,team_id=chicken_id):
+        self.stored_locally = False
         check_local = self.store_local(get_team_id=team_id)
         if check_local:
             print('Data found in local storage.')
             self.team_data = check_local
+            self.stored_locally = True
         else:
             print('No local data found - requesting data from API.')
             self.team_data = requests.get(f'{base_url}/{team_id}').json()
@@ -46,6 +48,10 @@ class Team:
             'Catcher': ['caught_stealing', 'runners_caught_stealing', 'assists']
 
 }
+        if not self.stored_locally:
+            print(self.team_data)
+            self.store_local(team_object=self)
+            self.stored_locally = True
     def get_player(self,name=None,id=None):
         if not name:
             if id:
@@ -84,7 +90,7 @@ class Team:
     def store_local(self,team_object=None,get_team_id=None):
         import json
         filename = 'teams.json'
-
+        # get_team_id allows for pulling out of local - a little janky, i know
         if get_team_id: # get_team_id should be a literal id
             try:
                 with open(filename,'r') as f:
@@ -93,18 +99,18 @@ class Team:
             except Exception as e:
                 print(f'Error: {str(e)}')
                 return
-
+        # if get_team_id is None and there's also no team object to speak of, our business is done here
         if not team_object:
             print('No team data found.')
             return
-        # retrieve data first
+        # otherwise, we locate the file...
         try:
             with open(filename,'r') as f:
                 data = json.load(f)
         except Exception as e:
             print(f'No file found: {str(e)}')
             data = {}
-        # dump new json
+        # ...and dump the new json
         with open(filename,'w') as f:        
             data[team_object.id] = team_object.team_data
             json.dump(data, f, indent=4)
