@@ -8,7 +8,12 @@ beetles = scs.Team(lady_beetles)
 seers = scs.Team(seers)
 
 # print(beetles.players['6805db0cac48194de3cd407d'].simplified_position)
-for player in beetles.players.values():
-    print(f'{player.name}: {player.position}')
+# for player in beetles.players.values():
+#     print(f'{player.name}: {player.position}')
 # for line in beetles.team_df.items():
 #     print(line)
+
+print(seers.players)
+kibbles_swift = seers.players['6805db0cac48194de3cd40b7']
+print(kibbles_swift.get_dir())
+print(seers.players[seers.player_ids['Kibbles Swift']].get_dir())

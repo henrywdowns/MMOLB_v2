@@ -1,5 +1,6 @@
 import requests
 import polars as pl
+import local_team_data as ltd
 
 chicken_id = '680e477a7d5b06095ef46ad1'
 lady_beetles = '6805db0cac48194de3cd407c'
@@ -19,7 +20,9 @@ sample of team_data['Players']:
 
 class Team:
     def __init__(self,team_id=chicken_id):
+        self.id = team_id
         self.stored_locally = False
+        self.team_stored_data = None
         check_local = self.store_local(get_team_id=team_id)
         if check_local:
             print('Data found in local storage.')
@@ -30,11 +33,13 @@ class Team:
             self.team_data = requests.get(f'{base_url}/{team_id}').json()
         self.league = self.team_data['League']
         self.modifications = self.team_data['Modifications']
-        self.id = self.team_data['_id']
         self.player_data = self.team_data['Players']
         self.players = {}
         for player in self.player_data:
             self.players[player['PlayerID']] = Player(self,player['PlayerID'])
+        self.player_names = [player.name for player in self.players.values()]
+        #self.player_ids = [player.player_id for player in self.players.values()]
+        self.player_ids = {player.name: player.player_id for player in self.players.values()}
         self.name = self.team_data['Name']
         self.owner_id = self.team_data['OwnerID']
         self.team_df = self.make_team_df()
@@ -52,6 +57,7 @@ class Team:
             print(self.team_data)
             self.store_local(team_object=self)
             self.stored_locally = True
+        print(f'Team {self.name} successfully initialized.')
     def get_player(self,name=None,id=None):
         if not name:
             if id:
@@ -90,11 +96,18 @@ class Team:
     def store_local(self,team_object=None,get_team_id=None):
         import json
         filename = 'teams.json'
+
+        def set_local_data_attribute():
+            temp_local_data = ltd.TeamStorage()
+            self.team_stored_data = temp_local_data.get_team_data(self.id)
+            print(f'Stored data: {self.team_stored_data.keys()}')
+
         # get_team_id allows for pulling out of local - a little janky, i know
         if get_team_id: # get_team_id should be a literal id
             try:
                 with open(filename,'r') as f:
                     data = json.load(f)
+                    #set_local_data_attribute()
                     return data[get_team_id]
             except Exception as e:
                 print(f'Error: {str(e)}')
@@ -111,10 +124,11 @@ class Team:
             print(f'No file found: {str(e)}')
             data = {}
         # ...and dump the new json
-        with open(filename,'w') as f:        
+        with open(filename,'w') as f:
             data[team_object.id] = team_object.team_data
             json.dump(data, f, indent=4)
             print(f'{filename} successfully saved.')  
+            #set_local_data_attribute()
 
 
 class Player:
@@ -140,6 +154,20 @@ class Player:
         self.stats = self.data['Stats']
         self.stats_df = pl.DataFrame(self.stats)
 
+    def get_dir(self,builtins=False):
+        result = dir(self)
+        if not builtins:
+            result[:] = [item for item in result if not item.startswith('__')]
+        return result
+    
+    def extract_stats(self):
+        # every player bats; simplified positions translate to position-specific KPIs
+        stats_dict = {
+            'hitting':{},
+            'fielding':{}
+            }
+        
+        
 
     # def extract_stats(self,player_data,categories):
     #     # extract stats
