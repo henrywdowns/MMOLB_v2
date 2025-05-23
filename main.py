@@ -13,12 +13,12 @@ seers = scs.Team(seers)
 # for line in beetles.team_df.items():
 #     print(line)
 
-# kibbles_swift = seers.players[seers.player_ids['Kibbles Swift']]
-# print(kibbles_swift.simplified_position)
-# print(kibbles_swift.stats)
+kibbles_swift = seers.players[seers.player_ids['Null Baba']]
+print(kibbles_swift.simplified_position)
+print(kibbles_swift.stats.keys())
 
-seers.get_game_history()
-seers.game_log.get_appearances()
+# for playername, id in seers.player_ids.items():
+#     print(f'{playername} -- {seers.players[id].simplified_position}')
 
 
 # TODO: build logic for checking games.json vs running game_data.py method;

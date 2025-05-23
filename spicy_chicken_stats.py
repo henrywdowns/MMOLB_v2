@@ -3,6 +3,7 @@ import polars as pl
 import local_team_data as ltd
 import typing
 import game_data
+from utils import Utils
 
 chicken_id = '680e477a7d5b06095ef46ad1'
 lady_beetles = '6805db0cac48194de3cd407c'
@@ -213,60 +214,86 @@ class Player:
         return result
     
     def extract_stats(self) -> dict:
-        # every player bats; simplified positions translate to position-specific KPIs
-        stats_dict = {
-            'hitting':{
-                'ERA':asdf
-            },
-            'outfield':{
-                aadf:adsf
-            },
-            'infield':{
-                'Fielding Percentage':'putouts + assists / (putouts + assists + errors)',
-                'Assists': '',
-                'Putouts':'',
-                'Errors':'',
-                'Double Plays Involved':'double_plays + caught_double_play',
-                'Range Factor':'(putouts + assists) / games_played'
-            },
-            'pitching':{
-                'asdf':'asdf'
-            },
-            'catching':{
-                
-            }
-            }
+        # simplified positions translate to position-specific KPIs
+        # store derived stats in a new file, derived_stats.json
+        explicit_stats = Utils.access_json('teams.json')
+        derived_stats = Utils.access_json('derived_stats.json')
 
-    # def extract_stats(self,player_data,categories):
-    #     # extract stats
+        # calculate appearances/games played. god this was complicated to nail down, but now I have it
+        player_appearance_list = Utils.access_json('games.json')['appearances'][self.player_id]
+        player_appearances = len(player_appearance_list)
+        player_derived_stats = Utils.ensure_nested_dict(derived_stats,self.team.id,self.player_id)# derived_stats[self.team.id][self.player_id]
+        player_derived_stats['appearances'] = player_appearances
+        
+        # everyone bats
+        batting = {}
+        hits = self.stats['singles'] + self.stats['doubles'] + self.stats['triples'] + self.stats['home_runs']
+        batting['hits'] = hits
+        batting['batting_avg'] = hits/self.stats['at_bats']
+        batting['on_base_percentage'] = (hits + self.stats['walked'] + self.stats['hit_by_pitch'])/self.stats['plate_appearances']
+        batting['slugging'] = (self.stats['singles'] + 2*self.stats['doubles'] + 3*self.stats['triples'] + 4*self.stats['home_runs'])/self.stats['at_bats']
+        batting['obps'] = batting['on_base_percentage'] + batting['slugging']
+        batting['risp_batting_avg'] = (self.stats['singles_risp'] + self.stats['doubles_risp'] + self.stats['triples_risp'] + self.stats['home_runs_risp'])/self.stats['at_bats_risp']
+        batting['risp_improvement'] = batting['risp_batting_avg'] - batting['batting_avg']
+        batting['risp_diff_percentage'] = batting['risp_improvement']/batting['batting_avg']
+        batting['isolated_power'] = batting['slugging'] - batting['batting_avg']
+        batting['at_bats_per_appearance'] = self.stats['at_bats']/player_appearances
+        
+        player_derived_stats['batting'] = batting
 
-    #     stats_by_category = {}
+        # infielding
+        if self.simplified_position == 'Infield':
+            infielding = {}
+            infielding['putouts_per_game'] = self.stats['putouts']/player_appearances
+            infielding['fielding_percentage'] = (self.stats['putouts'] + self.stats['assists'])/(self.stats['putouts'] + self.stats['assists'] + self.stats['errors'])
+            infielding['range_factor_per_game'] = (self.stats['putouts'] + self.stats['assists'])/player_appearances
+            infielding['fielding_percentage_risp'] (self.stats('assists_risp') + self.stats['putouts_risp'])/(self.stats['assists_risp'] + self.stats['putouts_risp'] + self.stats['errors_risp'])
+            infielding['fp_risp_improvement'] = infielding['fielding_percentage_risp'] - infielding['fielding_percentage']
+            infielding['risp_diff_percentage'] = infielding['fp_risp_improvement']/infielding['fielding_percentage']
 
-    #     for category in self.performance_categories:
-    #         player_stats = {
-    #             'Name':f'{player_data['FirstName']} {player_data['LastName']}',
-    #             'Position':player_data['Position']
-    #         }
-    #         stats = player_data['Stats']
+            player_derived_stats['infield'] = infielding
 
-    #         for stat in performance_categories[category]:
-    #             player_stats[stat] = stats.get(stat,None)
+        if self.simplified_position == 'Outfield':
+            outfielding = {}
+            outfielding['putouts_per_game'] = self.stats['putouts']/player_appearances
+            outfielding['fielding_percentage'] = (self.stats['putouts'] + self.stats['assists'])/(self.stats['putouts'] + self.stats['assists'] + self.stats['errors'])
+            outfielding['range_factor_per_game'] = (self.stats['putouts'] + self.stats['assists'])/player_appearances
+            outfielding['fielding_percentage_risp'] (self.stats('assists_risp') + self.stats['putouts_risp'])/(self.stats['assists_risp'] + self.stats['putouts_risp'] + self.stats['errors_risp'])
+            outfielding['fp_risp_improvement'] = outfielding['fielding_percentage_risp'] - outfielding['fielding_percentage']
+            outfielding['risp_diff_percentage'] = outfielding['fp_risp_improvement']/outfielding['fielding_percentage']
 
-    #         print(player_stats)
+            player_derived_stats['outfield'] = outfielding
 
-    #         stats_by_category[category] = player_stats
+        if self.simplified_position == 'Catcher':
+            catching = {}
+            catching['putouts_per_game'] = self.stats['putouts']/player_appearances
+            catching['fielding_percentage'] = (self.stats['putouts'] + self.stats['assists'])/(self.stats['putouts'] + self.stats['assists'] + self.stats['errors'])
+            catching['range_factor_per_game'] = (self.stats['putouts'] + self.stats['assists'])/player_appearances
+            catching['fielding_percentage_risp'] (self.stats('assists_risp') + self.stats['putouts_risp'])/(self.stats['assists_risp'] + self.stats['putouts_risp'] + self.stats['errors_risp'])
+            catching['fp_risp_improvement'] = catching['fielding_percentage_risp'] - catching['fielding_percentage']
+            catching['risp_diff_percentage'] = catching['fp_risp_improvement']/catching['fielding_percentage']
 
-    #         print(stats_by_category)
-    #     return stats_by_category
+            player_derived_stats['outfield'] = catching
+        
+        if self.simplified_position == 'Pitcher':
+            pitching = {}
+            pitching['batters_faced_per_appearance'] = self.stats['batters_faced']/self.stats['appearances']
+            pitching['pitches_per_appearance'] = self.stats['pitches_thrown']/self.stats['appearances']
+            pitching['innings_pitched'] = self.stats['outs']/3
+            pitching['innings_pitched_per_appearance'] = pitching['innings_pitched']/self.stats['appearances']
+            pitching['batters_faced_per_inning'] = pitching['batters_faced_per_appearance']/pitching['innings_pitched_per_appearance']
+            pitching['strikeout_rate'] = self.stats['strikeouts']/self.stats['batters_faced']
+            pitching['ERA'] = (self.stats['earned_runs'] * 9)/pitching['innings_pitched']
+            pitching['walks_hits_per_inning_pitched'] = (self.stats['walks'] + self.stats['hits_allowed'])/pitching['innings_pitched']
+            pitching['strikeouts_per_nine'] = (self.stats['strikeouts'] * 9)/pitching['innings_pitched']
+            pitching['walks_per_nine'] = (self.stats['walks'] * 9)/pitching['innings_pitched']
+            pitching['home_runs_allowed_per_nine'] = (self.stats['home_runs_allowed'] * 9)/pitching['innings_pitched']
+            pitching['hits_allowed_per_nine'] = (self.stats['hits_allowed'] * 9)/pitching['innings_pitched']
+            pitching['strikeouts_to_balls_on_base'] = self.sats['strikeouts']/self.stats['walks']
+            pitching['win_rate'] = self.stats['wins']/self.stats['appearances']
+            pitching['win_chance_improvement'] = pitching['win_rate']/(self.team.record['Wins']/(self.team.record['Wins']+self.team.record['Losses']))
 
-    # player_stats = [extract_stats(player, performance_categories) for player in players]
 
-    # for item in player_stats:
-    #     print(item)
-
-    # df = pl.DataFrame(player_stats)
-
-    # df_dict = {}
 
 if __name__ == '__main__':
     beetles = Team(lady_beetles)
