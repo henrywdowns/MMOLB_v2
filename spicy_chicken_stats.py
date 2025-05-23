@@ -1,6 +1,8 @@
 import requests
 import polars as pl
 import local_team_data as ltd
+import typing
+import game_data
 
 chicken_id = '680e477a7d5b06095ef46ad1'
 lady_beetles = '6805db0cac48194de3cd407c'
@@ -19,7 +21,7 @@ sample of team_data['Players']:
 """
 
 class Team:
-    def __init__(self,team_id=chicken_id):
+    def __init__(self,team_id=chicken_id) -> None:
         self.id = team_id
         self.stored_locally = False
         self.team_stored_data = None
@@ -45,6 +47,8 @@ class Team:
         self.team_df = self.make_team_df()
         self.record = self.team_data['Record']
         self.season_records = self.team_data['SeasonRecords']
+        self.game_history = None # list of ids
+        self.game_log = None # object
         self.performance_categories = {
             'Hitter': ['at_bats', 'home_runs', 'runs_batted_in', 'struck_out', 'walked', 'singles', 'doubles', 'stolen_bases', 'plate_appearances', 'runs'],
             'Pitcher': ['era', 'whip', 'strikeouts', 'walks', 'innings_pitched'],
@@ -58,7 +62,8 @@ class Team:
             self.store_local(team_object=self)
             self.stored_locally = True
         print(f'Team {self.name} successfully initialized.')
-    def get_player(self,name=None,id=None):
+
+    def get_player(self,name: str = None,id: int = None) -> dict:
         if not name:
             if id:
                 for p_id in self.player_data:
@@ -66,13 +71,13 @@ class Team:
                         return p_id # this is not just an id, it's a full player dict
                 print('Player ID not found in team.')
                 return
-            elif name:
-                for p_name in self.player_data:
-                    if name == f'{p_name['FirstName']} {p_name['LastName']}':
-                        return p_name # this is also the full player dict
-                print('Player name not found. Make sure you have included player\'s full name.')
+        elif name:
+            for p_name in self.player_data:
+                if name == f'{p_name['FirstName']} {p_name['LastName']}':
+                    return p_name # this is also the full player dict
+            print('Player name not found. Make sure you have included player\'s full name.')
     
-    def make_team_df(self):
+    def make_team_df(self) -> dict:
         dfs_dict = {
             'Catcher':[],
             'Outfield':[],
@@ -86,18 +91,61 @@ class Team:
             #TODO: add Hitter DF independent of DH slot or position
         return dfs_dict
 
+    def scrape_game_ids(self):
+        from bs4 import BeautifulSoup
+        import json
+        import os
+        import datetime as dt
+        # scraping game ids from freecashews bc mmolb does a poor job of relating game ids to teams
+        base_url = 'https://freecashe.ws/games/'
 
-    def get_dir(self,builtins=False):
+        # checking for the file early so that i can skip the scraping step if the data's relatively fresh
+        if os.path.exists('games.json'):
+            with open('games.json','r') as f:
+                file = json.load(f)
+        else:
+            file = {}
+
+        latest = file.get('last_update')
+        if latest is not None:
+            latest_dt = dt.datetime.fromisoformat(latest)
+            if dt.datetime.now()-latest_dt < dt.timedelta(hours=24):
+                refresh = input('Data less than 24 hours old. Run anyway? y/n\n>')
+                while refresh.lower() not in ['y','n']:
+                    refresh = input('Data less than 24 hours old. Run anyway? y/n\n>')
+                if refresh.lower() == 'n':
+                    print('Data not refreshed.')
+                    return
+                else:
+                    print('Refreshing data anyway.')
+
+        r = requests.get(f'{base_url}{self.id}')
+        print('parsed')
+        soup = BeautifulSoup(r.text,'html.parser')
+        # all the links called "watch" link out to the game page on mmolb, so they necessarily have the game id in the dest url
+        watch_dest = [
+            a["href"] for a in soup.find_all("a", href=True)
+            if "/watch/" in a["href"] and "watch" in a.get_text(strip=True).lower()
+        ]
+        game_ids = [link.split('/')[-1] for link in watch_dest]
+
+        file['last_update'] = dt.datetime.now().isoformat()
+        file[self.id] = game_ids
+
+        with open('games.json','w') as f:
+            json.dump(file,f,indent=4)
+            
+    def get_dir(self,builtins: bool = False) -> list:
         result = dir(self)
         if not builtins:
             result[:] = [item for item in result if not item.startswith('__')]
         return result
 
-    def store_local(self,team_object=None,get_team_id=None):
+    def store_local(self,team_object: object = None, get_team_id: bool = None) -> None:
         import json
         filename = 'teams.json'
 
-        def set_local_data_attribute():
+        def set_local_data_attribute() -> None:
             temp_local_data = ltd.TeamStorage()
             self.team_stored_data = temp_local_data.get_team_data(self.id)
             print(f'Stored data: {self.team_stored_data.keys()}')
@@ -129,10 +177,14 @@ class Team:
             json.dump(data, f, indent=4)
             print(f'{filename} successfully saved.')  
             #set_local_data_attribute()
-
+    
+    def get_game_history(self) -> list:
+        game_log = game_data.GameLog(self)
+        self.game_log = game_log
+        self.game_history = game_log.game_ids
 
 class Player:
-    def __init__(self,team_object,player_id):
+    def __init__(self,team_object,player_id) -> None:
         self.player_id = player_id
         self.team = team_object
         self.data = self.team.get_player(id=player_id)
@@ -154,20 +206,36 @@ class Player:
         self.stats = self.data['Stats']
         self.stats_df = pl.DataFrame(self.stats)
 
-    def get_dir(self,builtins=False):
+    def get_dir(self, builtins: bool = False) -> list:
         result = dir(self)
         if not builtins:
             result[:] = [item for item in result if not item.startswith('__')]
         return result
     
-    def extract_stats(self):
+    def extract_stats(self) -> dict:
         # every player bats; simplified positions translate to position-specific KPIs
         stats_dict = {
-            'hitting':{},
-            'fielding':{}
+            'hitting':{
+                'ERA':asdf
+            },
+            'outfield':{
+                aadf:adsf
+            },
+            'infield':{
+                'Fielding Percentage':'putouts + assists / (putouts + assists + errors)',
+                'Assists': '',
+                'Putouts':'',
+                'Errors':'',
+                'Double Plays Involved':'double_plays + caught_double_play',
+                'Range Factor':'(putouts + assists) / games_played'
+            },
+            'pitching':{
+                'asdf':'asdf'
+            },
+            'catching':{
+                
             }
-        
-        
+            }
 
     # def extract_stats(self,player_data,categories):
     #     # extract stats

@@ -13,7 +13,14 @@ seers = scs.Team(seers)
 # for line in beetles.team_df.items():
 #     print(line)
 
-print(seers.players)
-kibbles_swift = seers.players['6805db0cac48194de3cd40b7']
-print(kibbles_swift.get_dir())
-print(seers.players[seers.player_ids['Kibbles Swift']].get_dir())
+# kibbles_swift = seers.players[seers.player_ids['Kibbles Swift']]
+# print(kibbles_swift.simplified_position)
+# print(kibbles_swift.stats)
+
+seers.get_game_history()
+seers.game_log.get_appearances()
+
+
+# TODO: build logic for checking games.json vs running game_data.py method;
+# TODO: aggregate appearances into stats
+# TODO: stat lists for simplified_positions, implementing calculations, appending to player data
