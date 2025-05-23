@@ -13,9 +13,21 @@ seers = scs.Team(seers)
 # for line in beetles.team_df.items():
 #     print(line)
 
-kibbles_swift = seers.players[seers.player_ids['Null Baba']]
-print(kibbles_swift.simplified_position)
-print(kibbles_swift.stats.keys())
+sample_players = {
+    'kibbles_swift':seers.players[seers.player_ids['Kibbles Swift']],
+    'taylor_mogensen':seers.players[seers.player_ids['Taylor Mogensen']],
+    'fizz_kaneko':seers.players[seers.player_ids['Fizz Kaneko']],
+    'null_baba':seers.players[seers.player_ids['Null Baba']]
+    }
+
+# for player in sample_players.values():
+#     print(f'{player.name} -- {player.simplified_position}\n{player.stats.keys()}')
+
+# for player in seers.players.values():
+#     player.extract_stats()
+
+print(seers.players['6807f4114251378d1ace1328'].name)
+print(seers.players['6807f4114251378d1ace1328'].position)
 
 # for playername, id in seers.player_ids.items():
 #     print(f'{playername} -- {seers.players[id].simplified_position}')

@@ -23,12 +23,12 @@ class Utils:
         file is found, creates a file. Otherwise overwrites the existing file. 
         """
         import json
-        import sys
+        import os
         exists = 'created'
-        if sys.os.exists(filename):
+        if os.path.exists(filename):
             exists = 'updated'
         with open(filename,'w') as f:
-            json.dump(data,filename,indent=4)
+            json.dump(data,f,indent=4)
         print(f'File {exists} at {filename}.')
     
     @staticmethod
