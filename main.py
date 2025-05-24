@@ -1,4 +1,6 @@
 import spicy_chicken_stats as scs
+from utils import Utils
+import requests
 
 chicken_id = '680e477a7d5b06095ef46ad1'
 lady_beetles = '6805db0cac48194de3cd407c'
@@ -6,6 +8,18 @@ seers = '6805db0cac48194de3cd40b5'
 
 beetles = scs.Team(lady_beetles)
 seers = scs.Team(seers)
+
+
+def new_team(team_id):
+    new_team = scs.Team(team_id)
+    new_team.get_game_history()
+    for player in new_team.players.values():
+        player.extract_stats()
+    if new_team in Utils.access_json('games.json').values():
+        print('Team loaded up and derived stats saved!')
+    else:
+        print('Something is wrong and I\'m too lazy to tell you exactly what.')
+teams = [beetles,seers]
 
 # print(beetles.players['6805db0cac48194de3cd407d'].simplified_position)
 # for player in beetles.players.values():
@@ -23,16 +37,22 @@ sample_players = {
 # for player in sample_players.values():
 #     print(f'{player.name} -- {player.simplified_position}\n{player.stats.keys()}')
 
-# for player in seers.players.values():
+# beetles.get_game_history()
+
+# for player in beetles.players.values():
 #     player.extract_stats()
 
-print(seers.players['6807f4114251378d1ace1328'].name)
-print(seers.players['6807f4114251378d1ace1328'].position)
+# games = Utils.access_json('games.json')
+# print(games['last_update'])
+
+# print(beetles.players['6805db0cac48194de3cd407d'].name)
+# print(beetles.players['6805db0cac48194de3cd407d'].position)
+# print(beetles.players['6805db0cac48194de3cd407d'].stats)
+
+nicole = requests.get('https://mmolb.com/player/6805db0cac48194de3cd407d').json
+print(nicole)
 
 # for playername, id in seers.player_ids.items():
 #     print(f'{playername} -- {seers.players[id].simplified_position}')
 
-
-# TODO: build logic for checking games.json vs running game_data.py method;
-# TODO: aggregate appearances into stats
-# TODO: stat lists for simplified_positions, implementing calculations, appending to player data
+#TODO: figure out why some players are loading in stats as {} (ie nicole humphrey 6805db0cac48194de3cd407d)
