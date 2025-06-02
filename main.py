@@ -19,15 +19,25 @@ sample_players = {
     'fizz_kaneko':seers.players[seers.player_ids['Fizz Kaneko']],
     'null_baba':seers.players[seers.player_ids['Null Baba']]
     }
+wildcard_team = beetles
+wildcard_sample = wildcard_team.players[wildcard_team.player_ids['Nicole Humphrey']]
+
 
 # for player in sample_players.values():
 #     print(f'{player.name} -- {player.simplified_position}\n{player.stats.keys()}')
 
-# for player in seers.players.values():
-#     player.extract_stats()
+for player in seers.players.values():
+    print(player.name)
+    player.extract_stats()
 
-print(seers.players['6807f4114251378d1ace1328'].name)
-print(seers.players['6807f4114251378d1ace1328'].position)
+for player in beetles.players.values():
+    print(player.name)
+    player.extract_stats()
+
+print(seers.players[seers.player_ids['Andressa Molla']].stats)
+
+# print(seers.players['6807f4114251378d1ace1328'].name)
+# print(seers.players['6807f4114251378d1ace1328'].position)
 
 # for playername, id in seers.player_ids.items():
 #     print(f'{playername} -- {seers.players[id].simplified_position}')

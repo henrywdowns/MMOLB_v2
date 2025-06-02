@@ -46,9 +46,12 @@ class Team:
         self.name = self.team_data['Name']
         self.owner_id = self.team_data['OwnerID']
         self.team_df = self.make_team_df()
-        self.record = self.team_data['Record']
+        try:
+            self.record = self.team_data['Record']['Regular Season']
+        except:
+            self.record = self.team_data['Record']
         self.season_records = self.team_data['SeasonRecords']
-        self.game_history = None # list of ids
+        self.game_history = self.scrape_game_ids(init=True) # list of ids
         self.game_log = None # object
         self.performance_categories = {
             'Hitter': ['at_bats', 'home_runs', 'runs_batted_in', 'struck_out', 'walked', 'singles', 'doubles', 'stolen_bases', 'plate_appearances', 'runs'],
@@ -92,13 +95,13 @@ class Team:
             #TODO: add Hitter DF independent of DH slot or position
         return dfs_dict
 
-    def scrape_game_ids(self):
+    def scrape_game_ids(self, init: bool = False):
         from bs4 import BeautifulSoup
         import json
         import os
         import datetime as dt
         # scraping game ids from freecashews bc mmolb does a poor job of relating game ids to teams
-        base_url = 'https://freecashe.ws/games/'
+        base_url = 'https://freecashe.ws/team/'
 
         # checking for the file early so that i can skip the scraping step if the data's relatively fresh
         if os.path.exists('games.json'):
@@ -111,6 +114,9 @@ class Team:
         if latest is not None:
             latest_dt = dt.datetime.fromisoformat(latest)
             if dt.datetime.now()-latest_dt < dt.timedelta(hours=24):
+                if init:
+                    print('Init data less than 24 hours old: skipping game scraping. Run Team.scrape_game_ids() manually to refresh.')
+                    return
                 refresh = input('Data less than 24 hours old. Run anyway? y/n\n>')
                 while refresh.lower() not in ['y','n']:
                     refresh = input('Data less than 24 hours old. Run anyway? y/n\n>')
@@ -119,9 +125,10 @@ class Team:
                     return
                 else:
                     print('Refreshing data anyway.')
-
-        r = requests.get(f'{base_url}{self.id}')
-        print('parsed')
+        team_stats_url = f'{base_url}{self.id}/stats'
+        print(f'Requesting {team_stats_url}')
+        r = requests.get(team_stats_url)
+        print(f'{r.status_code} Parsed')
         soup = BeautifulSoup(r.text,'html.parser')
         # all the links called "watch" link out to the game page on mmolb, so they necessarily have the game id in the dest url
         watch_dest = [
@@ -129,6 +136,7 @@ class Team:
             if "/watch/" in a["href"] and "watch" in a.get_text(strip=True).lower()
         ]
         game_ids = [link.split('/')[-1] for link in watch_dest]
+        print(f'Game ids: {game_ids}')
 
         file['last_update'] = dt.datetime.now().isoformat()
         file[self.id] = game_ids
@@ -213,85 +221,189 @@ class Player:
             result[:] = [item for item in result if not item.startswith('__')]
         return result
     
+    def ensure_stats(self, debug: bool = False) -> None:
+        # makeshift stopgap for when a player doesn't turn up a stat. this is nowhere near exhaustive - only for the stats that give me trouble basically.
+        stat_options = [
+            'appearances', 'assists', 'assists_risp', 'at_bats', 'at_bats_risp', 'caught_double_play', 'caught_double_play_risp', 'caught_stealing', 'caught_stealing_risp', 'doubles', 'doubles_risp',
+            'errors', 'errors_risp', 'field_out', 'field_out_risp', 'fielders_choice', 'flyouts', 'flyouts_risp', 'force_outs', 'force_outs_risp', 'grounded_into_double_play',
+            'grounded_into_double_play_risp', 'groundout', 'groundout_risp', 'hit_by_pitch', 'hit_by_pitch_risp', 'home_runs', 'home_runs_risp', 'left_on_base',
+            'left_on_base_risp', 'lineouts', 'lineouts_risp', 'plate_appearances', 'plate_appearances_risp', 'popouts', 'popouts_risp', 'putouts', 'putouts_risp',
+            'reached_on_error', 'reached_on_error_risp', 'runs', 'runs_batted_in', 'runs_batted_in_risp', 'runs_risp', 'sac_flies', 'sac_flies_risp', 'singles',
+            'singles_risp', 'stolen_bases', 'stolen_bases_risp', 'struck_out', 'struck_out_risp', 'triples', 'walked', 'walked_risp'
+        ]
+
+        for stat in stat_options:
+            if stat not in self.stats.keys():
+                self.stats[stat] = 0
+        if debug:
+            print(f'{self.name} stats dict:')
+            print(self.stats)
+
     def extract_stats(self) -> dict:
         # simplified positions translate to position-specific KPIs
         # store derived stats in a new file, derived_stats.json
         derived_stats = Utils.access_json('derived_stats.json')
 
+        ##### UPDATE: appearances is now a stat that's tracked in the API. 
         # calculate appearances/games played. god this was complicated to nail down, but now I have it
-        player_appearance_list = Utils.access_json('games.json')['appearances'][self.player_id]
-        player_appearances = len(player_appearance_list)
+        # I know this should probably have been called games_played but here we are and I don't feel like refactoring just for that
+        # try:
+        #     player_appearance_list = Utils.access_json('games.json')['appearances'][self.player_id]
+        #     # if player exists/isnt throwing some annoying error, clean up the stats
+        #     self.ensure_stats(debug = (self.name == 'Manny Welch'))
+        # except Exception as e:
+        #     print(f'Couldn\'t complete stats for {self.name} because: \n{str(e)}')
+        #     return
+        # player_appearances = len(player_appearance_list)
+
         player_derived_stats = Utils.ensure_nested_dict(derived_stats,self.team.id,self.player_id)# derived_stats[self.team.id][self.player_id]
-        player_derived_stats['appearances'] = player_appearances
         
+        self.ensure_stats()
+
         # everyone bats, but apparently pitchers dont get stats
         if self.simplified_position != 'Pitcher':
             batting = {}
-            hits = self.stats['singles'] + self.stats['doubles'] + self.stats['triples'] + self.stats['home_runs']
-            batting['hits'] = hits
-            batting['batting_avg'] = hits/self.stats['at_bats']
-            batting['on_base_percentage'] = (hits + self.stats['walked'] + self.stats['hit_by_pitch'])/self.stats['plate_appearances']
-            batting['slugging'] = (self.stats['singles'] + 2*self.stats['doubles'] + 3*self.stats['triples'] + 4*self.stats['home_runs'])/self.stats['at_bats']
-            batting['obps'] = batting['on_base_percentage'] + batting['slugging']
-            batting['risp_batting_avg'] = (self.stats['singles_risp'] + self.stats['doubles_risp'] + self.stats.get('triples_risp',0) + self.stats['home_runs_risp'])/self.stats['at_bats_risp']
-            batting['risp_improvement'] = batting['risp_batting_avg'] - batting['batting_avg']
-            batting['risp_diff_percentage'] = batting['risp_improvement']/batting['batting_avg']
-            batting['isolated_power'] = batting['slugging'] - batting['batting_avg']
-            batting['at_bats_per_appearance'] = self.stats['at_bats']/player_appearances
+            try:
+                hits = self.stats['singles'] + self.stats['doubles'] + self.stats['triples'] + self.stats['home_runs']
+                batting['hits'] = hits
+                batting['batting_avg'] = hits/self.stats['at_bats']
+                batting['on_base_percentage'] = (hits + self.stats['walked'] + self.stats['hit_by_pitch'])/self.stats['plate_appearances']
+                batting['slugging'] = (self.stats['singles'] + 2*self.stats['doubles'] + 3*self.stats['triples'] + 4*self.stats['home_runs'])/self.stats['at_bats']
+                batting['obps'] = batting['on_base_percentage'] + batting['slugging']
+                batting['risp_batting_avg'] = (self.stats['singles_risp'] + self.stats['doubles_risp'] + self.stats.get('triples_risp',0) + self.stats['home_runs_risp'])/self.stats['at_bats_risp']
+                batting['risp_improvement'] = batting['risp_batting_avg'] - batting['batting_avg']
+                batting['risp_diff_percentage'] = batting['risp_improvement']/batting['batting_avg']
+                batting['isolated_power'] = batting['slugging'] - batting['batting_avg']
+            except:
+                print('Something is seriously wrong with hitting stats')
+                batting['hits'] = 0
+                batting['batting_avg'] = 0
+                batting['on_base_percentage'] = 0
+                batting['slugging'] = 0
+                batting['obps'] = 0
+                batting['risp_batting_avg'] = 0
+                batting['risp_improvement'] = 0
+                batting['risp_diff_percentage'] = 0
+                batting['isolated_power'] = 0
+
+            try:
+                batting['at_bats_per_appearance'] = self.stats['at_bats']/self.stats['appearances']
+                batting['HRs_per_game'] = self.stats['home_runs']/self.stats['appearances']
+            except:
+                print('No appearances logged. Mark it zero!')
+                batting['at_bats_per_appearance'] = 0
+                batting['HRs_per_game'] = 0
             
             player_derived_stats['batting'] = batting
 
         # infielding
         if self.simplified_position == 'Infield':
             infielding = {}
-            infielding['putouts_per_game'] = self.stats['putouts']/player_appearances
-            infielding['fielding_percentage'] = (self.stats['putouts'] + self.stats['assists'])/(self.stats['putouts'] + self.stats['assists'] + self.stats['errors'])
-            infielding['range_factor_per_game'] = (self.stats['putouts'] + self.stats['assists'])/player_appearances
-            infielding['fielding_percentage_risp'] = (self.stats['assists_risp'] + self.stats['putouts_risp'])/(self.stats['assists_risp'] + self.stats['putouts_risp'] + self.stats['errors_risp'])
-            infielding['fp_risp_improvement'] = infielding['fielding_percentage_risp'] - infielding['fielding_percentage']
-            infielding['risp_diff_percentage'] = infielding['fp_risp_improvement']/infielding['fielding_percentage']
+            try:
+                infielding['putouts_per_game'] = self.stats['putouts']/self.stats['appearances']
+                infielding['range_factor_per_game'] = (self.stats['putouts'] + self.stats['assists'])/self.stats['appearances']
+            except:
+                print('No appearances logged. Mark it zero!')
+                infielding['putouts_per_game'] = 0
+                infielding['range_factor_per_game'] = 0
+            try:
+                infielding['fielding_percentage'] = (self.stats['putouts'] + self.stats['assists'])/(self.stats['putouts'] + self.stats['assists'] + self.stats['errors'])
+                infielding['fielding_percentage_risp'] = (self.stats['assists_risp'] + self.stats['putouts_risp'])/(self.stats['assists_risp'] + self.stats['putouts_risp'] + self.stats['errors_risp'])
+                infielding['fp_risp_improvement'] = infielding['fielding_percentage_risp'] - infielding['fielding_percentage']
+            except:
+                infielding['fielding_percentage'] = 0
+                infielding['fielding_percentage_risp'] = 0
+                infielding['fp_risp_improvement'] = 0
+            try:
+                infielding['risp_diff_percentage'] = infielding['fp_risp_improvement']/infielding['fielding_percentage']
+            except:
+                infielding['risp_diff_percentage'] = 0
 
             player_derived_stats['infield'] = infielding
 
         if self.simplified_position == 'Outfield':
             outfielding = {}
-            outfielding['putouts_per_game'] = self.stats['putouts']/player_appearances
-            outfielding['fielding_percentage'] = (self.stats['putouts'] + self.stats['assists'])/(self.stats['putouts'] + self.stats['assists'] + self.stats['errors'])
-            outfielding['range_factor_per_game'] = (self.stats['putouts'] + self.stats['assists'])/player_appearances
-            outfielding['fielding_percentage_risp'] = (self.stats['assists_risp'] + self.stats['putouts_risp'])/(self.stats['assists_risp'] + self.stats['putouts_risp'] + self.stats['errors_risp'])
-            outfielding['fp_risp_improvement'] = outfielding['fielding_percentage_risp'] - outfielding['fielding_percentage']
-            outfielding['risp_diff_percentage'] = outfielding['fp_risp_improvement']/outfielding['fielding_percentage']
+            try:
+                outfielding['putouts_per_game'] = self.stats['putouts']/self.stats['appearances']
+                outfielding['range_factor_per_game'] = (self.stats['putouts'] + self.stats['assists'])/self.stats['appearances']
+            except:
+                print('No appearances logged. Mark it zero!')
+                outfielding['putouts_per_game'] = 0
+                outfielding['range_factor_per_game'] = 0
+            try:
+                outfielding['risp_diff_percentage'] = outfielding['fp_risp_improvement']/outfielding['fielding_percentage']
+            except:
+                outfielding['risp_diff_percentage'] = 0
+            try:
+                outfielding['fielding_percentage'] = (self.stats['putouts'] + self.stats['assists'])/(self.stats['putouts'] + self.stats['assists'] + self.stats['errors'])
+                outfielding['fielding_percentage_risp'] = (self.stats['assists_risp'] + self.stats['putouts_risp'])/(self.stats['assists_risp'] + self.stats['putouts_risp'] + self.stats['errors_risp'])
+                outfielding['fp_risp_improvement'] = outfielding['fielding_percentage_risp'] - outfielding['fielding_percentage']
+            except:
+                outfielding['fielding_percentage'] = 0
+                outfielding['fielding_percentage_risp'] = 0
+                outfielding['fp_risp_improvement'] = 0
 
             player_derived_stats['outfield'] = outfielding
 
         if self.simplified_position == 'Catcher':
             catching = {}
-            catching['putouts_per_game'] = self.stats['putouts']/player_appearances
-            catching['fielding_percentage'] = (self.stats['putouts'] + self.stats['assists'])/(self.stats['putouts'] + self.stats['assists'] + self.stats['errors'])
-            catching['range_factor_per_game'] = (self.stats['putouts'] + self.stats['assists'])/player_appearances
-            catching['fielding_percentage_risp'] = (self.stats['assists_risp'] + self.stats['putouts_risp'])/(self.stats['assists_risp'] + self.stats['putouts_risp'] + self.stats['errors_risp'])
-            catching['fp_risp_improvement'] = catching['fielding_percentage_risp'] - catching['fielding_percentage']
-            catching['risp_diff_percentage'] = catching['fp_risp_improvement']/catching['fielding_percentage']
+            try:
+                catching['putouts_per_game'] = self.stats['putouts']/self.stats['appearances']
+                catching['range_factor_per_game'] = (self.stats['putouts'] + self.stats['assists'])/self.stats['appearances']
+            except:
+                print('No appearances logged. Mark it zero!')
+                catching['putouts_per_game'] = 0
+                catching['range_factor_per_game'] = 0
+            try:
+                catching['risp_diff_percentage'] = catching['fp_risp_improvement']/catching['fielding_percentage']
+            except:
+                catching['risp_diff_percentage'] = 0
+            try:
+                catching['fielding_percentage'] = (self.stats['putouts'] + self.stats['assists'])/(self.stats['putouts'] + self.stats['assists'] + self.stats['errors'])
+                catching['fielding_percentage_risp'] = (self.stats['assists_risp'] + self.stats['putouts_risp'])/(self.stats['assists_risp'] + self.stats['putouts_risp'] + self.stats['errors_risp'])
+                catching['fp_risp_improvement'] = catching['fielding_percentage_risp'] - catching['fielding_percentage']
+            except:
+                catching['fielding_percentage'] = 0
+                catching['fielding_percentage_risp'] = 0
+                catching['fp_risp_improvement'] = 0
 
             player_derived_stats['outfield'] = catching
         
         if self.simplified_position == 'Pitcher':
             pitching = {}
-            pitching['batters_faced_per_appearance'] = self.stats['batters_faced']/self.stats['appearances']
-            pitching['pitches_per_appearance'] = self.stats['pitches_thrown']/self.stats['appearances']
-            pitching['innings_pitched'] = self.stats['outs']/3
-            pitching['innings_pitched_per_appearance'] = pitching['innings_pitched']/self.stats['appearances']
-            pitching['batters_faced_per_inning'] = pitching['batters_faced_per_appearance']/pitching['innings_pitched_per_appearance']
-            pitching['strikeout_rate'] = self.stats['strikeouts']/self.stats['batters_faced']
-            pitching['ERA'] = (self.stats['earned_runs'] * 9)/pitching['innings_pitched']
-            pitching['walks_hits_per_inning_pitched'] = (self.stats['walks'] + self.stats['hits_allowed'])/pitching['innings_pitched']
-            pitching['strikeouts_per_nine'] = (self.stats['strikeouts'] * 9)/pitching['innings_pitched']
-            pitching['walks_per_nine'] = (self.stats['walks'] * 9)/pitching['innings_pitched']
-            pitching['home_runs_allowed_per_nine'] = (self.stats['home_runs_allowed'] * 9)/pitching['innings_pitched']
-            pitching['hits_allowed_per_nine'] = (self.stats['hits_allowed'] * 9)/pitching['innings_pitched']
-            pitching['strikeouts_to_balls_on_base'] = self.sats['strikeouts']/self.stats['walks']
-            pitching['win_rate'] = self.stats['wins']/self.stats['appearances']
-            pitching['win_chance_improvement'] = pitching['win_rate']/(self.team.record['Wins']/(self.team.record['Wins']+self.team.record['Losses']))
+            try:
+                pitching['batters_faced_per_appearance'] = self.stats['batters_faced']/self.stats['appearances']
+                pitching['pitches_per_appearance'] = self.stats['pitches_thrown']/self.stats['appearances']
+                pitching['innings_pitched_per_appearance'] = pitching['innings_pitched']/self.stats['appearances']
+                pitching['win_rate'] = self.stats['wins']/self.stats['appearances']
+                pitching['innings_pitched'] = self.stats['outs']/3
+                pitching['batters_faced_per_inning'] = pitching['batters_faced_per_appearance']/pitching['innings_pitched_per_appearance']
+                pitching['strikeout_rate'] = self.stats['strikeouts']/self.stats['batters_faced']
+                pitching['ERA'] = (self.stats['earned_runs'] * 9)/pitching['innings_pitched']
+                pitching['walks_hits_per_inning_pitched'] = (self.stats['walks'] + self.stats['hits_allowed'])/pitching['innings_pitched']
+                pitching['strikeouts_per_nine'] = (self.stats['strikeouts'] * 9)/pitching['innings_pitched']
+                pitching['walks_per_nine'] = (self.stats['walks'] * 9)/pitching['innings_pitched']
+                pitching['home_runs_allowed_per_nine'] = (self.stats['home_runs_allowed'] * 9)/pitching['innings_pitched']
+                pitching['hits_allowed_per_nine'] = (self.stats['hits_allowed'] * 9)/pitching['innings_pitched']
+                pitching['strikeouts_to_balls_on_base'] = self.stats['strikeouts']/self.stats['walks']
+                pitching['win_chance_improvement'] = pitching['win_rate']/(self.team.record['Wins']/(self.team.record['Wins']+self.team.record['Losses']))
+            except:
+                print('No appearances logged. Mark it zero!')
+                pitching['batters_faced_per_appearance'] = 0
+                pitching['pitches_per_appearance'] = 0
+                pitching['innings_pitched_per_appearance'] = 0
+                pitching['win_rate'] = 0
+                pitching['innings_pitched'] = 0
+                pitching['batters_faced_per_inning'] = 0
+                pitching['strikeout_rate'] = 0
+                pitching['ERA'] = 0
+                pitching['walks_hits_per_inning_pitched'] = 0
+                pitching['strikeouts_per_nine'] = 0
+                pitching['walks_per_nine'] = 0
+                pitching['home_runs_allowed_per_nine'] = 0
+                pitching['hits_allowed_per_nine'] = 0
+                pitching['strikeouts_to_balls_on_base'] = 0
+                pitching['win_chance_improvement'] = 0
 
             player_derived_stats['pitcher'] = pitching
 

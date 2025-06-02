@@ -6,12 +6,16 @@ class GameLog:
         self.team = team_object
         self.team_id = team_object.id
         self.player_ids = [player for player in self.team.player_ids.values()]
+        try:
+            with open('games.json','r') as f:
+                file = json.load(f)
+                self.game_ids = file.get(self.team_id)
+                if self.game_ids is None:
+                    print('WARNING: ID not found. self.game_ids is NoneType.')
+        except Exception as e:
+            print(f'WARNING: file not found - initializing empty game IDs. \n{str(e)}')
         self.appearances = {}
-        with open('games.json','r') as f:
-            file = json.load(f)
-            self.game_ids = file.get(self.team_id)
-            if self.game_ids is None:
-                print('WARNING: ID not found. self.game_ids is NoneType.')
+        self.get_appearances()
     
     def get_appearances(self) -> dict:
         # Load existing file or create fresh structure
@@ -21,14 +25,18 @@ class GameLog:
         except FileNotFoundError:
             file = {}
 
-        if 'appearances' not in file:
+        # set up 'appearances' key at root of json
+        if 'appearances' not in file.keys():
             file['appearances'] = {}
-
-        appearances = file['appearances']
+    
+        # declare appearances for straightforward access
+        if self.team_id not in file['appearances']:
+            file['appearances'][self.team_id] = {}
+        appearances = file['appearances'][self.team_id]
 
         # Build reverse index of games already logged
-        existing_game_ids = set()
-        for games in appearances.values():
+        existing_game_ids = set() # no duplicate game ids
+        for games in appearances.values(): # sift through existing data (if any) and add to the set
             existing_game_ids.update(games)
 
         for game_id in self.game_ids:
@@ -52,7 +60,8 @@ class GameLog:
         # Save updated data
         with open('games.json', 'w') as f:
             json.dump(file, f, indent=2)
-
+        
+        self.appearances = appearances
         return appearances
     
 
