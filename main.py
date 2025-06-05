@@ -7,6 +7,7 @@ seers = '6805db0cac48194de3cd40b5'
 
 beetles = scs.Team(lady_beetles)
 seers = scs.Team(seers)
+chicken = scs.Team(chicken_id)
 
 
 sample_players = {
@@ -20,6 +21,18 @@ wildcard_sample = wildcard_team.players[wildcard_team.player_ids['Nicole Humphre
 
 print(Utils.printout_header(wildcard_sample.name,'<>'))
 print(f'{wildcard_sample.stats}')
+
+chicken_scout_dict = {}
+
+chk_names = chicken.player_names
+for player_name in chk_names:
+    for position, options in Utils.access_json('player_draft_attributes.json').items():
+        for option in options:
+            if option['Name'] == player_name:
+                chicken_scout_dict[player_name] = option['ScoutingReport']
+
+
+Utils.write_json('chicken_scout_reports.json',chicken_scout_dict)
 
 # print(seers.players['6807f4114251378d1ace1328'].name)
 # print(seers.players['6807f4114251378d1ace1328'].position)
