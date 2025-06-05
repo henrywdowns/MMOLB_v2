@@ -1,4 +1,5 @@
 import spicy_chicken_stats as scs
+from utils import Utils
 
 chicken_id = '680e477a7d5b06095ef46ad1'
 lady_beetles = '6805db0cac48194de3cd407c'
@@ -7,11 +8,6 @@ seers = '6805db0cac48194de3cd40b5'
 beetles = scs.Team(lady_beetles)
 seers = scs.Team(seers)
 
-# print(beetles.players['6805db0cac48194de3cd407d'].simplified_position)
-# for player in beetles.players.values():
-#     print(f'{player.name}: {player.position}')
-# for line in beetles.team_df.items():
-#     print(line)
 
 sample_players = {
     'kibbles_swift':seers.players[seers.player_ids['Kibbles Swift']],
@@ -22,19 +18,8 @@ sample_players = {
 wildcard_team = beetles
 wildcard_sample = wildcard_team.players[wildcard_team.player_ids['Nicole Humphrey']]
 
-
-# for player in sample_players.values():
-#     print(f'{player.name} -- {player.simplified_position}\n{player.stats.keys()}')
-
-for player in seers.players.values():
-    print(player.name)
-    player.extract_stats()
-
-for player in beetles.players.values():
-    print(player.name)
-    player.extract_stats()
-
-print(seers.players[seers.player_ids['Andressa Molla']].stats)
+print(Utils.printout_header(wildcard_sample.name,'<>'))
+print(f'{wildcard_sample.stats}')
 
 # print(seers.players['6807f4114251378d1ace1328'].name)
 # print(seers.players['6807f4114251378d1ace1328'].position)
@@ -43,6 +28,4 @@ print(seers.players[seers.player_ids['Andressa Molla']].stats)
 #     print(f'{playername} -- {seers.players[id].simplified_position}')
 
 
-# TODO: build logic for checking games.json vs running game_data.py method;
-# TODO: aggregate appearances into stats
 # TODO: stat lists for simplified_positions, implementing calculations, appending to player data

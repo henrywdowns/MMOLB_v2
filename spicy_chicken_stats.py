@@ -193,7 +193,7 @@ class Team:
         self.game_history = game_log.game_ids
 
 class Player:
-    def __init__(self,team_object,player_id) -> None:
+    def __init__(self,team_object: Team, player_id: str) -> None:
         self.player_id = player_id
         self.team = team_object
         self.data = self.team.get_player(id=player_id)
@@ -214,6 +214,7 @@ class Player:
                 print(f'Need to categorize {self.position}')
         self.stats = self.data['Stats']
         self.stats_df = pl.DataFrame(self.stats)
+        self.extract_stats()
 
     def get_dir(self, builtins: bool = False) -> list:
         result = dir(self)
@@ -239,7 +240,7 @@ class Player:
             print(f'{self.name} stats dict:')
             print(self.stats)
 
-    def extract_stats(self) -> dict:
+    def extract_stats(self, debug: bool = False) -> dict:
         # simplified positions translate to position-specific KPIs
         # store derived stats in a new file, derived_stats.json
         derived_stats = Utils.access_json('derived_stats.json')
@@ -275,7 +276,7 @@ class Player:
                 batting['risp_diff_percentage'] = batting['risp_improvement']/batting['batting_avg']
                 batting['isolated_power'] = batting['slugging'] - batting['batting_avg']
             except:
-                print('Something is seriously wrong with hitting stats')
+                print(f'Something is seriously wrong with hitting stats for {self.name}\n{Utils.printout_header("The fucked up stats in question","~*")}\n{self.stats}')
                 batting['hits'] = 0
                 batting['batting_avg'] = 0
                 batting['on_base_percentage'] = 0
@@ -290,11 +291,12 @@ class Player:
                 batting['at_bats_per_appearance'] = self.stats['at_bats']/self.stats['appearances']
                 batting['HRs_per_game'] = self.stats['home_runs']/self.stats['appearances']
             except:
-                print('No appearances logged. Mark it zero!')
+                if debug: print('No appearances logged. Mark it zero!')
                 batting['at_bats_per_appearance'] = 0
                 batting['HRs_per_game'] = 0
             
             player_derived_stats['batting'] = batting
+            self.stats.update(batting)
 
         # infielding
         if self.simplified_position == 'Infield':
@@ -303,7 +305,7 @@ class Player:
                 infielding['putouts_per_game'] = self.stats['putouts']/self.stats['appearances']
                 infielding['range_factor_per_game'] = (self.stats['putouts'] + self.stats['assists'])/self.stats['appearances']
             except:
-                print('No appearances logged. Mark it zero!')
+                if debug: print('No appearances logged. Mark it zero!')
                 infielding['putouts_per_game'] = 0
                 infielding['range_factor_per_game'] = 0
             try:
@@ -320,6 +322,7 @@ class Player:
                 infielding['risp_diff_percentage'] = 0
 
             player_derived_stats['infield'] = infielding
+            self.stats.update(infielding)
 
         if self.simplified_position == 'Outfield':
             outfielding = {}
@@ -327,7 +330,7 @@ class Player:
                 outfielding['putouts_per_game'] = self.stats['putouts']/self.stats['appearances']
                 outfielding['range_factor_per_game'] = (self.stats['putouts'] + self.stats['assists'])/self.stats['appearances']
             except:
-                print('No appearances logged. Mark it zero!')
+                if debug: print('No appearances logged. Mark it zero!')
                 outfielding['putouts_per_game'] = 0
                 outfielding['range_factor_per_game'] = 0
             try:
@@ -344,6 +347,7 @@ class Player:
                 outfielding['fp_risp_improvement'] = 0
 
             player_derived_stats['outfield'] = outfielding
+            self.stats.update(outfielding)
 
         if self.simplified_position == 'Catcher':
             catching = {}
@@ -351,7 +355,7 @@ class Player:
                 catching['putouts_per_game'] = self.stats['putouts']/self.stats['appearances']
                 catching['range_factor_per_game'] = (self.stats['putouts'] + self.stats['assists'])/self.stats['appearances']
             except:
-                print('No appearances logged. Mark it zero!')
+                if debug: print('No appearances logged. Mark it zero!')
                 catching['putouts_per_game'] = 0
                 catching['range_factor_per_game'] = 0
             try:
@@ -368,6 +372,7 @@ class Player:
                 catching['fp_risp_improvement'] = 0
 
             player_derived_stats['outfield'] = catching
+            self.stats.update(catching)
         
         if self.simplified_position == 'Pitcher':
             pitching = {}
@@ -388,7 +393,7 @@ class Player:
                 pitching['strikeouts_to_balls_on_base'] = self.stats['strikeouts']/self.stats['walks']
                 pitching['win_chance_improvement'] = pitching['win_rate']/(self.team.record['Wins']/(self.team.record['Wins']+self.team.record['Losses']))
             except:
-                print('No appearances logged. Mark it zero!')
+                if debug: print('No appearances logged. Mark it zero!')
                 pitching['batters_faced_per_appearance'] = 0
                 pitching['pitches_per_appearance'] = 0
                 pitching['innings_pitched_per_appearance'] = 0
@@ -406,8 +411,12 @@ class Player:
                 pitching['win_chance_improvement'] = 0
 
             player_derived_stats['pitcher'] = pitching
+            self.stats.update(pitching)
 
+        for key, value in self.stats.items():
+            self.stats[key] = round(value, 4)
         Utils.write_json('derived_stats.json', derived_stats)
+
 
 
 if __name__ == '__main__':
