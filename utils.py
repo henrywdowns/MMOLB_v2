@@ -1,4 +1,6 @@
 import polars as pl
+import typing
+from typing import Optional
 
 class Utils:
     def __init__(self) -> None:
@@ -63,7 +65,7 @@ class Utils:
         return header_str
         
     @staticmethod
-    def access_csv(filename: str, to_df: bool = True) -> pl.DataFrame:
+    def access_csv(filename: str, to_df: bool = True, debug: bool = False) -> pl.DataFrame:
         """
         Checks folder for csv of name filename and returns contents as dict.
         If no file matches filename, returns an empty dict.
@@ -80,10 +82,9 @@ class Utils:
         return file
     
     @staticmethod
-    def write_csv(data: dict, filepath: str = None) -> None: # also accepts polars and pandas dataframes
+    def write_csv(data, filepath: Optional[str] = None, team_name: str = None) -> None: # also accepts polars and pandas dataframes
         """
-        Writes a dict to a json file. As is standard to the json package, if no
-        file is found, creates a file. Otherwise overwrites the existing file. 
+        Writes a df to a csv file. If no file is found, creates a file. Otherwise overwrites the existing file. 
         """
         import datetime as dt
         import csv
@@ -91,22 +92,22 @@ class Utils:
         filename = ''
         if type(data).__name__ == 'DataFrame':
             if 'polars' in str(type(data)):
-                if not filepath: filename = data.select("set").item(0,0).upper()
+                if not filepath: filename = team_name.replace(' ','_')
                 data = data.to_dicts()
             elif 'pandas' in str(type(data)):
-                if not filepath: filename = data["set"].iloc[0].upper()
+                if not filepath: filename = team_name
                 data = data.to_dict(orient="records")
         else:
             filename = data["set"][0]
         if filepath: filename = filepath
         filename+=(f'_export_{dt.datetime.strftime(dt.datetime.now(), '%m%d%y_%H%M')}')
-        print(data[0])
         fieldnames = data[0].keys()
         with open(filename,'w',newline='') as f:
             writer = csv.DictWriter(f,fieldnames=fieldnames)
             writer.writeheader()
             writer.writerows(data)
         print(f'File {filename} saved successfully.')
+
     @staticmethod
     def print_all_rows(df: pl.DataFrame) -> None:
         with pl.Config(tbl_rows=-1):
@@ -115,6 +116,11 @@ class Utils:
     @staticmethod
     def print_all_cols(df: pl.DataFrame) -> None:
         with pl.Config(tbl_cols=-1):
+            print(df)
+
+    @staticmethod
+    def print_all(df: pl.DataFrame) -> None:
+        with pl.Config(tbl_cols=-1,tbl_rows=-1):
             print(df)
 
     @staticmethod

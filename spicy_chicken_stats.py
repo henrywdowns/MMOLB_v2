@@ -1,3 +1,4 @@
+import datetime as dt
 import requests
 import polars as pl
 import local_team_data as ltd
@@ -27,7 +28,7 @@ class Team:
         self.stored_locally = False
         self.team_stored_data = None
         check_local = self.store_local(get_team_id=team_id)
-        if check_local:
+        if check_local and (dt.datetime.now() - check_local.get('timestamp') < dt.timedelta(hours=3)):
             print('Data found in local storage.')
             self.team_data = check_local
             self.stored_locally = True
@@ -151,6 +152,7 @@ class Team:
         return result
 
     def store_local(self,team_object: object = None, get_team_id: bool = None) -> None:
+        import datetime as dt
         import json
         filename = 'teams.json'
 
@@ -165,6 +167,7 @@ class Team:
                 with open(filename,'r') as f:
                     data = json.load(f)
                     #set_local_data_attribute()
+                    data[get_team_id]['timestamp'] = dt.datetime.now()
                     return data[get_team_id]
             except Exception as e:
                 print(f'Error: {str(e)}')
@@ -181,6 +184,8 @@ class Team:
             print(f'No file found: {str(e)}')
             data = {}
         # ...and dump the new json
+        data[self.id] = {}
+        data[self.id]['timestamp'] = dt.datetime.now()
         with open(filename,'w') as f:
             data[team_object.id] = team_object.team_data
             json.dump(data, f, indent=4)
@@ -191,6 +196,62 @@ class Team:
         game_log = game_data.GameLog(self)
         self.game_log = game_log
         self.game_history = game_log.game_ids
+
+    def get_stats_df(self,cache=False) -> pl.DataFrame:
+        stats_dict: dict[str, dict[str, dict[str, any]]] = {}
+        for player in self.players.values():
+            stats_dict.setdefault(player.simplified_position, {})[player.name] = player.stats
+
+        rows = []
+        for position, by_name in stats_dict.items():
+            for name, stats in by_name.items():
+                row = {
+                    "position": position,
+                    "player": name,
+                    **stats,
+                }
+                rows.append(row)
+        final_data = pl.DataFrame(rows)
+        if cache:
+            Utils.write_csv(final_data,team_name=self.name)
+        return final_data
+
+    def get_position_df(self, position: str = 'all') -> pl.DataFrame:
+        chk_df = self.get_stats_df()
+        if position == 'all':
+            return chk_df
+        elif position == 'infield' or position == 'outfield' or position == 'field':
+            chk_field = chk_df.filter(
+                (pl.col('position') == 'Infield') | (pl.col('position') == 'Outfield')
+            ).select([
+                'player'
+            ])
+            return chk_field
+
+        elif position == 'pitching':
+            chk_pitching = chk_df.filter(
+                (pl.col('position') == 'Pitcher')
+            ).select([
+                'player',
+                'ERA',
+                'walks_hits_per_inning_pitched',
+                'appearances',
+                'batters_faced_per_appearance',
+                'pitches_per_appearance',
+                'innings_pitched_per_appearance',
+                'strikeout_rate',
+                'strikeouts_per_nine',
+                'walks_per_nine',
+                'home_runs_allowed_per_nine',
+                'hits_allowed_per_nine',
+                'strikeouts_to_balls_on_base',
+                'win_chance_improvement',
+                'risp_improvement'
+            ]).sort("ERA",descending=True)
+            return chk_pitching
+                
+                
+
 
 class Player:
     def __init__(self,team_object: Team, player_id: str) -> None:
@@ -215,7 +276,7 @@ class Player:
         self.stats = self.data['Stats']
         self.stats_df = pl.DataFrame(self.stats)
         self.extract_stats()
-
+        
     def get_dir(self, builtins: bool = False) -> list:
         result = dir(self)
         if not builtins:
@@ -223,7 +284,7 @@ class Player:
         return result
     
     def ensure_stats(self, debug: bool = False) -> None:
-        # makeshift stopgap for when a player doesn't turn up a stat. this is nowhere near exhaustive - only for the stats that give me trouble basically.
+        # makeshift stopgap for when a player doesn't turn up a stat. this is not exhaustive - only for the stats that give me trouble basically.
         stat_options = [
             'appearances', 'assists', 'assists_risp', 'at_bats', 'at_bats_risp', 'caught_double_play', 'caught_double_play_risp', 'caught_stealing', 'caught_stealing_risp', 'doubles', 'doubles_risp',
             'errors', 'errors_risp', 'field_out', 'field_out_risp', 'fielders_choice', 'flyouts', 'flyouts_risp', 'force_outs', 'force_outs_risp', 'grounded_into_double_play',
@@ -245,22 +306,9 @@ class Player:
         # store derived stats in a new file, derived_stats.json
         derived_stats = Utils.access_json('derived_stats.json')
 
-        ##### UPDATE: appearances is now a stat that's tracked in the API. 
-        # calculate appearances/games played. god this was complicated to nail down, but now I have it
-        # I know this should probably have been called games_played but here we are and I don't feel like refactoring just for that
-        # try:
-        #     player_appearance_list = Utils.access_json('games.json')['appearances'][self.player_id]
-        #     # if player exists/isnt throwing some annoying error, clean up the stats
-        #     self.ensure_stats(debug = (self.name == 'Manny Welch'))
-        # except Exception as e:
-        #     print(f'Couldn\'t complete stats for {self.name} because: \n{str(e)}')
-        #     return
-        # player_appearances = len(player_appearance_list)
-
         player_derived_stats = Utils.ensure_nested_dict(derived_stats,self.team.id,self.player_id)# derived_stats[self.team.id][self.player_id]
         
         self.ensure_stats()
-
         # everyone bats, but apparently pitchers dont get stats
         if self.simplified_position != 'Pitcher':
             batting = {}
@@ -376,39 +424,76 @@ class Player:
         
         if self.simplified_position == 'Pitcher':
             pitching = {}
+
+            outs = self.stats.get('outs', 0)
+            appearances = self.stats.get('appearances', 0)
+            batters_faced = self.stats.get('batters_faced', 0)
+            pitches_thrown = self.stats.get('pitches_thrown', 0)
+            wins = self.stats.get('wins', 0)
+            earned_runs = self.stats.get('earned_runs', 0)
+            walks = self.stats.get('walks', 0)
+            hits_allowed = self.stats.get('hits_allowed', 0)
+            home_runs_allowed = self.stats.get('home_runs_allowed', 0)
+            strikeouts = self.stats.get('strikeouts', 0)
+
+            pitching['innings_pitched'] = outs / 3
+
             try:
-                pitching['batters_faced_per_appearance'] = self.stats['batters_faced']/self.stats['appearances']
-                pitching['pitches_per_appearance'] = self.stats['pitches_thrown']/self.stats['appearances']
-                pitching['innings_pitched_per_appearance'] = pitching['innings_pitched']/self.stats['appearances']
-                pitching['win_rate'] = self.stats['wins']/self.stats['appearances']
-                pitching['innings_pitched'] = self.stats['outs']/3
-                pitching['batters_faced_per_inning'] = pitching['batters_faced_per_appearance']/pitching['innings_pitched_per_appearance']
-                pitching['strikeout_rate'] = self.stats['strikeouts']/self.stats['batters_faced']
-                pitching['ERA'] = (self.stats['earned_runs'] * 9)/pitching['innings_pitched']
-                pitching['walks_hits_per_inning_pitched'] = (self.stats['walks'] + self.stats['hits_allowed'])/pitching['innings_pitched']
-                pitching['strikeouts_per_nine'] = (self.stats['strikeouts'] * 9)/pitching['innings_pitched']
-                pitching['walks_per_nine'] = (self.stats['walks'] * 9)/pitching['innings_pitched']
-                pitching['home_runs_allowed_per_nine'] = (self.stats['home_runs_allowed'] * 9)/pitching['innings_pitched']
-                pitching['hits_allowed_per_nine'] = (self.stats['hits_allowed'] * 9)/pitching['innings_pitched']
-                pitching['strikeouts_to_balls_on_base'] = self.stats['strikeouts']/self.stats['walks']
-                pitching['win_chance_improvement'] = pitching['win_rate']/(self.team.record['Wins']/(self.team.record['Wins']+self.team.record['Losses']))
-            except:
-                if debug: print('No appearances logged. Mark it zero!')
-                pitching['batters_faced_per_appearance'] = 0
-                pitching['pitches_per_appearance'] = 0
-                pitching['innings_pitched_per_appearance'] = 0
-                pitching['win_rate'] = 0
-                pitching['innings_pitched'] = 0
-                pitching['batters_faced_per_inning'] = 0
-                pitching['strikeout_rate'] = 0
-                pitching['ERA'] = 0
-                pitching['walks_hits_per_inning_pitched'] = 0
-                pitching['strikeouts_per_nine'] = 0
-                pitching['walks_per_nine'] = 0
-                pitching['home_runs_allowed_per_nine'] = 0
-                pitching['hits_allowed_per_nine'] = 0
-                pitching['strikeouts_to_balls_on_base'] = 0
-                pitching['win_chance_improvement'] = 0
+                if appearances > 0:
+                    pitching['batters_faced_per_appearance'] = batters_faced / appearances
+                    pitching['pitches_per_appearance'] = pitches_thrown / appearances
+                    pitching['innings_pitched_per_appearance'] = pitching['innings_pitched'] / appearances
+                    pitching['win_rate'] = wins / appearances
+                else:
+                    pitching['batters_faced_per_appearance'] = 0
+                    pitching['pitches_per_appearance'] = 0
+                    pitching['innings_pitched_per_appearance'] = 0
+                    pitching['win_rate'] = 0
+
+                ippa = pitching['innings_pitched_per_appearance']
+                if ippa > 0:
+                    pitching['batters_faced_per_inning'] = pitching['batters_faced_per_appearance'] / ippa
+                else:
+                    pitching['batters_faced_per_inning'] = 0
+
+                pitching['strikeout_rate'] = strikeouts / batters_faced if batters_faced else 0
+                pitching['ERA'] = (earned_runs * 9) / pitching['innings_pitched'] if pitching['innings_pitched'] else 0
+                pitching['walks_hits_per_inning_pitched'] = (
+                    (walks + hits_allowed) / pitching['innings_pitched']
+                    if pitching['innings_pitched'] else 0
+                )
+
+                pitching['strikeouts_per_nine']      = (strikeouts * 9) / pitching['innings_pitched']      if pitching['innings_pitched'] else 0
+                pitching['walks_per_nine']           = (walks * 9)      / pitching['innings_pitched']      if pitching['innings_pitched'] else 0
+                pitching['home_runs_allowed_per_nine'] = (home_runs_allowed * 9) / pitching['innings_pitched'] if pitching['innings_pitched'] else 0
+                pitching['hits_allowed_per_nine']      = (hits_allowed * 9)      / pitching['innings_pitched'] if pitching['innings_pitched'] else 0
+
+                pitching['strikeouts_to_balls_on_base'] = strikeouts / walks if walks else 0
+
+                team_wins   = self.team.record.get('Wins', 0)
+                team_losses = self.team.record.get('Losses', 0)
+                team_total  = team_wins + team_losses
+                team_win_rate = (team_wins / team_total) if team_total else 0
+                pitching['win_chance_improvement'] = (
+                    pitching['win_rate'] / team_win_rate
+                    if team_win_rate else 0
+                )
+
+            except Exception as e:
+                # if debug, show the error
+                if debug:
+                    print("Pitcher stats error:", e)
+                # ensure all keys exist, defaulting to zero
+                for key in [
+                    'batters_faced_per_appearance','pitches_per_appearance',
+                    'innings_pitched_per_appearance','win_rate','innings_pitched',
+                    'batters_faced_per_inning','strikeout_rate','ERA',
+                    'walks_hits_per_inning_pitched','strikeouts_per_nine',
+                    'walks_per_nine','home_runs_allowed_per_nine',
+                    'hits_allowed_per_nine','strikeouts_to_balls_on_base',
+                    'win_chance_improvement'
+                ]:
+                    pitching.setdefault(key, 0)
 
             player_derived_stats['pitcher'] = pitching
             self.stats.update(pitching)
@@ -416,8 +501,6 @@ class Player:
         for key, value in self.stats.items():
             self.stats[key] = round(value, 4)
         Utils.write_json('derived_stats.json', derived_stats)
-
-
 
 if __name__ == '__main__':
     beetles = Team(lady_beetles)
