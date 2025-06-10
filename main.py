@@ -25,6 +25,8 @@ Utils.print_all_cols(pitching_df)
 
 print(Utils.printout_header(wildcard_sample.name,'<>'))
 print(f'{wildcard_sample.stats}')
+print(f'Team record main: {chicken.record}')
+chicken.inspect_player(wildcard_sample.name)
 
 # print(Utils.access_csv('team_rankings.csv'))
 

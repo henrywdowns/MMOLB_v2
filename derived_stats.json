@@ -952,7 +952,7 @@
                 "home_runs_allowed_per_nine": 1.3499999999999999,
                 "hits_allowed_per_nine": 8.1,
                 "strikeouts_to_balls_on_base": 6.0,
-                "win_chance_improvement": 0
+                "win_chance_improvement": -100.0
             }
         },
         "6841bb7be63d9bb87288a05f": {
@@ -1017,7 +1017,7 @@
                 "home_runs_allowed_per_nine": 0.0,
                 "hits_allowed_per_nine": 6.585365853658537,
                 "strikeouts_to_balls_on_base": 2.6666666666666665,
-                "win_chance_improvement": 0
+                "win_chance_improvement": -19.999999999999996
             }
         },
         "6841c5e2554d8039701f1da5": {
@@ -1036,7 +1036,7 @@
                 "home_runs_allowed_per_nine": 1.975609756097561,
                 "hits_allowed_per_nine": 8.560975609756097,
                 "strikeouts_to_balls_on_base": 1.6666666666666667,
-                "win_chance_improvement": 0
+                "win_chance_improvement": 60.00000000000001
             }
         },
         "6841c6f9e63d9bb87288a08c": {
@@ -1095,7 +1095,7 @@
                 "home_runs_allowed_per_nine": 2.025,
                 "hits_allowed_per_nine": 12.149999999999999,
                 "strikeouts_to_balls_on_base": 2.3333333333333335,
-                "win_chance_improvement": 0
+                "win_chance_improvement": -19.999999999999996
             }
         },
         "6841c8a008b7fc5e21e8b054": {
@@ -1114,7 +1114,7 @@
                 "home_runs_allowed_per_nine": 0,
                 "hits_allowed_per_nine": 0,
                 "strikeouts_to_balls_on_base": 0,
-                "win_chance_improvement": 0
+                "win_chance_improvement": -100.0
             }
         },
         "6841e93ef7b5d3bf791d6ce0": {
@@ -1133,7 +1133,7 @@
                 "home_runs_allowed_per_nine": 0.0,
                 "hits_allowed_per_nine": 12.272727272727273,
                 "strikeouts_to_balls_on_base": 7.0,
-                "win_chance_improvement": 0
+                "win_chance_improvement": -100.0
             }
         },
         "6841ed16ec9dc637cfd0d0cc": {
@@ -1152,7 +1152,7 @@
                 "home_runs_allowed_per_nine": 3.8571428571428568,
                 "hits_allowed_per_nine": 9.642857142857142,
                 "strikeouts_to_balls_on_base": 4.0,
-                "win_chance_improvement": 0
+                "win_chance_improvement": -100.0
             }
         },
         "6841ed7f183c892d88a102a6": {
@@ -1171,7 +1171,7 @@
                 "home_runs_allowed_per_nine": 1.9285714285714284,
                 "hits_allowed_per_nine": 9.642857142857142,
                 "strikeouts_to_balls_on_base": 2.0,
-                "win_chance_improvement": 0
+                "win_chance_improvement": -100.0
             }
         },
         "6841edf0ed58166c1895b115": {
@@ -1190,7 +1190,7 @@
                 "home_runs_allowed_per_nine": 0.0,
                 "hits_allowed_per_nine": 5.625,
                 "strikeouts_to_balls_on_base": 0,
-                "win_chance_improvement": 0
+                "win_chance_improvement": -100.0
             }
         }
     }

@@ -36,6 +36,10 @@ class Team:
             print('No local data found - requesting data from API.')
             self.team_data = requests.get(f'{base_url}/{team_id}').json()
         self.league = self.team_data['League']
+        try:
+            self.record = self.team_data['Record']['Regular Season']
+        except:
+            self.record = self.team_data['Record']
         self.modifications = self.team_data['Modifications']
         self.player_data = self.team_data['Players']
         self.players = {}
@@ -47,10 +51,6 @@ class Team:
         self.name = self.team_data['Name']
         self.owner_id = self.team_data['OwnerID']
         self.team_df = self.make_team_df()
-        try:
-            self.record = self.team_data['Record']['Regular Season']
-        except:
-            self.record = self.team_data['Record']
         self.season_records = self.team_data['SeasonRecords']
         self.game_history = self.scrape_game_ids(init=True) # list of ids
         self.game_log = None # object
@@ -228,7 +228,7 @@ class Team:
             ])
             return chk_field
 
-        elif position == 'pitching':
+        elif position.lower() == 'pitching' or position.lower() == 'pitcher':
             chk_pitching = chk_df.filter(
                 (pl.col('position') == 'Pitcher')
             ).select([
@@ -236,6 +236,7 @@ class Team:
                 'ERA',
                 'walks_hits_per_inning_pitched',
                 'appearances',
+                'wins',
                 'batters_faced_per_appearance',
                 'pitches_per_appearance',
                 'innings_pitched_per_appearance',
@@ -245,12 +246,31 @@ class Team:
                 'home_runs_allowed_per_nine',
                 'hits_allowed_per_nine',
                 'strikeouts_to_balls_on_base',
+                'win_rate',
                 'win_chance_improvement',
                 'risp_improvement'
             ]).sort("ERA",descending=True)
             return chk_pitching
                 
-                
+    def inspect_player(self, name: str) -> None:
+        import scouting_report as srpt
+        import json
+        player_object = self.players[self.player_ids[name]]
+        temp_stats = player_object.stats.copy()
+        player_stats = (self.get_position_df(player_object.simplified_position).columns)
+        for col_name in player_stats:
+            if col_name not in temp_stats.keys():
+                temp_stats[col_name] = 0
+        team_scout_kw, team_scout_kw_ranks = srpt.scouting_report()
+        player_scout_kw = team_scout_kw[player_object.name]
+        player_scout_kw_ranks = team_scout_kw_ranks[player_object.name]
+        print(Utils.print_all_cols(pl.DataFrame(temp_stats).with_columns(
+            pl.lit(name).alias("player")
+        ).select(player_stats)))
+        print(Utils.print_all_cols(pl.DataFrame(player_scout_kw_ranks)))
+        print(Utils.print_all_cols(pl.DataFrame(player_scout_kw)))
+        # print(json.dumps(player_scout_kw, indent=4))
+        # print(json.dumps(player_scout_kw_ranks, indent=4))
 
 
 class Player:
@@ -463,26 +483,25 @@ class Player:
                     if pitching['innings_pitched'] else 0
                 )
 
-                pitching['strikeouts_per_nine']      = (strikeouts * 9) / pitching['innings_pitched']      if pitching['innings_pitched'] else 0
-                pitching['walks_per_nine']           = (walks * 9)      / pitching['innings_pitched']      if pitching['innings_pitched'] else 0
+                pitching['strikeouts_per_nine'] = (strikeouts * 9) / pitching['innings_pitched'] if pitching['innings_pitched'] else 0
+                pitching['walks_per_nine'] = (walks * 9) / pitching['innings_pitched'] if pitching['innings_pitched'] else 0
                 pitching['home_runs_allowed_per_nine'] = (home_runs_allowed * 9) / pitching['innings_pitched'] if pitching['innings_pitched'] else 0
-                pitching['hits_allowed_per_nine']      = (hits_allowed * 9)      / pitching['innings_pitched'] if pitching['innings_pitched'] else 0
+                pitching['hits_allowed_per_nine'] = (hits_allowed * 9) / pitching['innings_pitched'] if pitching['innings_pitched'] else 0
 
                 pitching['strikeouts_to_balls_on_base'] = strikeouts / walks if walks else 0
-
-                team_wins   = self.team.record.get('Wins', 0)
+                
+                team_wins = self.team.record.get('Wins', 0)
                 team_losses = self.team.record.get('Losses', 0)
-                team_total  = team_wins + team_losses
+                team_total = team_wins + team_losses
                 team_win_rate = (team_wins / team_total) if team_total else 0
                 pitching['win_chance_improvement'] = (
-                    pitching['win_rate'] / team_win_rate
+                    ((pitching['win_rate'] / team_win_rate) - 1)*100
                     if team_win_rate else 0
                 )
 
             except Exception as e:
                 # if debug, show the error
-                if debug:
-                    print("Pitcher stats error:", e)
+                print("Pitcher stats error:", e)
                 # ensure all keys exist, defaulting to zero
                 for key in [
                     'batters_faced_per_appearance','pitches_per_appearance',
