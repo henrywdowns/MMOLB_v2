@@ -1,0 +1,524 @@
+{
+    "catchers": [
+        {
+            "Bats": "L",
+            "Dislikes": "viola",
+            "Likes": "model trains",
+            "Name": "Lena Shimada",
+            "Number": 43,
+            "ScoutingReport": "Lena Shimada is a solid player with potential to grow.\n\n This player usually bats near the bottom of the lineup. They're also very lucky.\n\nThis player is strong in the batting department. They are extremely team-focused and extremely lofty, but barely strategic and barely disciplined.\n\nThis player is decent at defense. They are very nimble and very agile, but not reactive and barely acrobatic.\n\nThis player is strong in the pitching department. They are extremely precise and extremely convincing, but not sharp and not unpredictable.\n\nBaserunning is not this player's strength. They are barely sneaky, but not fast.",
+            "Throws": "R"
+        },
+        {
+            "Bats": "L",
+            "Dislikes": "minimalism",
+            "Likes": "handball",
+            "Name": "Ivanova Liriano",
+            "Number": 53,
+            "ScoutingReport": "Ivanova Liriano has some promising traits, but needs refinement.\n\n This player usually bats near the top of the lineup. They're also moderately lucky.\n\nThis player is decent at batting. They are extremely resilient and extremely team-focused, but not accurate and not consistent.\n\nThis player is decent at defense. They are very composed and extremely nimble, but not agile and barely armed.\n\nThis player is decent at pitching. They are quite sharp and extremely powerful, but not unpredictable and not precise.\n\nThis player gets by on the basepaths. They are quite distracting, but not fast.",
+            "Throws": "R"
+        },
+        {
+            "Bats": "L",
+            "Dislikes": "wax sculpting",
+            "Likes": "solitaire",
+            "Name": "Kingsley Aguilera",
+            "Number": 89,
+            "ScoutingReport": "Kingsley Aguilera is a solid player with potential to grow.\n\n This player usually bats between the middle and the bottom of the lineup. They're also not lucky.\n\nThis player is strong in the batting department. They are extremely strategic and extremely intimidating, but barely crafty and moderately lofty.\n\nDefense is a work in progress for this player. They are moderately patient and very nimble, but not acrobatic and not aware.\n\nThis player is decent at pitching. They are extremely defiant and extremely commanding, but not accurate and not powerful.\n\nBaserunning is not this player's strength. They are quite sneaky, but not aggressive.",
+            "Throws": "L"
+        }
+    ],
+    "First Basemen": [
+        {
+            "Bats": "S",
+            "Dislikes": "orchestra concerts",
+            "Likes": "baking",
+            "Name": "Edith Leon",
+            "Number": 41,
+            "ScoutingReport": "Edith Leon is a solid player with potential to grow.\n\n This player usually bats between the top and the middle of the lineup. They're also moderately lucky.\n\nThis player is strong in the batting department. They are extremely lofty and extremely crafty, but barely insightful and moderately perceptive.\n\nDefense is a work in progress for this player. They are quite armed and very acrobatic, but not aware and not nimble.\n\nThis player is strong in the pitching department. They are extremely sharp and extremely enduring, but not unpredictable and not accurate.\n\nBaserunning is not this player's strength. They are barely sneaky, but not distracting.",
+            "Throws": "R"
+        },
+        {
+            "Bats": "L",
+            "Dislikes": "tree climbing",
+            "Likes": "poetry",
+            "Name": "Ayla Fernandes",
+            "Number": 93,
+            "ScoutingReport": "Ayla Fernandes is a solid player with potential to grow.\n\n This player usually bats around the middle of the lineup. They're also quite lucky.\n\nThis player is decent at batting. They are extremely strategic and extremely resilient, but not insightful and barely consistent.\n\nThis player is decent at defense. They are quite patient and extremely acrobatic, but not aware and not agile.\n\nThis player is decent at pitching. They are extremely accurate and extremely precise, but barely sharp and barely commanding.\n\nThis player gets by on the basepaths. They are very fast, but not aggressive.",
+            "Throws": "R"
+        },
+        {
+            "Bats": "R",
+            "Dislikes": "heckling comedians",
+            "Likes": "fencing",
+            "Name": "Yu Ozawa",
+            "Number": 12,
+            "ScoutingReport": "Yu Ozawa is a solid player with potential to grow.\n\n This player usually bats near the top of the lineup. They're also quite lucky.\n\nThis player is decent at batting. They are extremely lofty and extremely resilient, but not strategic and not intimidating.\n\nThis player is decent at defense. They are very reactive and very nimble, but not agile and not aware.\n\nThis player is decent at pitching. They are very convincing and extremely sharp, but not defiant and not accurate.\n\nThis player is a liability on the bases. They are barely distracting, but not aggressive.",
+            "Throws": "L"
+        }        
+    ],
+    "Second Basemen": [
+        {
+            "Bats": "L",
+            "Dislikes": "jumping rope",
+            "Likes": "baseball",
+            "Name": "S. Sawadogo",
+            "Number": 21,
+            "ScoutingReport": "S. Sawadogo is a solid player with potential to grow.\n\n This player usually bats around the middle of the lineup. They're also barely lucky.\n\nThis player is decent at batting. They are extremely crafty and extremely insightful, but not resilient and not lofty.\n\nThis player is decent at defense. They are quite patient and very armed, but not composed and not agile.\n\nThis player is decent at pitching. They are extremely precise and extremely defiant, but not unpredictable and not accurate.\n\nBaserunning is not this player's strength. They are moderately sneaky, but not distracting.",
+            "Throws": "R"
+        },
+        {
+            "Bats": "R",
+            "Dislikes": "cornbread",
+            "Likes": "watch restoration",
+            "Name": "Atem Groves",
+            "Number": 66,
+            "ScoutingReport": "Atem Groves is a solid player with potential to grow.\n\n This player usually bats near the bottom of the lineup. They're also extremely lucky.\n\nThis player is decent at batting. They are extremely team-focused and extremely disciplined, but not consistent and barely resilient.\n\nThis player is decent at defense. They are quite patient and very composed, but not nimble and barely reactive.\n\nThis player is decent at pitching. They are very enduring and extremely commanding, but not defiant and barely precise.\n\nBaserunning is not this player's strength. They are moderately sneaky, but not fast.",
+            "Throws": "R"
+        },
+        {
+            "Bats": "L",
+            "Dislikes": "ferrets",
+            "Likes": "Uno",
+            "Name": "Robin Stoica",
+            "Number": 30,
+            "ScoutingReport": "Robin Stoica is a solid player with potential to grow.\n\n This player usually bats around the middle of the lineup. They're also not lucky.\n\nThis player is decent at batting. They are extremely team-focused and extremely perceptive, but not intimidating and not strategic.\n\nThis player is decent at defense. They are quite nimble and extremely agile, but not patient and not aware.\n\nThis player is decent at pitching. They are extremely precise and extremely unpredictable, but not convincing and not sharp.\n\nThis player gets by on the basepaths. They are extremely sneaky, but not aggressive.",
+            "Throws": "L"
+        }
+    ],
+    "Third Basemen": [
+        {
+            "Bats": "R",
+            "Dislikes": "creative writing",
+            "Likes": "piloting planes",
+            "Name": "Schnook Tuigamala",
+            "Number": 17,
+            "ScoutingReport": "Schnook Tuigamala is a solid player with potential to grow.\n\n This player usually bats near the top of the lineup. They're also very lucky.\n\nBatting is a work in progress for this player. They are extremely intimidating and extremely disciplined, but not resilient and not team-focused.\n\nThis player is decent at defense. They are extremely patient and extremely acrobatic, but not armed and not nimble.\n\nThis player is strong in the pitching department. They are extremely defiant and extremely unpredictable, but not enduring and not accurate.\n\nThis player is a liability on the bases. They are barely sneaky, but not aggressive.",
+            "Throws": "R"
+        },
+        {
+            "Bats": "R",
+            "Dislikes": "makeup",
+            "Likes": "bug collecting",
+            "Name": "Rick Somersbyshire",
+            "Number": 99,
+            "ScoutingReport": "Rick Somersbyshire is a solid player with potential to grow.\n\n This player usually bats between the middle and the bottom of the lineup. They're also not lucky.\n\nThis player is strong in the batting department. They are extremely strategic and extremely insightful, but not lofty and not team-focused.\n\nThis player is decent at defense. They are quite patient and very agile, but not nimble and not aware.\n\nThis player is decent at pitching. They are very convincing and extremely enduring, but not accurate and not sharp.\n\nBaserunning is not this player's strength. They are moderately fast, but not sneaky.",
+            "Throws": "R"
+        },
+        {
+            "Bats": "L",
+            "Dislikes": "abseiling",
+            "Likes": "scootering",
+            "Name": "Avery Melton",
+            "Number": 35,
+            "ScoutingReport": "Avery Melton is a solid player with potential to grow.\n\n This player usually bats between the top and the middle of the lineup. They're also barely lucky.\n\nThis player is decent at batting. They are extremely team-focused and extremely consistent, but not accurate and not disciplined.\n\nThis player is decent at defense. They are very agile and extremely patient, but not acrobatic and not composed.\n\nThis player is strong in the pitching department. They are very precise and extremely unpredictable, but barely commanding and moderately enduring.\n\nThis player gets by on the basepaths. They are quite aggressive, but moderately sneaky.",
+            "Throws": "R"
+        }
+    ],
+    "Shortstop": [
+         {
+            "Bats": "R",
+            "Dislikes": "embroidery",
+            "Likes": "automobile restoration",
+            "Name": "Clara Taylor",
+            "Number": 43,
+            "ScoutingReport": "Clara Taylor is a solid player with potential to grow.\n\n This player usually bats near the bottom of the lineup. They're also very lucky.\n\nThis player is decent at batting. They are extremely strategic and extremely lofty, but not accurate and not resilient.\n\nThis player is decent at defense. They are extremely agile and extremely nimble, but not patient and barely armed.\n\nThis player is strong in the pitching department. They are extremely defiant and extremely convincing, but not commanding and moderately precise.\n\nThis player gets by on the basepaths. They are very aggressive, but moderately fast.",
+            "Throws": "R"
+        },
+        {
+            "Bats": "S",
+            "Dislikes": "ice hockey",
+            "Likes": "a capella",
+            "Name": "Dwight Moreland",
+            "Number": 56,
+            "ScoutingReport": "Dwight Moreland is a solid player with potential to grow.\n\n This player usually bats near the top of the lineup. They're also extremely lucky.\n\nThis player is decent at batting. They are very strategic and extremely strong, but not crafty and not disciplined.\n\nThis player is decent at defense. They are quite acrobatic and extremely reactive, but not armed and not nimble.\n\nThis player is decent at pitching. They are extremely precise and extremely sharp, but not enduring and not accurate.\n\nThis player gets by on the basepaths. They are quite fast, but barely aggressive.",
+            "Throws": "L"
+        },
+        {
+            "Bats": "L",
+            "Dislikes": "horseback riding",
+            "Likes": "couponing",
+            "Name": "Imani Alonso",
+            "Number": 93,
+            "ScoutingReport": "Imani Alonso is a solid player with potential to grow.\n\n This player usually bats between the middle and the bottom of the lineup. They're also barely lucky.\n\nThis player is decent at batting. They are very strategic and very insightful, but not strong and not crafty.\n\nThis player is decent at defense. They are extremely aware and extremely armed, but not reactive and not composed.\n\nThis player is decent at pitching. They are extremely powerful and extremely commanding, but not accurate and not enduring.\n\nThis player gets by on the basepaths. They are quite aggressive, but moderately fast.",
+            "Throws": "L"
+        }
+    ],
+    "Left Field": [
+        {
+            "Bats": "L",
+            "Dislikes": "Uno",
+            "Likes": "orchestra concerts",
+            "Name": "Dorothy Warner",
+            "Number": 11,
+            "ScoutingReport": "Dorothy Warner is a solid player with potential to grow.\n\n This player usually bats near the bottom of the lineup. They're also barely lucky.\n\nThis player is decent at batting. They are very lofty and extremely perceptive, but not strong and not insightful.\n\nDefense is a work in progress for this player. They are barely acrobatic and quite reactive, but not patient and not aware.\n\nThis player is decent at pitching. They are very enduring and extremely sharp, but not powerful and not accurate.\n\nThis player is a capable baserunner. They are extremely distracting, but moderately fast.",
+            "Throws": "R"
+        },
+        {
+            "Bats": "S",
+            "Dislikes": "animation",
+            "Likes": "online auctions",
+            "Name": "Kobe Carmichael",
+            "Number": 82,
+            "ScoutingReport": "Kobe Carmichael has some promising traits, but needs refinement.\n\n This player usually bats between the middle and the bottom of the lineup. They're also moderately lucky.\n\nBatting is a work in progress for this player. They are quite resilient and extremely crafty, but not team-focused and not consistent.\n\nThis player is decent at defense. They are extremely armed and extremely composed, but not aware and not nimble.\n\nThis player is decent at pitching. They are quite precise and very powerful, but not sharp and not commanding.\n\nThis player gets by on the basepaths. They are quite sneaky, but not aggressive.",
+            "Throws": "R"
+        },
+        {
+            "Bats": "R",
+            "Dislikes": "lizards",
+            "Likes": "abseiling",
+            "Name": "Olmec Hobbs",
+            "Number": 83,
+            "ScoutingReport": "Olmec Hobbs is a solid player with potential to grow.\n\n This player usually bats between the middle and the bottom of the lineup. They're also not lucky.\n\nBatting is a work in progress for this player. They are very intimidating and extremely lofty, but not resilient and not consistent.\n\nThis player is decent at defense. They are very acrobatic and extremely aware, but barely armed and barely reactive.\n\nThis player is strong in the pitching department. They are very enduring and very defiant, but not precise and barely powerful.\n\nThis player is a capable baserunner. They are very fast, but quite distracting.",
+            "Throws": "L"
+        }
+    ],
+    "Center Field":[
+        {
+            "Bats": "R",
+            "Dislikes": "violin",
+            "Likes": "K-pop",
+            "Name": "Phelmo Rowland",
+            "Number": 0,
+            "ScoutingReport": "Phelmo Rowland is a solid player with potential to grow.\n\n This player usually bats around the middle of the lineup. They're also extremely lucky.\n\nThis player is decent at batting. They are extremely insightful and extremely strong, but not resilient and barely crafty.\n\nThis player is strong in the defense department. They are extremely agile and extremely armed, but not reactive and moderately nimble.\n\nThis player is decent at pitching. They are very precise and extremely sharp, but not powerful and not enduring.\n\nThis player gets by on the basepaths. They are very aggressive, but not fast.",
+            "Throws": "L"
+        },
+        {
+            "Bats": "L",
+            "Dislikes": "inline skating",
+            "Likes": "WNBA",
+            "Name": "Adalynn Kong",
+            "Number": 78,
+            "ScoutingReport": "Adalynn Kong is a solid player with potential to grow.\n\n This player usually bats between the top and the middle of the lineup. They're also very lucky.\n\nThis player is decent at batting. They are extremely strong and extremely resilient, but not lofty and barely crafty.\n\nThis player is decent at defense. They are very aware and extremely composed, but not armed and barely patient.\n\nThis player is decent at pitching. They are extremely defiant and extremely precise, but not powerful and not unpredictable.\n\nThis player gets by on the basepaths. They are very fast, but not sneaky.",
+            "Throws": "L"
+        },
+        {
+            "Bats": "R",
+            "Dislikes": "ping pong",
+            "Likes": "go karts",
+            "Name": "Victor Omer",
+            "Number": 67,
+            "ScoutingReport": "Victor Omer is a solid player with potential to grow.\n\n This player usually bats between the top and the middle of the lineup. They're also extremely lucky.\n\nBatting is a work in progress for this player. They are very perceptive and very strong, but not resilient and not disciplined.\n\nThis player is strong in the defense department. They are extremely acrobatic and extremely aware, but not nimble and barely patient.\n\nThis player is decent at pitching. They are quite sharp and extremely accurate, but not convincing and not commanding.\n\nThis player is a capable baserunner. They are very sneaky, but moderately fast.",
+            "Throws": "R"
+        }
+    ],
+    "Right Field": [
+        {
+            "Bats": "R",
+            "Dislikes": "doodling",
+            "Likes": "tai chi",
+            "Name": "Jonathan Mullen",
+            "Number": 29,
+            "ScoutingReport": "Jonathan Mullen is a solid player with potential to grow.\n\n This player usually bats near the top of the lineup. They're also quite lucky.\n\nThis player is decent at batting. They are very strong and extremely perceptive, but not insightful and not accurate.\n\nThis player is strong in the defense department. They are very reactive and extremely agile, but barely armed and moderately composed.\n\nThis player is decent at pitching. They are quite accurate and very enduring, but not commanding and not precise.\n\nBaserunning is not this player's strength. They are moderately distracting, but not sneaky.",
+            "Throws": "R"
+        },
+        {
+            "Bats": "R",
+            "Dislikes": "video editing",
+            "Likes": "college sports",
+            "Name": "Eduardo Hassan",
+            "Number": 26,
+            "ScoutingReport": "Eduardo Hassan is a solid player with potential to grow.\n\n This player usually bats around the middle of the lineup. They're also very lucky.\n\nThis player is decent at batting. They are extremely disciplined and extremely crafty, but barely consistent and barely intimidating.\n\nThis player is strong in the defense department. They are extremely composed and extremely nimble, but barely armed and barely aware.\n\nThis player is decent at pitching. They are very precise and extremely unpredictable, but not accurate and not powerful.\n\nBaserunning is not this player's strength. They are moderately aggressive, but not sneaky.",
+            "Throws": "R"
+        },
+        {
+            "Bats": "R",
+            "Dislikes": "hip hop",
+            "Likes": "virtual reality",
+            "Name": "Loretta Vogt",
+            "Number": 45,
+            "ScoutingReport": "Loretta Vogt is a solid player with potential to grow.\n\n This player usually bats around the middle of the lineup. They're also moderately lucky.\n\nThis player is decent at batting. They are extremely strong and extremely disciplined, but not perceptive and not team-focused.\n\nThis player is strong in the defense department. They are very composed and extremely armed, but not aware and moderately acrobatic.\n\nThis player is decent at pitching. They are quite commanding and very unpredictable, but not convincing and barely enduring.\n\nThis player gets by on the basepaths. They are moderately fast, but barely sneaky.",
+            "Throws": "R"
+        }
+    ],
+    "Designated Hitter": [
+        {
+            "Bats": "R",
+            "Dislikes": "ukeleles",
+            "Likes": "birds",
+            "Name": "Randy Tang",
+            "Number": 6,
+            "ScoutingReport": "Randy Tang has some promising traits, but needs refinement.\n\n This player usually bats between the middle and the bottom of the lineup. They're also extremely lucky.\n\nThis player is decent at batting. They are very crafty and extremely disciplined, but not perceptive and not accurate.\n\nThis player is decent at defense. They are extremely reactive and extremely composed, but not nimble and not agile.\n\nPitching is a glaring weakness. They are barely unpredictable and barely defiant, but not commanding and not convincing.\n\nThis player gets by on the basepaths. They are quite distracting, but moderately fast.",
+            "Throws": "R"
+        },
+        {
+            "Bats": "L",
+            "Dislikes": "candles",
+            "Likes": "line dancing",
+            "Name": "Noah Hawkins",
+            "Number": 36,
+            "ScoutingReport": "Noah Hawkins is a solid player with potential to grow.\n\n This player usually bats near the bottom of the lineup. They're also not lucky.\n\nBatting is a work in progress for this player. They are extremely disciplined and extremely crafty, but not accurate and not insightful.\n\nThis player is decent at defense. They are very patient and extremely armed, but not nimble and not reactive.\n\nThis player is strong in the pitching department. They are extremely enduring and extremely powerful, but not defiant and not sharp.\n\nThis player is a capable baserunner. They are very fast, but barely aggressive.",
+            "Throws": "R"
+        },
+        {
+            "Bats": "R",
+            "Dislikes": "yo-yos",
+            "Likes": "bodybuilding",
+            "Name": "Floyd Lincecum",
+            "Number": 78,
+            "ScoutingReport": "Floyd Lincecum is a solid player with potential to grow.\n\n This player usually bats between the middle and the bottom of the lineup. They're also not lucky.\n\nThis player is strong in the batting department. They are extremely insightful and extremely strategic, but not resilient and barely consistent.\n\nThis player is decent at defense. They are very patient and extremely composed, but not agile and barely acrobatic.\n\nThis player is decent at pitching. They are extremely powerful and extremely unpredictable, but not convincing and not defiant.\n\nThis player gets by on the basepaths. They are quite sneaky, but barely aggressive.",
+            "Throws": "R"
+        }
+    ],
+    "SP1": [
+        {
+            "Bats": "L",
+            "Dislikes": "mini golf",
+            "Likes": "Uno",
+            "Name": "Isaiah Barnes",
+            "Number": 96,
+            "ScoutingReport": "Isaiah Barnes is a solid player with potential to grow.\n\n This player usually bats near the top of the lineup. They're also not lucky.\n\nThis player is decent at pitching. They are quite defiant and very convincing, but not accurate and not enduring.\n\nThis player is decent at defense. They are extremely acrobatic and extremely reactive, but not aware and not agile.\n\nThis player is decent at batting. They are extremely strategic and extremely intimidating, but not perceptive and not insightful.\n\nBaserunning is not this player's strength. They are barely fast, but not distracting.",
+            "Throws": "R"
+        },
+        {
+            "Bats": "R",
+            "Dislikes": "softball",
+            "Likes": "collecting dolls",
+            "Name": "Zephyr Quintana",
+            "Number": 35,
+            "ScoutingReport": "Zephyr Quintana is a solid player with potential to grow.\n\n This player usually bats near the top of the lineup. They're also moderately lucky.\n\nThis player is decent at pitching. They are very powerful and extremely convincing, but not precise and barely sharp.\n\nThis player is decent at defense. They are extremely acrobatic and extremely composed, but not patient and not agile.\n\nThis player is decent at batting. They are extremely accurate and extremely strategic, but not team-focused and not resilient.\n\nBaserunning is not this player's strength. They are moderately distracting, but not fast.",
+            "Throws": "L"
+        },
+        {
+            "Bats": "R",
+            "Dislikes": "volunteering",
+            "Likes": "Pok\u00e9mon",
+            "Name": "Daniel Breen",
+            "Number": 74,
+            "ScoutingReport": "Daniel Breen has a lot of raw talent and tools to work with.\n\n This player usually bats between the top and the middle of the lineup. They're also moderately lucky.\n\nThis player is decent at pitching. They are quite enduring and extremely commanding, but not accurate and barely defiant.\n\nThis player is decent at defense. They are extremely agile and extremely reactive, but not composed and not aware.\n\nThis player is strong in the batting department. They are extremely lofty and extremely crafty, but not resilient and moderately insightful.\n\nThis player is a capable baserunner. They are very sneaky, but barely fast.",
+            "Throws": "R"
+        }
+    ],
+    "SP2": [
+        {
+            "Bats": "L",
+            "Dislikes": "virtual reality",
+            "Likes": "food photography",
+            "Name": "Minnie Lewandowski",
+            "Number": 92,
+            "ScoutingReport": "Minnie Lewandowski is a solid player with potential to grow.\n\n This player usually bats around the middle of the lineup. They're also barely lucky.\n\nThis player is decent at pitching. They are extremely powerful and extremely accurate, but not defiant and not unpredictable.\n\nThis player is decent at defense. They are extremely composed and extremely reactive, but not agile and not aware.\n\nThis player is decent at batting. They are very resilient and extremely crafty, but not strategic and not lofty.\n\nThis player gets by on the basepaths. They are moderately sneaky, but not fast.",
+            "Throws": "R"
+        },
+        {
+            "Bats": "L",
+            "Dislikes": "improv",
+            "Likes": "socializing",
+            "Name": "Monique Davis",
+            "Number": 65,
+            "ScoutingReport": "Monique Davis is a solid player with potential to grow.\n\n This player usually bats between the top and the middle of the lineup. They're also not lucky.\n\nThis player is decent at pitching. They are extremely precise and extremely enduring, but not defiant and not convincing.\n\nThis player is decent at defense. They are extremely patient and extremely armed, but not nimble and not aware.\n\nThis player is decent at batting. They are extremely crafty and extremely disciplined, but not intimidating and not team-focused.\n\nThis player gets by on the basepaths. They are quite fast, but barely distracting.",
+            "Throws": "R"
+        },
+        {
+            "Bats": "R",
+            "Dislikes": "clowning",
+            "Likes": "freestyle rapping",
+            "Name": "Malvina Cisse",
+            "Number": 60,
+            "ScoutingReport": "Malvina Cisse has some promising traits, but needs refinement.\n\n This player usually bats near the top of the lineup. They're also moderately lucky.\n\nPitching is a work in progress for this player. They are quite defiant and extremely commanding, but not precise and not sharp.\n\nThis player is decent at defense. They are very acrobatic and very armed, but not nimble and not composed.\n\nBatting is a work in progress for this player. They are very insightful and extremely strong, but not consistent and not resilient.\n\nBaserunning is not this player's strength. They are moderately sneaky, but not aggressive.",
+            "Throws": "L"
+        }
+    ],
+    "SP3": [
+        {
+            "Bats": "L",
+            "Dislikes": "piano",
+            "Likes": "capoeira",
+            "Name": "Manny Mateo",
+            "Number": 87,
+            "ScoutingReport": "Manny Mateo is a solid player with potential to grow.\n\n This player usually bats between the top and the middle of the lineup. They're also quite lucky.\n\nPitching is a work in progress for this player. They are very unpredictable and very accurate, but not powerful and not defiant.\n\nThis player is decent at defense. They are extremely reactive and extremely patient, but not composed and not acrobatic.\n\nThis player is decent at batting. They are extremely intimidating and extremely perceptive, but not team-focused and not crafty.\n\nThis player gets by on the basepaths. They are quite fast, but not aggressive.",
+            "Throws": "R"
+        },
+        {
+            "Bats": "L",
+            "Dislikes": "houseplants",
+            "Likes": "cornhole",
+            "Name": "Kai McKinney",
+            "Number": 29,
+            "ScoutingReport": "Kai McKinney is a solid player with potential to grow.\n\n This player usually bats between the top and the middle of the lineup. They're also not lucky.\n\nThis player is decent at pitching. They are quite convincing and extremely unpredictable, but not powerful and not sharp.\n\nThis player is strong in the defense department. They are very nimble and extremely acrobatic, but moderately composed and moderately agile.\n\nThis player is decent at batting. They are very strong and extremely resilient, but not lofty and not perceptive.\n\nThis player gets by on the basepaths. They are quite aggressive, but not fast.",
+            "Throws": "R"
+        },
+        {
+            "Bats": "R",
+            "Dislikes": "wiffle ball",
+            "Likes": "baseball",
+            "Name": "Annette Galloway",
+            "Number": 36,
+            "ScoutingReport": "Annette Galloway is a solid player with potential to grow.\n\n This player usually bats between the top and the middle of the lineup. They're also very lucky.\n\nThis player is decent at pitching. They are very powerful and extremely unpredictable, but not precise and barely commanding.\n\nThis player is decent at defense. They are very aware and extremely reactive, but not acrobatic and not agile.\n\nThis player is decent at batting. They are very insightful and extremely perceptive, but not crafty and not resilient.\n\nThis player gets by on the basepaths. They are quite fast, but barely sneaky.",
+            "Throws": "R"
+        }
+    ],
+    "SP4": [
+        {
+            "Bats": "R",
+            "Dislikes": "prank calls",
+            "Likes": "agriculture",
+            "Name": "Avery Stark",
+            "Number": 94,
+            "ScoutingReport": "Avery Stark is a solid player with potential to grow.\n\n This player usually bats around the middle of the lineup. They're also barely lucky.\n\nThis player is decent at pitching. They are very defiant and extremely unpredictable, but not convincing and barely enduring.\n\nThis player is decent at defense. They are quite aware and extremely nimble, but not composed and not reactive.\n\nThis player is decent at batting. They are extremely lofty and extremely intimidating, but not team-focused and not perceptive.\n\nBaserunning is not this player's strength. They are quite sneaky, but not distracting.",
+            "Throws": "R"
+        },
+        {
+            "Bats": "R",
+            "Dislikes": "tai chi",
+            "Likes": "geocaching",
+            "Name": "Bloop Frederiksen",
+            "Number": 78,
+            "ScoutingReport": "Bloop Frederiksen is a solid player with potential to grow.\n\n This player usually bats around the middle of the lineup. They're also not lucky.\n\nThis player is decent at pitching. They are very sharp and extremely unpredictable, but not powerful and barely precise.\n\nThis player is decent at defense. They are extremely reactive and extremely armed, but not acrobatic and not patient.\n\nThis player is decent at batting. They are extremely intimidating and extremely team-focused, but not consistent and not disciplined.\n\nBaserunning is not this player's strength. They are quite fast, but not sneaky.",
+            "Throws": "R"
+        },
+        {
+            "Bats": "R",
+            "Dislikes": "toastcrafting",
+            "Likes": "necklaces",
+            "Name": "Rafaela Dickson",
+            "Number": 65,
+            "ScoutingReport": "Rafaela Dickson is a solid player with potential to grow.\n\n This player usually bats around the middle of the lineup. They're also quite lucky.\n\nThis player is decent at pitching. They are very convincing and extremely unpredictable, but not defiant and not precise.\n\nThis player is decent at defense. They are very armed and very patient, but not acrobatic and not nimble.\n\nThis player is strong in the batting department. They are extremely disciplined and extremely consistent, but not perceptive and barely lofty.\n\nThis player is a capable baserunner. They are very sneaky, but barely distracting.",
+            "Throws": "L"
+        }
+    ],
+    "SP5": [
+        {
+            "Bats": "L",
+            "Dislikes": "landscaping",
+            "Likes": "mushroom hunting",
+            "Name": "Thomas Ye",
+            "Number": 51,
+            "ScoutingReport": "Thomas Ye has some promising traits, but needs refinement.\n\n This player usually bats between the middle and the bottom of the lineup. They're also barely lucky.\n\nThis player is decent at pitching. They are very sharp and extremely powerful, but not accurate and not unpredictable.\n\nDefense is a work in progress for this player. They are moderately nimble and very reactive, but not agile and not patient.\n\nThis player is decent at batting. They are very consistent and extremely accurate, but not strategic and not lofty.\n\nBaserunning is not this player's strength. They are moderately aggressive, but not fast.",
+            "Throws": "R"
+        },
+        {
+            "Bats": "R",
+            "Dislikes": "bricklaying",
+            "Likes": "ice sculpting",
+            "Name": "Elvis Fukuda",
+            "Number": 3,
+            "ScoutingReport": "Elvis Fukuda is a solid player with potential to grow.\n\n This player usually bats around the middle of the lineup. They're also not lucky.\n\nThis player is strong in the pitching department. They are very accurate and extremely powerful, but barely enduring and moderately defiant.\n\nDefense is a work in progress for this player. They are quite acrobatic and very patient, but not agile and not nimble.\n\nThis player is decent at batting. They are very lofty and extremely consistent, but not resilient and barely disciplined.\n\nBaserunning is not this player's strength. They are very sneaky, but not aggressive.",
+            "Throws": "R"
+        },
+        {
+            "Bats": "S",
+            "Dislikes": "ukulele",
+            "Likes": "gliding",
+            "Name": "Marge Klein",
+            "Number": 46,
+            "ScoutingReport": "Marge Klein has a lot of raw talent and tools to work with.\n\n This player usually bats near the bottom of the lineup. They're also quite lucky.\n\nThis player is strong in the pitching department. They are very powerful and extremely sharp, but not convincing and barely accurate.\n\nThis player is decent at defense. They are very patient and extremely armed, but not reactive and not aware.\n\nThis player is strong in the batting department. They are extremely strategic and extremely disciplined, but not perceptive and barely intimidating.\n\nThis player is a capable baserunner. They are very sneaky, but moderately aggressive.",
+            "Throws": "L"
+        }
+    ],
+    "RP1": [
+        {
+            "Bats": "R",
+            "Dislikes": "witchcraft",
+            "Likes": "competitive eating",
+            "Name": "Ched Han",
+            "Number": 38,
+            "ScoutingReport": "Ched Han is a solid player with potential to grow.\n\n This player usually bats around the middle of the lineup. They're also moderately lucky.\n\nThis player is strong in the pitching department. They are extremely unpredictable and extremely commanding, but not accurate and barely powerful.\n\nThis player is decent at defense. They are very patient and very aware, but not acrobatic and not composed.\n\nThis player is decent at batting. They are extremely lofty and extremely resilient, but not insightful and not perceptive.\n\nThis player is a liability on the bases. They are barely sneaky, but not fast.",
+            "Throws": "R"
+        },
+        {
+            "Bats": "R",
+            "Dislikes": "horseback riding",
+            "Likes": "theme parks",
+            "Name": "Denise Keith",
+            "Number": 23,
+            "ScoutingReport": "Denise Keith is a solid player with potential to grow.\n\n This player usually bats near the top of the lineup. They're also extremely lucky.\n\nThis player is decent at pitching. They are extremely accurate and extremely sharp, but not commanding and barely enduring.\n\nThis player is decent at defense. They are very armed and extremely patient, but not nimble and not reactive.\n\nThis player is decent at batting. They are extremely accurate and extremely perceptive, but not team-focused and not lofty.\n\nThis player gets by on the basepaths. They are quite aggressive, but not sneaky.",
+            "Throws": "L"
+        },
+        {
+            "Bats": "R",
+            "Dislikes": "doodling",
+            "Likes": "violin",
+            "Name": "Boots May",
+            "Number": 70,
+            "ScoutingReport": "Boots May has a lot of raw talent and tools to work with.\n\n This player usually bats between the top and the middle of the lineup. They're also moderately lucky.\n\nThis player is strong in the pitching department. They are very convincing and extremely sharp, but not powerful and barely precise.\n\nThis player is decent at defense. They are quite composed and very nimble, but not armed and moderately aware.\n\nThis player is decent at batting. They are extremely crafty and extremely perceptive, but not strong and not intimidating.\n\nThis player is a capable baserunner. They are extremely aggressive, but barely sneaky.",
+            "Throws": "R"
+        }
+    ],
+    "RP2": [
+        {
+            "Bats": "L",
+            "Dislikes": "opera",
+            "Likes": "minimalism",
+            "Name": "Michelle Hurst",
+            "Number": 34,
+            "ScoutingReport": "Michelle Hurst is a solid player with potential to grow.\n\n This player usually bats near the top of the lineup. They're also moderately lucky.\n\nThis player is decent at pitching. They are extremely accurate and extremely sharp, but not precise and not unpredictable.\n\nThis player is decent at defense. They are very agile and extremely reactive, but not patient and not armed.\n\nThis player is decent at batting. They are extremely resilient and extremely consistent, but not lofty and not intimidating.\n\nThis player gets by on the basepaths. They are moderately aggressive, but moderately fast.",
+            "Throws": "R"
+        },
+        {
+            "Bats": "R",
+            "Dislikes": "figure skating",
+            "Likes": "softball",
+            "Name": "Darlene Lindstr\u00f6m",
+            "Number": 4,
+            "ScoutingReport": "Darlene Lindstr\u00f6m is a solid player with potential to grow.\n\n This player usually bats near the bottom of the lineup. They're also not lucky.\n\nThis player is decent at pitching. They are very enduring and extremely convincing, but not precise and not sharp.\n\nThis player is decent at defense. They are extremely acrobatic and extremely nimble, but not patient and not composed.\n\nThis player is decent at batting. They are extremely lofty and extremely strong, but not accurate and not strategic.\n\nThis player is a capable baserunner. They are extremely sneaky, but not aggressive.",
+            "Throws": "R"
+        },
+        {
+            "Bats": "S",
+            "Dislikes": "teddy bears",
+            "Likes": "ghost hunting",
+            "Name": "Amber Andreasen",
+            "Number": 70,
+            "ScoutingReport": "Amber Andreasen is a solid player with potential to grow.\n\n This player usually bats between the middle and the bottom of the lineup. They're also quite lucky.\n\nThis player is decent at pitching. They are very precise and very powerful, but not sharp and not accurate.\n\nThis player is strong in the defense department. They are extremely nimble and extremely composed, but barely reactive and barely agile.\n\nThis player is decent at batting. They are extremely consistent and extremely team-focused, but not crafty and barely accurate.\n\nThis player is a liability on the bases. They are moderately aggressive, but not distracting.",
+            "Throws": "L"
+        }
+    ],
+    "RP3": [
+        {
+            "Bats": "R",
+            "Dislikes": "rafting",
+            "Likes": "pole vault",
+            "Name": "Kayla Sabi",
+            "Number": 41,
+            "ScoutingReport": "Kayla Sabi has some promising traits, but needs refinement.\n\n This player usually bats between the middle and the bottom of the lineup. They're also barely lucky.\n\nPitching is a work in progress for this player. They are quite unpredictable and quite sharp, but not precise and not accurate.\n\nThis player is decent at defense. They are quite aware and very nimble, but not agile and not patient.\n\nThis player is decent at batting. They are extremely strategic and extremely lofty, but not intimidating and not consistent.\n\nThis player gets by on the basepaths. They are quite fast, but not distracting.",
+            "Throws": "R"
+        },
+        {
+            "Bats": "L",
+            "Dislikes": "glassblowing",
+            "Likes": "jazzercise",
+            "Name": "Amanda Huylroyce",
+            "Number": 11,
+            "ScoutingReport": "Amanda Huylroyce is a solid player with potential to grow.\n\n This player usually bats between the top and the middle of the lineup. They're also not lucky.\n\nThis player is decent at pitching. They are very defiant and extremely powerful, but not enduring and not unpredictable.\n\nThis player is strong in the defense department. They are extremely patient and extremely reactive, but barely acrobatic and moderately armed.\n\nThis player is decent at batting. They are very accurate and extremely intimidating, but not strong and not crafty.\n\nBaserunning is not this player's strength. They are moderately fast, but not sneaky.",
+            "Throws": "R"
+        },
+        {
+            "Bats": "R",
+            "Dislikes": "weight lifting",
+            "Likes": "scrapbooking",
+            "Name": "Ana Carolina Bridges",
+            "Number": 12,
+            "ScoutingReport": "Ana Carolina Bridges has some promising traits, but needs refinement.\n\n This player usually bats near the bottom of the lineup. They're also quite lucky.\n\nThis player is decent at pitching. They are extremely powerful and extremely enduring, but not unpredictable and not accurate.\n\nDefense is a work in progress for this player. They are quite nimble and very aware, but not reactive and not composed.\n\nThis player is decent at batting. They are extremely team-focused and extremely consistent, but not strong and not resilient.\n\nThis player gets by on the basepaths. They are quite fast, but not sneaky.",
+            "Throws": "L"
+        }
+    ],
+    "CL": [
+        {
+            "Bats": "R",
+            "Dislikes": "pole vault",
+            "Likes": "coaching",
+            "Name": "Johnny Saputra",
+            "Number": 70,
+            "ScoutingReport": "Johnny Saputra has some promising traits, but needs refinement.\n\n This player usually bats between the top and the middle of the lineup. They're also quite lucky.\n\nPitching is a work in progress for this player. They are moderately commanding and very convincing, but not accurate and not sharp.\n\nDefense is a work in progress for this player. They are quite aware and very armed, but not agile and not acrobatic.\n\nThis player is strong in the batting department. They are extremely strategic and extremely perceptive, but not team-focused and not resilient.\n\nBaserunning is not this player's strength. They are moderately fast, but not sneaky.",
+            "Throws": "L"
+        },
+        {
+            "Bats": "L",
+            "Dislikes": "giving pep talks",
+            "Likes": "book club",
+            "Name": "Jared Mann",
+            "Number": 27,
+            "ScoutingReport": "Jared Mann is a solid player with potential to grow.\n\n This player usually bats near the top of the lineup. They're also not lucky.\n\nThis player is decent at pitching. They are extremely convincing and extremely commanding, but not unpredictable and not precise.\n\nThis player is decent at defense. They are extremely aware and extremely nimble, but not agile and barely armed.\n\nThis player is decent at batting. They are very accurate and very crafty, but not strategic and not disciplined.\n\nThis player is a capable baserunner. They are quite sneaky, but quite distracting.",
+            "Throws": "L"
+        },
+        {
+            "Bats": "S",
+            "Dislikes": "ice cream",
+            "Likes": "solitaire",
+            "Name": "Paige Moreno",
+            "Number": 1,
+            "ScoutingReport": "Paige Moreno has some promising traits, but needs refinement.\n\n This player usually bats near the top of the lineup. They're also not lucky.\n\nThis player is decent at pitching. They are very powerful and very sharp, but not defiant and not convincing.\n\nThis player is decent at defense. They are very patient and extremely aware, but not nimble and not armed.\n\nBatting is a work in progress for this player. They are quite consistent and extremely strategic, but not disciplined and not accurate.\n\nThis player gets by on the basepaths. They are very aggressive, but not fast.",
+            "Throws": "L"
+        }
+    ]
+}

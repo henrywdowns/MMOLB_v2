@@ -12,23 +12,16 @@
                 "risp_improvement": -0.051509054325955705,
                 "risp_diff_percentage": -0.2047999999999999,
                 "isolated_power": 0.1448692152917505,
-                "at_bats_per_appearance": 4.211864406779661
+                "at_bats_per_appearance": 0,
+                "HRs_per_game": 0
             },
             "outfield": {
-                "putouts_per_game": 9.330508474576272,
+                "putouts_per_game": 0,
+                "range_factor_per_game": 0,
+                "risp_diff_percentage": 0,
                 "fielding_percentage": 0.9991554054054054,
-                "range_factor_per_game": 10.025423728813559,
                 "fielding_percentage_risp": 0.9973614775725593,
-                "fp_risp_improvement": -0.0017939278328460428,
-                "risp_diff_percentage": -0.001795444255359015
-            },
-            "catcher": {
-                "putouts_per_game": 9.330508474576272,
-                "fielding_percentage": 0.9991554054054054,
-                "range_factor_per_game": 10.025423728813559,
-                "fielding_percentage_risp": 0.9973614775725593,
-                "fp_risp_improvement": -0.0017939278328460428,
-                "risp_diff_percentage": -0.001795444255359015
+                "fp_risp_improvement": -0.0017939278328460428
             }
         },
         "6805db0cac48194de3cd40b7": {
@@ -43,12 +36,13 @@
                 "risp_improvement": 0.07809811574132358,
                 "risp_diff_percentage": 0.2977123660214365,
                 "isolated_power": 0.20710059171597633,
-                "at_bats_per_appearance": 4.296610169491525
+                "at_bats_per_appearance": 0,
+                "HRs_per_game": 0
             },
             "infield": {
-                "putouts_per_game": 8.016949152542374,
+                "putouts_per_game": 0,
+                "range_factor_per_game": 0,
                 "fielding_percentage": 0.9887640449438202,
-                "range_factor_per_game": 8.203389830508474,
                 "fielding_percentage_risp": 0.9826086956521739,
                 "fp_risp_improvement": -0.006155349291646295,
                 "risp_diff_percentage": -0.00622529644268773
@@ -66,12 +60,13 @@
                 "risp_improvement": 0.03946400999926475,
                 "risp_diff_percentage": 0.15047659097280625,
                 "isolated_power": 0.2025586353944563,
-                "at_bats_per_appearance": 3.9745762711864407
+                "at_bats_per_appearance": 0,
+                "HRs_per_game": 0
             },
             "infield": {
-                "putouts_per_game": 1.5169491525423728,
+                "putouts_per_game": 0,
+                "range_factor_per_game": 0,
                 "fielding_percentage": 0.9854469854469855,
-                "range_factor_per_game": 4.016949152542373,
                 "fielding_percentage_risp": 0.9841269841269841,
                 "fp_risp_improvement": -0.0013200013200014293,
                 "risp_diff_percentage": -0.0013394950103811972
@@ -89,12 +84,13 @@
                 "risp_improvement": -0.002929171668667463,
                 "risp_diff_percentage": -0.010920157536698874,
                 "isolated_power": 0.22352941176470587,
-                "at_bats_per_appearance": 3.6016949152542375
+                "at_bats_per_appearance": 0,
+                "HRs_per_game": 0
             },
             "infield": {
-                "putouts_per_game": 0.8983050847457628,
+                "putouts_per_game": 0,
+                "range_factor_per_game": 0,
                 "fielding_percentage": 0.9665653495440729,
-                "range_factor_per_game": 2.694915254237288,
                 "fielding_percentage_risp": 0.9743589743589743,
                 "fp_risp_improvement": 0.007793624814901423,
                 "risp_diff_percentage": 0.008063215610385435
@@ -112,12 +108,13 @@
                 "risp_improvement": -0.04628099173553718,
                 "risp_diff_percentage": -0.19580419580419578,
                 "isolated_power": 0.1909090909090909,
-                "at_bats_per_appearance": 3.7288135593220337
+                "at_bats_per_appearance": 0,
+                "HRs_per_game": 0
             },
             "infield": {
-                "putouts_per_game": 1.2796610169491525,
+                "putouts_per_game": 0,
+                "range_factor_per_game": 0,
                 "fielding_percentage": 0.9739952718676123,
-                "range_factor_per_game": 3.4915254237288136,
                 "fielding_percentage_risp": 0.9494949494949495,
                 "fp_risp_improvement": -0.024500322372662753,
                 "risp_diff_percentage": -0.0251544571932921
@@ -135,15 +132,16 @@
                 "risp_improvement": -0.03778795145701622,
                 "risp_diff_percentage": -0.15757575757575762,
                 "isolated_power": 0.18705035971223022,
-                "at_bats_per_appearance": 3.5338983050847457
+                "at_bats_per_appearance": 417.0,
+                "HRs_per_game": 21.0
             },
             "outfield": {
-                "putouts_per_game": 1.9406779661016949,
+                "putouts_per_game": 229.0,
+                "range_factor_per_game": 231.0,
+                "risp_diff_percentage": 0,
                 "fielding_percentage": 0.9956896551724138,
-                "range_factor_per_game": 1.9576271186440677,
                 "fielding_percentage_risp": 0.9864864864864865,
-                "fp_risp_improvement": -0.009203168685927299,
-                "risp_diff_percentage": -0.009243009243009234
+                "fp_risp_improvement": -0.009203168685927299
             }
         },
         "6805db0cac48194de3cd40bd": {
@@ -158,15 +156,16 @@
                 "risp_improvement": -0.013452248234856912,
                 "risp_diff_percentage": -0.046879046879046815,
                 "isolated_power": 0.15869565217391302,
-                "at_bats_per_appearance": 3.8983050847457625
+                "at_bats_per_appearance": 0,
+                "HRs_per_game": 0
             },
             "outfield": {
-                "putouts_per_game": 2.0847457627118646,
+                "putouts_per_game": 0,
+                "range_factor_per_game": 0,
+                "risp_diff_percentage": 0,
                 "fielding_percentage": 0.9919354838709677,
-                "range_factor_per_game": 2.0847457627118646,
                 "fielding_percentage_risp": 1.0,
-                "fp_risp_improvement": 0.008064516129032251,
-                "risp_diff_percentage": 0.008130081300813
+                "fp_risp_improvement": 0.008064516129032251
             }
         },
         "6805db0cac48194de3cd40be": {
@@ -181,12 +180,13 @@
                 "risp_improvement": -0.03361797752808987,
                 "risp_diff_percentage": -0.10999999999999995,
                 "isolated_power": 0.23595505617977525,
-                "at_bats_per_appearance": 3.7711864406779663
+                "at_bats_per_appearance": 0,
+                "HRs_per_game": 0
             },
             "infield": {
-                "putouts_per_game": 0.0,
+                "putouts_per_game": 0,
+                "range_factor_per_game": 0,
                 "fielding_percentage": 0,
-                "range_factor_per_game": 0.0,
                 "fielding_percentage_risp": 0,
                 "fp_risp_improvement": 0,
                 "risp_diff_percentage": 0
@@ -195,187 +195,209 @@
         "6805db0cac48194de3cd40bf": {
             "appearances": 28,
             "pitcher": {
-                "batters_faced_per_appearance": 28.137931034482758,
-                "pitches_per_appearance": 96.62068965517241,
-                "innings_pitched": 192.66666666666666,
-                "innings_pitched_per_appearance": 6.64367816091954,
-                "batters_faced_per_inning": 4.235294117647059,
-                "strikeout_rate": 0.20955882352941177,
-                "ERA": 4.250865051903115,
-                "walks_hits_per_inning_pitched": 1.3079584775086506,
-                "strikeouts_per_nine": 7.9878892733564015,
-                "walks_per_nine": 3.643598615916955,
-                "home_runs_allowed_per_nine": 1.4480968858131489,
-                "hits_allowed_per_nine": 8.1280276816609,
-                "strikeouts_to_balls_on_base": 2.1923076923076925,
-                "win_rate": 0.3793103448275862,
+                "batters_faced_per_appearance": 0,
+                "pitches_per_appearance": 0,
+                "innings_pitched_per_appearance": 0,
+                "win_rate": 0,
+                "innings_pitched": 0,
+                "batters_faced_per_inning": 0,
+                "strikeout_rate": 0,
+                "ERA": 0,
+                "walks_hits_per_inning_pitched": 0,
+                "strikeouts_per_nine": 0,
+                "walks_per_nine": 0,
+                "home_runs_allowed_per_nine": 0,
+                "hits_allowed_per_nine": 0,
+                "strikeouts_to_balls_on_base": 0,
                 "win_chance_improvement": 0
             }
         },
         "6805db0cac48194de3cd40c0": {
             "appearances": 28,
             "pitcher": {
-                "batters_faced_per_appearance": 28.344827586206897,
-                "pitches_per_appearance": 96.10344827586206,
-                "innings_pitched": 188.0,
-                "innings_pitched_per_appearance": 6.482758620689655,
-                "batters_faced_per_inning": 4.372340425531915,
-                "strikeout_rate": 0.21776155717761558,
-                "ERA": 5.122340425531915,
-                "walks_hits_per_inning_pitched": 1.398936170212766,
-                "strikeouts_per_nine": 8.569148936170214,
-                "walks_per_nine": 4.069148936170213,
-                "home_runs_allowed_per_nine": 1.0053191489361701,
-                "hits_allowed_per_nine": 8.52127659574468,
-                "strikeouts_to_balls_on_base": 2.1058823529411765,
-                "win_rate": 0.3103448275862069,
+                "batters_faced_per_appearance": 0,
+                "pitches_per_appearance": 0,
+                "innings_pitched_per_appearance": 0,
+                "win_rate": 0,
+                "innings_pitched": 0,
+                "batters_faced_per_inning": 0,
+                "strikeout_rate": 0,
+                "ERA": 0,
+                "walks_hits_per_inning_pitched": 0,
+                "strikeouts_per_nine": 0,
+                "walks_per_nine": 0,
+                "home_runs_allowed_per_nine": 0,
+                "hits_allowed_per_nine": 0,
+                "strikeouts_to_balls_on_base": 0,
                 "win_chance_improvement": 0
             }
         },
         "6805db0cac48194de3cd40c1": {
             "appearances": 26,
             "pitcher": {
-                "batters_faced_per_appearance": 28.615384615384617,
-                "pitches_per_appearance": 101.53846153846153,
-                "innings_pitched": 166.66666666666666,
-                "innings_pitched_per_appearance": 6.41025641025641,
-                "batters_faced_per_inning": 4.464,
-                "strikeout_rate": 0.24731182795698925,
-                "ERA": 5.13,
-                "walks_hits_per_inning_pitched": 1.5,
-                "strikeouts_per_nine": 9.936,
-                "walks_per_nine": 3.8880000000000003,
-                "home_runs_allowed_per_nine": 1.4040000000000001,
-                "hits_allowed_per_nine": 9.612,
-                "strikeouts_to_balls_on_base": 2.5555555555555554,
-                "win_rate": 0.34615384615384615,
+                "batters_faced_per_appearance": 0,
+                "pitches_per_appearance": 0,
+                "innings_pitched_per_appearance": 0,
+                "win_rate": 0,
+                "innings_pitched": 0,
+                "batters_faced_per_inning": 0,
+                "strikeout_rate": 0,
+                "ERA": 0,
+                "walks_hits_per_inning_pitched": 0,
+                "strikeouts_per_nine": 0,
+                "walks_per_nine": 0,
+                "home_runs_allowed_per_nine": 0,
+                "hits_allowed_per_nine": 0,
+                "strikeouts_to_balls_on_base": 0,
                 "win_chance_improvement": 0
             }
         },
         "6805db0cac48194de3cd40c2": {
             "appearances": 24,
             "pitcher": {
-                "batters_faced_per_appearance": 29.44,
-                "pitches_per_appearance": 97.56,
-                "innings_pitched": 167.66666666666666,
-                "innings_pitched_per_appearance": 6.706666666666666,
-                "batters_faced_per_inning": 4.389662027833003,
-                "strikeout_rate": 0.20652173913043478,
-                "ERA": 5.636182902584493,
-                "walks_hits_per_inning_pitched": 1.4493041749502984,
-                "strikeouts_per_nine": 8.159045725646124,
-                "walks_per_nine": 3.2206759443339963,
-                "home_runs_allowed_per_nine": 1.1809145129224652,
-                "hits_allowed_per_nine": 9.823061630218689,
-                "strikeouts_to_balls_on_base": 2.533333333333333,
-                "win_rate": 0.28,
+                "batters_faced_per_appearance": 0,
+                "pitches_per_appearance": 0,
+                "innings_pitched_per_appearance": 0,
+                "win_rate": 0,
+                "innings_pitched": 0,
+                "batters_faced_per_inning": 0,
+                "strikeout_rate": 0,
+                "ERA": 0,
+                "walks_hits_per_inning_pitched": 0,
+                "strikeouts_per_nine": 0,
+                "walks_per_nine": 0,
+                "home_runs_allowed_per_nine": 0,
+                "hits_allowed_per_nine": 0,
+                "strikeouts_to_balls_on_base": 0,
                 "win_chance_improvement": 0
             }
         },
         "6805db0cac48194de3cd40c3": {
             "appearances": 15,
             "pitcher": {
-                "batters_faced_per_appearance": 29.2,
-                "pitches_per_appearance": 95.73333333333333,
-                "innings_pitched": 104.0,
-                "innings_pitched_per_appearance": 6.933333333333334,
-                "batters_faced_per_inning": 4.211538461538462,
-                "strikeout_rate": 0.2100456621004566,
-                "ERA": 4.0673076923076925,
-                "walks_hits_per_inning_pitched": 1.2884615384615385,
-                "strikeouts_per_nine": 7.961538461538462,
-                "walks_per_nine": 3.375,
-                "home_runs_allowed_per_nine": 1.125,
-                "hits_allowed_per_nine": 8.221153846153847,
-                "strikeouts_to_balls_on_base": 2.358974358974359,
-                "win_rate": 0.4,
+                "batters_faced_per_appearance": 0,
+                "pitches_per_appearance": 0,
+                "innings_pitched_per_appearance": 0,
+                "win_rate": 0,
+                "innings_pitched": 0,
+                "batters_faced_per_inning": 0,
+                "strikeout_rate": 0,
+                "ERA": 0,
+                "walks_hits_per_inning_pitched": 0,
+                "strikeouts_per_nine": 0,
+                "walks_per_nine": 0,
+                "home_runs_allowed_per_nine": 0,
+                "hits_allowed_per_nine": 0,
+                "strikeouts_to_balls_on_base": 0,
                 "win_chance_improvement": 0
             }
         },
         "6805db0cac48194de3cd40c4": {
             "appearances": 57,
             "pitcher": {
-                "batters_faced_per_appearance": 6.0,
-                "pitches_per_appearance": 20.79310344827586,
-                "innings_pitched": 72.33333333333333,
-                "innings_pitched_per_appearance": 1.247126436781609,
-                "batters_faced_per_inning": 4.811059907834102,
-                "strikeout_rate": 0.20977011494252873,
-                "ERA": 6.345622119815669,
-                "walks_hits_per_inning_pitched": 1.8663594470046083,
-                "strikeouts_per_nine": 9.082949308755762,
-                "walks_per_nine": 4.852534562211982,
-                "home_runs_allowed_per_nine": 0.9953917050691244,
-                "hits_allowed_per_nine": 11.944700460829495,
-                "strikeouts_to_balls_on_base": 1.8717948717948718,
-                "win_rate": 0.034482758620689655,
+                "batters_faced_per_appearance": 0,
+                "pitches_per_appearance": 0,
+                "innings_pitched_per_appearance": 0,
+                "win_rate": 0,
+                "innings_pitched": 0,
+                "batters_faced_per_inning": 0,
+                "strikeout_rate": 0,
+                "ERA": 0,
+                "walks_hits_per_inning_pitched": 0,
+                "strikeouts_per_nine": 0,
+                "walks_per_nine": 0,
+                "home_runs_allowed_per_nine": 0,
+                "hits_allowed_per_nine": 0,
+                "strikeouts_to_balls_on_base": 0,
                 "win_chance_improvement": 0
             }
         },
         "6805db0cac48194de3cd40c5": {
             "appearances": 63,
             "pitcher": {
-                "batters_faced_per_appearance": 4.318181818181818,
-                "pitches_per_appearance": 16.09090909090909,
-                "innings_pitched": 62.0,
-                "innings_pitched_per_appearance": 0.9393939393939394,
-                "batters_faced_per_inning": 4.596774193548387,
-                "strikeout_rate": 0.25263157894736843,
-                "ERA": 5.951612903225806,
-                "walks_hits_per_inning_pitched": 1.6451612903225807,
-                "strikeouts_per_nine": 10.451612903225806,
-                "walks_per_nine": 4.5,
-                "home_runs_allowed_per_nine": 2.467741935483871,
-                "hits_allowed_per_nine": 10.306451612903226,
-                "strikeouts_to_balls_on_base": 2.3225806451612905,
-                "win_rate": 0.07575757575757576,
+                "batters_faced_per_appearance": 0,
+                "pitches_per_appearance": 0,
+                "innings_pitched_per_appearance": 0,
+                "win_rate": 0,
+                "innings_pitched": 0,
+                "batters_faced_per_inning": 0,
+                "strikeout_rate": 0,
+                "ERA": 0,
+                "walks_hits_per_inning_pitched": 0,
+                "strikeouts_per_nine": 0,
+                "walks_per_nine": 0,
+                "home_runs_allowed_per_nine": 0,
+                "hits_allowed_per_nine": 0,
+                "strikeouts_to_balls_on_base": 0,
                 "win_chance_improvement": 0
             }
         },
         "6805db0cac48194de3cd40c6": {
             "appearances": 55,
             "pitcher": {
-                "batters_faced_per_appearance": 4.771929824561403,
-                "pitches_per_appearance": 16.45614035087719,
-                "innings_pitched": 68.0,
-                "innings_pitched_per_appearance": 1.1929824561403508,
-                "batters_faced_per_inning": 4.0,
-                "strikeout_rate": 0.2867647058823529,
-                "ERA": 3.7058823529411766,
-                "walks_hits_per_inning_pitched": 1.1029411764705883,
-                "strikeouts_per_nine": 10.323529411764707,
-                "walks_per_nine": 3.176470588235294,
-                "home_runs_allowed_per_nine": 1.1911764705882353,
-                "hits_allowed_per_nine": 6.75,
-                "strikeouts_to_balls_on_base": 3.25,
-                "win_rate": 0.14035087719298245,
+                "batters_faced_per_appearance": 0,
+                "pitches_per_appearance": 0,
+                "innings_pitched_per_appearance": 0,
+                "win_rate": 0,
+                "innings_pitched": 0,
+                "batters_faced_per_inning": 0,
+                "strikeout_rate": 0,
+                "ERA": 0,
+                "walks_hits_per_inning_pitched": 0,
+                "strikeouts_per_nine": 0,
+                "walks_per_nine": 0,
+                "home_runs_allowed_per_nine": 0,
+                "hits_allowed_per_nine": 0,
+                "strikeouts_to_balls_on_base": 0,
                 "win_chance_improvement": 0
             }
         },
         "6805db0cac48194de3cd40c7": {
             "appearances": 42,
             "pitcher": {
-                "batters_faced_per_appearance": 4.659090909090909,
-                "pitches_per_appearance": 15.227272727272727,
-                "innings_pitched": 45.666666666666664,
-                "innings_pitched_per_appearance": 1.0378787878787878,
-                "batters_faced_per_inning": 4.489051094890511,
-                "strikeout_rate": 0.2048780487804878,
-                "ERA": 5.321167883211679,
-                "walks_hits_per_inning_pitched": 1.5328467153284673,
-                "strikeouts_per_nine": 8.277372262773723,
-                "walks_per_nine": 3.3503649635036497,
-                "home_runs_allowed_per_nine": 1.3795620437956204,
-                "hits_allowed_per_nine": 10.445255474452555,
-                "strikeouts_to_balls_on_base": 2.4705882352941178,
-                "win_rate": 0.09090909090909091,
+                "batters_faced_per_appearance": 0,
+                "pitches_per_appearance": 0,
+                "innings_pitched_per_appearance": 0,
+                "win_rate": 0,
+                "innings_pitched": 0,
+                "batters_faced_per_inning": 0,
+                "strikeout_rate": 0,
+                "ERA": 0,
+                "walks_hits_per_inning_pitched": 0,
+                "strikeouts_per_nine": 0,
+                "walks_per_nine": 0,
+                "home_runs_allowed_per_nine": 0,
+                "hits_allowed_per_nine": 0,
+                "strikeouts_to_balls_on_base": 0,
                 "win_chance_improvement": 0
+            }
+        },
+        "6807f4114251378d1ace1328": {
+            "batting": {
+                "hits": 0,
+                "batting_avg": 0,
+                "on_base_percentage": 0,
+                "slugging": 0,
+                "obps": 0,
+                "risp_batting_avg": 0,
+                "risp_improvement": 0,
+                "risp_diff_percentage": 0,
+                "isolated_power": 0,
+                "at_bats_per_appearance": 0,
+                "HRs_per_game": 0
+            },
+            "outfield": {
+                "putouts_per_game": 0,
+                "range_factor_per_game": 0,
+                "risp_diff_percentage": 0,
+                "fielding_percentage": 0,
+                "fielding_percentage_risp": 0,
+                "fp_risp_improvement": 0
             }
         }
     },
     "6805db0cac48194de3cd407c": {
         "6805db0cac48194de3cd407d": {
-            "appearances": 114,
             "batting": {
                 "hits": 137,
                 "batting_avg": 0.2580037664783427,
@@ -386,19 +408,19 @@
                 "risp_improvement": 0.0443218149170061,
                 "risp_diff_percentage": 0.1717874724155492,
                 "isolated_power": 0.21092278719397367,
-                "at_bats_per_appearance": 4.657894736842105
+                "at_bats_per_appearance": 0,
+                "HRs_per_game": 0
             },
-            "catcher": {
-                "putouts_per_game": 10.842105263157896,
+            "outfield": {
+                "putouts_per_game": 0,
+                "range_factor_per_game": 0,
+                "risp_diff_percentage": 0,
                 "fielding_percentage": 0.9992469879518072,
-                "range_factor_per_game": 11.640350877192983,
                 "fielding_percentage_risp": 1.0,
-                "fp_risp_improvement": 0.0007530120481927804,
-                "risp_diff_percentage": 0.0007535795026375376
+                "fp_risp_improvement": 0.0007530120481927804
             }
         },
         "6805db0cac48194de3cd407e": {
-            "appearances": 114,
             "batting": {
                 "hits": 128,
                 "batting_avg": 0.252465483234714,
@@ -409,19 +431,19 @@
                 "risp_improvement": -0.023457849646927764,
                 "risp_diff_percentage": -0.09291507633587794,
                 "isolated_power": 0.11439842209072976,
-                "at_bats_per_appearance": 4.447368421052632
+                "at_bats_per_appearance": 0,
+                "HRs_per_game": 0
             },
             "infield": {
-                "putouts_per_game": 8.017543859649123,
+                "putouts_per_game": 0,
+                "range_factor_per_game": 0,
                 "fielding_percentage": 0.9935828877005347,
-                "range_factor_per_game": 8.149122807017545,
                 "fielding_percentage_risp": 0.9792746113989638,
                 "fp_risp_improvement": -0.014308276301570944,
                 "risp_diff_percentage": -0.014400687128061177
             }
         },
         "6805db0cac48194de3cd407f": {
-            "appearances": 114,
             "batting": {
                 "hits": 109,
                 "batting_avg": 0.24384787472035793,
@@ -432,19 +454,19 @@
                 "risp_improvement": -0.023375433775476046,
                 "risp_diff_percentage": -0.09586072383153939,
                 "isolated_power": 0.16107382550335572,
-                "at_bats_per_appearance": 3.9210526315789473
+                "at_bats_per_appearance": 0,
+                "HRs_per_game": 0
             },
             "infield": {
-                "putouts_per_game": 1.6754385964912282,
+                "putouts_per_game": 0,
+                "range_factor_per_game": 0,
                 "fielding_percentage": 0.981651376146789,
-                "range_factor_per_game": 3.754385964912281,
                 "fielding_percentage_risp": 0.9603960396039604,
                 "fp_risp_improvement": -0.02125533654282863,
                 "risp_diff_percentage": -0.02165263255297496
             }
         },
         "6805db0cac48194de3cd4080": {
-            "appearances": 114,
             "batting": {
                 "hits": 130,
                 "batting_avg": 0.2844638949671772,
@@ -455,19 +477,19 @@
                 "risp_improvement": 0.04326719746979757,
                 "risp_diff_percentage": 0.15210084033613455,
                 "isolated_power": 0.1641137855579869,
-                "at_bats_per_appearance": 4.008771929824562
+                "at_bats_per_appearance": 0,
+                "HRs_per_game": 0
             },
             "infield": {
-                "putouts_per_game": 1.105263157894737,
+                "putouts_per_game": 0,
+                "range_factor_per_game": 0,
                 "fielding_percentage": 0.9522546419098143,
-                "range_factor_per_game": 3.1491228070175437,
                 "fielding_percentage_risp": 0.9663865546218487,
                 "fp_risp_improvement": 0.0141319127120344,
                 "risp_diff_percentage": 0.01484047658060437
             }
         },
         "6805db0cac48194de3cd4081": {
-            "appearances": 114,
             "batting": {
                 "hits": 142,
                 "batting_avg": 0.2684310018903592,
@@ -478,19 +500,19 @@
                 "risp_improvement": 0.004296270836913529,
                 "risp_diff_percentage": 0.016005121638924345,
                 "isolated_power": 0.20226843100189035,
-                "at_bats_per_appearance": 4.640350877192983
+                "at_bats_per_appearance": 0,
+                "HRs_per_game": 0
             },
             "infield": {
-                "putouts_per_game": 1.1228070175438596,
+                "putouts_per_game": 0,
+                "range_factor_per_game": 0,
                 "fielding_percentage": 0.9873737373737373,
-                "range_factor_per_game": 3.4298245614035086,
                 "fielding_percentage_risp": 0.9759036144578314,
                 "fp_risp_improvement": -0.01147012291590599,
                 "risp_diff_percentage": -0.0116167996795365
             }
         },
         "6805db0cac48194de3cd4082": {
-            "appearances": 114,
             "batting": {
                 "hits": 116,
                 "batting_avg": 0.24472573839662448,
@@ -501,19 +523,19 @@
                 "risp_improvement": 0.014816246336199934,
                 "risp_diff_percentage": 0.06054224795998939,
                 "isolated_power": 0.2151898734177215,
-                "at_bats_per_appearance": 4.157894736842105
+                "at_bats_per_appearance": 0,
+                "HRs_per_game": 0
             },
             "outfield": {
-                "putouts_per_game": 1.7105263157894737,
+                "putouts_per_game": 0,
+                "range_factor_per_game": 0,
+                "risp_diff_percentage": 0,
                 "fielding_percentage": 0.9898477157360406,
-                "range_factor_per_game": 1.7105263157894737,
                 "fielding_percentage_risp": 1.0,
-                "fp_risp_improvement": 0.010152284263959421,
-                "risp_diff_percentage": 0.010256410256410288
+                "fp_risp_improvement": 0.010152284263959421
             }
         },
         "6805db0cac48194de3cd4083": {
-            "appearances": 114,
             "batting": {
                 "hits": 131,
                 "batting_avg": 0.2984054669703872,
@@ -524,19 +546,19 @@
                 "risp_improvement": 0.023628431334697497,
                 "risp_diff_percentage": 0.07918230042696338,
                 "isolated_power": 0.17767653758542146,
-                "at_bats_per_appearance": 3.8508771929824563
+                "at_bats_per_appearance": 439.0,
+                "HRs_per_game": 18.0
             },
             "outfield": {
-                "putouts_per_game": 2.6052631578947367,
+                "putouts_per_game": 297.0,
+                "range_factor_per_game": 297.0,
+                "risp_diff_percentage": 0,
                 "fielding_percentage": 1.0,
-                "range_factor_per_game": 2.6052631578947367,
                 "fielding_percentage_risp": 1.0,
-                "fp_risp_improvement": 0.0,
-                "risp_diff_percentage": 0.0
+                "fp_risp_improvement": 0.0
             }
         },
         "6805db0cac48194de3cd4084": {
-            "appearances": 114,
             "batting": {
                 "hits": 125,
                 "batting_avg": 0.26881720430107525,
@@ -547,19 +569,19 @@
                 "risp_improvement": 0.05376344086021506,
                 "risp_diff_percentage": 0.20000000000000004,
                 "isolated_power": 0.17634408602150542,
-                "at_bats_per_appearance": 4.078947368421052
+                "at_bats_per_appearance": 0,
+                "HRs_per_game": 0
             },
             "outfield": {
-                "putouts_per_game": 2.1491228070175437,
+                "putouts_per_game": 0,
+                "range_factor_per_game": 0,
+                "risp_diff_percentage": 0,
                 "fielding_percentage": 0.9959677419354839,
-                "range_factor_per_game": 2.1666666666666665,
                 "fielding_percentage_risp": 1.0,
-                "fp_risp_improvement": 0.0040322580645161255,
-                "risp_diff_percentage": 0.004048582995951414
+                "fp_risp_improvement": 0.0040322580645161255
             }
         },
         "6805db0cac48194de3cd4085": {
-            "appearances": 114,
             "batting": {
                 "hits": 128,
                 "batting_avg": 0.3054892601431981,
@@ -570,175 +592,605 @@
                 "risp_improvement": -0.001917831571769557,
                 "risp_diff_percentage": -0.006277901785714409,
                 "isolated_power": 0.16229116945107397,
-                "at_bats_per_appearance": 3.675438596491228
+                "at_bats_per_appearance": 0,
+                "HRs_per_game": 0
             },
-            "catcher": {
-                "putouts_per_game": 0.0,
+            "outfield": {
+                "putouts_per_game": 0,
+                "range_factor_per_game": 0,
+                "risp_diff_percentage": 0,
                 "fielding_percentage": 0,
-                "range_factor_per_game": 0.0,
+                "fielding_percentage_risp": 0,
+                "fp_risp_improvement": 0
+            }
+        },
+        "6805db0cac48194de3cd4086": {
+            "pitcher": {
+                "batters_faced_per_appearance": 0,
+                "pitches_per_appearance": 0,
+                "innings_pitched_per_appearance": 0,
+                "win_rate": 0,
+                "innings_pitched": 0,
+                "batters_faced_per_inning": 0,
+                "strikeout_rate": 0,
+                "ERA": 0,
+                "walks_hits_per_inning_pitched": 0,
+                "strikeouts_per_nine": 0,
+                "walks_per_nine": 0,
+                "home_runs_allowed_per_nine": 0,
+                "hits_allowed_per_nine": 0,
+                "strikeouts_to_balls_on_base": 0,
+                "win_chance_improvement": 0
+            }
+        },
+        "6806e479ce5a952465d7bf8b": {
+            "pitcher": {
+                "batters_faced_per_appearance": 0,
+                "pitches_per_appearance": 0,
+                "innings_pitched_per_appearance": 0,
+                "win_rate": 0,
+                "innings_pitched": 0,
+                "batters_faced_per_inning": 0,
+                "strikeout_rate": 0,
+                "ERA": 0,
+                "walks_hits_per_inning_pitched": 0,
+                "strikeouts_per_nine": 0,
+                "walks_per_nine": 0,
+                "home_runs_allowed_per_nine": 0,
+                "hits_allowed_per_nine": 0,
+                "strikeouts_to_balls_on_base": 0,
+                "win_chance_improvement": 0
+            }
+        },
+        "6805db0cac48194de3cd4088": {
+            "pitcher": {
+                "batters_faced_per_appearance": 0,
+                "pitches_per_appearance": 0,
+                "innings_pitched_per_appearance": 0,
+                "win_rate": 0,
+                "innings_pitched": 0,
+                "batters_faced_per_inning": 0,
+                "strikeout_rate": 0,
+                "ERA": 0,
+                "walks_hits_per_inning_pitched": 0,
+                "strikeouts_per_nine": 0,
+                "walks_per_nine": 0,
+                "home_runs_allowed_per_nine": 0,
+                "hits_allowed_per_nine": 0,
+                "strikeouts_to_balls_on_base": 0,
+                "win_chance_improvement": 0
+            }
+        },
+        "6805db0cac48194de3cd4089": {
+            "pitcher": {
+                "batters_faced_per_appearance": 0,
+                "pitches_per_appearance": 0,
+                "innings_pitched_per_appearance": 0,
+                "win_rate": 0,
+                "innings_pitched": 0,
+                "batters_faced_per_inning": 0,
+                "strikeout_rate": 0,
+                "ERA": 0,
+                "walks_hits_per_inning_pitched": 0,
+                "strikeouts_per_nine": 0,
+                "walks_per_nine": 0,
+                "home_runs_allowed_per_nine": 0,
+                "hits_allowed_per_nine": 0,
+                "strikeouts_to_balls_on_base": 0,
+                "win_chance_improvement": 0
+            }
+        },
+        "6805db0cac48194de3cd408a": {
+            "pitcher": {
+                "batters_faced_per_appearance": 0,
+                "pitches_per_appearance": 0,
+                "innings_pitched_per_appearance": 0,
+                "win_rate": 0,
+                "innings_pitched": 0,
+                "batters_faced_per_inning": 0,
+                "strikeout_rate": 0,
+                "ERA": 0,
+                "walks_hits_per_inning_pitched": 0,
+                "strikeouts_per_nine": 0,
+                "walks_per_nine": 0,
+                "home_runs_allowed_per_nine": 0,
+                "hits_allowed_per_nine": 0,
+                "strikeouts_to_balls_on_base": 0,
+                "win_chance_improvement": 0
+            }
+        },
+        "6805db0cac48194de3cd408b": {
+            "pitcher": {
+                "batters_faced_per_appearance": 0,
+                "pitches_per_appearance": 0,
+                "innings_pitched_per_appearance": 0,
+                "win_rate": 0,
+                "innings_pitched": 0,
+                "batters_faced_per_inning": 0,
+                "strikeout_rate": 0,
+                "ERA": 0,
+                "walks_hits_per_inning_pitched": 0,
+                "strikeouts_per_nine": 0,
+                "walks_per_nine": 0,
+                "home_runs_allowed_per_nine": 0,
+                "hits_allowed_per_nine": 0,
+                "strikeouts_to_balls_on_base": 0,
+                "win_chance_improvement": 0
+            }
+        },
+        "6805db0cac48194de3cd408c": {
+            "pitcher": {
+                "batters_faced_per_appearance": 0,
+                "pitches_per_appearance": 0,
+                "innings_pitched_per_appearance": 0,
+                "win_rate": 0,
+                "innings_pitched": 0,
+                "batters_faced_per_inning": 0,
+                "strikeout_rate": 0,
+                "ERA": 0,
+                "walks_hits_per_inning_pitched": 0,
+                "strikeouts_per_nine": 0,
+                "walks_per_nine": 0,
+                "home_runs_allowed_per_nine": 0,
+                "hits_allowed_per_nine": 0,
+                "strikeouts_to_balls_on_base": 0,
+                "win_chance_improvement": 0
+            }
+        },
+        "6805db0cac48194de3cd408d": {
+            "pitcher": {
+                "batters_faced_per_appearance": 0,
+                "pitches_per_appearance": 0,
+                "innings_pitched_per_appearance": 0,
+                "win_rate": 0,
+                "innings_pitched": 0,
+                "batters_faced_per_inning": 0,
+                "strikeout_rate": 0,
+                "ERA": 0,
+                "walks_hits_per_inning_pitched": 0,
+                "strikeouts_per_nine": 0,
+                "walks_per_nine": 0,
+                "home_runs_allowed_per_nine": 0,
+                "hits_allowed_per_nine": 0,
+                "strikeouts_to_balls_on_base": 0,
+                "win_chance_improvement": 0
+            }
+        },
+        "6805db0cac48194de3cd408e": {
+            "pitcher": {
+                "batters_faced_per_appearance": 0,
+                "pitches_per_appearance": 0,
+                "innings_pitched_per_appearance": 0,
+                "win_rate": 0,
+                "innings_pitched": 0,
+                "batters_faced_per_inning": 0,
+                "strikeout_rate": 0,
+                "ERA": 0,
+                "walks_hits_per_inning_pitched": 0,
+                "strikeouts_per_nine": 0,
+                "walks_per_nine": 0,
+                "home_runs_allowed_per_nine": 0,
+                "hits_allowed_per_nine": 0,
+                "strikeouts_to_balls_on_base": 0,
+                "win_chance_improvement": 0
+            }
+        }
+    },
+    "680e477a7d5b06095ef46ad1": {
+        "6841a2dff7b5d3bf791d6c0c": {
+            "batting": {
+                "hits": 4,
+                "batting_avg": 0.18181818181818182,
+                "on_base_percentage": 0.34375,
+                "slugging": 0.22727272727272727,
+                "obps": 0.5710227272727273,
+                "risp_batting_avg": 0.0,
+                "risp_improvement": -0.18181818181818182,
+                "risp_diff_percentage": -1.0,
+                "isolated_power": 0.04545454545454544,
+                "at_bats_per_appearance": 0,
+                "HRs_per_game": 0
+            },
+            "outfield": {
+                "putouts_per_game": 0,
+                "range_factor_per_game": 0,
+                "risp_diff_percentage": 0,
+                "fielding_percentage": 0.9894736842105263,
+                "fielding_percentage_risp": 1.0,
+                "fp_risp_improvement": 0.010526315789473717
+            }
+        },
+        "6841ace2925dd4f9d72ac3c5": {
+            "batting": {
+                "hits": 6,
+                "batting_avg": 0.17142857142857143,
+                "on_base_percentage": 0.21052631578947367,
+                "slugging": 0.3142857142857143,
+                "obps": 0.524812030075188,
+                "risp_batting_avg": 0.1,
+                "risp_improvement": -0.07142857142857142,
+                "risp_diff_percentage": -0.41666666666666663,
+                "isolated_power": 0.14285714285714285,
+                "at_bats_per_appearance": 0,
+                "HRs_per_game": 0
+            },
+            "infield": {
+                "putouts_per_game": 0,
+                "range_factor_per_game": 0,
+                "fielding_percentage": 1.0,
+                "fielding_percentage_risp": 1.0,
+                "fp_risp_improvement": 0.0,
+                "risp_diff_percentage": 0.0
+            }
+        },
+        "6841ae51ed58166c1895b08f": {
+            "batting": {
+                "hits": 9,
+                "batting_avg": 0.2727272727272727,
+                "on_base_percentage": 0.35135135135135137,
+                "slugging": 0.48484848484848486,
+                "obps": 0.8361998361998362,
+                "risp_batting_avg": 0.18181818181818182,
+                "risp_improvement": -0.09090909090909088,
+                "risp_diff_percentage": -0.33333333333333326,
+                "isolated_power": 0.21212121212121215,
+                "at_bats_per_appearance": 0,
+                "HRs_per_game": 0
+            },
+            "infield": {
+                "putouts_per_game": 0,
+                "range_factor_per_game": 0,
+                "fielding_percentage": 1.0,
+                "fielding_percentage_risp": 1.0,
+                "fp_risp_improvement": 0.0,
+                "risp_diff_percentage": 0.0
+            }
+        },
+        "6841af60e63d9bb87288a02b": {
+            "batting": {
+                "hits": 2,
+                "batting_avg": 0.07407407407407407,
+                "on_base_percentage": 0.24242424242424243,
+                "slugging": 0.07407407407407407,
+                "obps": 0.3164983164983165,
+                "risp_batting_avg": 0.0,
+                "risp_improvement": -0.07407407407407407,
+                "risp_diff_percentage": -1.0,
+                "isolated_power": 0.0,
+                "at_bats_per_appearance": 0,
+                "HRs_per_game": 0
+            },
+            "infield": {
+                "putouts_per_game": 0,
+                "range_factor_per_game": 0,
+                "fielding_percentage": 1.0,
+                "fielding_percentage_risp": 1.0,
+                "fp_risp_improvement": 0.0,
+                "risp_diff_percentage": 0.0
+            }
+        },
+        "6841b2ad925dd4f9d72ac3d5": {
+            "batting": {
+                "hits": 9,
+                "batting_avg": 0.28125,
+                "on_base_percentage": 0.39473684210526316,
+                "slugging": 0.53125,
+                "obps": 0.9259868421052632,
+                "risp_batting_avg": 0.3333333333333333,
+                "risp_improvement": 0.052083333333333315,
+                "risp_diff_percentage": 0.18518518518518512,
+                "isolated_power": 0.25,
+                "at_bats_per_appearance": 0,
+                "HRs_per_game": 0
+            },
+            "infield": {
+                "putouts_per_game": 0,
+                "range_factor_per_game": 0,
+                "fielding_percentage": 1.0,
+                "fielding_percentage_risp": 1.0,
+                "fp_risp_improvement": 0.0,
+                "risp_diff_percentage": 0.0
+            }
+        },
+        "6841b452e2d7557e153cc94b": {
+            "batting": {
+                "hits": 8,
+                "batting_avg": 0.2857142857142857,
+                "on_base_percentage": 0.36363636363636365,
+                "slugging": 0.5357142857142857,
+                "obps": 0.8993506493506493,
+                "risp_batting_avg": 0.375,
+                "risp_improvement": 0.0892857142857143,
+                "risp_diff_percentage": 0.31250000000000006,
+                "isolated_power": 0.25,
+                "at_bats_per_appearance": 0,
+                "HRs_per_game": 0
+            },
+            "outfield": {
+                "putouts_per_game": 0,
+                "range_factor_per_game": 0,
+                "risp_diff_percentage": 0,
+                "fielding_percentage": 1.0,
+                "fielding_percentage_risp": 1.0,
+                "fp_risp_improvement": 0.0
+            }
+        },
+        "6841b8d5144e874e6deb88fd": {
+            "batting": {
+                "hits": 3,
+                "batting_avg": 0.375,
+                "on_base_percentage": 0.4444444444444444,
+                "slugging": 0.5,
+                "obps": 0.9444444444444444,
+                "risp_batting_avg": 0.3333333333333333,
+                "risp_improvement": -0.041666666666666685,
+                "risp_diff_percentage": -0.11111111111111116,
+                "isolated_power": 0.125,
+                "at_bats_per_appearance": 0,
+                "HRs_per_game": 0
+            },
+            "outfield": {
+                "putouts_per_game": 0,
+                "range_factor_per_game": 0,
+                "risp_diff_percentage": 0,
+                "fielding_percentage": 0,
+                "fielding_percentage_risp": 0,
+                "fp_risp_improvement": 0
+            },
+            "pitcher": {
+                "innings_pitched": 6.666666666666667,
+                "batters_faced_per_appearance": 0,
+                "pitches_per_appearance": 0,
+                "innings_pitched_per_appearance": 0,
+                "win_rate": 0,
+                "batters_faced_per_inning": 0,
+                "strikeout_rate": 0.4444444444444444,
+                "ERA": 2.6999999999999997,
+                "walks_hits_per_inning_pitched": 1.2,
+                "strikeouts_per_nine": 16.2,
+                "walks_per_nine": 2.6999999999999997,
+                "home_runs_allowed_per_nine": 1.3499999999999999,
+                "hits_allowed_per_nine": 8.1,
+                "strikeouts_to_balls_on_base": 6.0,
+                "win_chance_improvement": -100.0
+            }
+        },
+        "6841bb7be63d9bb87288a05f": {
+            "batting": {
+                "hits": 11,
+                "batting_avg": 0.3235294117647059,
+                "on_base_percentage": 0.3783783783783784,
+                "slugging": 0.5588235294117647,
+                "obps": 0.9372019077901431,
+                "risp_batting_avg": 0.45454545454545453,
+                "risp_improvement": 0.13101604278074863,
+                "risp_diff_percentage": 0.4049586776859503,
+                "isolated_power": 0.23529411764705882,
+                "at_bats_per_appearance": 0,
+                "HRs_per_game": 0
+            },
+            "outfield": {
+                "putouts_per_game": 0,
+                "range_factor_per_game": 0,
+                "risp_diff_percentage": 0,
+                "fielding_percentage": 1.0,
+                "fielding_percentage_risp": 1.0,
+                "fp_risp_improvement": 0.0
+            }
+        },
+        "6841bc99554d8039701f1d7a": {
+            "batting": {
+                "hits": 6,
+                "batting_avg": 0.20689655172413793,
+                "on_base_percentage": 0.34285714285714286,
+                "slugging": 0.2413793103448276,
+                "obps": 0.5842364532019705,
+                "risp_batting_avg": 0.25,
+                "risp_improvement": 0.04310344827586207,
+                "risp_diff_percentage": 0.20833333333333334,
+                "isolated_power": 0.03448275862068967,
+                "at_bats_per_appearance": 0,
+                "HRs_per_game": 0
+            },
+            "infield": {
+                "putouts_per_game": 0,
+                "range_factor_per_game": 0,
+                "fielding_percentage": 0,
                 "fielding_percentage_risp": 0,
                 "fp_risp_improvement": 0,
                 "risp_diff_percentage": 0
             }
         },
-        "6805db0cac48194de3cd4086": {
-            "appearances": 29,
+        "6841bd7008b7fc5e21e8b02a": {
             "pitcher": {
-                "batters_faced_per_appearance": 29.5,
-                "pitches_per_appearance": 100.5,
-                "innings_pitched": 205.33333333333334,
-                "innings_pitched_per_appearance": 6.844444444444445,
-                "batters_faced_per_inning": 4.3100649350649345,
-                "strikeout_rate": 0.23389830508474577,
-                "ERA": 4.952922077922078,
-                "walks_hits_per_inning_pitched": 1.3782467532467533,
-                "strikeouts_per_nine": 9.073051948051948,
-                "walks_per_nine": 3.594155844155844,
-                "home_runs_allowed_per_nine": 1.4025974025974026,
-                "hits_allowed_per_nine": 8.810064935064934,
-                "strikeouts_to_balls_on_base": 2.524390243902439,
-                "win_rate": 0.43333333333333335,
-                "win_chance_improvement": 0
-            }
-        },
-        "6805db0cac48194de3cd4088": {
-            "appearances": 24,
-            "pitcher": {
-                "batters_faced_per_appearance": 29.703703703703702,
-                "pitches_per_appearance": 100.81481481481481,
-                "innings_pitched": 189.33333333333334,
-                "innings_pitched_per_appearance": 7.012345679012346,
-                "batters_faced_per_inning": 4.235915492957746,
-                "strikeout_rate": 0.23192019950124687,
-                "ERA": 4.801056338028169,
-                "walks_hits_per_inning_pitched": 1.278169014084507,
-                "strikeouts_per_nine": 8.841549295774648,
-                "walks_per_nine": 3.1373239436619715,
-                "home_runs_allowed_per_nine": 1.5686619718309858,
-                "hits_allowed_per_nine": 8.366197183098592,
-                "strikeouts_to_balls_on_base": 2.8181818181818183,
-                "win_rate": 0.3333333333333333,
-                "win_chance_improvement": 0
-            }
-        },
-        "6805db0cac48194de3cd4089": {
-            "appearances": 24,
-            "pitcher": {
-                "batters_faced_per_appearance": 28.26923076923077,
-                "pitches_per_appearance": 96.84615384615384,
-                "innings_pitched": 174.33333333333334,
-                "innings_pitched_per_appearance": 6.705128205128205,
-                "batters_faced_per_inning": 4.216061185468451,
-                "strikeout_rate": 0.2612244897959184,
-                "ERA": 4.2848948374761,
-                "walks_hits_per_inning_pitched": 1.2676864244741872,
-                "strikeouts_per_nine": 9.912045889101337,
-                "walks_per_nine": 2.839388145315487,
-                "home_runs_allowed_per_nine": 1.6520076481835564,
-                "hits_allowed_per_nine": 8.5697896749522,
-                "strikeouts_to_balls_on_base": 3.4909090909090907,
-                "win_rate": 0.4230769230769231,
-                "win_chance_improvement": 0
-            }
-        },
-        "6805db0cac48194de3cd408a": {
-            "appearances": 12,
-            "pitcher": {
-                "batters_faced_per_appearance": 29.857142857142858,
-                "pitches_per_appearance": 105.64285714285714,
-                "innings_pitched": 99.33333333333333,
-                "innings_pitched_per_appearance": 7.095238095238095,
-                "batters_faced_per_inning": 4.208053691275168,
-                "strikeout_rate": 0.2607655502392344,
-                "ERA": 3.533557046979866,
-                "walks_hits_per_inning_pitched": 1.318791946308725,
-                "strikeouts_per_nine": 9.875838926174497,
-                "walks_per_nine": 4.530201342281879,
-                "home_runs_allowed_per_nine": 0.9060402684563759,
-                "hits_allowed_per_nine": 7.3389261744966445,
-                "strikeouts_to_balls_on_base": 2.18,
+                "innings_pitched": 13.666666666666666,
+                "batters_faced_per_appearance": 28.5,
+                "pitches_per_appearance": 101.0,
+                "innings_pitched_per_appearance": 6.833333333333333,
                 "win_rate": 0.5,
-                "win_chance_improvement": 0
+                "batters_faced_per_inning": 4.170731707317073,
+                "strikeout_rate": 0.2807017543859649,
+                "ERA": 3.951219512195122,
+                "walks_hits_per_inning_pitched": 1.1707317073170733,
+                "strikeouts_per_nine": 10.536585365853659,
+                "walks_per_nine": 3.951219512195122,
+                "home_runs_allowed_per_nine": 0.0,
+                "hits_allowed_per_nine": 6.585365853658537,
+                "strikeouts_to_balls_on_base": 2.6666666666666665,
+                "win_chance_improvement": -19.999999999999996
             }
         },
-        "6805db0cac48194de3cd408b": {
-            "appearances": 53,
+        "6841c5e2554d8039701f1da5": {
             "pitcher": {
-                "batters_faced_per_appearance": 6.017857142857143,
-                "pitches_per_appearance": 20.357142857142858,
-                "innings_pitched": 75.33333333333333,
-                "innings_pitched_per_appearance": 1.3452380952380951,
-                "batters_faced_per_inning": 4.473451327433629,
-                "strikeout_rate": 0.26706231454005935,
-                "ERA": 3.942477876106195,
-                "walks_hits_per_inning_pitched": 1.4601769911504425,
-                "strikeouts_per_nine": 10.752212389380531,
-                "walks_per_nine": 4.18141592920354,
-                "home_runs_allowed_per_nine": 1.4336283185840708,
-                "hits_allowed_per_nine": 8.960176991150442,
-                "strikeouts_to_balls_on_base": 2.5714285714285716,
-                "win_rate": 0.10714285714285714,
-                "win_chance_improvement": 0
+                "innings_pitched": 13.666666666666666,
+                "batters_faced_per_appearance": 31.0,
+                "pitches_per_appearance": 101.0,
+                "innings_pitched_per_appearance": 6.833333333333333,
+                "win_rate": 1.0,
+                "batters_faced_per_inning": 4.536585365853659,
+                "strikeout_rate": 0.24193548387096775,
+                "ERA": 5.2682926829268295,
+                "walks_hits_per_inning_pitched": 1.6097560975609757,
+                "strikeouts_per_nine": 9.878048780487806,
+                "walks_per_nine": 5.926829268292683,
+                "home_runs_allowed_per_nine": 1.975609756097561,
+                "hits_allowed_per_nine": 8.560975609756097,
+                "strikeouts_to_balls_on_base": 1.6666666666666667,
+                "win_chance_improvement": 60.00000000000001
             }
         },
-        "6805db0cac48194de3cd408c": {
-            "appearances": 48,
+        "6841c6f9e63d9bb87288a08c": {
             "pitcher": {
-                "batters_faced_per_appearance": 5.943396226415095,
-                "pitches_per_appearance": 19.88679245283019,
-                "innings_pitched": 69.33333333333333,
-                "innings_pitched_per_appearance": 1.3081761006289307,
-                "batters_faced_per_inning": 4.543269230769231,
-                "strikeout_rate": 0.2571428571428571,
-                "ERA": 5.0625,
-                "walks_hits_per_inning_pitched": 1.6009615384615385,
-                "strikeouts_per_nine": 10.514423076923078,
-                "walks_per_nine": 3.1153846153846154,
-                "home_runs_allowed_per_nine": 1.8173076923076925,
-                "hits_allowed_per_nine": 11.293269230769232,
-                "strikeouts_to_balls_on_base": 3.375,
-                "win_rate": 0.09433962264150944,
+                "batters_faced_per_appearance": 0,
+                "pitches_per_appearance": 0,
+                "innings_pitched_per_appearance": 0,
+                "win_rate": 0,
+                "innings_pitched": 0,
+                "batters_faced_per_inning": 0,
+                "strikeout_rate": 0,
+                "ERA": 0,
+                "walks_hits_per_inning_pitched": 0,
+                "strikeouts_per_nine": 0,
+                "walks_per_nine": 0,
+                "home_runs_allowed_per_nine": 0,
+                "hits_allowed_per_nine": 0,
+                "strikeouts_to_balls_on_base": 0,
                 "win_chance_improvement": 0
+            },
+            "batting": {
+                "hits": 2,
+                "batting_avg": 0.25,
+                "on_base_percentage": 0.25,
+                "slugging": 0.25,
+                "obps": 0.5,
+                "risp_batting_avg": 0.3333333333333333,
+                "risp_improvement": 0.08333333333333331,
+                "risp_diff_percentage": 0.33333333333333326,
+                "isolated_power": 0.0,
+                "at_bats_per_appearance": 4.0,
+                "HRs_per_game": 0.0
+            },
+            "outfield": {
+                "putouts_per_game": 2.0,
+                "range_factor_per_game": 2.0,
+                "risp_diff_percentage": 0,
+                "fielding_percentage": 1.0,
+                "fielding_percentage_risp": 1.0,
+                "fp_risp_improvement": 0.0
             }
         },
-        "6805db0cac48194de3cd408d": {
-            "appearances": 43,
+        "6841c78e896f631e9d68953c": {
             "pitcher": {
-                "batters_faced_per_appearance": 4.86,
-                "pitches_per_appearance": 17.54,
-                "innings_pitched": 57.666666666666664,
-                "innings_pitched_per_appearance": 1.1533333333333333,
-                "batters_faced_per_inning": 4.213872832369942,
-                "strikeout_rate": 0.24279835390946503,
-                "ERA": 3.7456647398843934,
-                "walks_hits_per_inning_pitched": 1.3179190751445087,
-                "strikeouts_per_nine": 9.208092485549134,
-                "walks_per_nine": 4.057803468208093,
-                "home_runs_allowed_per_nine": 1.092485549132948,
-                "hits_allowed_per_nine": 7.803468208092486,
-                "strikeouts_to_balls_on_base": 2.269230769230769,
-                "win_rate": 0.02,
-                "win_chance_improvement": 0
+                "innings_pitched": 13.333333333333334,
+                "batters_faced_per_appearance": 31.0,
+                "pitches_per_appearance": 103.5,
+                "innings_pitched_per_appearance": 6.666666666666667,
+                "win_rate": 0.5,
+                "batters_faced_per_inning": 4.6499999999999995,
+                "strikeout_rate": 0.22580645161290322,
+                "ERA": 5.3999999999999995,
+                "walks_hits_per_inning_pitched": 1.7999999999999998,
+                "strikeouts_per_nine": 9.45,
+                "walks_per_nine": 4.05,
+                "home_runs_allowed_per_nine": 2.025,
+                "hits_allowed_per_nine": 12.149999999999999,
+                "strikeouts_to_balls_on_base": 2.3333333333333335,
+                "win_chance_improvement": -19.999999999999996
             }
         },
-        "6805db0cac48194de3cd408e": {
-            "appearances": 41,
+        "6841c8a008b7fc5e21e8b054": {
             "pitcher": {
-                "batters_faced_per_appearance": 4.177777777777778,
-                "pitches_per_appearance": 15.733333333333333,
-                "innings_pitched": 44.0,
-                "innings_pitched_per_appearance": 0.9777777777777777,
-                "batters_faced_per_inning": 4.272727272727273,
-                "strikeout_rate": 0.30851063829787234,
-                "ERA": 4.295454545454546,
-                "walks_hits_per_inning_pitched": 1.3636363636363635,
-                "strikeouts_per_nine": 11.863636363636363,
-                "walks_per_nine": 4.5,
-                "home_runs_allowed_per_nine": 0.8181818181818182,
-                "hits_allowed_per_nine": 7.7727272727272725,
-                "strikeouts_to_balls_on_base": 2.6363636363636362,
-                "win_rate": 0.022222222222222223,
-                "win_chance_improvement": 0
+                "innings_pitched": 0.0,
+                "batters_faced_per_appearance": 0,
+                "pitches_per_appearance": 0,
+                "innings_pitched_per_appearance": 0,
+                "win_rate": 0,
+                "batters_faced_per_inning": 0,
+                "strikeout_rate": 0,
+                "ERA": 0,
+                "walks_hits_per_inning_pitched": 0,
+                "strikeouts_per_nine": 0,
+                "walks_per_nine": 0,
+                "home_runs_allowed_per_nine": 0,
+                "hits_allowed_per_nine": 0,
+                "strikeouts_to_balls_on_base": 0,
+                "win_chance_improvement": -100.0
+            }
+        },
+        "6841e93ef7b5d3bf791d6ce0": {
+            "pitcher": {
+                "innings_pitched": 3.6666666666666665,
+                "batters_faced_per_appearance": 3.4,
+                "pitches_per_appearance": 13.6,
+                "innings_pitched_per_appearance": 0.7333333333333333,
+                "win_rate": 0.0,
+                "batters_faced_per_inning": 4.636363636363637,
+                "strikeout_rate": 0.4117647058823529,
+                "ERA": 4.909090909090909,
+                "walks_hits_per_inning_pitched": 1.6363636363636365,
+                "strikeouts_per_nine": 17.181818181818183,
+                "walks_per_nine": 2.4545454545454546,
+                "home_runs_allowed_per_nine": 0.0,
+                "hits_allowed_per_nine": 12.272727272727273,
+                "strikeouts_to_balls_on_base": 7.0,
+                "win_chance_improvement": -100.0
+            }
+        },
+        "6841ed16ec9dc637cfd0d0cc": {
+            "pitcher": {
+                "innings_pitched": 4.666666666666667,
+                "batters_faced_per_appearance": 3.8,
+                "pitches_per_appearance": 12.2,
+                "innings_pitched_per_appearance": 0.9333333333333333,
+                "win_rate": 0.0,
+                "batters_faced_per_inning": 4.071428571428571,
+                "strikeout_rate": 0.21052631578947367,
+                "ERA": 3.8571428571428568,
+                "walks_hits_per_inning_pitched": 1.2857142857142856,
+                "strikeouts_per_nine": 7.7142857142857135,
+                "walks_per_nine": 1.9285714285714284,
+                "home_runs_allowed_per_nine": 3.8571428571428568,
+                "hits_allowed_per_nine": 9.642857142857142,
+                "strikeouts_to_balls_on_base": 4.0,
+                "win_chance_improvement": -100.0
+            }
+        },
+        "6841ed7f183c892d88a102a6": {
+            "pitcher": {
+                "innings_pitched": 4.666666666666667,
+                "batters_faced_per_appearance": 5.5,
+                "pitches_per_appearance": 17.0,
+                "innings_pitched_per_appearance": 1.1666666666666667,
+                "win_rate": 0.0,
+                "batters_faced_per_inning": 4.714285714285714,
+                "strikeout_rate": 0.18181818181818182,
+                "ERA": 5.785714285714286,
+                "walks_hits_per_inning_pitched": 1.5,
+                "strikeouts_per_nine": 7.7142857142857135,
+                "walks_per_nine": 3.8571428571428568,
+                "home_runs_allowed_per_nine": 1.9285714285714284,
+                "hits_allowed_per_nine": 9.642857142857142,
+                "strikeouts_to_balls_on_base": 2.0,
+                "win_chance_improvement": -100.0
+            }
+        },
+        "6841edf0ed58166c1895b115": {
+            "pitcher": {
+                "innings_pitched": 8.0,
+                "batters_faced_per_appearance": 4.833333333333333,
+                "pitches_per_appearance": 15.666666666666666,
+                "innings_pitched_per_appearance": 1.3333333333333333,
+                "win_rate": 0.0,
+                "batters_faced_per_inning": 3.625,
+                "strikeout_rate": 0.3448275862068966,
+                "ERA": 0.0,
+                "walks_hits_per_inning_pitched": 0.625,
+                "strikeouts_per_nine": 11.25,
+                "walks_per_nine": 0.0,
+                "home_runs_allowed_per_nine": 0.0,
+                "hits_allowed_per_nine": 5.625,
+                "strikeouts_to_balls_on_base": 0,
+                "win_chance_improvement": -100.0
             }
         }
     }
