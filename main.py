@@ -3,32 +3,32 @@ import polars as pl
 from utils import Utils
 
 chicken_id = '680e477a7d5b06095ef46ad1'
-lady_beetles = '6805db0cac48194de3cd407c'
-seers = '6805db0cac48194de3cd40b5'
 
-# beetles = scs.Team(lady_beetles)
-# seers = scs.Team(seers)
+avg_pa_per_game = 3.73
+
 chicken = scs.Team(chicken_id)
-
-# sample_players = {
-#     'kibbles_swift':seers.players[seers.player_ids['Kibbles Swift']],
-#     'taylor_mogensen':seers.players[seers.player_ids['Taylor Mogensen']],
-#     'fizz_kaneko':seers.players[seers.player_ids['Fizz Kaneko']],
-#     'null_baba':seers.players[seers.player_ids['Null Baba']]
-#     }
-
+times = scs.Team('6808c4dd905315bd0634a26d')
 wildcard_team = chicken
-wildcard_sample = wildcard_team.players[wildcard_team.player_ids['Daniel Breen']]
+wildcard_sample = wildcard_team.players[wildcard_team.player_ids['Loretta Vogt']]
 
-pitching_df = chicken.get_position_df(position='pitching')
-Utils.print_all_cols(pitching_df)
+def position_dfs(team):
+    print(Utils.printout_header(team.name,'*~'))
+    performance_dfs = team.get_position_df()
+    print(Utils.printout_header('Fielding'))
+    Utils.print_all_cols(performance_dfs[0])
+    print(Utils.printout_header('Hitting'))
+    Utils.print_all_cols(performance_dfs[1])
+    print(Utils.printout_header('Pitching'))
+    Utils.print_all_cols(performance_dfs[2])
 
-print(Utils.printout_header(wildcard_sample.name,'<>'))
-print(f'{wildcard_sample.stats}')
-print(f'Team record main: {chicken.record}')
-chicken.inspect_player(wildcard_sample.name)
+position_dfs(wildcard_team)
+#position_dfs(times)
 
-# print(Utils.access_csv('team_rankings.csv'))
+#Utils.print_all_rows(chicken.inspect_player(wildcard_sample.name))
+Utils.print_all_rows(chicken.inspect_keyword('insight'))
+# chicken.inspect_all()
 
+# print(Utils.printout_header(wildcard_sample.name,'<>'))
+# print(wildcard_sample.position)
+# print(f'{wildcard_sample.stats}')
 
-# TODO: stat lists for simplified_positions, implementing calculations, appending to player data
