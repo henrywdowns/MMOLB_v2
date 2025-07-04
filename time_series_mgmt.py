@@ -1,8 +1,3 @@
-"""TODO: GAME_HISTORY_HANDLER needs to check for json and if none, create
-then find/create team ID as key, and scan game_history. wherever the most recent
-day is, take note of that day, then get_day() starting from then until get_day() returns None
-"""
-
 
 import requests
 from utils import Utils
@@ -92,23 +87,50 @@ class TimeSeries:
             print('No matching ID')
             day_data = None
         return day_data
-    
-    def build_game_history(self, season = None):
+
+    def build_game_history(self, start = 0, season = None):
         game_id_list = []
         if not season:
             season = len(self.calendar) - 1
         print(len(self.calendar))
-        for x in range(2,len(self.calendar[season][1]),2):
-            game_id_list.append(self.get_day(x)['Games']['GameID'])
+        for x in range(start,len(self.calendar[season][1]),2):
+            try:
+                game_id = self.get_day(x)['Games']['GameID']
+                game_id_list.append(game_id)
+            except:
+                break
         print(game_id_list)
         return game_id_list
 
-    def handle_game_history(self):
+
+    """
+    TODO: GAME_HISTORY_HANDLER needs to check for json and if none, create
+    then find/create team ID as key, and scan game_history. wherever the most recent
+    day is, take note of that day, then get_day() starting from then until get_day() returns None
+    """
+    
+
+    def handle_game_history(self, league = 'lesser'):
+        # attempt to access a game history file, then attempt to access data for team_id.
+        game_history = {}
+
         try:
             game_history_json = Utils.access_json('game_history.json')
             if game_history_json.get(self.team_id):
+                game_history = game_history_json.get(self.team_id)
+
         except:
-            
+            Utils.write_json('game_history.json',{self.team_id: game_history})
+
+        last_game = len(game_history) * 2
+        if league == 'greater':
+            last_game -= 1
+        
+        safety = 0
+        while True:
+            safety += 1
+            if safety > 400:
+                break
 
     
 if __name__ == '__main__':
@@ -116,4 +138,4 @@ if __name__ == '__main__':
     print(Utils.printout_header('Day 52'))
     print(chicken_day.get_day(52))
 
-    chicken_day.build_game_history()
+    chicken_day.handle_game_history()
