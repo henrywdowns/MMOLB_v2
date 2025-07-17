@@ -35,6 +35,25 @@ class Utils:
             json.dump(data,f,indent=4)
         if debug: 
             print(f'File {exists} at {filename}.')
+
+    @staticmethod
+    def write_or_access_json(filename: str, data: dict = None, debug: bool = False) -> None:
+        file = Utils.access_json(filename)
+        if debug:
+            print(file)
+        if not file:
+            print('File not found.')
+            file = {}
+            if not data:
+                Utils.write_json(filename,file,debug)
+                print(f'Empty file {filename} created.')
+            else:
+                Utils.write_json(filename,data,debug)
+                print(f'Data saved to file {filename}.')
+            return file
+        print(f'{filename} found.')
+        return file
+
     
     @staticmethod
     def ensure_nested_dict(container: dict, *keys) -> dict:

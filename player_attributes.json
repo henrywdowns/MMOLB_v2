@@ -1,0 +1,105 @@
+{
+    "Edith Leon": {
+        "Pitching": {
+            "Accuracy": 0,
+            "Control": 2,
+            "Defiance": 4,
+            "Guts": 0,
+            "Persuasion": 6,
+            "Presence": 1,
+            "Rotation": 4,
+            "Stamina": 4,
+            "Stuff": 0,
+            "Velocity": 3
+        }
+    },
+    "Annette Galloway": {
+        "Hitting": {
+            "Aiming": 3,
+            "Contact": 1,
+            "Cunning": 0,
+            "Determination": 0,
+            "Discipline": 3,
+            "Insight": 3,
+            "Intimidation": 2,
+            "Lift": 3,
+            "Muscle": 2,
+            "Selflessness": 1,
+            "Vision": 4,
+            "Wisdom": 1
+        }
+    },
+    "Daniel Breen": {
+        "Hitting": {
+            "Aiming": 3,
+            "Contact": 3,
+            "Cunning": 4,
+            "Determination": 0,
+            "Discipline": 4,
+            "Insight": 2,
+            "Intimidation": 4,
+            "Lift": 4,
+            "Muscle": 3,
+            "Selflessness": 3,
+            "Vision": 3,
+            "Wisdom": 3
+        }
+    },
+    "Mamie Mitra": {
+        "Hitting": {
+            "Aiming": 4,
+            "Contact": 3,
+            "Cunning": 3,
+            "Determination": 1,
+            "Discipline": 2,
+            "Insight": 4,
+            "Intimidation": 3,
+            "Lift": 3,
+            "Muscle": 2,
+            "Selflessness": 1,
+            "Vision": 2,
+            "Wisdom": 2
+        },
+        "Defense/Baserunning": {
+            "Baserunning": 1,
+            "Defense": 2
+        }
+    },
+    "Loretta Vogt": {
+        "Hitting": {
+            "Aiming": 3,
+            "Contact": 3,
+            "Cunning": 1,
+            "Determination": 1,
+            "Discipline": 4,
+            "Insight": 3,
+            "Intimidation": 4,
+            "Lift": 2,
+            "Muscle": 4,
+            "Selflessness": 1,
+            "Vision": 0,
+            "Wisdom": 2
+        }
+    },
+    "Cintia Blackburn": {
+        "Hitting": {
+            "Aiming": 1,
+            "Contact": 3,
+            "Cunning": 3,
+            "Determination": 3,
+            "Discipline": 0,
+            "Insight": 4,
+            "Intimidation": 0,
+            "Lift": 2,
+            "Muscle": 1,
+            "Selflessness": 1,
+            "Vision": 3,
+            "Wisdom": 3
+        },
+        "Defense/Baserunning": {
+            "Baserunning": 1,
+            "Defense": 2
+        }
+    }
+    
+}

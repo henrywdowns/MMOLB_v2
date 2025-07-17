@@ -4,6 +4,7 @@ from utils import Utils
 
 chicken_id = '680e477a7d5b06095ef46ad1'
 base_url = 'https://mmolb.com/api/'
+base_game = f'{base_url}/game/'
 
 r = requests.get(f'{base_url}/team/{chicken_id}')
 
@@ -99,8 +100,7 @@ class TimeSeries:
                 game_id_list.append(game_id)
             except:
                 break
-        print(game_id_list)
-        return game_id_list
+                
 
 
     """
@@ -113,7 +113,7 @@ class TimeSeries:
     def handle_game_history(self, league = 'lesser'):
         # attempt to access a game history file, then attempt to access data for team_id.
         game_history = {}
-
+        game_id_list = []
         try:
             game_history_json = Utils.access_json('game_history.json')
             if game_history_json.get(self.team_id):
@@ -131,11 +131,25 @@ class TimeSeries:
             safety += 1
             if safety > 400:
                 break
+            for day in self.make_cal():
+                if day%2 == 0:
+                    game_id_list.append(self.get_day(day))
+
+                    '''for game_id in game_id_list:
+            x = 0
+            x +=1
+            game_log = requests.json(f'{base_game}/{game_id}')
+            if x < 3:
+                print(game_log)'''
+
+
 
     
 if __name__ == '__main__':
     chicken_day = TimeSeries(chicken_id)
-    print(Utils.printout_header('Day 52'))
-    print(chicken_day.get_day(52))
+    test_day = chicken_day.get_day(52,season=2)
+    print(Utils.printout_header(f'Day {test_day['Day']}'))
+    print(test_day)
+    print(test_day['Games'])
 
-    chicken_day.handle_game_history()
+    #chicken_day.handle_game_history()

@@ -9,7 +9,8 @@ avg_pa_per_game = 3.73
 chicken = scs.Team(chicken_id)
 times = scs.Team('6808c4dd905315bd0634a26d')
 wildcard_team = chicken
-wildcard_sample = wildcard_team.players[wildcard_team.player_ids['Loretta Vogt']]
+wildcard_sample = wildcard_team.players[wildcard_team.player_ids['Michelle Hurst']]
+
 
 def position_dfs(team):
     print(Utils.printout_header(team.name,'*~'))
@@ -24,8 +25,8 @@ def position_dfs(team):
 position_dfs(wildcard_team)
 #position_dfs(times)
 
-#Utils.print_all_rows(chicken.inspect_player(wildcard_sample.name))
-Utils.print_all_rows(chicken.inspect_keyword('insight'))
+Utils.print_all_rows(chicken.inspect_player(wildcard_sample.name))
+Utils.print_all_rows(chicken.inspect_keyword('convincing'))
 # chicken.inspect_all()
 
 # print(Utils.printout_header(wildcard_sample.name,'<>'))
