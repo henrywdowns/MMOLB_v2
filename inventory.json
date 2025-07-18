@@ -7,5 +7,73 @@
     "Mighty Ring of Patience": {
         "Patience": 19,
         "Muscle": 19
+    },
+    "Lost Mentions T-Shirt": {
+        "Lift": 10,
+        "Selflessness": 11,
+        "Dexterity": 20,
+        "Agility": 19
+    },
+    "Lofty Cap of Skill": {
+        "Lift": 13,
+        "Dexterity": 11
+    },
+    "Clever Gloves of Awareness": {
+        "Awareness": 14,
+        "Cunning": 8
+    },
+    "Mighty Sneakers of Reflexes": {
+        "Muscle": 15,
+        "Reaction": 10
+    },
+    "Consistent Ring of Patience": {
+        "Contact": 19,
+        "Patience": 11
+    },
+    "Stalwart Cap of Reflexes": {
+        "Determination": 19,
+        "Reaction": 14
+    },
+    "Wise Gloves of the Acrobat": {
+        "Wisdom": 15,
+        "Acrobatics": 8
+    },
+    "Swift Sneakers of Fortune": {
+        "Luck": 7,
+        "Speed": 8
+    },
+    "Lofty Cap of Reflexes": {
+        "Lift": 14,
+        "Reaction": 12
+    },
+    "Eagle-eyed T-Shirt of Skill": {
+        "Vision": 17,
+        "Dexterity": 15
+    },
+    "Mighty Gloves of Calm": {
+        "Composure": 10,
+        "Muscle": 6
+    },
+    "Lofty Sneakers of the Acrobat": {
+        "Lift": 19,
+        "Dexterity": 20
+    },
+    "Sneaky Ring of Calm": {
+        "Stealth": 11,
+        "Composure": 14
+    },
+    "Menacing Cap of Awareness": {
+        "Intimidation": 5,
+        "Awareness": 17
+    },
+    "Healthy Suspicions Sneakers": {
+        "Contact": 7,
+        "Selflessness": 10,
+        "Composure": 10,
+        "Reaction": 11
+    },
+    "Clever Ring of Patience": {
+        "Patience": 9,
+        "Cunning": 16
     }
 }

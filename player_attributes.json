@@ -13,6 +13,38 @@
             "Velocity": 3
         }
     },
+    "Lena Shimada": {
+        "Pitching": {
+            "Accuracy": 3,
+            "Control": 4,
+            "Defiance": 4,
+            "Guts": 2,
+            "Persuasion": 4,
+            "Presence": 2,
+            "Rotation": 1,
+            "Stamina": 3,
+            "Stuff": 1,
+            "Velocity": 3
+        }
+    },
+    "Mila Takeover": {
+        "Pitching": {
+            "Accuracy": 1,
+            "Control": 3,
+            "Defiance": 2,
+            "Guts": 3,
+            "Persuasion": 3,
+            "Presence": 3,
+            "Rotation": 2,
+            "Stamina": 1,
+            "Stuff": 3,
+            "Velocity": 2
+        },
+        "Defense/Baserunning": {
+            "Baserunning": 3,
+            "Defense": 3
+        }
+    },
     "Annette Galloway": {
         "Hitting": {
             "Aiming": 3,

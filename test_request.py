@@ -53,13 +53,13 @@ def get_day(day_id, team_id = chicken_id):
 
 # print(game.json())
 
-#print(r.json().keys())
+print(r.json()['Modifications'])
 #print(r.json()['SeasonRecords'])
 #print(get_season('6874db85d759dcb31e10a62a'))
 #print(get_day('6874db84d759dcb31e10a53b'))
 #print(cashews_get_game('6874e3b1d759dcb31e10a64e'))
-game_id = '6874db84d759dcb31e10a53a'
-game_attempt = requests.get(f'https://mmolb.com/schedule/{game_id}')
-print(game_attempt.text)
+# game_id = '6874db84d759dcb31e10a53a'
+# game_attempt = requests.get(f'https://mmolb.com/schedule/{game_id}')
+# print(game_attempt.text)
 
-print(requests.get('https://mmolb.com/api/game/687561c56154982c31f5cc7c').json())
+# print(requests.get('https://mmolb.com/api/game/687561c56154982c31f5cc7c').json())

@@ -7,9 +7,8 @@ chicken_id = '680e477a7d5b06095ef46ad1'
 avg_pa_per_game = 3.73
 
 chicken = scs.Team(chicken_id)
-times = scs.Team('6808c4dd905315bd0634a26d')
 wildcard_team = chicken
-wildcard_sample = wildcard_team.players[wildcard_team.player_ids['Michelle Hurst']]
+wildcard_sample = wildcard_team.players[wildcard_team.player_ids['Edith Leon']]
 
 
 def position_dfs(team):

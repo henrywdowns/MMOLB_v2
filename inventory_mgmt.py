@@ -55,6 +55,7 @@ class Inventory:
     
     def save_inventory(self) -> None:
         Utils.write_json('inventory.json',self.inventory)
+        print('Inventory saved.')
 
     def evaluate_build(self,names:list = []):
         agg_dict = {category: 0 for category in self.categories}
@@ -68,4 +69,6 @@ class Inventory:
 
 if __name__ == '__main__':
     inv = Inventory()
-    print(inv.evaluate_build(['Industrial Slope Ring','Mighty Ring of Patience']))
+    # down through rick somersbyshire
+    print(inv.evaluate_build([v for v in inv.get_inventory().keys()]))
+    
