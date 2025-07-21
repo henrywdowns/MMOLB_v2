@@ -33,8 +33,10 @@ class Team:
             self.team_data = check_local
             self.stored_locally = True
         else:
-            print('No local data found - requesting data from API.')
+            print('No recent local data found - requesting data from API.')
             self.team_data = requests.get(f'{base_url}/{team_id}').json()
+            # teams_json = Utils.access_json('teams.json')
+            # teams_json['self.id'] = self.team_data
         self.league = self.team_data['League']
         try:
             self.record = self.team_data['Record']['Regular Season']

@@ -13,6 +13,76 @@
             "Velocity": 3
         }
     },
+    "Robin Stoica": {
+        "Pitching": {
+            "Accuracy": 3,
+            "Control": 3,
+            "Defiance": 1,
+            "Guts": 4,
+            "Persuasion": 1,
+            "Presence": 2,
+            "Rotation": 0,
+            "Stamina": 3,
+            "Stuff": 4,
+            "Velocity": 3
+        }
+    },
+    "Amanda Huylroyce": {
+        "Pitching": {
+            "Accuracy": 3,
+            "Control": 1,
+            "Defiance": 3,
+            "Guts": 3,
+            "Persuasion": 4,
+            "Presence": 3,
+            "Rotation": 2,
+            "Stamina": 1,
+            "Stuff": 1,
+            "Velocity": 4
+        }
+    },
+    "Boots May": {
+        "Pitching": {
+            "Accuracy": 3,
+            "Control": 1,
+            "Defiance": 3,
+            "Guts": 2,
+            "Persuasion": 3,
+            "Presence": 3,
+            "Rotation": 4,
+            "Stamina": 3,
+            "Stuff": 3,
+            "Velocity": 1
+        }
+    },
+    "Elvis Fukuda": {
+        "Pitching": {
+            "Accuracy": 3,
+            "Control": 3,
+            "Defiance": 2,
+            "Guts": 1,
+            "Persuasion": 3,
+            "Presence": 3,
+            "Rotation": 2,
+            "Stamina": 2,
+            "Stuff": 3,
+            "Velocity": 4
+        }
+    },
+    "Floyd Lincecum": {
+        "Pitching": {
+            "Accuracy": 1,
+            "Control": 2,
+            "Defiance": 0,
+            "Guts": 1,
+            "Persuasion": 0,
+            "Presence": 2,
+            "Rotation": 2,
+            "Stamina": 0,
+            "Stuff": 4,
+            "Velocity": 4
+        }
+    },
     "Lena Shimada": {
         "Pitching": {
             "Accuracy": 3,
@@ -25,6 +95,42 @@
             "Stamina": 3,
             "Stuff": 1,
             "Velocity": 3
+        },
+        "Defense": {
+            "Acrobatics": 1,
+            "Agility": 3,
+            "Arm": 3,
+            "Awareness": 3,
+            "Composure": 2,
+            "Dexterity": 3,
+            "Luck": 3,
+            "Patience": 3,
+            "Reaction": 0
+        }
+    },
+    "Avery Stark": {
+        "Pitching": {
+            "Accuracy": 3,
+            "Control": 2,
+            "Defiance": 3,
+            "Guts": 3,
+            "Persuasion": 0,
+            "Presence": 3,
+            "Rotation": 2,
+            "Stamina": 1,
+            "Stuff": 5,
+            "Velocity": 2
+        },
+        "Defense": {
+            "Acrobatics": 1,
+            "Agility": 2,
+            "Arm": 5,
+            "Awareness": 2,
+            "Composure": 0,
+            "Dexterity": 4,
+            "Luck": 1,
+            "Patience": 1,
+            "Reaction": 1
         }
     },
     "Mila Takeover": {
@@ -40,9 +146,30 @@
             "Stuff": 3,
             "Velocity": 2
         },
-        "Defense/Baserunning": {
+        "Defense": {
             "Baserunning": 3,
-            "Defense": 3
+            "Defense": 3,
+            "Dexterity":"?",
+            "Acrobatics":"?",
+            "Stealth":"?",
+            "Luck":"?",
+            "Stealth":"?"
+        }
+    },
+    "Kobe Carmichael": {
+        "Hitting": {
+            "Aiming": 1,
+            "Contact": 0,
+            "Cunning": 4,
+            "Determination": 3,
+            "Discipline": 3,
+            "Insight": 1,
+            "Intimidation": 1,
+            "Lift": 2,
+            "Muscle": 2,
+            "Selflessness": 0,
+            "Vision": 2,
+            "Wisdom": 1
         }
     },
     "Annette Galloway": {
@@ -61,6 +188,22 @@
             "Wisdom": 1
         }
     },
+    "Dwight Moreland": {
+        "Hitting": {
+            "Aiming": 2,
+            "Contact": 4,
+            "Cunning": 0,
+            "Determination": 3,
+            "Discipline": 0,
+            "Insight": 1,
+            "Intimidation": 1,
+            "Lift": 1,
+            "Muscle": 4,
+            "Selflessness": 2,
+            "Vision": 3,
+            "Wisdom": 3
+        }
+    },
     "Daniel Breen": {
         "Hitting": {
             "Aiming": 3,
@@ -75,6 +218,22 @@
             "Selflessness": 3,
             "Vision": 3,
             "Wisdom": 3
+        }
+    },
+    "Jared Mann": {
+        "Hitting": {
+            "Aiming": 3,
+            "Contact": 1,
+            "Cunning": 3,
+            "Determination": 3,
+            "Discipline": 0,
+            "Insight": 1,
+            "Intimidation": 3,
+            "Lift": 2,
+            "Muscle": 3,
+            "Selflessness": 2,
+            "Vision": 2,
+            "Wisdom": 0
         }
     },
     "Mamie Mitra": {
@@ -92,7 +251,7 @@
             "Vision": 2,
             "Wisdom": 2
         },
-        "Defense/Baserunning": {
+        "Defense": {
             "Baserunning": 1,
             "Defense": 2
         }
@@ -128,9 +287,46 @@
             "Vision": 3,
             "Wisdom": 3
         },
-        "Defense/Baserunning": {
+        "Defense": {
             "Baserunning": 1,
             "Defense": 2
+        }
+    },
+    "DVD Nygaard": {
+        "Hitting": {
+            "Aiming": 4,
+            "Contact": 3,
+            "Cunning": 2,
+            "Determination": 3,
+            "Discipline": 2,
+            "Insight": 3,
+            "Intimidation": 3,
+            "Lift": 1,
+            "Muscle": 3,
+            "Selflessness": 2,
+            "Vision": 1,
+            "Wisdom": 1
+        },
+        "Defense": {
+            "Baserunning": 2,
+            "Defense": 2,
+            "Luck": 2
+        }
+    },
+    "Rick Somersbyshire": {
+        "Hitting": {
+            "Aiming": 4,
+            "Contact": 3,
+            "Cunning": 3,
+            "Determination": 3,
+            "Discipline": 2,
+            "Insight": 4,
+            "Intimidation": 5,
+            "Lift": 0,
+            "Muscle": 3,
+            "Selflessness": 0,
+            "Vision": 4,
+            "Wisdom": 4
         }
     }
     

@@ -20,28 +20,49 @@ class Inventory:
         for category in self.categories:
             self.categories[category] = sorted(list(self.categories[category]))
 
-    def evaluate_stats(self, stats: dict) -> dict:
+    def evaluate_stats(self, stats: dict | list[dict]) -> dict:
         agg_dict = {category: 0 for category in self.categories}
-        for stat in stats.keys():
-            for cat, val in self.categories.items():
-                if stat in val:
-                    agg_dict[cat] += stats[stat]
+        
+        if isinstance(stats, dict):
+            stats_list = [stats]
+        elif isinstance(stats, list):
+            stats_list = stats
+        else:
+            raise TypeError("Unsupported type for stats; expected dict or list of dicts.")
+
+        for stat_block in stats_list:
+            for stat in stat_block:
+                for cat, val in self.categories.items():
+                    if stat in val:
+                        agg_dict[cat] += stat_block[stat]
+
         return agg_dict
 
     def add_inventory(self, name: str, stats: dict, eval: bool = True, dupe: bool = False) -> dict:
-        if not self.inventory.get(name):
+        existing = self.inventory.get(name)
+        if not existing:
             self.inventory[name] = stats
+            print(f'Added {name} to inventory.')
         else:
-            if self.inventory[name] == stats and dupe == False:
-                print(f'Name and value for {name} already exist in dict. Use dupe=True to add anyway.')
+            existing_list = (
+                [existing] if isinstance(existing, dict) else existing
+            )
+            if stats in existing_list and not dupe:
+                print(f'{name} with identical stats already exists. Use dupe=True to force add.')
                 return self.inventory
-            if isinstance(self.inventory, str):
-                temp = self.inventory[name]
-                self.inventory[name] = [temp]
-            self.inventory[name].append(stats)
-        print(f'Added {name} to inventory.')
+            if isinstance(existing, dict):
+                self.inventory[name] = [existing, stats]
+            else:
+                self.inventory[name].append(stats)
+            print(f'Added another version of {name} to inventory.')
         if eval:
             self.evaluate_stats(stats)
+        return self.inventory
+
+
+    def bulk_add(self,inv_list:list) -> dict:
+        for item in list:
+            self.add_inventory(item)
         return self.inventory
     
     def get_inventory(self, name=None):
@@ -69,6 +90,7 @@ class Inventory:
 
 if __name__ == '__main__':
     inv = Inventory()
-    # down through rick somersbyshire
+    # updated down through elvis fukuda
+    print(inv.get_inventory())
+    print(inv.evaluate_stats(inv.inventory['Industrial Slope Ring']))
     print(inv.evaluate_build([v for v in inv.get_inventory().keys()]))
-    

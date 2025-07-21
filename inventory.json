@@ -75,5 +75,177 @@
     "Clever Ring of Patience": {
         "Patience": 9,
         "Cunning": 16
+    },
+    "Unique Seller Gloves": {
+        "Cunning": 15,
+        "Acrobatics": 8,
+        "Patience": 19
+    },
+    "Heckin Pangaea Cap": {
+        "Greed": 8,
+        "Aiming": 19,
+        "Agility": 17,
+        "Dexterity": 8
+    },
+    "Courageous Cap of Awareness": {
+        "Guts": 7,
+        "Awareness": 16
+    },
+    "Insightful Sneakers of the Acrobat": {
+        "Acrobatics": 6,
+        "Insight": 5
+    },
+    "Mighty Ring of the Cannon": {
+        "Arm": 16,
+        "Muscle": 15
+    },
+    "Swift Cap of the Cat": {
+        "Speed": 14,
+        "Agility": 5
+    },
+    "Clever T-Shirt of the Cat": {
+        "Cunning": 14,
+        "Agility": 19
+    },
+    "Selfless Sneakers of Reflexes": {
+        "Selflessness": 8,
+        "Reaction": 10
+    },
+    "Stalwart Ring of Reflexes": {
+        "Reaction": 17,
+        "Determination": 5
+    },
+    "Consistent Cap of the Cannon": {
+        "Contact": 5,
+        "Arm": 5
+    },
+    "Mighty Gloves of the Cannon": {
+        "Muscle": 19,
+        "Arm": 19
+    },
+    "Consistent Sneakers of Reflexes": {
+        "Contact": 13,
+        "Reaction": 6
+    },
+    "Precise Cap of Fortune": {
+        "Control": 6,
+        "Luck": 7
+    },
+    "Avaricious T-Shirt of Calm": {
+        "Composure": 10,
+        "Greed": 8
+    },
+    "Dazzling Gloves of Patience": {
+        "Performance": 19,
+        "Patience": 6
+    },
+    "Menacing Sneakers of Fortune": {
+        "Luck": 7,
+        "Intimidation": 19
+    },
+    "Lofty Ring of Calm": {
+        "Composure": 6,
+        "Lift": 20
+    },
+    "Dazzling Cap of Fortune": {
+        "Performance": 14,
+        "Luck": 17
+    },
+    "Wise Sneakers of the Cannon": [
+        {
+            "Arm": 20,
+            "Wisdom": 12
+        },
+        {
+            "Wisdom": 9,
+            "Arm": 6
+        }
+    ],
+    "Rebellious Cap of Awareness": {
+        "Awareness": 15,
+        "Defiance": 18
+    },
+    "Commanding T-Shirt of Reflexes": [
+        {
+            "Reaction": 9,
+            "Presence": 14
+        },
+        {
+            "Presence": 8,
+            "Reaction": 16
+        }
+    ],
+    "Whirling Gloves of Patience": {
+        "Rotation": 17,
+        "Patience": 20
+    },
+    "Enduring Ring of Reflexes": {
+        "Stamina": 13,
+        "Reaction": 9
+    },
+    "Commanding Cap of the Cannon": {
+        "Presence": 12,
+        "Arm": 11
+    },
+    "Legitimate Guideline T-Shirt": {
+        "Velocity": 20,
+        "Agility": 15,
+        "Acrobatics": 14
+    },
+    "Courageous Glvoes of Patience": {
+        "Patience": 16,
+        "Guts": 19
+    },
+    "Whirling Sneakers of the Cat": {
+        "Agility": 20,
+        "Rotation": 18
+    },
+    "True Ring of Calm": {
+        "Accuracy": 20,
+        "Composure": 6
+    },
+    "Courageous Cap of Reflexes": {
+        "Guts": 13,
+        "Reaction": 19
+    },
+    "True Gloves of the Cat": {
+        "Agility": 13,
+        "Accuracy": 13
+    },
+    "Whirling Sneakers of Awareness": {
+        "Rotation": 13,
+        "Awareness": 17
+    },
+    "Courageous Cap of the Cannon": {
+        "Arm": 16,
+        "Guts": 5
+    },
+    "Filthy Gloves of the Cannon": {
+        "Stuff": 18,
+        "Arm": 16
+    },
+    "Charming Sneakers of the Cannon": {
+        "Persuasion": 14,
+        "Arm": 5
+    },
+    "Charming Ring of Fortune": {
+        "Persuasion": 19,
+        "Luck": 6
+    },
+    "Rebellious Cap of Calm": {
+        "Defiance": 11,
+        "Composure": 20
+    },
+    "Precise T-Shirt of Reflexes": {
+        "Control": 8,
+        "Reaction": 20
+    },
+    "Rapid Sneakers of the Acrobat": {
+        "Velocity": 17,
+        "Acrobatics": 14
+    },
+    "Rebellious Ring of Calm": {
+        "Composure": 16,
+        "Defiance": 5
     }
 }
