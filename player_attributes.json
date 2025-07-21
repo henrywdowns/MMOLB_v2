@@ -256,6 +256,27 @@
             "Defense": 2
         }
     },
+    "Bryan Magomedov": {
+        "Hitting": {
+            "Aiming": 2,
+            "Contact": 1,
+            "Cunning": 1,
+            "Determination": 4,
+            "Discipline": 2,
+            "Insight": 3,
+            "Intimidation": 2,
+            "Lift": 4,
+            "Luck": 4,
+            "Muscle": 3,
+            "Selflessness": 2,
+            "Vision": 4,
+            "Wisdom": 1
+        },
+        "Defense": {
+            "Baserunning": 2,
+            "Defense": 2
+        }
+    },
     "Loretta Vogt": {
         "Hitting": {
             "Aiming": 3,
