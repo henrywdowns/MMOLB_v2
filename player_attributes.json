@@ -13,6 +13,20 @@
             "Velocity": 3
         }
     },
+    "Maggie Kurti": {
+        "Pitching": {
+            "Accuracy": 3,
+            "Control": 1,
+            "Defiance": 2,
+            "Guts": 4,
+            "Persuasion": 4,
+            "Presence": 4,
+            "Rotation": 2,
+            "Stamina": 4,
+            "Stuff": 1,
+            "Velocity": 1
+        }
+    },
     "Robin Stoica": {
         "Pitching": {
             "Accuracy": 3,
@@ -135,24 +149,24 @@
     },
     "Mila Takeover": {
         "Pitching": {
-            "Accuracy": 1,
-            "Control": 3,
+            "Accuracy": 3,
+            "Control": 1,
             "Defiance": 2,
-            "Guts": 3,
-            "Persuasion": 3,
-            "Presence": 3,
+            "Guts": 4,
+            "Persuasion": 4,
+            "Presence": 4,
             "Rotation": 2,
-            "Stamina": 1,
-            "Stuff": 3,
-            "Velocity": 2
+            "Stamina": 4,
+            "Stuff": 1,
+            "Velocity": 1
         },
         "Defense": {
-            "Baserunning": 3,
-            "Defense": 3,
+            "Baserunning": 2,
+            "Defense": 2,
             "Dexterity":"?",
             "Acrobatics":"?",
             "Stealth":"?",
-            "Luck":"?",
+            "Luck": 3,
             "Stealth":"?"
         }
     },
