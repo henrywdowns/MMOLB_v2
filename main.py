@@ -31,4 +31,3 @@ Utils.print_all_rows(chicken.inspect_keyword('convincing'))
 # print(Utils.printout_header(wildcard_sample.name,'<>'))
 # print(wildcard_sample.position)
 # print(f'{wildcard_sample.stats}')
-
