@@ -4,7 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib import colors
 
-mode = "Hitting"
+mode = "Pitching"
 
 def load_data(path: str) -> dict:
     with open(path, 'r') as f:
@@ -28,7 +28,7 @@ def main():
             }
         }
     }
-    
+
     df = pd.DataFrame.from_dict(
         {player: stats[mode]
          for player, stats in data.items()

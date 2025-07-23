@@ -22,19 +22,15 @@ class Inventory:
 
     def evaluate_stats(self, stats: dict | list[dict]) -> dict:
         agg_dict = {category: 0 for category in self.categories}
-        
-        if isinstance(stats, dict):
-            stats_list = [stats]
-        elif isinstance(stats, list):
-            stats_list = stats
-        else:
-            raise TypeError("Unsupported type for stats; expected dict or list of dicts.")
+
+        stats_list = stats if isinstance(stats, list) else [stats]
 
         for stat_block in stats_list:
-            for stat in stat_block:
-                for cat, val in self.categories.items():
-                    if stat in val:
-                        agg_dict[cat] += stat_block[stat]
+            for raw_key, value in stat_block.items():
+                normalized = raw_key.capitalize()
+                for cat, val_list in self.categories.items():
+                    if normalized in val_list:
+                        agg_dict[cat] += value
 
         return agg_dict
 
@@ -91,6 +87,17 @@ class Inventory:
 if __name__ == '__main__':
     inv = Inventory()
     # updated down through elvis fukuda
-    print(inv.get_inventory())
-    print(inv.evaluate_stats(inv.inventory['Industrial Slope Ring']))
-    print(inv.evaluate_build([v for v in inv.get_inventory().keys()]))
+    # print(inv.get_inventory())
+    # print(inv.evaluate_stats(inv.inventory['Industrial Slope Ring']))
+    # print(inv.evaluate_build([v for v in inv.get_inventory().keys()]))
+    inv.add_inventory('Civilian Medal Cap',{'Selflessness':7, 'Arm':8,'Composure':5})
+    inv.add_inventory('Stalwart Cap of Reflexes',{'Determination':18,'Reaction':14})
+    inv.add_inventory('Clever Gloves of Awareness',{'Awareness':16,'Cunning':8})
+    inv.add_inventory('Consistent Cap of Fortune',{'Contact':12,'Luck':14})
+    inv.add_inventory('Weekly Preparation Sneakers',{'Insight':7,'Discipline':8,'Arm':17,'Awareness':7})
+    inv.add_inventory('Roasted Magnetar Gloves',{'Accuracy':5,'Persuasion':9,'Luck':17})
+    inv.add_inventory('Continuous Tortoise T-Shirt',{'Velocity':10,'Accuracy':19,'Acrobatics':11,'Composure':6})
+    inv.add_inventory('Eagle-Eyed Gloves of Skill',{'Vision':14,'Dexterity':16})
+    inv.add_inventory('Consistent Ring of Awareness',{'Contact':18,'Awareness':16})
+    inv.add_inventory('Rude Generations T-Shirt',{'Contact':13,'Acrobatics':18,'Dexterity':5})
+    inv.save_inventory()

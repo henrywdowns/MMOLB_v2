@@ -293,26 +293,6 @@
             "Wisdom": 2
         }
     },
-    "Cintia Blackburn": {
-        "Hitting": {
-            "Aiming": 1,
-            "Contact": 3,
-            "Cunning": 3,
-            "Determination": 3,
-            "Discipline": 0,
-            "Insight": 4,
-            "Intimidation": 0,
-            "Lift": 2,
-            "Muscle": 1,
-            "Selflessness": 1,
-            "Vision": 3,
-            "Wisdom": 3
-        },
-        "Defense": {
-            "Baserunning": 1,
-            "Defense": 2
-        }
-    },
     "DVD Nygaard": {
         "Hitting": {
             "Aiming": 4,
