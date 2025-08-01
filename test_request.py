@@ -74,11 +74,11 @@ def get_day(day_id, team_id = chicken_id):
 # print(requests.get('https://mmolb.com/api/game/687561c56154982c31f5cc7c').json())
 
 avery = get_player('Avery Stark',printout=False)
-print(avery.keys())
+print(avery['Stats'])
 # print(avery['Augments'])
 # print(player.json()['Equipment'])
 
 print(get_player('Mamie Mitra',printout=False)['Augments'])
 
-test_player = '6887d44818e81770515b6a9d'
+test_player = '6840fa6d925dd4f9d72abae4'
 pprint.pprint(requests.get(f'{base_url}player/{test_player}').json())
