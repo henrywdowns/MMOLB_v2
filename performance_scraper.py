@@ -113,13 +113,13 @@ def make_perf_df(data: dict) -> pd.DataFrame:
 
 def make_df(data: dict, type: str) -> pd.DataFrame:
     match type:
-        case 'attribute':
+        case 'attributes':
             return make_attr_df(data)
         case 'performance':
             return make_perf_df(data)
     print('Something is wrong!')
 
-df = make_df(Utils.access_json('performance_db.json'),'performance')
-Utils.write_csv(df,'performance_db.csv')
+df = make_df(Utils.access_json('attributes_db.json'),'attributes')
+Utils.write_csv(df,'attributes_db.csv')
 
 #retrieve_and_save('performance',liberty)

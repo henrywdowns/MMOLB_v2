@@ -118,8 +118,11 @@ class Utils:
                 data = data.to_dict(orient="records")
         else:
             filename = data["set"][0]
-        if filepath: filename = filepath
-        filename+=(f'_export_{dt.datetime.strftime(dt.datetime.now(), '%m%d%y_%H%M')}')
+        if filepath: 
+            filename = filepath
+        if filename.endswith('.csv'):
+            filename = filename[:-4]
+        filename+=(f'_export_{dt.datetime.strftime(dt.datetime.now(), '%m%d%y_%H%M')}.csv')
         fieldnames = data[0].keys()
         with open(filename,'w',newline='') as f:
             writer = csv.DictWriter(f,fieldnames=fieldnames)
