@@ -5,6 +5,7 @@ import pprint
 chicken_id = '680e477a7d5b06095ef46ad1'
 base_url = 'https://mmolb.com/api/'
 cashews = 'https://freecashe.ws/'
+liberty = '6805db0cac48194de3cd3fea'
 
 test_season = '6874db85d759dcb31e10a62a'
 test_player = '6841c78e896f631e9d68953c'
@@ -78,3 +79,6 @@ print(avery.keys())
 # print(player.json()['Equipment'])
 
 print(get_player('Mamie Mitra',printout=False)['Augments'])
+
+test_player = '6887d44818e81770515b6a9d'
+pprint.pprint(requests.get(f'{base_url}player/{test_player}').json())
