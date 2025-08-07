@@ -152,14 +152,14 @@ class Inventory:
         for player in player_objs:
             owner = f"{player['FirstName']} {player['LastName']}"
             equip = player.get('Equipment', {})
-
             # for each slot (Accessory, Body, Feet, etc.)
             for slot, details in equip.items():
-                prefixes = details.get('Prefixes', [])
-                name     = details.get('Name', '')
-                suffixes = details.get('Suffixes', [])
+                if details:
+                    prefixes = details.get('Prefixes', [])
+                    name     = details.get('Name', '')
+                    suffixes = details.get('Suffixes', [])
 
-                item_name = ' '.join(prefixes + [name] + suffixes)
+                    item_name = ' '.join(prefixes + [name] + suffixes)
 
                 catalogue.append({
                     'Owner':   owner,
@@ -169,6 +169,7 @@ class Inventory:
 
         # pretty-print, or return for further processing
         pprint.pprint(catalogue)
+
         return catalogue
 
 

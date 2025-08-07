@@ -56,13 +56,20 @@ def get_day(day_id, team_id = chicken_id):
             team_day['Game'] = item
             return team_day
 
+def get_chicken():
+    r = requests.get(f'{base_url}/team/{chicken_id}')
+    return r.json()
+
+def get_inv():
+    r = requests.get(f'{base_url}/inventory/{chicken_id}')
+    return r.json()
+
 #print(season.json())
 
 # Utils.write_json()
 
 # print(game.json())
 
-#pprint.pprint(r.json()['Inventory'])
 #print(r.json()['SeasonRecords'])
 #print(get_season('6874db85d759dcb31e10a62a'))
 #print(get_day('6874db84d759dcb31e10a53b'))
@@ -73,12 +80,14 @@ def get_day(day_id, team_id = chicken_id):
 
 # print(requests.get('https://mmolb.com/api/game/687561c56154982c31f5cc7c').json())
 
-avery = get_player('Avery Stark',printout=False)
-print(avery['Stats'])
+# avery = get_player('Avery Stark',printout=False)
+# print(avery['Stats'])
 # print(avery['Augments'])
 # print(player.json()['Equipment'])
 
-print(get_player('Mamie Mitra',printout=False)['Augments'])
+# print(get_player('Mamie Mitra',printout=False)['Augments'])
 
-test_player = '6840fa6d925dd4f9d72abae4'
-pprint.pprint(requests.get(f'{base_url}player/{test_player}').json())
+# test_player = '6840fa6d925dd4f9d72abae4'
+# pprint.pprint(requests.get(f'{base_url}player/{test_player}').json())
+
+pprint.pprint(get_inv())
