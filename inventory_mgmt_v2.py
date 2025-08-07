@@ -140,6 +140,39 @@ class Inventory:
         for key, value in result.items():
             result[key] = round(value,2)
         return result
+    
+    def detailed_add_item_bonuses(self, item_names: typing.List[str]) -> dict:
+        # Raw structure: attr → {slot → value}
+        attr_slot_map = {}
+
+        for item_name in item_names:
+            item_obj = None
+            slot = None
+
+            for item in self.inventory:
+                if item_name in item:
+                    item_obj = item[item_name]
+                    slot = item_obj.get('Slot', 'Unknown')
+                    break
+
+            if not item_obj:
+                print(f'[WARN] Didn’t find item with name: {item_name}')
+                continue
+
+            for attr, val in item_obj['Bonus'].items():
+                if attr not in attr_slot_map:
+                    attr_slot_map[attr] = {}
+                attr_slot_map[attr][slot] = attr_slot_map[attr].get(slot, 0) + val
+
+        # Now flatten into your requested string format
+        summary = {}
+        for attr, slot_contribs in attr_slot_map.items():
+            total = round(sum(slot_contribs.values()), 2)
+            parts = [f"{round(val, 2)} {slot}" for slot, val in slot_contribs.items()]
+            breakdown = '; '.join(parts)
+            summary[attr] = f"{total} -- {breakdown}"
+
+        return summary
 
     def player_summary(self,player_name: str):
         player_id = None
@@ -158,7 +191,7 @@ class Inventory:
                 if list(item.values())[0]['Owner'].lower() == player_name.lower():
                     player_inv.append(item)
         inv_names = [list(itemobj.keys())[0] for itemobj in player_inv]
-        player_bonuses = self.add_item_bonuses(inv_names)
+        player_bonuses = self.detailed_add_item_bonuses(inv_names)
 
         return {player_name.capitalize(): {
             'Player Attributes': player_attrs,
