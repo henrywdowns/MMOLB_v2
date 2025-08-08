@@ -18,10 +18,16 @@
         "Lift": 13,
         "Dexterity": 11
     },
-    "Clever Gloves of Awareness": {
-        "Awareness": 14,
-        "Cunning": 8
-    },
+    "Clever Gloves of Awareness": [
+        {
+            "Awareness": 14,
+            "Cunning": 8
+        },
+        {
+            "Awareness": 16,
+            "Cunning": 8
+        }
+    ],
     "Mighty Sneakers of Reflexes": {
         "Muscle": 15,
         "Reaction": 10
@@ -30,10 +36,16 @@
         "Contact": 19,
         "Patience": 11
     },
-    "Stalwart Cap of Reflexes": {
-        "Determination": 19,
-        "Reaction": 14
-    },
+    "Stalwart Cap of Reflexes": [
+        {
+            "Determination": 19,
+            "Reaction": 14
+        },
+        {
+            "Determination": 18,
+            "Reaction": 14
+        }
+    ],
     "Wise Gloves of the Acrobat": {
         "Wisdom": 15,
         "Acrobatics": 8
@@ -247,5 +259,44 @@
     "Rebellious Ring of Calm": {
         "Composure": 16,
         "Defiance": 5
+    },
+    "Civilian Medal Cap": {
+        "Selflessness": 7,
+        "Arm": 8,
+        "Composure": 5
+    },
+    "Consistent Cap of Fortune": {
+        "Contact": 12,
+        "Luck": 14
+    },
+    "Weekly Preparation Sneakers": {
+        "Insight": 7,
+        "Discipline": 8,
+        "Arm": 17,
+        "Awareness": 7
+    },
+    "Roasted Magnetar Gloves": {
+        "Accuracy": 5,
+        "Persuasion": 9,
+        "Luck": 17
+    },
+    "Continuous Tortoise T-Shirt": {
+        "Velocity": 10,
+        "Accuracy": 19,
+        "Acrobatics": 11,
+        "Composure": 6
+    },
+    "Eagle-Eyed Gloves of Skill": {
+        "Vision": 14,
+        "Dexterity": 16
+    },
+    "Consistent Ring of Awareness": {
+        "Contact": 18,
+        "Awareness": 16
+    },
+    "Rude Generations T-Shirt": {
+        "Contact": 13,
+        "Acrobatics": 18,
+        "Dexterity": 5
     }
 }
