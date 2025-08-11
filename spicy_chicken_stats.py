@@ -52,7 +52,7 @@ class Team:
         #self.player_ids = [player.player_id for player in self.players.values()]
         self.player_ids = {player.name: player.player_id for player in self.players.values()}
         self.name = self.team_data['Name']
-        self.owner_id = self.team_data['OwnerID']
+        #self.owner_id = self.team_data['OwnerID']
         self.team_df = self.make_team_df()
         self.season_records = self.team_data['SeasonRecords']
         self.game_history = self.scrape_game_ids(init=True) # list of ids
