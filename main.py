@@ -8,7 +8,7 @@ avg_pa_per_game = 3.73
 
 chicken = scs.Team(chicken_id)
 poggersdorf = scs.Team('68077beaee9f269dec7251e9')
-wildcard_team = poggersdorf
+wildcard_team = chicken
 #wildcard_sample = wildcard_team.players[wildcard_team.player_ids['Edith Leon']]
 
 
@@ -32,3 +32,6 @@ position_dfs(wildcard_team)
 # print(Utils.printout_header(wildcard_sample.name,'<>'))
 # print(wildcard_sample.position)
 # print(f'{wildcard_sample.stats}')
+
+print(chicken.inspect_player('Amanda Huylroyce'))
+print(chicken.inspect_player('Jacob Decker'))

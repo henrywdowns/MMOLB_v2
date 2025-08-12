@@ -202,4 +202,6 @@ class Inventory:
 
 if __name__ == '__main__':
     inv = Inventory()
-    pprint.pprint(inv.player_summary('avery stark'))
+    inv.update_player_inv_catalogue(save=True)
+    pprint.pprint(inv.player_summary('amanda huylroyce'))
+    pprint.pprint(inv.player_summary('jacob decker'))

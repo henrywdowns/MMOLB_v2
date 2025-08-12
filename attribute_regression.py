@@ -12,7 +12,7 @@ df_per = Utils.access_csv('performance_db_export_080125_1927.csv').to_pandas()
 
 merged_df = pd.merge(df_att,df_per,left_on='player_id',right_on='inner_id')
 
-print('DFs merged. Sorting into Pitching / Hitting')
+print('DFs merged. Sorting into Pitching / Hitting / Baserunning')
 
 # columns I want to analyze in the final regression
 
@@ -49,15 +49,26 @@ pitching_attrs = [
     "Presence", "Rotation", "Stamina", "Stuff", "Velocity"
 ]
 
+baserunning_perfs = [
+    "runs", "plate_appearances"
+]
+
+baserunning_attrs = [
+    "Greed", "Performance","Speed","Stealth"
+]
+
 # coercing nan values because right now they aren't all being read as NaN for some reason
 
-for col in pitching_attrs + hitting_attrs + pitching_perfs + hitting_perfs:
+for col in pitching_attrs + hitting_attrs + baserunning_attrs + pitching_perfs + hitting_perfs + baserunning_perfs:
     merged_df[col] = pd.to_numeric(merged_df[col], errors='coerce')
 
 # creating distinct pitching and hitting datasets
 
 pitching_df = merged_df[merged_df['Control'].notna()].copy()
 pitching_df = pitching_df[pitching_attrs + pitching_perfs].fillna(0)
+
+baserunning_df = merged_df[merged_df['Performance'].notna()].copy()
+baserunning_df = baserunning_df[baserunning_attrs + baserunning_perfs].fillna(0)
 
 hitting_df = merged_df[merged_df['Contact'].notna()].copy()
 hitting_df = hitting_df[hitting_attrs + hitting_perfs].fillna(0)
@@ -71,6 +82,7 @@ hitting_df['hits'] = (
 )
 
 obp_denom = hitting_df['at_bats'] + hitting_df['walked'] + hitting_df['hit_by_pitch']
+hitting_df['hrs_per_ab'] = hitting_df['home_runs']/hitting_df['at_bats']
 hitting_df['obp'] = hitting_df['hits'] / obp_denom.replace(0, pd.NA)
 
 hitting_df['slg'] = (
@@ -90,6 +102,9 @@ era_numer = pitching_df['earned_runs'] * 9
 era_denom = pitching_df['innings_pitched'].replace(0, pd.NA)
 pitching_df['era'] = era_numer / era_denom
 
+pitching_df['win_rate'] = pitching_df['wins']/pitching_df['appearances']
+pitching_df['mound_visits_per_appearance'] = pitching_df['mound_visits']/pitching_df['appearances']
+
 pitching_df = pitching_df.replace([np.inf, -np.inf], pd.NA)
 pitching_df = pitching_df.dropna(subset=['whip', 'era'])
 
@@ -97,43 +112,16 @@ hitting_df['obps'] = hitting_df['obp'] + hitting_df['slg']
 hitting_df = hitting_df.replace([np.inf, -np.inf], pd.NA)
 hitting_df = hitting_df.dropna(subset=['obps'])
 
+baserunning_df = baserunning_df.replace([np.inf, -np.inf], pd.NA)
+baserunning_df = baserunning_df.dropna(subset=['plate_appearances'])
+baserunning_df['runs_per_PA'] = baserunning_df['runs'] / baserunning_df['plate_appearances']
+baserunning_df = baserunning_df.dropna(subset=['runs_per_PA'] + baserunning_attrs)
+
 print('Pitching / Hitting DFs in place.')
 # data is in place. let's run some regressions haphazardly
 
-def OLS_regression(key_performance: str, attributes: list, data: pd.DataFrame):
-    print(f'Running regression on performance metric {key_performance}')
-    X = data[attributes]
-    y = data[key_performance]
 
-    print(f'X shape: {X.shape}')
-    print(f'y shape: {y.shape}')
-
-    from sklearn.linear_model import LinearRegression
-
-    model = LinearRegression()
-    model.fit(X,y)
-
-    print(f'Model r-square: {model.score(X,y)}')
-    for attr, coef in zip(hitting_attrs, model.coef_):
-        print(f'{attr} -> {coef:0.3}')
-    
-    print('Plotting...')
-    coef_df = pd.DataFrame({
-        'attribute': hitting_attrs,
-        'coefficient': model.coef_
-    }).sort_values(by='coefficient', ascending=False)
-
-    plt.figure(figsize=(10,5))
-    plt.barh(coef_df['attribute'], coef_df['coefficient'])
-    plt.axvline(0, color='black', linewidth=0.8)
-    plt.title(f'Attribute impact on {key_performance.capitalize().replace('_',' ')}')
-    plt.xlabel("Coefficient")
-    plt.gca().invert_yaxis()
-    plt.tight_layout()
-    plt.savefig(f'regression_plots/{key_performance}_{dt.strftime(dt.now(), '%m%d%y_%H%M')}')
-    print('Plot saved!')
-
-def gpt_OLS_regression(key_performance: str, attributes: list, data: pd.DataFrame):
+def OLS_regression(key_performance: str, attributes: list, data: pd.DataFrame, save_fig: bool = False):
     #this one's got confidence outputs is all
     
     print(f'Running regression on performance metric {key_performance}')
@@ -164,10 +152,13 @@ def gpt_OLS_regression(key_performance: str, attributes: list, data: pd.DataFram
     plt.title(f'Attribute impact on {key_performance.capitalize().replace("_", " ")}')
     plt.xlabel("Coefficient")
     plt.gca().invert_yaxis()
-    plt.tight_layout()
     
-    filename = f'regression_plots/{key_performance}_{dt.strftime(dt.now(), "%m%d%y_%H%M")}.png'
-    plt.savefig(filename)
-    print(f'Plot saved to {filename}!')
+    plt.tight_layout()
+    if save_fig:
+        filename = f'regression_plots/{key_performance}_{dt.strftime(dt.now(), "%m%d%y_%H%M")}.png'
+        plt.savefig(filename)
+        print(f'Plot saved to {filename}!')
 
-gpt_OLS_regression(key_performance = 'era',attributes = pitching_attrs, data = pitching_df)
+# OLS_regression(key_performance = 'obps',attributes = hitting_attrs, data = hitting_df)
+# OLS_regression(key_performance = 'obp',attributes = hitting_attrs, data = hitting_df)
+OLS_regression(key_performance = 'hrs_per_ab',attributes = hitting_attrs, data = hitting_df)

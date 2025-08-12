@@ -6,8 +6,13 @@ from utils import Utils
 
 base_url = 'https://mmolb.com/api'
 liberty = '6805db0cac48194de3cd3fea'
+isosceles = '6805db0cac48194de3cd3fe9'
 liberty_league = requests.get(f'https://mmolb.com/api/league/{liberty}').json()
+isosceles_league = requests.get(f'https://mmolb.com/api/league/{isosceles}').json()
+print(isosceles_league.keys())
+print(liberty_league.keys())
 lib_teams = liberty_league['Teams']
+iso_teams = isosceles_league['Teams']
 
 
 def get_league(league: str) -> list:
@@ -60,14 +65,32 @@ def compile_attribute_dict(league: str,type:str) -> dict:
     for team in league:
         teams[team] = [{player['PlayerID']:get_player_stats(player['PlayerID'],type)} for player in get_team(team)]
         team_progress += 1
-        print(f'Loaded {team_progress} out of {len(league)} teams.')
+        print(f'Loaded {team_progress} out of {len(league)} teams. {team}')
+    print(f'loaded {len(teams.keys())} teams. -- compile_attribute_dict()')
     return teams
 
-def retrieve_and_save(type: str, league: str = None) -> None:
-    if league:
-        db = compile_attribute_dict(league, type)
+def retrieve_and_save(type: str, league: str) -> None:
+    if not league:
+        raise ValueError("retrieve_and_save requires a league ID.")
     
-    Utils.write_or_access_json(f'{type}_db.json',db)
+    new_data = compile_attribute_dict(league, type)
+    print(f'New data compiled: {len(new_data.keys())} teams. -- retrieve_and_save()')
+    try:
+        db = Utils.access_json(f'{type}_db.json')
+        print(f'Data found in db for {len(db.keys())} teams.')
+        if not isinstance(db, dict):
+            db = {}
+    except Exception:
+        print('No data found in db.')
+        db = {}
+
+    # Overwrite the teams we just fetched (latest wins), keep others intact
+    db.update(new_data)
+    print(f'Database updated. Now contains {len(db.keys())} team records.')
+
+    Utils.write_json(f'{type}_db.json', db)
+    print(f'Length of db: {len(db.keys())}')
+    print(f'Length of db.json: {len(Utils.access_json(f'{type}_db.json').keys())}')
 
 def make_attr_df(data: dict) -> pd.DataFrame:
     full_attrs = {}
@@ -119,7 +142,12 @@ def make_df(data: dict, type: str) -> pd.DataFrame:
             return make_perf_df(data)
     print('Something is wrong!')
 
-df = make_df(Utils.access_json('attributes_db.json'),'attributes')
-Utils.write_csv(df,'attributes_db.csv')
 
-#retrieve_and_save('performance',liberty)
+
+retrieve_and_save('attributes',isosceles)
+# df = make_df(Utils.access_json('attributes_db.json'),'attributes')
+# Utils.write_csv(df,'attributes_db.csv')
+
+retrieve_and_save('performance',isosceles)
+# df = make_df(Utils.access_json('performance_db.json'),'performance')
+# Utils.write_csv(df,'performance_db.csv')

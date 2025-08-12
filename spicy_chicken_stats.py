@@ -242,17 +242,17 @@ class Team:
             'player',
             'position',
             'detailed_position',
+            'plate_appearances',
+            'obps',
             'batting_avg',
             'at_bats',
             'hits',
             'home_runs',
-            'plate_appearances',
             'slugging',
-            'obps',
             'HRs_per_game',
             'hit_quality',
             'risp_improvement'
-        ]).sort("batting_avg",descending=True)
+        ]).sort("obps",descending=True)
         chk_pitching = chk_df.filter(
             (pl.col('position') == 'Pitcher')
         ).select([
