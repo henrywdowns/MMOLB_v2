@@ -1,0 +1,1856 @@
+[
+    {
+        "Consistent Enduring Ring of Patience of the Acrobat": {
+            "Owner": "Mamie Mitra",
+            "Slot": "Accessory",
+            "Bonus": {
+                "Contact": 0.19,
+                "Stamina": 0.13,
+                "Patience": 0.11,
+                "Acrobatics": 0.2
+            }
+        }
+    },
+    {
+        "Eagle-Eyed Courageous T-Shirt of Skill of Calm": {
+            "Owner": "Mamie Mitra",
+            "Slot": "Body",
+            "Bonus": {
+                "Vision": 0.17,
+                "Dexterity": 0.15,
+                "Guts": 0.16,
+                "Composure": 0.1
+            }
+        }
+    },
+    {
+        "Mighty Lofty Sneakers of Reflexes of Skill": {
+            "Owner": "Mamie Mitra",
+            "Slot": "Feet",
+            "Bonus": {
+                "Muscle": 0.15,
+                "Lift": 0.2,
+                "Reaction": 0.1,
+                "Dexterity": 0.05
+            }
+        }
+    },
+    {
+        "Clever Lofty Gloves of the Acrobat of Patience": {
+            "Owner": "Mamie Mitra",
+            "Slot": "Hands",
+            "Bonus": {
+                "Cunning": 0.15,
+                "Lift": 0.1,
+                "Acrobatics": 0.08,
+                "Patience": 0.19
+            }
+        }
+    },
+    {
+        "Menacing Mighty Cap of Reflexes of the Acrobat": {
+            "Owner": "Mamie Mitra",
+            "Slot": "Head",
+            "Bonus": {
+                "Intimidation": 0.05,
+                "Muscle": 0.2,
+                "Reaction": 0.11,
+                "Acrobatics": 0.05
+            }
+        }
+    },
+    {
+        "Mighty Enduring Ring of Patience of the Cannon": {
+            "Owner": "DVD Nygaard",
+            "Slot": "Accessory",
+            "Bonus": {
+                "Muscle": 0.19,
+                "Patience": 0.19,
+                "Arm": 0.15,
+                "Stamina": 0.17
+            }
+        }
+    },
+    {
+        "Consistent Eagle-Eyed T-Shirt of Reflexes of Calm": {
+            "Owner": "DVD Nygaard",
+            "Slot": "Body",
+            "Bonus": {
+                "Contact": 0.1,
+                "Vision": 0.2,
+                "Reaction": 0.16,
+                "Composure": 0.15
+            }
+        }
+    },
+    {
+        "Lofty Stalwart Sneakers of the Acrobat of the Cannon": {
+            "Owner": "DVD Nygaard",
+            "Slot": "Feet",
+            "Bonus": {
+                "Lift": 0.19,
+                "Acrobatics": 0.2,
+                "Determination": 0.08,
+                "Arm": 0.17
+            }
+        }
+    },
+    {
+        "Eagle-Eyed Mighty Gloves of Calm of Calm": {
+            "Owner": "DVD Nygaard",
+            "Slot": "Hands",
+            "Bonus": {
+                "Vision": 0.16,
+                "Composure": 0.11,
+                "Muscle": 0.17
+            }
+        }
+    },
+    {
+        "Consistent Sharp Cap of Patience of Fortune": {
+            "Owner": "DVD Nygaard",
+            "Slot": "Head",
+            "Bonus": {
+                "Contact": 0.11,
+                "Aiming": 0.06,
+                "Patience": 0.17,
+                "Luck": 0.17
+            }
+        }
+    },
+    {
+        "Sneaky Ring of Calm": {
+            "Owner": "Jared Mann",
+            "Slot": "Accessory",
+            "Bonus": {
+                "Stealth": 0.11,
+                "Composure": 0.14
+            }
+        }
+    },
+    {
+        "Sneaky Ring of Calm": {
+            "Owner": "Jared Mann",
+            "Slot": "Body",
+            "Bonus": {
+                "Stealth": 0.11,
+                "Composure": 0.14
+            }
+        }
+    },
+    {
+        "Sneaky Ring of Calm": {
+            "Owner": "Jared Mann",
+            "Slot": "Feet",
+            "Bonus": {
+                "Stealth": 0.11,
+                "Composure": 0.14
+            }
+        }
+    },
+    {
+        "Mighty Gloves of Calm": {
+            "Owner": "Jared Mann",
+            "Slot": "Hands",
+            "Bonus": {
+                "Composure": 0.1,
+                "Muscle": 0.06
+            }
+        }
+    },
+    {
+        "Mighty Gloves of Calm": {
+            "Owner": "Jared Mann",
+            "Slot": "Head",
+            "Bonus": {
+                "Composure": 0.1,
+                "Muscle": 0.06
+            }
+        }
+    },
+    {
+        "Lofty Steadfast Ring of Calm of the Acrobat": {
+            "Owner": "Rick Somersbyshire",
+            "Slot": "Accessory",
+            "Bonus": {
+                "Lift": 0.12,
+                "Discipline": 0.06,
+                "Composure": 0.18,
+                "Acrobatics": 0.13
+            }
+        }
+    },
+    {
+        "Lofty Selfless T-Shirt of Skill of the Cat": {
+            "Owner": "Rick Somersbyshire",
+            "Slot": "Body",
+            "Bonus": {
+                "Lift": 0.1,
+                "Selflessness": 0.11,
+                "Dexterity": 0.2,
+                "Agility": 0.19
+            }
+        }
+    },
+    {
+        "Clever Filthy Sneakers of the Cat of the Cat": {
+            "Owner": "Rick Somersbyshire",
+            "Slot": "Feet",
+            "Bonus": {
+                "Cunning": 0.15,
+                "Stuff": 0.15,
+                "Agility": 0.14
+            }
+        }
+    },
+    {
+        "Mighty Selfless Gloves of the Cannon of the Cannon": {
+            "Owner": "Rick Somersbyshire",
+            "Slot": "Hands",
+            "Bonus": {
+                "Muscle": 0.19,
+                "Selflessness": 0.07,
+                "Arm": 0.12
+            }
+        }
+    },
+    {
+        "Lofty Courageous Cap of Reflexes of the Acrobat": {
+            "Owner": "Rick Somersbyshire",
+            "Slot": "Head",
+            "Bonus": {
+                "Lift": 0.14,
+                "Reaction": 0.12,
+                "Acrobatics": 0.13,
+                "Guts": 0.16
+            }
+        }
+    },
+    {
+        "Sharp Mighty Ring of Reflexes of Patience": {
+            "Owner": "Hongtao Chimera",
+            "Slot": "Accessory",
+            "Bonus": {
+                "Aiming": 0.18,
+                "Muscle": 0.15,
+                "Reaction": 0.17,
+                "Patience": 0.09
+            }
+        }
+    },
+    {
+        "Sharp Swift T-Shirt of Skill of Calm": {
+            "Owner": "Hongtao Chimera",
+            "Slot": "Body",
+            "Bonus": {
+                "Aiming": 0.07,
+                "Speed": 0.05,
+                "Dexterity": 0.11,
+                "Composure": 0.05
+            }
+        }
+    },
+    {
+        "Lofty Sharp Sneakers of Fortune of Fortune": {
+            "Owner": "Hongtao Chimera",
+            "Slot": "Feet",
+            "Bonus": {
+                "Lift": 0.08,
+                "Aiming": 0.19,
+                "Luck": 0.16
+            }
+        }
+    },
+    {
+        "True Charming Gloves of Fortune of the Cat": {
+            "Owner": "Hongtao Chimera",
+            "Slot": "Hands",
+            "Bonus": {
+                "Accuracy": 0.05,
+                "Persuasion": 0.09,
+                "Luck": 0.17,
+                "Agility": 0.16
+            }
+        }
+    },
+    {
+        "Avaricious Sharp Cap of the Cat of Skill": {
+            "Owner": "Hongtao Chimera",
+            "Slot": "Head",
+            "Bonus": {
+                "Greed": 0.08,
+                "Aiming": 0.19,
+                "Agility": 0.17,
+                "Dexterity": 0.08
+            }
+        }
+    },
+    {
+        "Consistent Mighty Ring of Awareness of Calm": {
+            "Owner": "Bryan Magomedov",
+            "Slot": "Accessory",
+            "Bonus": {
+                "Contact": 0.18,
+                "Muscle": 0.15,
+                "Awareness": 0.16,
+                "Composure": 0.12
+            }
+        }
+    },
+    {
+        "Consistent Clever T-Shirt of Fortune of the Cannon": {
+            "Owner": "Bryan Magomedov",
+            "Slot": "Body",
+            "Bonus": {
+                "Contact": 0.19,
+                "Cunning": 0.16,
+                "Luck": 0.13,
+                "Arm": 0.18
+            }
+        }
+    },
+    {
+        "Consistent Insightful Sneakers of the Cat of Skill": {
+            "Owner": "Bryan Magomedov",
+            "Slot": "Feet",
+            "Bonus": {
+                "Contact": 0.16,
+                "Insight": 0.1,
+                "Agility": 0.09,
+                "Dexterity": 0.09
+            }
+        }
+    },
+    {
+        "Consistent Precise Gloves of Reflexes of the Acrobat": {
+            "Owner": "Bryan Magomedov",
+            "Slot": "Hands",
+            "Bonus": {
+                "Contact": 0.13,
+                "Control": 0.09,
+                "Reaction": 0.14,
+                "Acrobatics": 0.16
+            }
+        }
+    },
+    {
+        "Consistent Dazzling Cap of Fortune of the Cannon": {
+            "Owner": "Bryan Magomedov",
+            "Slot": "Head",
+            "Bonus": {
+                "Contact": 0.12,
+                "Performance": 0.1,
+                "Luck": 0.14,
+                "Arm": 0.13
+            }
+        }
+    },
+    {
+        "Steadfast Steadfast Ring of the Cat of the Cannon": {
+            "Owner": "Jorbit Liriano",
+            "Slot": "Accessory",
+            "Bonus": {
+                "Discipline": 0.19,
+                "Agility": 0.18,
+                "Arm": 0.16
+            }
+        }
+    },
+    {
+        "Steadfast Whirling T-Shirt of the Cannon of Fortune": {
+            "Owner": "Jorbit Liriano",
+            "Slot": "Body",
+            "Bonus": {
+                "Discipline": 0.15,
+                "Rotation": 0.06,
+                "Arm": 0.14,
+                "Luck": 0.2
+            }
+        }
+    },
+    {
+        "Stalwart Steadfast Sneakers of Patience of the Cat": {
+            "Owner": "Jorbit Liriano",
+            "Slot": "Feet",
+            "Bonus": {
+                "Determination": 0.2,
+                "Discipline": 0.05,
+                "Patience": 0.2,
+                "Agility": 0.14
+            }
+        }
+    },
+    {
+        "Steadfast Menacing Gloves of Fortune of the Acrobat": {
+            "Owner": "Jorbit Liriano",
+            "Slot": "Hands",
+            "Bonus": {
+                "Discipline": 0.18,
+                "Intimidation": 0.2,
+                "Luck": 0.2,
+                "Acrobatics": 0.2
+            }
+        }
+    },
+    {
+        "Lofty Rapid Cap of Skill of Fortune": {
+            "Owner": "Jorbit Liriano",
+            "Slot": "Head",
+            "Bonus": {
+                "Lift": 0.13,
+                "Velocity": 0.05,
+                "Dexterity": 0.11,
+                "Luck": 0.13
+            }
+        }
+    },
+    {
+        "Lofty Rebellious Ring of Calm of the Cat": {
+            "Owner": "Daniel Breen",
+            "Slot": "Accessory",
+            "Bonus": {
+                "Composure": 0.06,
+                "Defiance": 0.08,
+                "Lift": 0.2,
+                "Agility": 0.19
+            }
+        }
+    },
+    {
+        "Menacing Insightful T-Shirt of Skill of Patience": {
+            "Owner": "Daniel Breen",
+            "Slot": "Body",
+            "Bonus": {
+                "Intimidation": 0.16,
+                "Insight": 0.14,
+                "Dexterity": 0.13,
+                "Patience": 0.08
+            }
+        }
+    },
+    {
+        "Mighty Wise Sneakers of Calm of the Acrobat": {
+            "Owner": "Daniel Breen",
+            "Slot": "Feet",
+            "Bonus": {
+                "Muscle": 0.05,
+                "Wisdom": 0.08,
+                "Composure": 0.11,
+                "Acrobatics": 0.19
+            }
+        }
+    },
+    {
+        "Steadfast Swift Gloves of the Cannon of Patience": {
+            "Owner": "Daniel Breen",
+            "Slot": "Hands",
+            "Bonus": {
+                "Discipline": 0.15,
+                "Speed": 0.11,
+                "Arm": 0.18,
+                "Patience": 0.08
+            }
+        }
+    },
+    {
+        "Rebellious Menacing Cap of Patience of Awareness": {
+            "Owner": "Daniel Breen",
+            "Slot": "Head",
+            "Bonus": {
+                "Defiance": 0.14,
+                "Intimidation": 0.2,
+                "Patience": 0.14,
+                "Awareness": 0.09
+            }
+        }
+    },
+    {
+        "Mighty Ring of Calm of Calm": {
+            "Owner": "Eggo Nawaz",
+            "Slot": "Accessory",
+            "Bonus": {
+                "Muscle": 0.06,
+                "Composure": 0.2
+            }
+        }
+    },
+    {
+        "Lofty T-Shirt of Reflexes": {
+            "Owner": "Eggo Nawaz",
+            "Slot": "Body",
+            "Bonus": {
+                "Lift": 0.17,
+                "Reaction": 0.2
+            }
+        }
+    },
+    {
+        "Wise Sneakers of the Cannon": {
+            "Owner": "Eggo Nawaz",
+            "Slot": "Feet",
+            "Bonus": {
+                "Arm": 0.2,
+                "Wisdom": 0.12
+            }
+        }
+    },
+    {
+        "Eagle-Eyed Gloves of Skill": {
+            "Owner": "Eggo Nawaz",
+            "Slot": "Hands",
+            "Bonus": {
+                "Vision": 0.14,
+                "Dexterity": 0.16
+            }
+        }
+    },
+    {
+        "Dazzling Cap of Fortune": {
+            "Owner": "Eggo Nawaz",
+            "Slot": "Head",
+            "Bonus": {
+                "Performance": 0.14,
+                "Luck": 0.17
+            }
+        }
+    },
+    {
+        "Enduring Ring of Reflexes": {
+            "Owner": "Jacob Decker",
+            "Slot": "Accessory",
+            "Bonus": {
+                "Stamina": 0.13,
+                "Reaction": 0.09
+            }
+        }
+    },
+    {
+        "Rapid True T-Shirt of the Acrobat of Calm": {
+            "Owner": "Jacob Decker",
+            "Slot": "Body",
+            "Bonus": {
+                "Velocity": 0.1,
+                "Accuracy": 0.19,
+                "Acrobatics": 0.11,
+                "Composure": 0.06
+            }
+        }
+    },
+    {
+        "Whirling Enduring Sneakers of the Cat of the Cannon": {
+            "Owner": "Jacob Decker",
+            "Slot": "Feet",
+            "Bonus": {
+                "Rotation": 0.14,
+                "Stamina": 0.14,
+                "Agility": 0.17,
+                "Arm": 0.08
+            }
+        }
+    },
+    {
+        "Commanding Courageous Gloves of the Cat": {
+            "Owner": "Jacob Decker",
+            "Slot": "Hands",
+            "Bonus": {
+                "Presence": 0.12,
+                "Guts": 0.2,
+                "Agility": 0.13
+            }
+        }
+    },
+    {
+        "Rebellious Cap of Awareness": {
+            "Owner": "Jacob Decker",
+            "Slot": "Head",
+            "Bonus": {
+                "Awareness": 0.15,
+                "Defiance": 0.18
+            }
+        }
+    },
+    {
+        "Rebellious Courageous Ring of the Acrobat of Awareness": {
+            "Owner": "Lena Shimada",
+            "Slot": "Accessory",
+            "Bonus": {
+                "Defiance": 0.14,
+                "Guts": 0.11,
+                "Acrobatics": 0.18,
+                "Awareness": 0.18
+            }
+        }
+    },
+    {
+        "Rapid T-Shirt of the Cat of the Acrobat": {
+            "Owner": "Lena Shimada",
+            "Slot": "Body",
+            "Bonus": {
+                "Velocity": 0.2,
+                "Agility": 0.15,
+                "Acrobatics": 0.14
+            }
+        }
+    },
+    {
+        "Whirling Sneakers of the Cat": {
+            "Owner": "Lena Shimada",
+            "Slot": "Feet",
+            "Bonus": {
+                "Agility": 0.2,
+                "Rotation": 0.18
+            }
+        }
+    },
+    {
+        "Courageous Gloves of Patience": {
+            "Owner": "Lena Shimada",
+            "Slot": "Hands",
+            "Bonus": {
+                "Patience": 0.16,
+                "Guts": 0.19
+            }
+        }
+    },
+    {
+        "Enduring Cap of Awareness": {
+            "Owner": "Lena Shimada",
+            "Slot": "Head",
+            "Bonus": {
+                "Stamina": 0.11,
+                "Awareness": 0.19
+            }
+        }
+    },
+    {
+        "True Ring of Calm of Patience": {
+            "Owner": "Maggie Kurti",
+            "Slot": "Accessory",
+            "Bonus": {
+                "Accuracy": 0.2,
+                "Composure": 0.06,
+                "Patience": 0.06
+            }
+        }
+    },
+    {
+        "Whirling Precise T-Shirt of the Cat": {
+            "Owner": "Maggie Kurti",
+            "Slot": "Body",
+            "Bonus": {
+                "Rotation": 0.19,
+                "Control": 0.11,
+                "Agility": 0.1
+            }
+        }
+    },
+    {
+        "Commanding Commanding Sneakers of the Cannon of Calm": {
+            "Owner": "Maggie Kurti",
+            "Slot": "Feet",
+            "Bonus": {
+                "Presence": 0.16,
+                "Arm": 0.18,
+                "Composure": 0.2
+            }
+        }
+    },
+    {
+        "Filthy Consistent Gloves of the Cannon of Patience": {
+            "Owner": "Maggie Kurti",
+            "Slot": "Hands",
+            "Bonus": {
+                "Stuff": 0.18,
+                "Contact": 0.18,
+                "Arm": 0.16,
+                "Patience": 0.15
+            }
+        }
+    },
+    {
+        "Filthy Filthy Cap of the Cat of Awareness": {
+            "Owner": "Maggie Kurti",
+            "Slot": "Head",
+            "Bonus": {
+                "Stuff": 0.18,
+                "Agility": 0.12,
+                "Awareness": 0.18
+            }
+        }
+    },
+    {
+        "True Whirling Ring of Patience": {
+            "Owner": "Avery Stark",
+            "Slot": "Accessory",
+            "Bonus": {
+                "Accuracy": 0.09,
+                "Rotation": 0.18,
+                "Patience": 0.17
+            }
+        }
+    },
+    {
+        "Filthy Precise T-Shirt of Patience of Awareness": {
+            "Owner": "Avery Stark",
+            "Slot": "Body",
+            "Bonus": {
+                "Stuff": 0.18,
+                "Control": 0.17,
+                "Patience": 0.19,
+                "Awareness": 0.1
+            }
+        }
+    },
+    {
+        "Charming Rapid Sneakers of the Cannon of Skill": {
+            "Owner": "Avery Stark",
+            "Slot": "Feet",
+            "Bonus": {
+                "Persuasion": 0.14,
+                "Velocity": 0.1,
+                "Arm": 0.05,
+                "Dexterity": 0.13
+            }
+        }
+    },
+    {
+        "Filthy Enduring Gloves of Fortune of Reflexes": {
+            "Owner": "Avery Stark",
+            "Slot": "Hands",
+            "Bonus": {
+                "Stuff": 0.12,
+                "Stamina": 0.09,
+                "Luck": 0.14,
+                "Reaction": 0.18
+            }
+        }
+    },
+    {
+        "Rapid Clever Cap of the Cat of Reflexes": {
+            "Owner": "Avery Stark",
+            "Slot": "Head",
+            "Bonus": {
+                "Velocity": 0.19,
+                "Cunning": 0.07,
+                "Agility": 0.06,
+                "Reaction": 0.11
+            }
+        }
+    },
+    {
+        "Rebellious Ring of Calm": {
+            "Owner": "Elvis Fukuda",
+            "Slot": "Accessory",
+            "Bonus": {
+                "Composure": 0.16,
+                "Defiance": 0.05
+            }
+        }
+    },
+    {
+        "Precise T-Shirt of Reflexes": {
+            "Owner": "Elvis Fukuda",
+            "Slot": "Body",
+            "Bonus": {
+                "Control": 0.08,
+                "Reaction": 0.2
+            }
+        }
+    },
+    {
+        "Rapid Sneakers of the Acrobat": {
+            "Owner": "Elvis Fukuda",
+            "Slot": "Feet",
+            "Bonus": {
+                "Velocity": 0.17,
+                "Acrobatics": 0.14
+            }
+        }
+    },
+    {
+        "Gloves": {
+            "Owner": "Elvis Fukuda",
+            "Slot": "Hands",
+            "Bonus": {}
+        }
+    },
+    {
+        "Rebellious Cap of Calm": {
+            "Owner": "Elvis Fukuda",
+            "Slot": "Head",
+            "Bonus": {
+                "Defiance": 0.11,
+                "Composure": 0.2
+            }
+        }
+    },
+    {
+        "Dazzling Ring of Fortune": {
+            "Owner": "Boots May",
+            "Slot": "Accessory",
+            "Bonus": {
+                "Performance": 0.06,
+                "Luck": 0.11
+            }
+        }
+    },
+    {
+        "Rapid T-Shirt of Fortune": {
+            "Owner": "Boots May",
+            "Slot": "Body",
+            "Bonus": {
+                "Luck": 0.15,
+                "Velocity": 0.2
+            }
+        }
+    },
+    {
+        "Rapid Precise Sneakers of Patience": {
+            "Owner": "Boots May",
+            "Slot": "Feet",
+            "Bonus": {
+                "Velocity": 0.15,
+                "Control": 0.15,
+                "Patience": 0.12
+            }
+        }
+    },
+    {
+        "Whirling Whirling Gloves of Awareness of Calm": {
+            "Owner": "Boots May",
+            "Slot": "Hands",
+            "Bonus": {
+                "Rotation": 0.16,
+                "Awareness": 0.12,
+                "Composure": 0.14
+            }
+        }
+    },
+    {
+        "Whirling Cap of Reflexes": {
+            "Owner": "Boots May",
+            "Slot": "Head",
+            "Bonus": {
+                "Reaction": 0.17,
+                "Rotation": 0.12
+            }
+        }
+    },
+    {
+        "Filthy Whirling Ring of Fortune of the Cat": {
+            "Owner": "Edith Leon",
+            "Slot": "Accessory",
+            "Bonus": {
+                "Stuff": 0.16,
+                "Rotation": 0.1,
+                "Luck": 0.2,
+                "Agility": 0.08
+            }
+        }
+    },
+    {
+        "Filthy Precise T-Shirt of Patience of the Cannon": {
+            "Owner": "Edith Leon",
+            "Slot": "Body",
+            "Bonus": {
+                "Stuff": 0.17,
+                "Control": 0.18,
+                "Patience": 0.1,
+                "Arm": 0.15
+            }
+        }
+    },
+    {
+        "Commanding Filthy Sneakers of the Cat of Skill": {
+            "Owner": "Edith Leon",
+            "Slot": "Feet",
+            "Bonus": {
+                "Presence": 0.12,
+                "Stuff": 0.12,
+                "Agility": 0.15,
+                "Dexterity": 0.15
+            }
+        }
+    },
+    {
+        "True Commanding Gloves of Fortune of Reflexes": {
+            "Owner": "Edith Leon",
+            "Slot": "Hands",
+            "Bonus": {
+                "Accuracy": 0.17,
+                "Presence": 0.06,
+                "Luck": 0.07,
+                "Reaction": 0.16
+            }
+        }
+    },
+    {
+        "Filthy Commanding Cap of Reflexes of Awareness": {
+            "Owner": "Edith Leon",
+            "Slot": "Head",
+            "Bonus": {
+                "Reaction": 0.16,
+                "Presence": 0.15,
+                "Stuff": 0.2,
+                "Awareness": 0.13
+            }
+        }
+    },
+    {
+        "Ring": {
+            "Owner": "Amanda Huylroyce",
+            "Slot": "Accessory",
+            "Bonus": {}
+        }
+    },
+    {
+        "Rapid T-Shirt of Calm": {
+            "Owner": "Amanda Huylroyce",
+            "Slot": "Body",
+            "Bonus": {
+                "Velocity": 0.2,
+                "Composure": 0.11
+            }
+        }
+    },
+    {
+        "Whirling Sneakers of Skill": {
+            "Owner": "Amanda Huylroyce",
+            "Slot": "Feet",
+            "Bonus": {
+                "Rotation": 0.09,
+                "Dexterity": 0.1
+            }
+        }
+    },
+    {
+        "Whirling Gloves of Patience": {
+            "Owner": "Amanda Huylroyce",
+            "Slot": "Hands",
+            "Bonus": {
+                "Rotation": 0.11,
+                "Patience": 0.14
+            }
+        }
+    },
+    {
+        "Charming Cap of Fortune": {
+            "Owner": "Amanda Huylroyce",
+            "Slot": "Head",
+            "Bonus": {
+                "Persuasion": 0.07,
+                "Luck": 0.16
+            }
+        }
+    },
+    {
+        "Charming Ring of Patience": {
+            "Owner": "Robin Stoica",
+            "Slot": "Accessory",
+            "Bonus": {
+                "Patience": 0.17,
+                "Persuasion": 0.12
+            }
+        }
+    },
+    {
+        "Dazzling T-Shirt of Awareness": {
+            "Owner": "Robin Stoica",
+            "Slot": "Body",
+            "Bonus": {
+                "Performance": 0.12,
+                "Awareness": 0.12
+            }
+        }
+    },
+    {
+        "Rebellious Sneakers of the Cannon": {
+            "Owner": "Robin Stoica",
+            "Slot": "Feet",
+            "Bonus": {
+                "Arm": 0.18,
+                "Defiance": 0.11
+            }
+        }
+    },
+    {
+        "Filthy Gloves of Skill": {
+            "Owner": "Robin Stoica",
+            "Slot": "Hands",
+            "Bonus": {
+                "Stuff": 0.2,
+                "Dexterity": 0.09
+            }
+        }
+    },
+    {
+        "True Cap of the Acrobat": {
+            "Owner": "Robin Stoica",
+            "Slot": "Head",
+            "Bonus": {
+                "Accuracy": 0.12,
+                "Acrobatics": 0.11
+            }
+        }
+    },
+    {
+        "Sneaky Ring of Skill": {
+            "Owner": null,
+            "Slot": "Accessory",
+            "Bonus": {
+                "Stealth": 0.1,
+                "Dexterity": 0.11
+            }
+        }
+    },
+    {
+        "Rapid Ring of Skill": {
+            "Owner": null,
+            "Slot": "Accessory",
+            "Bonus": {
+                "Velocity": 0.08,
+                "Dexterity": 0.2
+            }
+        }
+    },
+    {
+        "Swift Cap of the Cannon": {
+            "Owner": null,
+            "Slot": "Head",
+            "Bonus": {
+                "Speed": 0.19,
+                "Arm": 0.14
+            }
+        }
+    },
+    {
+        "Mighty T-Shirt of the Cannon": {
+            "Owner": null,
+            "Slot": "Body",
+            "Bonus": {
+                "Muscle": 0.14,
+                "Arm": 0.14
+            }
+        }
+    },
+    {
+        "Stalwart Cap of Reflexes": {
+            "Owner": null,
+            "Slot": "Head",
+            "Bonus": {
+                "Determination": 0.18,
+                "Reaction": 0.14
+            }
+        }
+    },
+    {
+        "Clever Gloves of Awareness": {
+            "Owner": null,
+            "Slot": "Hands",
+            "Bonus": {
+                "Awareness": 0.14,
+                "Cunning": 0.08
+            }
+        }
+    },
+    {
+        "Consistent Cap of Fortune": {
+            "Owner": null,
+            "Slot": "Head",
+            "Bonus": {
+                "Contact": 0.12,
+                "Luck": 0.14
+            }
+        }
+    },
+    {
+        "Selfless Cap of the Cannon of Calm": {
+            "Owner": null,
+            "Slot": "Head",
+            "Bonus": {
+                "Selflessness": 0.07,
+                "Arm": 0.08,
+                "Composure": 0.05
+            }
+        }
+    },
+    {
+        "Consistent Ring of Awareness": {
+            "Owner": null,
+            "Slot": "Accessory",
+            "Bonus": {
+                "Contact": 0.18,
+                "Awareness": 0.16
+            }
+        }
+    },
+    {
+        "Consistent T-Shirt of the Acrobat of Skill": {
+            "Owner": null,
+            "Slot": "Body",
+            "Bonus": {
+                "Contact": 0.13,
+                "Acrobatics": 0.18,
+                "Dexterity": 0.05
+            }
+        }
+    },
+    {
+        "Swift Ring of Skill": {
+            "Owner": null,
+            "Slot": "Accessory",
+            "Bonus": {
+                "Speed": 0.16,
+                "Dexterity": 0.12
+            }
+        }
+    },
+    {
+        "Consistent Gloves of Reflexes": {
+            "Owner": null,
+            "Slot": "Hands",
+            "Bonus": {
+                "Contact": 0.13,
+                "Reaction": 0.14
+            }
+        }
+    },
+    {
+        "Clever Sneakers of the Cat": {
+            "Owner": null,
+            "Slot": "Feet",
+            "Bonus": {
+                "Cunning": 0.15,
+                "Agility": 0.19
+            }
+        }
+    },
+    {
+        "Selfless Ring of Patience": {
+            "Owner": null,
+            "Slot": "Accessory",
+            "Bonus": {
+                "Selflessness": 0.15,
+                "Patience": 0.18
+            }
+        }
+    },
+    {
+        "Consistent Sneakers of the Cat": {
+            "Owner": null,
+            "Slot": "Feet",
+            "Bonus": {
+                "Contact": 0.16,
+                "Agility": 0.09
+            }
+        }
+    },
+    {
+        "Selfless Gloves of Patience": {
+            "Owner": null,
+            "Slot": "Hands",
+            "Bonus": {
+                "Selflessness": 0.08,
+                "Patience": 0.07
+            }
+        }
+    },
+    {
+        "Wise Sneakers of the Cannon": {
+            "Owner": null,
+            "Slot": "Feet",
+            "Bonus": {
+                "Wisdom": 0.09,
+                "Arm": 0.06
+            }
+        }
+    },
+    {
+        "Commanding T-Shirt of Reflexes": {
+            "Owner": null,
+            "Slot": "Body",
+            "Bonus": {
+                "Reaction": 0.09,
+                "Presence": 0.14
+            }
+        }
+    },
+    {
+        "Whirling Gloves of Patience": {
+            "Owner": null,
+            "Slot": "Hands",
+            "Bonus": {
+                "Rotation": 0.17,
+                "Patience": 0.2
+            }
+        }
+    },
+    {
+        "Commanding Cap of the Cannon": {
+            "Owner": null,
+            "Slot": "Head",
+            "Bonus": {
+                "Presence": 0.12,
+                "Arm": 0.11
+            }
+        }
+    },
+    {
+        "Swift Sneakers of Fortune": {
+            "Owner": null,
+            "Slot": "Feet",
+            "Bonus": {
+                "Luck": 0.07,
+                "Speed": 0.08
+            }
+        }
+    },
+    {
+        "Wise Gloves of the Acrobat": {
+            "Owner": null,
+            "Slot": "Hands",
+            "Bonus": {
+                "Wisdom": 0.15,
+                "Acrobatics": 0.08
+            }
+        }
+    },
+    {
+        "Avaricious Sneakers of Fortune of Fortune": {
+            "Owner": null,
+            "Slot": "Feet",
+            "Bonus": {
+                "Greed": 0.16,
+                "Luck": 0.16
+            }
+        }
+    },
+    {
+        "Insightful Sneakers of the Acrobat": {
+            "Owner": null,
+            "Slot": "Feet",
+            "Bonus": {
+                "Acrobatics": 0.06,
+                "Insight": 0.05
+            }
+        }
+    },
+    {
+        "Gloves": {
+            "Owner": null,
+            "Slot": "Hands",
+            "Bonus": {}
+        }
+    },
+    {
+        "Courageous Cap of Awareness": {
+            "Owner": null,
+            "Slot": "Head",
+            "Bonus": {
+                "Guts": 0.07,
+                "Awareness": 0.16
+            }
+        }
+    },
+    {
+        "T-Shirt": {
+            "Owner": null,
+            "Slot": "Body",
+            "Bonus": {}
+        }
+    },
+    {
+        "T-Shirt": {
+            "Owner": null,
+            "Slot": "Body",
+            "Bonus": {}
+        }
+    },
+    {
+        "Gloves": {
+            "Owner": null,
+            "Slot": "Hands",
+            "Bonus": {}
+        }
+    },
+    {
+        "Ring": {
+            "Owner": null,
+            "Slot": "Accessory",
+            "Bonus": {}
+        }
+    },
+    {
+        "Commanding Enduring Cap of Fortune of Fortune": {
+            "Owner": null,
+            "Slot": "Head",
+            "Bonus": {
+                "Presence": 0.05,
+                "Stamina": 0.18,
+                "Luck": 0.09
+            }
+        }
+    },
+    {
+        "Insightful Avaricious Ring of the Cannon of Awareness": {
+            "Owner": null,
+            "Slot": "Accessory",
+            "Bonus": {
+                "Insight": 0.16,
+                "Greed": 0.18,
+                "Arm": 0.19,
+                "Awareness": 0.14
+            }
+        }
+    },
+    {
+        "Charming Rapid Cap of Fortune": {
+            "Owner": null,
+            "Slot": "Head",
+            "Bonus": {
+                "Persuasion": 0.08,
+                "Velocity": 0.15,
+                "Luck": 0.08
+            }
+        }
+    },
+    {
+        "True Rapid Gloves of Patience": {
+            "Owner": null,
+            "Slot": "Hands",
+            "Bonus": {
+                "Accuracy": 0.09,
+                "Velocity": 0.13,
+                "Patience": 0.12
+            }
+        }
+    },
+    {
+        "Steadfast Steadfast Ring of the Cat of the Cannon": {
+            "Owner": null,
+            "Slot": "Accessory",
+            "Bonus": {
+                "Discipline": 0.19,
+                "Agility": 0.18,
+                "Arm": 0.16
+            }
+        }
+    },
+    {
+        "Rebellious Cap of Patience": {
+            "Owner": null,
+            "Slot": "Head",
+            "Bonus": {
+                "Defiance": 0.14,
+                "Patience": 0.14
+            }
+        }
+    },
+    {
+        "Courageous Cap of the Cannon": {
+            "Owner": null,
+            "Slot": "Head",
+            "Bonus": {
+                "Arm": 0.16,
+                "Guts": 0.05
+            }
+        }
+    },
+    {
+        "T-Shirt": {
+            "Owner": null,
+            "Slot": "Body",
+            "Bonus": {}
+        }
+    },
+    {
+        "Commanding Commanding Sneakers of the Cannon": {
+            "Owner": null,
+            "Slot": "Feet",
+            "Bonus": {
+                "Presence": 0.19,
+                "Arm": 0.08
+            }
+        }
+    },
+    {
+        "True Cap of Reflexes": {
+            "Owner": null,
+            "Slot": "Head",
+            "Bonus": {
+                "Accuracy": 0.2,
+                "Reaction": 0.11
+            }
+        }
+    },
+    {
+        "Rapid Whirling Ring of Skill of the Acrobat": {
+            "Owner": null,
+            "Slot": "Accessory",
+            "Bonus": {
+                "Velocity": 0.08,
+                "Rotation": 0.15,
+                "Dexterity": 0.17,
+                "Acrobatics": 0.13
+            }
+        }
+    },
+    {
+        "Courageous Sneakers of Calm of Reflexes": {
+            "Owner": null,
+            "Slot": "Feet",
+            "Bonus": {
+                "Guts": 0.07,
+                "Composure": 0.17,
+                "Reaction": 0.14
+            }
+        }
+    },
+    {
+        "Stalwart Clever Sneakers of the Acrobat": {
+            "Owner": null,
+            "Slot": "Feet",
+            "Bonus": {
+                "Determination": 0.08,
+                "Cunning": 0.08,
+                "Acrobatics": 0.2
+            }
+        }
+    },
+    {
+        "Courageous Cap of Reflexes": {
+            "Owner": null,
+            "Slot": "Head",
+            "Bonus": {
+                "Guts": 0.13,
+                "Reaction": 0.19
+            }
+        }
+    },
+    {
+        "True Gloves of the Cat": {
+            "Owner": null,
+            "Slot": "Hands",
+            "Bonus": {
+                "Agility": 0.13,
+                "Accuracy": 0.13
+            }
+        }
+    },
+    {
+        "Whirling Sneakers of Awareness": {
+            "Owner": null,
+            "Slot": "Feet",
+            "Bonus": {
+                "Rotation": 0.13,
+                "Awareness": 0.17
+            }
+        }
+    },
+    {
+        "Commanding T-Shirt of Reflexes": {
+            "Owner": null,
+            "Slot": "Body",
+            "Bonus": {
+                "Presence": 0.08,
+                "Reaction": 0.16
+            }
+        }
+    },
+    {
+        "Stalwart T-Shirt of the Acrobat": {
+            "Owner": null,
+            "Slot": "Body",
+            "Bonus": {
+                "Determination": 0.19,
+                "Acrobatics": 0.12
+            }
+        }
+    },
+    {
+        "Clever Gloves of the Cat": {
+            "Owner": null,
+            "Slot": "Hands",
+            "Bonus": {
+                "Cunning": 0.17,
+                "Agility": 0.09
+            }
+        }
+    },
+    {
+        "Mighty Cap of the Cat": {
+            "Owner": null,
+            "Slot": "Head",
+            "Bonus": {
+                "Muscle": 0.07,
+                "Agility": 0.07
+            }
+        }
+    },
+    {
+        "Lofty Sharp Sneakers of Fortune of Fortune": {
+            "Owner": null,
+            "Slot": "Feet",
+            "Bonus": {
+                "Lift": 0.08,
+                "Aiming": 0.19,
+                "Luck": 0.16
+            }
+        }
+    },
+    {
+        "Menacing Mighty Cap of Reflexes of the Acrobat": {
+            "Owner": null,
+            "Slot": "Head",
+            "Bonus": {
+                "Intimidation": 0.05,
+                "Muscle": 0.2,
+                "Reaction": 0.11,
+                "Acrobatics": 0.05
+            }
+        }
+    },
+    {
+        "Charming True T-Shirt of Fortune of Patience": {
+            "Owner": null,
+            "Slot": "Body",
+            "Bonus": {
+                "Persuasion": 0.14,
+                "Accuracy": 0.12,
+                "Luck": 0.14,
+                "Patience": 0.08
+            }
+        }
+    },
+    {
+        "Rebellious Gloves of Skill": {
+            "Owner": null,
+            "Slot": "Hands",
+            "Bonus": {
+                "Defiance": 0.11,
+                "Dexterity": 0.19
+            }
+        }
+    },
+    {
+        "Commanding Ring of the Cat": {
+            "Owner": null,
+            "Slot": "Accessory",
+            "Bonus": {
+                "Agility": 0.11,
+                "Presence": 0.18
+            }
+        }
+    },
+    {
+        "Charming Whirling Ring of Fortune of the Cat": {
+            "Owner": null,
+            "Slot": "Accessory",
+            "Bonus": {
+                "Persuasion": 0.19,
+                "Rotation": 0.17,
+                "Luck": 0.06,
+                "Agility": 0.13
+            }
+        }
+    },
+    {
+        "Sneaky Gloves of Skill": {
+            "Owner": null,
+            "Slot": "Hands",
+            "Bonus": {
+                "Stealth": 0.08,
+                "Dexterity": 0.05
+            }
+        }
+    },
+    {
+        "True Gloves of Reflexes": {
+            "Owner": null,
+            "Slot": "Hands",
+            "Bonus": {
+                "Accuracy": 0.1,
+                "Reaction": 0.14
+            }
+        }
+    },
+    {
+        "Precise T-Shirt of the Cannon": {
+            "Owner": null,
+            "Slot": "Body",
+            "Bonus": {
+                "Control": 0.2,
+                "Arm": 0.16
+            }
+        }
+    },
+    {
+        "Stalwart Cap of the Cat": {
+            "Owner": null,
+            "Slot": "Head",
+            "Bonus": {
+                "Determination": 0.13,
+                "Agility": 0.08
+            }
+        }
+    },
+    {
+        "Mighty Wise Sneakers of Calm of the Acrobat": {
+            "Owner": null,
+            "Slot": "Feet",
+            "Bonus": {
+                "Muscle": 0.05,
+                "Wisdom": 0.08,
+                "Composure": 0.11,
+                "Acrobatics": 0.19
+            }
+        }
+    },
+    {
+        "Lofty Ring of Calm": {
+            "Owner": null,
+            "Slot": "Accessory",
+            "Bonus": {
+                "Lift": 0.12,
+                "Composure": 0.18
+            }
+        }
+    },
+    {
+        "Avaricious Cap of the Acrobat": {
+            "Owner": null,
+            "Slot": "Head",
+            "Bonus": {
+                "Greed": 0.16,
+                "Acrobatics": 0.17
+            }
+        }
+    },
+    {
+        "Sharp Mighty Ring of Reflexes of Patience": {
+            "Owner": null,
+            "Slot": "Accessory",
+            "Bonus": {
+                "Aiming": 0.18,
+                "Muscle": 0.15,
+                "Reaction": 0.17,
+                "Patience": 0.09
+            }
+        }
+    },
+    {
+        "Filthy Whirling Cap of Reflexes of Patience": {
+            "Owner": null,
+            "Slot": "Head",
+            "Bonus": {
+                "Stuff": 0.18,
+                "Rotation": 0.16,
+                "Reaction": 0.18,
+                "Patience": 0.17
+            }
+        }
+    },
+    {
+        "Commanding Filthy Cap of Calm of Reflexes": {
+            "Owner": null,
+            "Slot": "Head",
+            "Bonus": {
+                "Presence": 0.19,
+                "Stuff": 0.07,
+                "Composure": 0.07,
+                "Reaction": 0.14
+            }
+        }
+    },
+    {
+        "Steadfast Gloves of the Cannon of Patience": {
+            "Owner": null,
+            "Slot": "Hands",
+            "Bonus": {
+                "Discipline": 0.15,
+                "Arm": 0.18,
+                "Patience": 0.08
+            }
+        }
+    },
+    {
+        "Dazzling T-Shirt of Awareness": {
+            "Owner": null,
+            "Slot": "Body",
+            "Bonus": {
+                "Performance": 0.2,
+                "Awareness": 0.16
+            }
+        }
+    },
+    {
+        "Courageous Courageous Cap of Reflexes": {
+            "Owner": null,
+            "Slot": "Head",
+            "Bonus": {
+                "Guts": 0.18,
+                "Reaction": 0.17
+            }
+        }
+    },
+    {
+        "Lofty Consistent Ring of Calm of the Cat": {
+            "Owner": null,
+            "Slot": "Accessory",
+            "Bonus": {
+                "Lift": 0.09,
+                "Contact": 0.13,
+                "Composure": 0.09,
+                "Agility": 0.11
+            }
+        }
+    },
+    {
+        "Precise Sneakers of Skill": {
+            "Owner": null,
+            "Slot": "Feet",
+            "Bonus": {
+                "Control": 0.18,
+                "Dexterity": 0.12
+            }
+        }
+    },
+    {
+        "True Commanding Gloves of Fortune": {
+            "Owner": null,
+            "Slot": "Hands",
+            "Bonus": {
+                "Accuracy": 0.17,
+                "Presence": 0.06,
+                "Luck": 0.07
+            }
+        }
+    },
+    {
+        "Courageous Enduring Cap of Awareness": {
+            "Owner": null,
+            "Slot": "Head",
+            "Bonus": {
+                "Guts": 0.05,
+                "Stamina": 0.15,
+                "Awareness": 0.15
+            }
+        }
+    },
+    {
+        "Consistent T-Shirt of Fortune": {
+            "Owner": null,
+            "Slot": "Body",
+            "Bonus": {
+                "Contact": 0.19,
+                "Luck": 0.13
+            }
+        }
+    },
+    {
+        "Clever Cap of the Cannon": {
+            "Owner": null,
+            "Slot": "Head",
+            "Bonus": {
+                "Cunning": 0.11,
+                "Arm": 0.05
+            }
+        }
+    },
+    {
+        "Sharp T-Shirt of Skill": {
+            "Owner": null,
+            "Slot": "Body",
+            "Bonus": {
+                "Aiming": 0.07,
+                "Dexterity": 0.11
+            }
+        }
+    },
+    {
+        "Steadfast Gloves of Fortune": {
+            "Owner": null,
+            "Slot": "Hands",
+            "Bonus": {
+                "Discipline": 0.18,
+                "Luck": 0.2
+            }
+        }
+    },
+    {
+        "Selfless T-Shirt of the Cannon": {
+            "Owner": null,
+            "Slot": "Body",
+            "Bonus": {
+                "Selflessness": 0.15,
+                "Arm": 0.18
+            }
+        }
+    },
+    {
+        "Consistent Sharp Cap of Patience of Fortune": {
+            "Owner": null,
+            "Slot": "Head",
+            "Bonus": {
+                "Contact": 0.11,
+                "Aiming": 0.06,
+                "Patience": 0.17,
+                "Luck": 0.17
+            }
+        }
+    },
+    {
+        "Stalwart Steadfast Sneakers of Patience": {
+            "Owner": null,
+            "Slot": "Feet",
+            "Bonus": {
+                "Determination": 0.2,
+                "Discipline": 0.05,
+                "Patience": 0.2
+            }
+        }
+    },
+    {
+        "Enduring Sneakers of the Acrobat": {
+            "Owner": null,
+            "Slot": "Feet",
+            "Bonus": {
+                "Stamina": 0.19,
+                "Acrobatics": 0.16
+            }
+        }
+    },
+    {
+        "Enduring Cap of the Acrobat of Fortune": {
+            "Owner": null,
+            "Slot": "Head",
+            "Bonus": {
+                "Stamina": 0.2,
+                "Acrobatics": 0.06,
+                "Luck": 0.11
+            }
+        }
+    },
+    {
+        "Avaricious Stalwart Gloves of the Acrobat": {
+            "Owner": null,
+            "Slot": "Hands",
+            "Bonus": {
+                "Greed": 0.05,
+                "Determination": 0.17,
+                "Acrobatics": 0.17
+            }
+        }
+    },
+    {
+        "Menacing Avaricious Cap of Awareness of Awareness": {
+            "Owner": null,
+            "Slot": "Head",
+            "Bonus": {
+                "Intimidation": 0.2,
+                "Greed": 0.07,
+                "Awareness": 0.06
+            }
+        }
+    }
+]

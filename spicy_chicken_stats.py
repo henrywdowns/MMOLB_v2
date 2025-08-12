@@ -33,8 +33,10 @@ class Team:
             self.team_data = check_local
             self.stored_locally = True
         else:
-            print('No local data found - requesting data from API.')
+            print('No recent local data found - requesting data from API.')
             self.team_data = requests.get(f'{base_url}/{team_id}').json()
+            # teams_json = Utils.access_json('teams.json')
+            # teams_json['self.id'] = self.team_data
         self.league = self.team_data['League']
         try:
             self.record = self.team_data['Record']['Regular Season']
@@ -50,7 +52,7 @@ class Team:
         #self.player_ids = [player.player_id for player in self.players.values()]
         self.player_ids = {player.name: player.player_id for player in self.players.values()}
         self.name = self.team_data['Name']
-        self.owner_id = self.team_data['OwnerID']
+        #self.owner_id = self.team_data['OwnerID']
         self.team_df = self.make_team_df()
         self.season_records = self.team_data['SeasonRecords']
         self.game_history = self.scrape_game_ids(init=True) # list of ids
@@ -240,17 +242,17 @@ class Team:
             'player',
             'position',
             'detailed_position',
+            'plate_appearances',
+            'obps',
             'batting_avg',
             'at_bats',
             'hits',
             'home_runs',
-            'plate_appearances',
             'slugging',
-            'obps',
             'HRs_per_game',
             'hit_quality',
             'risp_improvement'
-        ]).sort("batting_avg",descending=True)
+        ]).sort("obps",descending=True)
         chk_pitching = chk_df.filter(
             (pl.col('position') == 'Pitcher')
         ).select([
