@@ -135,5 +135,7 @@ df = pd.read_csv('boon_bonuses.csv')
 df['net_impact'] = df['plus'] - df['minus']
 df = df.sort_values(by=["name","net_impact"],ascending=False)
 print(df)
-
-print(df[df['stat']=='whip'])
+for stat in ['whip','era','obp','ops','hrs_per_ab']:
+    asc = True if stat in ['whip','era'] else False
+    print(Utils.printout_header(stat.upper()))
+    print(df[df['stat']==stat].sort_values(by='net_impact',ascending=asc))
