@@ -1,0 +1,41 @@
+name,stat,plus,minus
+Archer's Mark,whip,-0.092,-0.077
+Archer's Mark,era,-0.285,-0.518
+Archer's Mark,ops,0.021,0.0
+Archer's Mark,obp,0.008,0.004
+Archer's Mark,hrs_per_ab,0.0,0.0
+Scooter,whip,-0.065,-0.069
+Scooter,era,-0.301,-0.434
+Scooter,ops,0.0,0.038
+Scooter,obp,0.004,0.015
+Scooter,hrs_per_ab,0.0,0.005
+Insectoid,whip,-0.068,-0.027
+Insectoid,era,-0.201,-0.211
+Insectoid,ops,0.028,0.01
+Insectoid,obp,0.009,0.01
+Insectoid,hrs_per_ab,0.005,0.0
+Geometry Expert,whip,-0.097,-0.065
+Geometry Expert,era,-0.543,-0.301
+Geometry Expert,ops,0.019,0.028
+Geometry Expert,obp,0.0,0.005
+Geometry Expert,hrs_per_ab,0.003,0.005
+Tenacious Badger,whip,0.0,-0.041
+Tenacious Badger,era,-0.179,-0.217
+Tenacious Badger,ops,0.028,0.0
+Tenacious Badger,obp,0.009,0.0
+Tenacious Badger,hrs_per_ab,0.005,0.0
+Undead,whip,0.0,-0.031
+Undead,era,-0.207,-0.225
+Undead,ops,0.0,0.022
+Undead,obp,0.005,0.0
+Undead,hrs_per_ab,0.0,0.003
+Demonic,whip,-0.075,-0.08
+Demonic,era,-0.329,-0.294
+Demonic,ops,0.032,0.012
+Demonic,obp,0.005,0.012
+Demonic,hrs_per_ab,0.005,0.0
+Giant,whip,0.0,-0.08
+Giant,era,-0.207,-0.294
+Giant,ops,0.032,0.022
+Giant,obp,0.005,0.0
+Giant,hrs_per_ab,0.005,0.003

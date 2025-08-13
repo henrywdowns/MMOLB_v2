@@ -32,6 +32,5 @@ position_dfs(wildcard_team)
 # print(Utils.printout_header(wildcard_sample.name,'<>'))
 # print(wildcard_sample.position)
 # print(f'{wildcard_sample.stats}')
-
-print(chicken.inspect_player('Amanda Huylroyce'))
+print(chicken.players[chicken.get_player('Mamie Mitra')['PlayerID']].simplified_position)
 print(chicken.inspect_player('Jacob Decker'))
