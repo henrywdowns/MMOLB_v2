@@ -16,6 +16,7 @@ class Player:
                 if category not in self.categories:
                     self.categories[category] = set()
                 self.categories[category].update(inner_dict.keys())
+        print(self.categories)
     
     def retrieve_cached_attrs(self):
         try:
@@ -55,6 +56,7 @@ class Player:
                 val = input(f"Enter a number for '{attr}' (stars): \n").strip()
                 try:
                     self.stats[attr] = float(val)
+                    print(self.stats)
                     break
                 except ValueError:
                     print(f"Invalid input. Please enter a numeric value for '{attr}'.")
@@ -62,6 +64,7 @@ class Player:
     def get_coefficients(self):
         match self.position:
             case "Pitching":
+                print('pitching')
                 significant_whip_coefs = {
                     "stat": "WHIP",
                     "const": 2.175,
@@ -87,7 +90,8 @@ class Player:
                     "Velocity": -0.219
                 }
                 return [significant_whip_coefs, significant_era_coefs]
-            case "Batting":
+            case "Batting"|"Hitting":
+                print('hitting')
                 significant_obps_coefs = {
                     "stat": "OBPS",
                     "const": 0.5610,
@@ -136,19 +140,21 @@ class Player:
                     #"Vision": 0.1549,
                     #"Wisdom": 0.1167,
                 }
-                return [significant_obps_coefs, significant_obp_coefs, significant_home_runs_coefs]
+                result = [significant_obps_coefs, significant_obp_coefs, significant_home_runs_coefs]
+                print(result)
+                return result
             case _:
                 "Not sure what you need me to do boss. The position didnt match the appraisal stuff"
                 return
-   
     
     def generate_appraisal(self):
         if not self.stats:
             self.collect_attrs()
             print(self.stats)
-        coefs = self.get_coefficients()
+        # coefs = self.get_coefficients()
+        # print(self.get_coefficients())
         results_dict = {}
-        for coef_dict in coefs:
+        for coef_dict in self.get_coefficients():
             total = 0
             for attr, value in self.stats.items():
                 total += coef_dict.get(attr,0)*value
@@ -172,10 +178,15 @@ class Player:
                 return player_data
         print('Name not found. Does the player exist yet? Did you use the full name?')
 
+
+def run_the_thing(player_obj):
+    player_obj.retrieve_cached_attrs()
+    print(player_obj.generate_appraisal())
+
 if __name__ == "__main__": 
-    bubblegum = Player('Bubblegum')
-    tammy = Player('Tammy')
-    maelys = Player('Maelys')
     changming = Player('Changming Mercedes',position = 'Batting', team_id = '688847f85cb20f9e396ef60b')
-    changming.retrieve_cached_attrs()
-    print(changming.generate_appraisal())
+    milani = Player('Milani Kumar',position = 'Batting', team_id = '688847f85cb20f9e396ef60b')
+    stacey = Player('Stacey Morita',position = 'Batting', team_id = '688847f85cb20f9e396ef60b')
+    for player in [changming, stacey,milani]:
+        print(player.name)
+        run_the_thing(player)
