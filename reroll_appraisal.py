@@ -215,15 +215,15 @@ if __name__ == "__main__":
     # changming = Player('Changming Mercedes',position = 'Batting', team_id = '688847f85cb20f9e396ef60b')
     # print(changming.categories.keys())
     #gen_team_appraisals(chicken)
-    normals_appraisals = gen_team_appraisals(normals)
-    print(normals_appraisals)
-    df = pd.DataFrame(normals_appraisals).transpose()
-    cols = ['Name'] + [c for c in df.columns if c != 'Name']
-    df = df[cols]
+    # normals_appraisals = gen_team_appraisals(chicken)
+    # print(normals_appraisals)
+    # df = pd.DataFrame(normals_appraisals).transpose()
+    # cols = ['Name'] + [c for c in df.columns if c != 'Name']
+    # df = df[cols]
 
-    Utils.write_csv(df,'team_coef_appraisals/normals_test_multipliers.csv')
+    #Utils.write_csv(df,'team_coef_appraisals/chicken_test_multipliers.csv')
 
-    random_player = Player('piter',position='Hitting')
+    random_player = Player('piter',position='Hitting',skip_missing=False)
     print(random_player.generate_appraisal())
 
     # {'Estimated OBPS bonus': 0.168, 'Estimated OBP bonus': 0.049, 'Estimated HRs_per_AB bonus': 0.017}
