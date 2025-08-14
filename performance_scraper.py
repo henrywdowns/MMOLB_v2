@@ -1,3 +1,4 @@
+import typing
 import json
 import pandas as pd
 import requests
@@ -142,8 +143,11 @@ def make_df(data: dict, type: str) -> pd.DataFrame:
             return make_perf_df(data)
     print('Something is wrong!')
 
-
-
+def do_the_whole_thing(leagues: typing.List[str]):
+    for league in leagues:
+        retrieve_and_save('attributes',league)
+        retrieve_and_save('performance',league)
+        print(f'Finished updating player data for league ID {league}.')
 retrieve_and_save('attributes',isosceles)
 # df = make_df(Utils.access_json('attributes_db.json'),'attributes')
 # Utils.write_csv(df,'attributes_db.csv')

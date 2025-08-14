@@ -30080,6 +30080,18 @@
                     "Luck": 3,
                     "Patience": 3,
                     "Reaction": 4
+                },
+                "Pitching": {
+                    "Accuracy": 4,
+                    "Control": 2,
+                    "Defiance": 3,
+                    "Guts": 2,
+                    "Persuasion": 0,
+                    "Presence": 2,
+                    "Rotation": 0,
+                    "Stamina": 2,
+                    "Stuff": 1,
+                    "Velocity": 3
                 }
             }
         },
@@ -31686,6 +31698,18 @@
                     "Selflessness": 0,
                     "Vision": 5,
                     "Wisdom": 2
+                },
+                "Pitching": {
+                    "Accuracy": 4,
+                    "Control": 1,
+                    "Defiance": 3,
+                    "Guts": 1,
+                    "Persuasion": 0,
+                    "Presence": 1,
+                    "Rotation": 4,
+                    "Stamina": 4,
+                    "Stuff": 3,
+                    "Velocity": 2
                 }
             }
         },
@@ -36809,6 +36833,17 @@
         },
         {
             "684107558ba62cf2ce8d903d": {
+                "Defense": {
+                    "Acrobatics": 2,
+                    "Agility": 1,
+                    "Arm": 4,
+                    "Awareness": 2,
+                    "Composure": 4,
+                    "Dexterity": 3,
+                    "Luck": 1,
+                    "Patience": 3,
+                    "Reaction": 1
+                },
                 "Pitching": {
                     "Accuracy": 3,
                     "Control": 4,
@@ -41070,6 +41105,17 @@
                     "Selflessness": 1,
                     "Vision": 1,
                     "Wisdom": 3
+                },
+                "Defense": {
+                    "Acrobatics": 2,
+                    "Agility": 3,
+                    "Arm": 0,
+                    "Awareness": 2,
+                    "Composure": 3,
+                    "Dexterity": 2,
+                    "Luck": 1,
+                    "Patience": 1,
+                    "Reaction": 2
                 }
             }
         },
@@ -42096,6 +42142,18 @@
                     "Selflessness": 3,
                     "Vision": 4,
                     "Wisdom": 3
+                },
+                "Pitching": {
+                    "Accuracy": 2,
+                    "Control": 1,
+                    "Defiance": 1,
+                    "Guts": 4,
+                    "Persuasion": 1,
+                    "Presence": 2,
+                    "Rotation": 2,
+                    "Stamina": 2,
+                    "Stuff": 4,
+                    "Velocity": 1
                 }
             }
         },
@@ -42659,6 +42717,17 @@
                     "Selflessness": 2,
                     "Vision": 2,
                     "Wisdom": 4
+                },
+                "Defense": {
+                    "Acrobatics": 1,
+                    "Agility": 3,
+                    "Arm": 1,
+                    "Awareness": 3,
+                    "Composure": 2,
+                    "Dexterity": 1,
+                    "Luck": 3,
+                    "Patience": 3,
+                    "Reaction": 2
                 }
             }
         },
@@ -43054,6 +43123,18 @@
                     "Luck": 0,
                     "Patience": 1,
                     "Reaction": 4
+                },
+                "Pitching": {
+                    "Accuracy": 3,
+                    "Control": 1,
+                    "Defiance": 3,
+                    "Guts": 0,
+                    "Persuasion": 3,
+                    "Presence": 3,
+                    "Rotation": 0,
+                    "Stamina": 0,
+                    "Stuff": 2,
+                    "Velocity": 3
                 }
             }
         },
@@ -44300,6 +44381,17 @@
         },
         {
             "6842fe3088056169e0078ee6": {
+                "Defense": {
+                    "Acrobatics": 2,
+                    "Agility": 1,
+                    "Arm": 4,
+                    "Awareness": 1,
+                    "Composure": 1,
+                    "Dexterity": 2,
+                    "Luck": 1,
+                    "Patience": 1,
+                    "Reaction": 4
+                },
                 "Pitching": {
                     "Accuracy": 3,
                     "Control": 3,
@@ -44443,74 +44535,10 @@
             }
         },
         {
-            "684202dd8d67c531e89fe5ae": {
-                "Batting": {
-                    "Aiming": 3,
-                    "Contact": 2,
-                    "Cunning": 4,
-                    "Determination": 1,
-                    "Discipline": 2,
-                    "Insight": 4,
-                    "Intimidation": 2,
-                    "Lift": 1,
-                    "Muscle": 3,
-                    "Selflessness": 1,
-                    "Vision": 1,
-                    "Wisdom": 3
-                },
-                "Defense": {
-                    "Acrobatics": 2,
-                    "Agility": 1,
-                    "Arm": 4,
-                    "Awareness": 3,
-                    "Composure": 3,
-                    "Dexterity": 1,
-                    "Luck": 1,
-                    "Patience": 3,
-                    "Reaction": 1
-                }
-            }
+            "684202dd8d67c531e89fe5ae": {}
         },
         {
-            "6841f44f554d8039701f1e1a": {
-                "Batting": {
-                    "Aiming": 2,
-                    "Contact": 2,
-                    "Cunning": 3,
-                    "Determination": 2,
-                    "Discipline": 2,
-                    "Insight": 3,
-                    "Intimidation": 2,
-                    "Lift": 2,
-                    "Muscle": 3,
-                    "Selflessness": 0,
-                    "Vision": 3,
-                    "Wisdom": 0
-                },
-                "Defense": {
-                    "Acrobatics": 3,
-                    "Agility": 2,
-                    "Arm": 1,
-                    "Awareness": 2,
-                    "Composure": 1,
-                    "Dexterity": 0,
-                    "Luck": 4,
-                    "Patience": 2,
-                    "Reaction": 1
-                },
-                "Pitching": {
-                    "Accuracy": 3,
-                    "Control": 1,
-                    "Defiance": 3,
-                    "Guts": 2,
-                    "Persuasion": 1,
-                    "Presence": 3,
-                    "Rotation": 4,
-                    "Stamina": 3,
-                    "Stuff": 3,
-                    "Velocity": 1
-                }
-            }
+            "6841f44f554d8039701f1e1a": {}
         },
         {
             "6841f775144e874e6deb89c8": {
@@ -46090,6 +46118,17 @@
         },
         {
             "684cfa575b81722b901c4bc3": {
+                "Defense": {
+                    "Acrobatics": 2,
+                    "Agility": 0,
+                    "Arm": 4,
+                    "Awareness": 2,
+                    "Composure": 2,
+                    "Dexterity": 1,
+                    "Luck": 3,
+                    "Patience": 3,
+                    "Reaction": 4
+                },
                 "Pitching": {
                     "Accuracy": 1,
                     "Control": 2,
@@ -47097,6 +47136,12 @@
         },
         {
             "6853e794875d2d473526cf05": {
+                "Baserunning": {
+                    "Greed": 2,
+                    "Performance": 3,
+                    "Speed": 5,
+                    "Stealth": 1
+                },
                 "Batting": {
                     "Aiming": 4,
                     "Contact": 3,
@@ -48663,6 +48708,12 @@
         },
         {
             "685c2ae53cb1052ee36a9f20": {
+                "Baserunning": {
+                    "Greed": 4,
+                    "Performance": 1,
+                    "Speed": 3,
+                    "Stealth": 2
+                },
                 "Batting": {
                     "Aiming": 2,
                     "Contact": 2,
@@ -48952,22 +49003,7 @@
             }
         },
         {
-            "686372df58c82f639e53700c": {
-                "Batting": {
-                    "Aiming": 4,
-                    "Contact": 1,
-                    "Cunning": 2,
-                    "Determination": 2,
-                    "Discipline": 3,
-                    "Insight": 4,
-                    "Intimidation": 2,
-                    "Lift": 2,
-                    "Muscle": 2,
-                    "Selflessness": 4,
-                    "Vision": 3,
-                    "Wisdom": 4
-                }
-            }
+            "686372df58c82f639e53700c": {}
         },
         {
             "686372fab254dfbaab3014c0": {
@@ -50001,6 +50037,12 @@
         },
         {
             "686b0f114dca64cf777ced48": {
+                "Baserunning": {
+                    "Greed": 0,
+                    "Performance": 1,
+                    "Speed": 1,
+                    "Stealth": 1
+                },
                 "Batting": {
                     "Aiming": 1,
                     "Contact": 3,
@@ -53619,6 +53661,12 @@
         },
         {
             "68884876570d8b89bc15a114": {
+                "Baserunning": {
+                    "Greed": 1,
+                    "Performance": 5,
+                    "Speed": 4,
+                    "Stealth": 0
+                },
                 "Batting": {
                     "Aiming": 2,
                     "Contact": 3,
@@ -53637,6 +53685,12 @@
         },
         {
             "6888488897f2b5415c1128c6": {
+                "Baserunning": {
+                    "Greed": 3,
+                    "Performance": 1,
+                    "Speed": 3,
+                    "Stealth": 3
+                },
                 "Batting": {
                     "Aiming": 4,
                     "Contact": 3,
@@ -53654,22 +53708,7 @@
             }
         },
         {
-            "6888489597f2b5415c1128c9": {
-                "Batting": {
-                    "Aiming": 1,
-                    "Contact": 3,
-                    "Cunning": 1,
-                    "Determination": 3,
-                    "Discipline": 0,
-                    "Insight": 2,
-                    "Intimidation": 1,
-                    "Lift": 4,
-                    "Muscle": 1,
-                    "Selflessness": 1,
-                    "Vision": 2,
-                    "Wisdom": 4
-                }
-            }
+            "6888489597f2b5415c1128c9": {}
         },
         {
             "688848ad4d7910ea8a509c5d": {
@@ -53732,22 +53771,7 @@
             }
         },
         {
-            "688848f5ebf08e853913b848": {
-                "Batting": {
-                    "Aiming": 1,
-                    "Contact": 4,
-                    "Cunning": 3,
-                    "Determination": 1,
-                    "Discipline": 2,
-                    "Insight": 2,
-                    "Intimidation": 2,
-                    "Lift": 4,
-                    "Muscle": 3,
-                    "Selflessness": 4,
-                    "Vision": 4,
-                    "Wisdom": 4
-                }
-            }
+            "688848f5ebf08e853913b848": {}
         },
         {
             "68884906ea7acc171a968904": {
@@ -55482,6 +55506,17 @@
                     "Selflessness": 3,
                     "Vision": 1,
                     "Wisdom": 2
+                },
+                "Defense": {
+                    "Acrobatics": 4,
+                    "Agility": 2,
+                    "Arm": 3,
+                    "Awareness": 2,
+                    "Composure": 3,
+                    "Dexterity": 2,
+                    "Luck": 3,
+                    "Patience": 2,
+                    "Reaction": 3
                 }
             }
         },

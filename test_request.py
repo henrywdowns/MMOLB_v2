@@ -109,8 +109,13 @@ def get_team(team: str) -> list:
 
 #pprint.pprint(get_inv())
 
-print(get_league(iso_league)['Teams'].index('688847f85cb20f9e396ef60b'))
+# print(get_league(iso_league)['Teams'].index('688847f85cb20f9e396ef60b'))
 
-#print(get_team('688847f85cb20f9e396ef60b'))
+# #print(get_team('688847f85cb20f9e396ef60b'))
 
-print(get_player('68884852570d8b89bc15a110'))
+# print(get_player('68884852570d8b89bc15a110'))
+
+chk_csv = Utils.access_csv('team_coef_appraisals/chicken_multipliers_export_081325_2215.csv')
+nrm_csv = Utils.access_csv('team_coef_appraisals/normals_multipliers_export_081325_2214.csv')
+Utils.print_all(chk_csv.sort(by='Estimated OBPS bonus',descending=True))
+Utils.print_all(nrm_csv.sort(by='Estimated OBPS bonus',descending=True))

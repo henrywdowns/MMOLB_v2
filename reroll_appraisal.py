@@ -1,14 +1,16 @@
+import pandas as pd
 import requests
 from utils import Utils
 import spicy_chicken_stats as scs
 
 class Player:
-    def __init__(self,name,stats = {},position = '', team_id = '680e477a7d5b06095ef46ad1'):
+    def __init__(self,name,stats = {},position = '', team_id = '680e477a7d5b06095ef46ad1', skip_missing = True):
         self.name = name
         self.team_id = team_id
         self.categories = {}
         self.stats = stats
         self.position = position
+        self.skip_missing = skip_missing
         value_dicts = list(Utils.access_json('player_attributes.json').values()) # list of player attrs and attr cats
         for val_dict in value_dicts: # loop through value dicts and set up self.cats as one of each cat and component attr
             for category, inner_dict in val_dict.items():
@@ -17,7 +19,6 @@ class Player:
                 if category not in self.categories:
                     self.categories[category] = set()
                 self.categories[category].update(inner_dict.keys())
-        print(self.categories)
     
     def retrieve_cached_attrs(self):
         try:
@@ -52,6 +53,8 @@ class Player:
                 self.position = "Defense"
             case "3":
                 self.position = "Hitting"
+            case "quit":
+                return
 
         # If no category selected
         if not self.position:
@@ -64,7 +67,6 @@ class Player:
                 val = input(f"Enter a number for '{attr}' (stars): \n").strip()
                 try:
                     self.stats[attr] = float(val)
-                    print(self.stats)
                     break
                 except ValueError:
                     print(f"Invalid input. Please enter a numeric value for '{attr}'.")
@@ -73,7 +75,6 @@ class Player:
         result = None
         match self.position:
             case "Pitching":
-                print('pitching')
                 significant_whip_coefs = {
                     "stat": "WHIP",
                     "const": 2.175,
@@ -157,11 +158,8 @@ class Player:
    
     
     def generate_appraisal(self):
-        if not self.stats:
+        if not self.stats and not self.skip_missing:
             self.collect_attrs()
-            print(self.stats)
-        # coefs = self.get_coefficients()
-        # print(self.get_coefficients())
         results_dict = {}
         for coef_dict in self.get_coefficients():
             total = 0
@@ -189,9 +187,11 @@ class Player:
 
 
 def gen_team_appraisals(team_obj):
+    team_multipliers = {}
     team_dict = {player_name: None for player_name in team_obj.player_names}
     for pname, value in team_dict.items():
-        simplified = team_obj.players[team_obj.get_player('Mamie Mitra')['PlayerID']]
+        scs_player = team_obj.players[team_obj.get_player(pname)['PlayerID']]
+        simplified = scs_player.simplified_position
         pos_category = ''
         match simplified:
             case 'Pitcher':
@@ -203,8 +203,10 @@ def gen_team_appraisals(team_obj):
     for p_name, player_obj in team_dict.items():
         player_obj.retrieve_cached_attrs()
         print(player_obj.name)
-        print(player_obj.generate_appraisal())
-
+        appraisal = player_obj.generate_appraisal()
+        team_multipliers[player_obj.name] = appraisal
+        team_multipliers[player_obj.name]['Name'] = p_name
+    return team_multipliers
 
 if __name__ == "__main__": 
     normals_id = '688847f85cb20f9e396ef60b'
@@ -212,9 +214,17 @@ if __name__ == "__main__":
     chicken = scs.Team()
     # changming = Player('Changming Mercedes',position = 'Batting', team_id = '688847f85cb20f9e396ef60b')
     # print(changming.categories.keys())
-    gen_team_appraisals(chicken)
-    gen_team_appraisals(normals)
-    # replacement = Player('waddle',position="Hitting",stats={'Aiming': 2, 'Contact': 0, 'Cunning': 1, 'Determination': 3, 'Discipline': 2, 'Insight': 0,\
-    #                                                        'Intimidation': 3, 'Lift': 1, 'Luck': 0, 'Muscle': 3, 'Selflessness': 1, 'Vision': 1, 'Wisdom': 2})
-    # print(replacement.name)
-    # print(replacement.generate_appraisal())
+    #gen_team_appraisals(chicken)
+    normals_appraisals = gen_team_appraisals(normals)
+    print(normals_appraisals)
+    df = pd.DataFrame(normals_appraisals).transpose()
+    cols = ['Name'] + [c for c in df.columns if c != 'Name']
+    df = df[cols]
+
+    Utils.write_csv(df,'team_coef_appraisals/normals_test_multipliers.csv')
+
+    random_player = Player('piter',position='Hitting')
+    print(random_player.generate_appraisal())
+
+    # {'Estimated OBPS bonus': 0.168, 'Estimated OBP bonus': 0.049, 'Estimated HRs_per_AB bonus': 0.017}
+    # {'Estimated OBPS bonus': 0.122, 'Estimated OBP bonus': 0.047, 'Estimated HRs_per_AB bonus': 0.009}
