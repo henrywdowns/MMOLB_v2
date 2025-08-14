@@ -1,5 +1,6 @@
 import requests
 from utils import Utils
+import spicy_chicken_stats as scs
 
 class Player:
     def __init__(self,name,stats = {},position = '', team_id = '680e477a7d5b06095ef46ad1'):
@@ -29,7 +30,11 @@ class Player:
         for ind, player in enumerate(team_attrs):
             if list(player.keys())[0] == player_id:
                 player_attrs = team_attrs[ind][player_id]
-                self.stats = player_attrs[self.position]
+                try:
+                    self.stats = player_attrs[self.position]
+                except Exception as e:
+                    print(e)
+                    break
                 print('Found player stats in db.')
                 return player_attrs
         print(f'Could not find stats.')
@@ -39,11 +44,14 @@ class Player:
         print(f'Collecting attributes for {self.name}...')
 
         # Prompt user to choose a position (category)
-        for cat_name in self.categories:
-            choice = input(f"Use category '{cat_name}'? (y/n): \n").strip().lower()
-            if choice == 'y':
-                self.position = cat_name
-                break
+        choice = input(f"Pitching: 1 -- Defense: 2 -- Hitting: 3: \n").strip().lower()
+        match str(choice):
+            case "1":
+                self.position = "Pitching"
+            case "2":
+                self.position = "Defense"
+            case "3":
+                self.position = "Hitting"
 
         # If no category selected
         if not self.position:
@@ -62,6 +70,7 @@ class Player:
                     print(f"Invalid input. Please enter a numeric value for '{attr}'.")
     
     def get_coefficients(self):
+        result = None
         match self.position:
             case "Pitching":
                 print('pitching')
@@ -89,9 +98,8 @@ class Player:
                     "Stuff": -0.2486,
                     "Velocity": -0.219
                 }
-                return [significant_whip_coefs, significant_era_coefs]
+                result = [significant_whip_coefs, significant_era_coefs]
             case "Batting"|"Hitting":
-                print('hitting')
                 significant_obps_coefs = {
                     "stat": "OBPS",
                     "const": 0.5610,
@@ -141,11 +149,12 @@ class Player:
                     #"Wisdom": 0.1167,
                 }
                 result = [significant_obps_coefs, significant_obp_coefs, significant_home_runs_coefs]
-                print(result)
-                return result
             case _:
-                "Not sure what you need me to do boss. The position didnt match the appraisal stuff"
+                print(f'Position: {self.position}')
+                print("Not sure what you need me to do boss. The position didnt match the appraisal stuff")
                 return
+        return result
+   
     
     def generate_appraisal(self):
         if not self.stats:
@@ -179,14 +188,33 @@ class Player:
         print('Name not found. Does the player exist yet? Did you use the full name?')
 
 
-def run_the_thing(player_obj):
-    player_obj.retrieve_cached_attrs()
-    print(player_obj.generate_appraisal())
+def gen_team_appraisals(team_obj):
+    team_dict = {player_name: None for player_name in team_obj.player_names}
+    for pname, value in team_dict.items():
+        simplified = team_obj.players[team_obj.get_player('Mamie Mitra')['PlayerID']]
+        pos_category = ''
+        match simplified:
+            case 'Pitcher':
+                pos_category = 'Pitching'
+            case _:
+                pos_category = 'Batting'
+        team_dict[pname] = Player(pname,position=pos_category,team_id=team_obj.id)
+
+    for p_name, player_obj in team_dict.items():
+        player_obj.retrieve_cached_attrs()
+        print(player_obj.name)
+        print(player_obj.generate_appraisal())
+
 
 if __name__ == "__main__": 
-    changming = Player('Changming Mercedes',position = 'Batting', team_id = '688847f85cb20f9e396ef60b')
-    milani = Player('Milani Kumar',position = 'Batting', team_id = '688847f85cb20f9e396ef60b')
-    stacey = Player('Stacey Morita',position = 'Batting', team_id = '688847f85cb20f9e396ef60b')
-    for player in [changming, stacey,milani]:
-        print(player.name)
-        run_the_thing(player)
+    normals_id = '688847f85cb20f9e396ef60b'
+    normals = scs.Team(normals_id)
+    chicken = scs.Team()
+    # changming = Player('Changming Mercedes',position = 'Batting', team_id = '688847f85cb20f9e396ef60b')
+    # print(changming.categories.keys())
+    gen_team_appraisals(chicken)
+    gen_team_appraisals(normals)
+    # replacement = Player('waddle',position="Hitting",stats={'Aiming': 2, 'Contact': 0, 'Cunning': 1, 'Determination': 3, 'Discipline': 2, 'Insight': 0,\
+    #                                                        'Intimidation': 3, 'Lift': 1, 'Luck': 0, 'Muscle': 3, 'Selflessness': 1, 'Vision': 1, 'Wisdom': 2})
+    # print(replacement.name)
+    # print(replacement.generate_appraisal())

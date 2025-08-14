@@ -1,0 +1,65 @@
+{
+    "Template":{
+        "Delta":30,
+        "+":[],
+        "-":[],
+        "Pitchers?": "",
+        "Hitters?": ""
+    },
+    "Archer's Mark":{
+        "Delta":30,
+        "+":["Aiming","Vision","Velocity","Accuracy"],
+        "-":["Intimidation","Greed","Stuff","Presence"],
+        "Pitchers?": "(Yes or no)",
+        "Hitters?": "(Yes or no)"
+    },
+    "Scooter":{
+        "Delta":30,
+        "+":["Speed","Intimidation","Velocity","Defiance"],
+        "-":["Muscle","Discipline","Control","Stamina"],
+        "Pitchers?": "",
+        "Hitters?": ""
+    },
+    "Insectoid":{
+        "Delta":30,
+        "+":["Intimidation","Muscle","Accuracy","Persuasion"],
+        "-":["Discipline","Insight","Defiance","Presence"],
+        "Pitchers?": "",
+        "Hitters?": ""
+    },
+    "Geometry Expert":{
+        "Delta":30,
+        "+":["Insight","Contact","Control","Rotation"],
+        "-":["Muscle","Vision","Velocity","Defiance"],
+        "Pitchers?": "",
+        "Hitters?": ""
+    },
+    "Tenacious Badger":{
+        "Delta":30,
+        "+":["Determination","Guts","Muscle","Stamina"],
+        "-":["Vision","Speed","Persuasion","Defiance"],
+        "Pitchers?": "",
+        "Hitters?": ""
+    },
+    "Undead":{
+        "Delta":50,
+        "+":["Determination","Stamina","Composure"],
+        "-":["Contact","Presence","Speed"],
+        "Pitchers?": "",
+        "Hitters?": ""
+    },
+    "Demonic":{
+        "Delta":50,
+        "+":["Muscle","Velocity","Reaction"],
+        "-":["Discipline","Control","Composure"],
+        "Pitchers?": "",
+        "Hitters?": ""
+    },
+    "Giant":{
+        "Delta":50,
+        "+":["Muscle","Stamina","Arm"],
+        "-":["Contact","Control","Agility"],
+        "Pitchers?": "",
+        "Hitters?": ""
+    }
+}
