@@ -201,7 +201,7 @@ class Inventory:
 
 
 if __name__ == '__main__':
-    inv = Inventory()
-    inv.update_player_inv_catalogue(save=True)
-    pprint.pprint(inv.player_summary('amanda huylroyce'))
-    pprint.pprint(inv.player_summary('jacob decker'))
+    bones_id = '688847f85cb20f9e396ef60b'
+    inv = Inventory(team_id=bones_id)
+    inv.update_player_inv_catalogue()
+    pprint.pprint(inv.get_items_by_attribute('Muscle'))

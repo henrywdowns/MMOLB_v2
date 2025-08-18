@@ -8,6 +8,7 @@ from utils import Utils
 base_url = 'https://mmolb.com/api'
 liberty = '6805db0cac48194de3cd3fea'
 isosceles = '6805db0cac48194de3cd3fe9'
+clean = '6805db0cac48194de3cd3fef'
 liberty_league = requests.get(f'https://mmolb.com/api/league/{liberty}').json()
 isosceles_league = requests.get(f'https://mmolb.com/api/league/{isosceles}').json()
 print(isosceles_league.keys())
@@ -148,10 +149,10 @@ def do_the_whole_thing(leagues: typing.List[str]):
         retrieve_and_save('attributes',league)
         retrieve_and_save('performance',league)
         print(f'Finished updating player data for league ID {league}.')
-retrieve_and_save('attributes',isosceles)
+
 # df = make_df(Utils.access_json('attributes_db.json'),'attributes')
 # Utils.write_csv(df,'attributes_db.csv')
-
-retrieve_and_save('performance',isosceles)
 # df = make_df(Utils.access_json('performance_db.json'),'performance')
 # Utils.write_csv(df,'performance_db.csv')
+
+do_the_whole_thing([liberty,clean])

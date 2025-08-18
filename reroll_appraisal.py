@@ -1,3 +1,4 @@
+import pprint
 import pandas as pd
 import requests
 from utils import Utils
@@ -209,22 +210,21 @@ def gen_team_appraisals(team_obj):
     return team_multipliers
 
 if __name__ == "__main__": 
-    normals_id = '688847f85cb20f9e396ef60b'
-    normals = scs.Team(normals_id)
+    bones_id = '688847f85cb20f9e396ef60b'
+    bones = scs.Team(bones_id)
     chicken = scs.Team()
     # changming = Player('Changming Mercedes',position = 'Batting', team_id = '688847f85cb20f9e396ef60b')
     # print(changming.categories.keys())
     #gen_team_appraisals(chicken)
-    # normals_appraisals = gen_team_appraisals(chicken)
-    # print(normals_appraisals)
-    # df = pd.DataFrame(normals_appraisals).transpose()
+    # bones_appraisals = gen_team_appraisals(chicken)
+    # print(bones_appraisals)
+    # for team in (chicken,bones):
+    #     pprint.pprint(gen_team_appraisals(team))
+    # df = pd.DataFrame(bones_appraisals).transpose()
     # cols = ['Name'] + [c for c in df.columns if c != 'Name']
     # df = df[cols]
 
     #Utils.write_csv(df,'team_coef_appraisals/chicken_test_multipliers.csv')
 
-    random_player = Player('piter',position='Hitting',skip_missing=False)
+    random_player = Player('ren',position='Hitting',skip_missing=False)
     print(random_player.generate_appraisal())
-
-    # {'Estimated OBPS bonus': 0.168, 'Estimated OBP bonus': 0.049, 'Estimated HRs_per_AB bonus': 0.017}
-    # {'Estimated OBPS bonus': 0.122, 'Estimated OBP bonus': 0.047, 'Estimated HRs_per_AB bonus': 0.009}

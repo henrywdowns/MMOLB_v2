@@ -159,6 +159,10 @@ def OLS_regression(key_performance: str, attributes: list, data: pd.DataFrame, s
         plt.savefig(filename)
         print(f'Plot saved to {filename}!')
 
-# OLS_regression(key_performance = 'obps',attributes = hitting_attrs, data = hitting_df)
-# OLS_regression(key_performance = 'obp',attributes = hitting_attrs, data = hitting_df)
+OLS_regression(key_performance = 'obps',attributes = hitting_attrs, data = hitting_df)
+OLS_regression(key_performance = 'obp',attributes = hitting_attrs, data = hitting_df)
 OLS_regression(key_performance = 'hrs_per_ab',attributes = hitting_attrs, data = hitting_df)
+
+OLS_regression(key_performance = 'era',attributes = pitching_attrs, data = pitching_df)
+OLS_regression(key_performance = 'whip',attributes = pitching_attrs, data = pitching_df)
+

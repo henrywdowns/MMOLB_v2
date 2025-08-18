@@ -1,3 +1,4 @@
+import pandas as pd
 import requests
 from utils import Utils
 import pprint
@@ -115,7 +116,7 @@ def get_team(team: str) -> list:
 
 # print(get_player('68884852570d8b89bc15a110'))
 
-chk_csv = Utils.access_csv('team_coef_appraisals/chicken_multipliers_export_081325_2215.csv')
-nrm_csv = Utils.access_csv('team_coef_appraisals/normals_multipliers_export_081325_2214.csv')
-Utils.print_all(chk_csv.sort(by='Estimated OBPS bonus',descending=True))
-Utils.print_all(nrm_csv.sort(by='Estimated OBPS bonus',descending=True))
+chk_csv = pd.read_csv('team_coef_appraisals/chicken_test_multipliers_export_081325_2252.csv')
+nrm_csv = pd.read_csv('team_coef_appraisals/normals_test_multipliers_export_081325_2235.csv')
+Utils.print_all(chk_csv.sort_values(by='Estimated ERA bonus',ascending=True))
+Utils.print_all(nrm_csv.sort_values(by='Estimated ERA bonus',ascending=True))
