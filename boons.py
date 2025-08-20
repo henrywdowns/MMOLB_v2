@@ -18,7 +18,7 @@ coefficients = {
     "era": {
         "stat": "ERA",
         "const": 8.6221,
-        #"Accuracy": 0.0704,
+        "Accuracy": 0.0704, #uncommented
         "Control": -0.1962,
         "Defiance": -0.0120,
         "Persuasion": -0.1544,
@@ -33,14 +33,14 @@ coefficients = {
         "const": 0.5610,
         "Aiming": 0.0161,
         "Contact": 0.0148,
-        #"Cunning": 0.0057,
+        "Cunning": 0.0057, #uncommented
         #"Determination": 0.0029,
         "Discipline": 0.0077,
         #"Insight": 0.0048,
         #"Intimidation": 0.0063,
         "Lift": 0.0107,
         "Muscle": 0.0213,
-        #"Selflessness": -3.439e-05,
+        # "Selflessness": -3.439e-05,
         #"Vision": -0.0018,
         #"Wisdom": 0.0060,
     },
@@ -48,11 +48,11 @@ coefficients = {
         "stat": "OBP",
         "const": 0.2935,
         "Aiming": 0.0065,
-        #"Contact": 0.0003,
-        #"Cunning": 0.0024,
+        "Contact": 0.0003, #uncommented
+        "Cunning": 0.0024, #uncommented
         "Determination": 0.0031,
         "Discipline": 0.0080,
-        #"Insight": 0.0021,
+        "Insight": 0.0021, #uncommented
         "Intimidation": 0.0032,
         #"Lift": 0.0002,
         "Muscle": 0.0035,
@@ -110,31 +110,35 @@ for boon_name, boon_data in boons.items():
     results.append(boon_dict)
 
 
-# flattened_rows = []
+flattened_rows = []
 
-# for entry in results:
-#     for name, stats in entry.items():
-#         for metric, values in stats.items():
-#             flattened_rows.append({
-#                 'name': name,
-#                 'stat': metric,
-#                 'plus': round(values['+'], 3),
-#                 'minus': round(values['-'], 3)
-#             })
+for entry in results:
+    for name, stats in entry.items():
+        for metric, values in stats.items():
+            flattened_rows.append({
+                'name': name,
+                'stat': metric,
+                'plus': round(values['+'], 3),
+                'minus': round(values['-'], 3)
+            })
 
-# csv_path = 'boon_bonuses.csv'
-# with open(csv_path, 'w', newline='') as f:
-#     writer = csv.DictWriter(f, fieldnames=['name', 'stat', 'plus', 'minus'])
-#     writer.writeheader()
-#     writer.writerows(flattened_rows)
+csv_path = 'boon_bonuses.csv'
+with open(csv_path, 'w', newline='') as f:
+    writer = csv.DictWriter(f, fieldnames=['name', 'stat', 'plus', 'minus'])
+    writer.writeheader()
+    writer.writerows(flattened_rows)
 
-# csv_path
+csv_path
 
 
 df = pd.read_csv('boon_bonuses.csv')
-df['net_impact'] = df['plus'] - df['minus']
-df = df.sort_values(by=["name","net_impact"],ascending=False)
-print(df)
+df['net_impact'] = df['plus'] + df['minus']
+intercepts = {k: v['const'] for k, v in coefficients.items()}
+# lazy: calculating pct_impact here and not in the csv
+df['intercept'] = df['stat'].map(intercepts)
+df['pct_impact'] = ((df['net_impact'] / df['intercept']) * 100).round(2).astype(str) + '%'
+df = df.sort_values(by=["net_impact","name"],ascending=False)
+Utils.print_all_rows(df)
 for stat in ['whip','era','obp','ops','hrs_per_ab']:
     asc = True if stat in ['whip','era'] else False
     print(Utils.printout_header(stat.upper()))

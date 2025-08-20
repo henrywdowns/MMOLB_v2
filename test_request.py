@@ -7,6 +7,7 @@ chicken_id = '680e477a7d5b06095ef46ad1'
 base_url = 'https://mmolb.com/api/'
 cashews = 'https://freecashe.ws/'
 liberty = '6805db0cac48194de3cd3fea'
+rides = '688847f85cb20f9e396df60b'
 iso_league = '6805db0cac48194de3cd3fe9'
 
 test_season = '6874db85d759dcb31e10a62a'
@@ -120,3 +121,7 @@ chk_csv = pd.read_csv('team_coef_appraisals/chicken_test_multipliers_export_0813
 nrm_csv = pd.read_csv('team_coef_appraisals/normals_test_multipliers_export_081325_2235.csv')
 Utils.print_all(chk_csv.sort_values(by='Estimated ERA bonus',ascending=True))
 Utils.print_all(nrm_csv.sort_values(by='Estimated ERA bonus',ascending=True))
+
+
+rides_data = requests.get(f'{base_url}/team/688847f85cb20f9e396ef60b')
+print(rides_data.json())
