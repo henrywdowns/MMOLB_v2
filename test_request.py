@@ -1,3 +1,4 @@
+import pandas as pd
 import requests
 from utils import Utils
 import pprint
@@ -6,6 +7,7 @@ chicken_id = '680e477a7d5b06095ef46ad1'
 base_url = 'https://mmolb.com/api/'
 cashews = 'https://freecashe.ws/'
 liberty = '6805db0cac48194de3cd3fea'
+iso_league = '6805db0cac48194de3cd3fe9'
 
 test_season = '6874db85d759dcb31e10a62a'
 test_player = '6841c78e896f631e9d68953c'
@@ -23,7 +25,7 @@ player_index = 6
 # print(r.json()['Players'][player_index]['Stats'])
 
 
-def get_player(name, printout:bool = True) -> dict:
+def get_player_in_team(name, printout:bool = True) -> dict:
     #print(r.json()['Players'])
     for player in r.json()['Players']:
         if f'{player['FirstName']} {player['LastName']}' == name:
@@ -33,6 +35,10 @@ def get_player(name, printout:bool = True) -> dict:
                 print(player_data)
             return player_data
     print('Name not found. Did you use the full name?')
+
+def get_player(playerid):
+    r = requests.get(f'{base_url}/player/{playerid}').json()
+    return r
 
 def get_season(season):
     s = requests.get(f'{base_url}/season/{season}')
@@ -64,6 +70,18 @@ def get_inv():
     r = requests.get(f'{base_url}/inventory/{chicken_id}')
     return r.json()
 
+def get_league(league):
+    r = requests.get(f'{base_url}/league/{league}').json()
+    return r
+
+def get_team(team: str) -> list:
+    url = f'{base_url}/team/{team}'
+    r = requests.get(url)
+    if r.status_code == 200:
+        return r.json()['Players']
+    else:
+        print(r)
+
 #print(season.json())
 
 # Utils.write_json()
@@ -85,9 +103,20 @@ def get_inv():
 # print(avery['Augments'])
 # print(player.json()['Equipment'])
 
-# print(get_player('Mamie Mitra',printout=False)['Augments'])
+#print(get_player('Mamie Mitra',printout=False)['Talk'])
 
 # test_player = '6840fa6d925dd4f9d72abae4'
 # pprint.pprint(requests.get(f'{base_url}player/{test_player}').json())
 
-pprint.pprint(get_inv())
+#pprint.pprint(get_inv())
+
+# print(get_league(iso_league)['Teams'].index('688847f85cb20f9e396ef60b'))
+
+# #print(get_team('688847f85cb20f9e396ef60b'))
+
+# print(get_player('68884852570d8b89bc15a110'))
+
+chk_csv = pd.read_csv('team_coef_appraisals/chicken_test_multipliers_export_081325_2252.csv')
+nrm_csv = pd.read_csv('team_coef_appraisals/normals_test_multipliers_export_081325_2235.csv')
+Utils.print_all(chk_csv.sort_values(by='Estimated ERA bonus',ascending=True))
+Utils.print_all(nrm_csv.sort_values(by='Estimated ERA bonus',ascending=True))

@@ -52,7 +52,7 @@ class Team:
         #self.player_ids = [player.player_id for player in self.players.values()]
         self.player_ids = {player.name: player.player_id for player in self.players.values()}
         self.name = self.team_data['Name']
-        self.owner_id = self.team_data['OwnerID']
+        #self.owner_id = self.team_data['OwnerID']
         self.team_df = self.make_team_df()
         self.season_records = self.team_data['SeasonRecords']
         self.game_history = self.scrape_game_ids(init=True) # list of ids
@@ -242,17 +242,17 @@ class Team:
             'player',
             'position',
             'detailed_position',
+            'plate_appearances',
+            'obps',
             'batting_avg',
             'at_bats',
             'hits',
             'home_runs',
-            'plate_appearances',
             'slugging',
-            'obps',
             'HRs_per_game',
             'hit_quality',
             'risp_improvement'
-        ]).sort("batting_avg",descending=True)
+        ]).sort("obps",descending=True)
         chk_pitching = chk_df.filter(
             (pl.col('position') == 'Pitcher')
         ).select([
