@@ -131,8 +131,18 @@ class Utils:
         print(f'File {filename} saved successfully.')
 
     @staticmethod
-    def print_all_rows(df: pl.DataFrame) -> None:
-        with pl.Config(tbl_rows=-1):
+    def print_all_rows(df):
+        import polars as pl
+        import pandas as pd
+
+        if isinstance(df, pl.DataFrame):
+            df.show(n=None, truncate=False)
+        elif isinstance(df, pl.LazyFrame):
+            df.collect().show(n=None, truncate=False)
+        elif isinstance(df, pd.DataFrame) or isinstance(df, pd.Series):
+            with pd.option_context("display.max_rows", None, "display.max_columns", None):
+                print(df)
+        else:
             print(df)
     
     @staticmethod
