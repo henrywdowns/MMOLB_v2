@@ -50,7 +50,7 @@ def parse_regression_csvs(
         coefficients[key] = dict(zip(sig[attr_col], sig[coef_col]))
     return coefficients, intercepts
 
-def player_boon_effects(team_id, boon_choice=None):
+def player_boon_effects(team_id, boon_choice=None, export=True):
     team_obj = scs.Team(team_id)
     player_dict = get_player_data(team_id)
     coefficients, intercepts = parse_regression_csvs()
@@ -156,10 +156,14 @@ def player_boon_effects(team_id, boon_choice=None):
 
     # pretty prints (low-is-better ascending for these)
     low_is_better = {'whip', 'era', 'fip'}  # fixed comma bug
-    for stat in ['whip', 'era', 'obp', 'ops', 'slg', 'fip']:
+    for stat in ['obp', 'ops', 'slg', 'fip', 'whip', 'era']:
         asc = (stat in low_is_better)
         print(Utils.printout_header(stat.upper()))
-        print(df[df['stat'] == stat].sort_values(by='net_impact', ascending=asc))
+        output_df = df[df['stat'] == stat].sort_values(by='net_impact', ascending=asc)
+        print(output_df)
+        if export:
+            filename = f'boon_effect_exports/{stat}_export.csv'
+            output_df.to_csv(filename,index=False)
 
 if __name__ == '__main__':
-    player_boon_effects(dogs_id,'One With All')
+    player_boon_effects(dogs_id,"Archer's Mark")
