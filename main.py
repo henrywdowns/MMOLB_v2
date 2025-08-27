@@ -3,7 +3,7 @@ import polars as pl
 from utils import Utils
 
 chicken_id = '680e477a7d5b06095ef46ad1'
-
+rides_id = '688847f85cb20f9e396ef60b'
 avg_pa_per_game = 3.73
 
 chicken = scs.Team(chicken_id)

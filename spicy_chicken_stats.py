@@ -28,15 +28,7 @@ class Team:
         self.stored_locally = False
         self.team_stored_data = None
         check_local = self.store_local(get_team_id=team_id)
-        if check_local and (dt.datetime.now() - check_local.get('timestamp') < dt.timedelta(hours=3)):
-            print('Data found in local storage.')
-            self.team_data = check_local
-            self.stored_locally = True
-        else:
-            print('No recent local data found - requesting data from API.')
-            self.team_data = requests.get(f'{base_url}/{team_id}').json()
-            # teams_json = Utils.access_json('teams.json')
-            # teams_json['self.id'] = self.team_data
+        self.team_data = requests.get(f'{base_url}/{team_id}').json()
         self.league = self.team_data['League']
         try:
             self.record = self.team_data['Record']['Regular Season']

@@ -148,11 +148,10 @@ def do_the_whole_thing(leagues: typing.List[str]):
     for league in leagues:
         retrieve_and_save('attributes',league)
         retrieve_and_save('performance',league)
-        print(f'Finished updating player data for league ID {league}.')
+        print(f'Finished updating player data for league ID {league}. Writing CSVs...')
+        df = make_df(Utils.access_json('attributes_db.json'),'attributes')
+        Utils.write_csv(df,'attributes_db.csv')
+        df = make_df(Utils.access_json('performance_db.json'),'performance')
+        Utils.write_csv(df,'performance_db.csv')
 
-# df = make_df(Utils.access_json('attributes_db.json'),'attributes')
-# Utils.write_csv(df,'attributes_db.csv')
-# df = make_df(Utils.access_json('performance_db.json'),'performance')
-# Utils.write_csv(df,'performance_db.csv')
-
-do_the_whole_thing([liberty,clean])
+do_the_whole_thing([liberty,clean,isosceles])
