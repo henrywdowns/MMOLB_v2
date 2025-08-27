@@ -9,7 +9,13 @@
         "FullLocation": "New York, NY, USA",
         "League": "6805db0cac48194de3cd3fea",
         "Location": "New York",
-        "Modifications": [],
+        "Modifications": [
+            {
+                "Description": "Fired up by the crowd!",
+                "Emoji": "\ud83d\udce3",
+                "Name": "Hype"
+            }
+        ],
         "Name": "Spicy Chicken Crunchwraps",
         "Players": [
             {
