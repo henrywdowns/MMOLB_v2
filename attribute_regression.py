@@ -5,12 +5,24 @@ import pandas as pd
 from datetime import datetime as dt
 import statsmodels.api as sm
 import numpy as np
+from sklearn import set_config
 
 
-df_att = Utils.access_csv('attributes_db_export_080125_1932.csv').to_pandas()
-df_per = Utils.access_csv('performance_db_export_080125_1927.csv').to_pandas()
+df_att = Utils.access_csv('attributes_db_export_082725_1644.csv').to_pandas()
+df_per = Utils.access_csv('performance_db_export_082725_1644.csv').to_pandas()
 
-merged_df = pd.merge(df_att,df_per,left_on='player_id',right_on='inner_id')
+set_config(transform_output="pandas")
+
+print(f'Att cols: {len(df_att.columns)} -- Per cols: {len(df_per.columns)}')
+print(f'Att rows: {len(df_att)} -- Per rows: {len(df_per)}')
+
+df_att = df_att[df_att['player_id'] != '#']
+df_per = df_per[df_per['inner_id'] != '#']
+
+print('After removing ')
+print(f'Att rows: {len(df_att)} -- Per rows: {len(df_per)}')
+
+merged_df = pd.merge(df_att,df_per,left_on='player_id',right_on='inner_id',how='outer',indicator=True,validate='one_to_one')
 
 print('DFs merged. Sorting into Pitching / Hitting / Baserunning')
 
@@ -111,11 +123,24 @@ pitching_df = pitching_df.dropna(subset=['whip', 'era'])
 hitting_df['obps'] = hitting_df['obp'] + hitting_df['slg']
 hitting_df = hitting_df.replace([np.inf, -np.inf], pd.NA)
 hitting_df = hitting_df.dropna(subset=['obps'])
+hitting_df['batting_avg'] = hitting_df['hits'] / hitting_df['at_bats'].replace(0, pd.NA)
 
 baserunning_df = baserunning_df.replace([np.inf, -np.inf], pd.NA)
 baserunning_df = baserunning_df.dropna(subset=['plate_appearances'])
 baserunning_df['runs_per_PA'] = baserunning_df['runs'] / baserunning_df['plate_appearances']
 baserunning_df = baserunning_df.dropna(subset=['runs_per_PA'] + baserunning_attrs)
+
+fip_numer = (13 * pitching_df['home_runs_allowed'] +
+             3 * (pitching_df['walks'] + pitching_df['hit_batters']) -
+             2 * pitching_df['strikeouts'])
+fip_denom = pitching_df['innings_pitched'].replace(0, pd.NA)
+
+# league constant of 3.1 somewhat arbitrary and comes from chatGPT
+pitching_df['fip'] = (fip_numer / fip_denom) + 3.1
+
+# filter out low-sample stats. 
+pitching_df = pitching_df[pitching_df["innings_pitched"].astype('int') > 50]
+hitting_df = hitting_df[hitting_df["at_bats"].astype('int') > 50]
 
 print('Pitching / Hitting DFs in place.')
 # data is in place. let's run some regressions haphazardly
@@ -140,10 +165,15 @@ def OLS_regression(key_performance: str, attributes: list, data: pd.DataFrame, s
     print(model.summary())
 
     # Extract coefficients (excluding constant)
-    coef_df = model.params.drop('const').to_frame(name='coefficient')
-    coef_df['p_value'] = model.pvalues.drop('const')
-    coef_df = coef_df.sort_values(by='coefficient', ascending=False).reset_index()
-    coef_df.rename(columns={'index': 'attribute'}, inplace=True)
+    full_coef_df = model.params.to_frame(name='coefficient')
+    full_coef_df['p_value'] = model.pvalues
+    full_coef_df = full_coef_df.reset_index().rename(columns={'index': 'attribute'})
+
+    # Filtered version (no const) for plotting
+    coef_df = full_coef_df[full_coef_df['attribute'] != 'const'].sort_values(
+        by='coefficient', ascending=False
+    )
+
 
     # Plot coefficients
     plt.figure(figsize=(10,5))
@@ -158,11 +188,21 @@ def OLS_regression(key_performance: str, attributes: list, data: pd.DataFrame, s
         filename = f'regression_plots/{key_performance}_{dt.strftime(dt.now(), "%m%d%y_%H%M")}.png'
         plt.savefig(filename)
         print(f'Plot saved to {filename}!')
+        csv_filename = f'regression_csvs/{key_performance}.csv'
+        full_coef_df.to_csv(csv_filename,index=False)
+    return model, coef_df
 
-OLS_regression(key_performance = 'obps',attributes = hitting_attrs, data = hitting_df)
-OLS_regression(key_performance = 'obp',attributes = hitting_attrs, data = hitting_df)
-OLS_regression(key_performance = 'hrs_per_ab',attributes = hitting_attrs, data = hitting_df)
-
-OLS_regression(key_performance = 'era',attributes = pitching_attrs, data = pitching_df)
-OLS_regression(key_performance = 'whip',attributes = pitching_attrs, data = pitching_df)
-
+print(Utils.printout_header('OPS'))
+ops_df = OLS_regression(key_performance = 'obps',attributes = hitting_attrs, data = hitting_df, save_fig=True)
+print(Utils.printout_header('OBP'))
+obp_df = OLS_regression(key_performance = 'obp',attributes = hitting_attrs, data = hitting_df, save_fig=True)
+print(Utils.printout_header('AVG'))
+avg_df = OLS_regression(key_performance = 'batting_avg',attributes = hitting_attrs, data = hitting_df, save_fig=True)
+print(Utils.printout_header('SLG'))
+slg_df = OLS_regression(key_performance = 'slg',attributes = hitting_attrs, data = hitting_df, save_fig=True)
+print(Utils.printout_header('ERA'))
+era_df = OLS_regression(key_performance = 'era',attributes = pitching_attrs, data = pitching_df, save_fig=True)
+print(Utils.printout_header('WHIP'))
+whip_df = OLS_regression(key_performance = 'whip',attributes = pitching_attrs, data = pitching_df, save_fig=True)
+print(Utils.printout_header('FIP'))
+fip_df = OLS_regression(key_performance = 'fip',attributes = pitching_attrs, data = pitching_df, save_fig=True)

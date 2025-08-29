@@ -1,136 +1,127 @@
-name,stat,plus,minus
-Soul in the Machine,whip,-0.01,0.01
-Soul in the Machine,era,0.035,0.075
-Soul in the Machine,ops,0.004,-0.003
-Soul in the Machine,obp,0.004,-0.001
-Soul in the Machine,hrs_per_ab,0.0,0.0
-Demonic,whip,-0.025,0.027
-Demonic,era,-0.11,0.098
-Demonic,ops,0.011,-0.004
-Demonic,obp,0.002,-0.004
-Demonic,hrs_per_ab,0.002,0.0
-Angelic,whip,-0.027,0.025
-Angelic,era,-0.098,0.11
-Angelic,ops,0.004,-0.011
-Angelic,obp,0.004,-0.002
-Angelic,hrs_per_ab,0.0,-0.002
-Undead,whip,0.0,0.01
-Undead,era,-0.069,0.075
-Undead,ops,0.0,-0.007
-Undead,obp,0.002,-0.0
-Undead,hrs_per_ab,0.0,-0.001
-Giant,whip,0.0,0.027
-Giant,era,-0.069,0.098
-Giant,ops,0.011,-0.007
-Giant,obp,0.002,-0.0
-Giant,hrs_per_ab,0.002,-0.001
-Fire Elemental,whip,-0.025,0.027
-Fire Elemental,era,-0.11,0.098
-Fire Elemental,ops,0.005,0.0
-Fire Elemental,obp,0.0,0.0
-Fire Elemental,hrs_per_ab,0.001,0.0
-Water Elemental,whip,-0.027,0.025
-Water Elemental,era,-0.098,0.11
-Water Elemental,ops,0.007,-0.011
-Water Elemental,obp,0.0,-0.002
-Water Elemental,hrs_per_ab,0.001,-0.002
-Air Elemental,whip,-0.01,0.025
-Air Elemental,era,0.035,0.11
-Air Elemental,ops,0.008,-0.011
-Air Elemental,obp,0.003,-0.002
-Air Elemental,hrs_per_ab,0.0,-0.002
-Earth Elemental,whip,0.0,0.027
-Earth Elemental,era,-0.069,0.098
-Earth Elemental,ops,0.007,0.0
-Earth Elemental,obp,0.0,0.0
-Earth Elemental,hrs_per_ab,0.001,0.0
-Draconic,whip,-0.01,0.027
-Draconic,era,-0.075,0.098
-Draconic,ops,0.005,-0.004
-Draconic,obp,0.0,-0.004
-Draconic,hrs_per_ab,0.001,0.0
-Fae,whip,-0.016,0.025
-Fae,era,-0.077,0.11
-Fae,ops,0.003,-0.011
-Fae,obp,0.001,-0.002
-Fae,hrs_per_ab,0.0,-0.002
-One With All,whip,-0.031,0.016
-One With All,era,-0.125,0.091
-One With All,ops,0.004,0.0
-One With All,obp,0.0,-0.001
-One With All,hrs_per_ab,0.001,0.0
-Archer's Mark,whip,-0.021,0.018
-Archer's Mark,era,-0.045,0.12
-Archer's Mark,ops,0.005,0.0
-Archer's Mark,obp,0.002,-0.001
-Archer's Mark,hrs_per_ab,0.0,0.0
-Geometry Expert,whip,-0.023,0.015
-Geometry Expert,era,-0.125,0.069
-Geometry Expert,ops,0.004,-0.006
-Geometry Expert,obp,0.001,-0.001
-Geometry Expert,hrs_per_ab,0.001,-0.001
-Scooter,whip,-0.015,0.016
-Scooter,era,-0.069,0.1
-Scooter,ops,0.0,-0.009
-Scooter,obp,0.001,-0.003
-Scooter,hrs_per_ab,0.0,-0.001
-The Light,whip,-0.022,0.026
-The Light,era,-0.104,0.14
-The Light,ops,0.002,-0.004
-The Light,obp,0.002,-0.0
-The Light,hrs_per_ab,0.0,-0.001
-Tenacious Badger,whip,0.0,0.01
-Tenacious Badger,era,-0.041,0.05
-Tenacious Badger,ops,0.006,0.0
-Tenacious Badger,obp,0.002,0.0
-Tenacious Badger,hrs_per_ab,0.001,0.0
-Stormrider,whip,-0.026,0.023
-Stormrider,era,-0.14,0.125
-Stormrider,ops,0.003,0.0
-Stormrider,obp,0.0,0.0
-Stormrider,hrs_per_ab,0.001,0.0
-Insectoid,whip,-0.016,0.006
-Insectoid,era,-0.025,0.049
-Insectoid,ops,0.006,-0.002
-Insectoid,obp,0.002,-0.003
-Insectoid,hrs_per_ab,0.001,0.0
-Clean,whip,-0.016,0.015
-Clean,era,-0.091,0.069
-Clean,ops,0.002,0.0
-Clean,obp,0.003,-0.001
-Clean,hrs_per_ab,0.0,0.0
-Shiny,whip,-0.012,0.011
-Shiny,era,-0.024,0.075
-Shiny,ops,0.0,-0.002
-Shiny,obp,0.001,-0.001
-Shiny,hrs_per_ab,0.0,0.0
-Psychic,whip,-0.016,0.026
-Psychic,era,-0.025,0.14
-Psychic,ops,0.0,-0.006
-Psychic,obp,0.0,-0.002
-Psychic,hrs_per_ab,0.0,-0.001
-UFO,whip,-0.018,0.016
-UFO,era,-0.141,0.1
-UFO,ops,0.008,-0.002
-UFO,obp,0.0,-0.002
-UFO,hrs_per_ab,0.001,0.0
-Spectral,whip,-0.013,0.011
-Spectral,era,-0.111,0.075
-Spectral,ops,0.0,-0.011
-Spectral,obp,0.001,-0.001
-Spectral,hrs_per_ab,0.0,-0.002
-Amphibian,whip,-0.024,0.006
-Amphibian,era,-0.112,0.049
-Amphibian,ops,0.0,-0.006
-Amphibian,obp,0.0,-0.002
-Amphibian,hrs_per_ab,0.0,-0.001
-Mer,whip,-0.027,0.007
-Mer,era,-0.133,0.066
-Mer,ops,0.0,-0.008
-Mer,obp,0.001,-0.002
-Mer,hrs_per_ab,0.0,-0.001
-Calculated,whip,-0.022,0.0
-Calculated,era,-0.038,0.041
-Calculated,ops,0.002,-0.006
-Calculated,obp,0.003,-0.001
-Calculated,hrs_per_ab,0.0,-0.001
+player,name,stat,plus,minus
+Milani Kumar,Archer's Mark,avg,0.004,0.0
+Milani Kumar,Archer's Mark,era,0.0,0.0
+Milani Kumar,Archer's Mark,fip,0.0,0.0
+Milani Kumar,Archer's Mark,obp,0.005,0.0
+Milani Kumar,Archer's Mark,ops,0.017,0.0
+Milani Kumar,Archer's Mark,slg,0.011,0.0
+Milani Kumar,Archer's Mark,whip,0.0,0.0
+Eugene Cerdas,Archer's Mark,avg,0.002,0.0
+Eugene Cerdas,Archer's Mark,era,0.0,0.0
+Eugene Cerdas,Archer's Mark,fip,0.0,0.0
+Eugene Cerdas,Archer's Mark,obp,0.003,0.0
+Eugene Cerdas,Archer's Mark,ops,0.011,0.0
+Eugene Cerdas,Archer's Mark,slg,0.008,0.0
+Eugene Cerdas,Archer's Mark,whip,0.0,0.0
+Antonio Slater,Archer's Mark,avg,0.004,-0.006
+Antonio Slater,Archer's Mark,era,0.0,0.0
+Antonio Slater,Archer's Mark,fip,0.0,0.0
+Antonio Slater,Archer's Mark,obp,0.004,-0.004
+Antonio Slater,Archer's Mark,ops,0.013,-0.007
+Antonio Slater,Archer's Mark,slg,0.008,-0.003
+Antonio Slater,Archer's Mark,whip,0.0,0.0
+Neptune Vanterpool,Archer's Mark,avg,0.005,-0.002
+Neptune Vanterpool,Archer's Mark,era,0.0,0.0
+Neptune Vanterpool,Archer's Mark,fip,0.0,0.0
+Neptune Vanterpool,Archer's Mark,obp,0.005,-0.001
+Neptune Vanterpool,Archer's Mark,ops,0.015,-0.002
+Neptune Vanterpool,Archer's Mark,slg,0.01,-0.001
+Neptune Vanterpool,Archer's Mark,whip,0.0,0.0
+Sandra Hidalgo,Archer's Mark,avg,0.004,-0.008
+Sandra Hidalgo,Archer's Mark,era,0.0,0.0
+Sandra Hidalgo,Archer's Mark,fip,0.0,0.0
+Sandra Hidalgo,Archer's Mark,obp,0.004,-0.006
+Sandra Hidalgo,Archer's Mark,ops,0.013,-0.009
+Sandra Hidalgo,Archer's Mark,slg,0.008,-0.003
+Sandra Hidalgo,Archer's Mark,whip,0.0,0.0
+Johnny Osborne,Archer's Mark,avg,0.0,-0.006
+Johnny Osborne,Archer's Mark,era,0.0,0.0
+Johnny Osborne,Archer's Mark,fip,0.0,0.0
+Johnny Osborne,Archer's Mark,obp,0.001,-0.004
+Johnny Osborne,Archer's Mark,ops,0.004,-0.007
+Johnny Osborne,Archer's Mark,slg,0.003,-0.003
+Johnny Osborne,Archer's Mark,whip,0.0,0.0
+Midnight Koosman,Archer's Mark,avg,0.004,-0.008
+Midnight Koosman,Archer's Mark,era,0.0,0.0
+Midnight Koosman,Archer's Mark,fip,0.0,0.0
+Midnight Koosman,Archer's Mark,obp,0.006,-0.006
+Midnight Koosman,Archer's Mark,ops,0.018,-0.009
+Midnight Koosman,Archer's Mark,slg,0.013,-0.003
+Midnight Koosman,Archer's Mark,whip,0.0,0.0
+Yanli Axelsson,Archer's Mark,avg,0.004,-0.004
+Yanli Axelsson,Archer's Mark,era,0.0,0.0
+Yanli Axelsson,Archer's Mark,fip,0.0,0.0
+Yanli Axelsson,Archer's Mark,obp,0.005,-0.003
+Yanli Axelsson,Archer's Mark,ops,0.017,-0.005
+Yanli Axelsson,Archer's Mark,slg,0.011,-0.002
+Yanli Axelsson,Archer's Mark,whip,0.0,0.0
+Craig Koyama,Archer's Mark,avg,0.004,-0.006
+Craig Koyama,Archer's Mark,era,0.0,0.0
+Craig Koyama,Archer's Mark,fip,0.0,0.0
+Craig Koyama,Archer's Mark,obp,0.005,-0.004
+Craig Koyama,Archer's Mark,ops,0.015,-0.007
+Craig Koyama,Archer's Mark,slg,0.01,-0.003
+Craig Koyama,Archer's Mark,whip,0.0,0.0
+Mia D'Angelo,Archer's Mark,avg,0.0,0.0
+Mia D'Angelo,Archer's Mark,era,-0.117,0.321
+Mia D'Angelo,Archer's Mark,fip,-0.162,0.237
+Mia D'Angelo,Archer's Mark,obp,0.0,0.0
+Mia D'Angelo,Archer's Mark,ops,0.0,0.0
+Mia D'Angelo,Archer's Mark,slg,0.0,0.0
+Mia D'Angelo,Archer's Mark,whip,-0.035,0.044
+Travis Mae,Archer's Mark,avg,0.0,0.0
+Travis Mae,Archer's Mark,era,-0.352,0.169
+Travis Mae,Archer's Mark,fip,-0.393,0.143
+Travis Mae,Archer's Mark,obp,0.0,0.0
+Travis Mae,Archer's Mark,ops,0.0,0.0
+Travis Mae,Archer's Mark,slg,0.0,0.0
+Travis Mae,Archer's Mark,whip,-0.079,0.021
+Juan McGuire,Archer's Mark,avg,0.0,0.0
+Juan McGuire,Archer's Mark,era,-0.117,0.285
+Juan McGuire,Archer's Mark,fip,-0.131,0.219
+Juan McGuire,Archer's Mark,obp,0.0,0.0
+Juan McGuire,Archer's Mark,ops,0.0,0.0
+Juan McGuire,Archer's Mark,slg,0.0,0.0
+Juan McGuire,Archer's Mark,whip,-0.026,0.038
+Dale Lantigua,Archer's Mark,avg,0.0,0.0
+Dale Lantigua,Archer's Mark,era,-0.235,0.213
+Dale Lantigua,Archer's Mark,fip,-0.262,0.184
+Dale Lantigua,Archer's Mark,obp,0.0,0.0
+Dale Lantigua,Archer's Mark,ops,0.0,0.0
+Dale Lantigua,Archer's Mark,slg,0.0,0.0
+Dale Lantigua,Archer's Mark,whip,-0.053,0.026
+Sara Pavlović,Archer's Mark,avg,0.0,0.0
+Sara Pavlović,Archer's Mark,era,-0.235,0.072
+Sara Pavlović,Archer's Mark,fip,-0.252,0.035
+Sara Pavlović,Archer's Mark,obp,0.0,0.0
+Sara Pavlović,Archer's Mark,ops,0.0,0.0
+Sara Pavlović,Archer's Mark,slg,0.0,0.0
+Sara Pavlović,Archer's Mark,whip,-0.05,0.012
+Akira Nagashima,Archer's Mark,avg,0.0,0.0
+Akira Nagashima,Archer's Mark,era,-0.176,0.205
+Akira Nagashima,Archer's Mark,fip,-0.222,0.16
+Akira Nagashima,Archer's Mark,obp,0.0,0.0
+Akira Nagashima,Archer's Mark,ops,0.0,0.0
+Akira Nagashima,Archer's Mark,slg,0.0,0.0
+Akira Nagashima,Archer's Mark,whip,-0.047,0.027
+Paula Junior,Archer's Mark,avg,0.0,0.0
+Paula Junior,Archer's Mark,era,-0.117,0.124
+Paula Junior,Archer's Mark,fip,-0.162,0.101
+Paula Junior,Archer's Mark,obp,0.0,0.0
+Paula Junior,Archer's Mark,ops,0.0,0.0
+Paula Junior,Archer's Mark,slg,0.0,0.0
+Paula Junior,Archer's Mark,whip,-0.035,0.016
+Stacey Mayer,Archer's Mark,avg,0.0,0.0
+Stacey Mayer,Archer's Mark,era,-0.176,0.232
+Stacey Mayer,Archer's Mark,fip,-0.212,0.153
+Stacey Mayer,Archer's Mark,obp,0.0,0.0
+Stacey Mayer,Archer's Mark,ops,0.0,0.0
+Stacey Mayer,Archer's Mark,slg,0.0,0.0
+Stacey Mayer,Archer's Mark,whip,-0.044,0.034
+Noam Coleman,Archer's Mark,avg,0.0,0.0
+Noam Coleman,Archer's Mark,era,-0.176,0.232
+Noam Coleman,Archer's Mark,fip,-0.222,0.153
+Noam Coleman,Archer's Mark,obp,0.0,0.0
+Noam Coleman,Archer's Mark,ops,0.0,0.0
+Noam Coleman,Archer's Mark,slg,0.0,0.0
+Noam Coleman,Archer's Mark,whip,-0.047,0.034
