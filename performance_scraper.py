@@ -144,14 +144,14 @@ def make_df(data: dict, type: str) -> pd.DataFrame:
             return make_perf_df(data)
     print('Something is wrong!')
 
-def do_the_whole_thing(leagues: typing.List[str]):
+def do_the_whole_thing(leagues: typing.List[str], exclude: str):
+    include = ['attributes','performance']
+    include.remove(exclude)
     for league in leagues:
-        retrieve_and_save('attributes',league)
-        retrieve_and_save('performance',league)
-        print(f'Finished updating player data for league ID {league}. Writing CSVs...')
-        df = make_df(Utils.access_json('attributes_db.json'),'attributes')
-        Utils.write_csv(df,'attributes_db.csv')
-        df = make_df(Utils.access_json('performance_db.json'),'performance')
-        Utils.write_csv(df,'performance_db.csv')
+        for output in include:
+            retrieve_and_save(output,league)
+            print(f'Finished updating player data for league ID {league}. Writing CSVs...')
+            df = make_df(Utils.access_json(f'{output}_db.json'),output)
+            Utils.write_csv(df,f'{output}_db.csv')
 
-do_the_whole_thing([liberty,clean,isosceles])
+do_the_whole_thing([liberty,clean],exclude='performance')

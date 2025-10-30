@@ -1,0 +1,190 @@
+boon,stat,contrib
+Air Elemental,obp,0.0935
+Air Elemental,era,0.0
+Air Elemental,fip,0.0
+Air Elemental,whip,0.0
+Air Elemental,avg,-0.0464
+Air Elemental,ops,-3.8152
+Air Elemental,slg,-7.7157
+Amphibian,era,0.0
+Amphibian,fip,0.0
+Amphibian,whip,0.0
+Amphibian,obp,-2.9035
+Amphibian,avg,-2.9469
+Amphibian,ops,-5.9713
+Amphibian,slg,-9.0326
+Angelic,avg,1.7999
+Angelic,obp,0.3243
+Angelic,era,0.0
+Angelic,fip,0.0
+Angelic,whip,0.0
+Angelic,ops,-5.9521
+Angelic,slg,-13.1558
+Archer's Mark,slg,3.4845
+Archer's Mark,ops,2.4706
+Archer's Mark,obp,1.4546
+Archer's Mark,avg,1.0466
+Archer's Mark,era,0.0
+Archer's Mark,fip,0.0
+Archer's Mark,whip,0.0
+Calculated,avg,2.2556
+Calculated,obp,1.3286
+Calculated,era,0.0
+Calculated,fip,0.0
+Calculated,whip,0.0
+Calculated,ops,-2.4347
+Calculated,slg,-6.7544
+Clean,avg,2.9446
+Clean,obp,1.6837
+Clean,ops,0.1269
+Clean,era,0.0
+Clean,fip,0.0
+Clean,whip,0.0
+Clean,slg,-1.1391
+Demonic,slg,13.1558
+Demonic,ops,5.9521
+Demonic,era,0.0
+Demonic,fip,0.0
+Demonic,whip,0.0
+Demonic,obp,-0.3243
+Demonic,avg,-1.7999
+Draconic,slg,1.7565
+Draconic,era,0.0
+Draconic,fip,0.0
+Draconic,whip,0.0
+Draconic,ops,-2.1058
+Draconic,obp,-4.3283
+Draconic,avg,-5.9414
+Earth Elemental,slg,6.8667
+Earth Elemental,ops,3.6478
+Earth Elemental,era,0.0
+Earth Elemental,fip,0.0
+Earth Elemental,whip,0.0
+Earth Elemental,obp,-0.2792
+Earth Elemental,avg,-1.2086
+Fae,era,0.0
+Fae,fip,0.0
+Fae,whip,0.0
+Fae,avg,-0.5215
+Fae,obp,-1.3636
+Fae,ops,-8.0579
+Fae,slg,-13.1558
+Fire Elemental,slg,0.8531
+Fire Elemental,era,0.0
+Fire Elemental,fip,0.0
+Fire Elemental,whip,0.0
+Fire Elemental,ops,-0.5916
+Fire Elemental,avg,-1.1895
+Fire Elemental,obp,-1.334
+Geometry Expert,era,0.0
+Geometry Expert,fip,0.0
+Geometry Expert,whip,0.0
+Geometry Expert,obp,-0.8031
+Geometry Expert,avg,-1.3208
+Geometry Expert,ops,-1.5095
+Geometry Expert,slg,-2.6344
+Giant,slg,5.3858
+Giant,avg,4.1607
+Giant,ops,3.8185
+Giant,obp,2.9492
+Giant,era,0.0
+Giant,fip,0.0
+Giant,whip,0.0
+Insectoid,slg,7.076
+Insectoid,ops,2.8647
+Insectoid,era,0.0
+Insectoid,fip,0.0
+Insectoid,whip,0.0
+Insectoid,obp,-0.79
+Insectoid,avg,-1.5587
+Mer,avg,0.2393
+Mer,era,0.0
+Mer,fip,0.0
+Mer,whip,0.0
+Mer,obp,-0.3391
+Mer,ops,-2.5456
+Mer,slg,-4.318
+One With All,slg,4.6621
+One With All,ops,2.5436
+One With All,era,0.0
+One With All,fip,0.0
+One With All,whip,0.0
+One With All,obp,-0.8536
+One With All,avg,-1.9942
+Psychic,era,0.0
+Psychic,fip,0.0
+Psychic,whip,0.0
+Psychic,obp,-2.1405
+Psychic,avg,-2.4681
+Psychic,ops,-4.9097
+Psychic,slg,-7.6731
+Scooter,era,0.0
+Scooter,fip,0.0
+Scooter,whip,0.0
+Scooter,obp,-3.1951
+Scooter,avg,-3.9256
+Scooter,ops,-5.6683
+Scooter,slg,-7.5719
+Shiny,slg,1.6811
+Shiny,ops,1.4915
+Shiny,obp,0.3501
+Shiny,era,0.0
+Shiny,fip,0.0
+Shiny,whip,0.0
+Shiny,avg,-0.2827
+Soul in the Machine,avg,2.3214
+Soul in the Machine,ops,2.1058
+Soul in the Machine,obp,1.6879
+Soul in the Machine,era,0.0
+Soul in the Machine,fip,0.0
+Soul in the Machine,slg,0.0
+Soul in the Machine,whip,0.0
+Spectral,era,0.0
+Spectral,fip,0.0
+Spectral,whip,0.0
+Spectral,avg,-0.3492
+Spectral,obp,-1.231
+Spectral,ops,-6.9484
+Spectral,slg,-12.2339
+Stormrider,slg,1.0539
+Stormrider,era,0.0
+Stormrider,fip,0.0
+Stormrider,ops,0.0
+Stormrider,whip,0.0
+Stormrider,obp,-0.6329
+Stormrider,avg,-0.7137
+Tenacious Badger,slg,7.3515
+Tenacious Badger,ops,4.4798
+Tenacious Badger,avg,3.0403
+Tenacious Badger,obp,2.4556
+Tenacious Badger,era,0.0
+Tenacious Badger,fip,0.0
+Tenacious Badger,whip,0.0
+The Light,avg,3.5764
+The Light,obp,2.1316
+The Light,era,0.0
+The Light,fip,0.0
+The Light,whip,0.0
+The Light,ops,-0.9252
+The Light,slg,-4.12
+UFO,slg,5.716
+UFO,ops,1.2801
+UFO,era,0.0
+UFO,fip,0.0
+UFO,whip,0.0
+UFO,obp,-2.597
+UFO,avg,-4.29
+Undead,avg,3.3237
+Undead,obp,1.4227
+Undead,era,0.0
+Undead,fip,0.0
+Undead,whip,0.0
+Undead,ops,-4.2394
+Undead,slg,-7.7701
+Water Elemental,era,0.0
+Water Elemental,fip,0.0
+Water Elemental,whip,0.0
+Water Elemental,obp,-2.9492
+Water Elemental,ops,-3.8185
+Water Elemental,avg,-4.1607
+Water Elemental,slg,-5.3858

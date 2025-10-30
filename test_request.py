@@ -2,6 +2,7 @@ import pandas as pd
 import requests
 from utils import Utils
 import pprint
+from io import StringIO
 
 chicken_id = '680e477a7d5b06095ef46ad1'
 base_url = 'https://mmolb.com/api/'
@@ -22,6 +23,34 @@ player = requests.get(f'{base_url}/player/{test_player}') # takes an ID
 
 player_index = 6
 
+def fc_stats(team_id=chicken_id, season:int=5,output:str = 'json') -> str:
+    url = "https://freecashe.ws/api/stats"
+    params = {
+        "season": season,
+        "group": "player,team,player_name",
+        "team": team_id,
+        "fields": "singles,doubles,triples,home_runs,at_bats,walked,hit_by_pitch,plate_appearances,"
+                  "stolen_bases,caught_stealing,struck_out,runs,runs_batted_in,sac_flies,groundouts,"
+                  "flyouts,popouts,lineouts",
+    }
+    headers = {
+        "Accept": "text/plain; charset=utf-8",
+        "Accept-Encoding": "identity",  # disable compression
+        "User-Agent": "python-requests",
+    }
+    r = requests.get(url, params=params, headers=headers, timeout=30)
+    r.raise_for_status()
+    match output:
+        case 'text':
+            return r.text
+        case 'df':
+            return pd.read_csv(StringIO(r.text))
+        case 'json':
+            df = pd.read_csv(StringIO(r.text)).set_index('player_name')
+            return df.to_json(orient='index')
+    
+    print('Something went wrong or output not specified.')
+
 # print(Utils.printout_header(f'{r.json()['Players'][player_index]['FirstName']} {r.json()['Players'][player_index]['LastName']}'))
 # print(r.json()['Players'][player_index]['Stats'])
 
@@ -37,8 +66,9 @@ def get_player_in_team(name, printout:bool = True) -> dict:
             return player_data
     print('Name not found. Did you use the full name?')
 
-def get_player(playerid):
-    r = requests.get(f'{base_url}/player/{playerid}').json()
+def get_player(playerid,record=False):
+    req = 'playerrecord' if record else 'player'
+    r = requests.get(f'{base_url}/{req}/{playerid}').json()
     return r
 
 def get_season(season):
@@ -83,45 +113,6 @@ def get_team(team: str) -> list:
     else:
         print(r)
 
-#print(season.json())
 
-# Utils.write_json()
-
-# print(game.json())
-
-#print(r.json()['SeasonRecords'])
-#print(get_season('6874db85d759dcb31e10a62a'))
-#print(get_day('6874db84d759dcb31e10a53b'))
-#print(cashews_get_game('6874e3b1d759dcb31e10a64e'))
-# game_id = '6874db84d759dcb31e10a53a'
-# game_attempt = requests.get(f'https://mmolb.com/schedule/{game_id}')
-# print(game_attempt.text)
-
-# print(requests.get('https://mmolb.com/api/game/687561c56154982c31f5cc7c').json())
-
-# avery = get_player('Avery Stark',printout=False)
-# print(avery['Stats'])
-# print(avery['Augments'])
-# print(player.json()['Equipment'])
-
-#print(get_player('Mamie Mitra',printout=False)['Talk'])
-
-# test_player = '6840fa6d925dd4f9d72abae4'
-# pprint.pprint(requests.get(f'{base_url}player/{test_player}').json())
-
-#pprint.pprint(get_inv())
-
-# print(get_league(iso_league)['Teams'].index('688847f85cb20f9e396ef60b'))
-
-# #print(get_team('688847f85cb20f9e396ef60b'))
-
-# print(get_player('68884852570d8b89bc15a110'))
-
-chk_csv = pd.read_csv('team_coef_appraisals/chicken_test_multipliers_export_081325_2252.csv')
-nrm_csv = pd.read_csv('team_coef_appraisals/normals_test_multipliers_export_081325_2235.csv')
-Utils.print_all(chk_csv.sort_values(by='Estimated ERA bonus',ascending=True))
-Utils.print_all(nrm_csv.sort_values(by='Estimated ERA bonus',ascending=True))
-
-
-rides_data = requests.get(f'{base_url}/team/688847f85cb20f9e396ef60b')
-print(rides_data.json())
+fc_chicken = fc_stats(output='json')
+print(pd.read_json(fc_chicken))

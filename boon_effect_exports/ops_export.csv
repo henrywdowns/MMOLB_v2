@@ -1,19 +1,19 @@
 player,name,stat,plus,minus,net_impact,intercept,pct_impact
-Milani Kumar,Archer's Mark,ops,0.017,0.0,0.017,0.5331873843040336,3.19
-Neptune Vanterpool,Archer's Mark,ops,0.015,-0.002,0.013,0.5331873843040336,2.44
-Yanli Axelsson,Archer's Mark,ops,0.017,-0.005,0.012,0.5331873843040336,2.25
-Eugene Cerdas,Archer's Mark,ops,0.011,0.0,0.011,0.5331873843040336,2.06
-Midnight Koosman,Archer's Mark,ops,0.018,-0.009,0.009,0.5331873843040336,1.69
-Craig Koyama,Archer's Mark,ops,0.015,-0.007,0.008,0.5331873843040336,1.5
-Antonio Slater,Archer's Mark,ops,0.013,-0.007,0.005999999999999999,0.5331873843040336,1.13
-Sandra Hidalgo,Archer's Mark,ops,0.013,-0.009,0.004,0.5331873843040336,0.75
-Mia D'Angelo,Archer's Mark,ops,0.0,0.0,0.0,0.5331873843040336,0.0
-Travis Mae,Archer's Mark,ops,0.0,0.0,0.0,0.5331873843040336,0.0
-Juan McGuire,Archer's Mark,ops,0.0,0.0,0.0,0.5331873843040336,0.0
-Dale Lantigua,Archer's Mark,ops,0.0,0.0,0.0,0.5331873843040336,0.0
-Sara Pavlović,Archer's Mark,ops,0.0,0.0,0.0,0.5331873843040336,0.0
-Akira Nagashima,Archer's Mark,ops,0.0,0.0,0.0,0.5331873843040336,0.0
-Paula Junior,Archer's Mark,ops,0.0,0.0,0.0,0.5331873843040336,0.0
-Stacey Mayer,Archer's Mark,ops,0.0,0.0,0.0,0.5331873843040336,0.0
-Noam Coleman,Archer's Mark,ops,0.0,0.0,0.0,0.5331873843040336,0.0
-Johnny Osborne,Archer's Mark,ops,0.004,-0.007,-0.003,0.5331873843040336,-0.56
+Yanli Axelsson,Demonic,ops,0.06,-0.011,0.049,0.5331873843040336,9.19
+Sandra Hidalgo,Demonic,ops,0.052,-0.019,0.033,0.5331873843040336,6.19
+Neptune Vanterpool,Demonic,ops,0.043,-0.011,0.032,0.5331873843040336,6.0
+Eugene Cerdas,Demonic,ops,0.034,-0.011,0.023000000000000003,0.5331873843040336,4.31
+Midnight Koosman,Demonic,ops,0.034,-0.015,0.019000000000000003,0.5331873843040336,3.56
+Johnny Osborne,Demonic,ops,0.034,-0.019,0.015000000000000003,0.5331873843040336,2.81
+Milani Kumar,Demonic,ops,0.026,-0.011,0.015,0.5331873843040336,2.81
+Antonio Slater,Demonic,ops,0.026,-0.011,0.015,0.5331873843040336,2.81
+Craig Koyama,Demonic,ops,0.017,-0.011,0.006000000000000002,0.5331873843040336,1.13
+Mia D'Angelo,Demonic,ops,0.0,0.0,0.0,0.5331873843040336,0.0
+Travis Mae,Demonic,ops,0.0,0.0,0.0,0.5331873843040336,0.0
+Juan McGuire,Demonic,ops,0.0,0.0,0.0,0.5331873843040336,0.0
+Dale Lantigua,Demonic,ops,0.0,0.0,0.0,0.5331873843040336,0.0
+Sara Pavlović,Demonic,ops,0.0,0.0,0.0,0.5331873843040336,0.0
+Akira Nagashima,Demonic,ops,0.0,0.0,0.0,0.5331873843040336,0.0
+Paula Junior,Demonic,ops,0.0,0.0,0.0,0.5331873843040336,0.0
+Stacey Mayer,Demonic,ops,0.0,0.0,0.0,0.5331873843040336,0.0
+Noam Coleman,Demonic,ops,0.0,0.0,0.0,0.5331873843040336,0.0

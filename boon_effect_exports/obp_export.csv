@@ -1,19 +1,19 @@
 player,name,stat,plus,minus,net_impact,intercept,pct_impact
-Milani Kumar,Archer's Mark,obp,0.005,0.0,0.005,0.2663122788858794,1.88
-Neptune Vanterpool,Archer's Mark,obp,0.005,-0.001,0.004,0.2663122788858794,1.5
-Eugene Cerdas,Archer's Mark,obp,0.003,0.0,0.003,0.2663122788858794,1.13
-Yanli Axelsson,Archer's Mark,obp,0.005,-0.003,0.002,0.2663122788858794,0.75
-Craig Koyama,Archer's Mark,obp,0.005,-0.004,0.001,0.2663122788858794,0.38
-Antonio Slater,Archer's Mark,obp,0.004,-0.004,0.0,0.2663122788858794,0.0
-Midnight Koosman,Archer's Mark,obp,0.006,-0.006,0.0,0.2663122788858794,0.0
-Mia D'Angelo,Archer's Mark,obp,0.0,0.0,0.0,0.2663122788858794,0.0
-Travis Mae,Archer's Mark,obp,0.0,0.0,0.0,0.2663122788858794,0.0
-Juan McGuire,Archer's Mark,obp,0.0,0.0,0.0,0.2663122788858794,0.0
-Dale Lantigua,Archer's Mark,obp,0.0,0.0,0.0,0.2663122788858794,0.0
-Sara Pavlović,Archer's Mark,obp,0.0,0.0,0.0,0.2663122788858794,0.0
-Akira Nagashima,Archer's Mark,obp,0.0,0.0,0.0,0.2663122788858794,0.0
-Paula Junior,Archer's Mark,obp,0.0,0.0,0.0,0.2663122788858794,0.0
-Stacey Mayer,Archer's Mark,obp,0.0,0.0,0.0,0.2663122788858794,0.0
-Noam Coleman,Archer's Mark,obp,0.0,0.0,0.0,0.2663122788858794,0.0
-Sandra Hidalgo,Archer's Mark,obp,0.004,-0.006,-0.002,0.2663122788858794,-0.75
-Johnny Osborne,Archer's Mark,obp,0.001,-0.004,-0.003,0.2663122788858794,-1.13
+Yanli Axelsson,Demonic,obp,0.011,-0.009,0.002,0.2663122788858794,0.75
+Mia D'Angelo,Demonic,obp,0.0,0.0,0.0,0.2663122788858794,0.0
+Travis Mae,Demonic,obp,0.0,0.0,0.0,0.2663122788858794,0.0
+Juan McGuire,Demonic,obp,0.0,0.0,0.0,0.2663122788858794,0.0
+Dale Lantigua,Demonic,obp,0.0,0.0,0.0,0.2663122788858794,0.0
+Sara Pavlović,Demonic,obp,0.0,0.0,0.0,0.2663122788858794,0.0
+Akira Nagashima,Demonic,obp,0.0,0.0,0.0,0.2663122788858794,0.0
+Paula Junior,Demonic,obp,0.0,0.0,0.0,0.2663122788858794,0.0
+Stacey Mayer,Demonic,obp,0.0,0.0,0.0,0.2663122788858794,0.0
+Noam Coleman,Demonic,obp,0.0,0.0,0.0,0.2663122788858794,0.0
+Neptune Vanterpool,Demonic,obp,0.008,-0.009,-0.0009999999999999992,0.2663122788858794,-0.38
+Eugene Cerdas,Demonic,obp,0.006,-0.009,-0.002999999999999999,0.2663122788858794,-1.13
+Milani Kumar,Demonic,obp,0.005,-0.009,-0.003999999999999999,0.2663122788858794,-1.5
+Antonio Slater,Demonic,obp,0.005,-0.009,-0.003999999999999999,0.2663122788858794,-1.5
+Craig Koyama,Demonic,obp,0.003,-0.009,-0.005999999999999999,0.2663122788858794,-2.25
+Sandra Hidalgo,Demonic,obp,0.009,-0.015,-0.006,0.2663122788858794,-2.25
+Midnight Koosman,Demonic,obp,0.006,-0.012,-0.006,0.2663122788858794,-2.25
+Johnny Osborne,Demonic,obp,0.006,-0.015,-0.009,0.2663122788858794,-3.38
