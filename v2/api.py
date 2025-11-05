@@ -1,8 +1,9 @@
 import requests
 import pandas as pd
 import psycopg2
-from team import Team
+from team import Team, LightTeam
 from player import Player
+from league import League
 from io import StringIO
 
 class APIHandler:
@@ -69,6 +70,7 @@ class APIHandler:
         conn.close()
         return df
 
+
     def safe_get_player_attr(self, player_name, attr):
         try:
             player = self.team_obj.get_player(player_name)
@@ -76,11 +78,25 @@ class APIHandler:
         except Exception:
             return pd.NA
 
-    def get_league(self,league_id: str) -> None:
+    def get_league(self,league_id: str = None) -> None: # THIS NEEDS TO BE PAGINATED BEFORE IT WILL WORK
+        # request league data, come back with a list of team IDs
+        if league_id is None:
+            league_id = self.team_obj.league
         r1 = requests.get(f'{self.base_url}/league/{league_id}').json()
         teams = r1['Teams']
-        r2 = requests.get(f'{self.base_url}/teams/')
+        # concat ids w/ comma delimiter, compile proper batch api call, build LightTeam object for each
+        teams_str = ''
+        for t in teams:
+            if t != teams[-1]:
+                teams_str += f'{t},'
+            else:
+                teams_str += t
+        teams_url = f'{self.base_url}/teams?ids={teams_str}'
+        r2 = requests.get(f'{teams_url}')
+        league = League(r2)
+        league.teams = [LightTeam(team_data=td) for td in league._data]
 
+        return league
 
     # attempting to get derived stats from freecashe.ws so i dont have to calculate them myself
     def fc_team_stats(self, season: int = None, team_id: str = None, stats_type: str = None) -> pd.DataFrame:

@@ -119,22 +119,23 @@ def get_team(team: str) -> list:
 
 teams_list = get_league('6805db0cac48194de3cd3fea')['Teams']
 # print(teams_list)
-
-teams_str = '['
-
+print(f'LENGTH: {len(teams_list)} teams.')
+teams_str = ''
+teams_list = teams_list[:4]
 for t in teams_list:
     if t != teams_list[-1]:
         teams_str += f'{t},'
     else:
-        teams_str += f'{t}]'
+        teams_str += t
 
 # print(teams_str)
 
-teams_url = f'{base_url}teams/{teams_str}'
+teams_url = f'{base_url}teams?ids={teams_str}'
 
 print('------------- url ------------')
 print(teams_url)
 print('------------------------------')
 teams_r = requests.get(teams_url)
 print(teams_r)
-# print(teams_r.json())
+pprint.pprint(teams_r.json())
+

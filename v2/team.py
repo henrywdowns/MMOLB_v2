@@ -7,7 +7,7 @@ class Team:
         self.api_handler = api_handler
         for k, v in self._team_data.items(): # unpack self._team_data json response and assign as attributes
             setattr(self, k.lower(), v)
-        self.player_data = self.players
+        self.player_data = self.players # API class populates this in its get_team() method. this is also doable via setattr() but then i'd forget this exists :)
 
     def help(self,attrs: bool = False,methods: bool = False, printout = True):
         if printout: print('======== Team Class Help ========')
@@ -42,3 +42,19 @@ class Team:
     def run_stats(self):
         team_stats = MMOLBStats(self._team_data, api_handler = self.api_handler)
         return team_stats.master_summary()
+    
+class LightTeam: # lighter weight class for batch requests
+    def __init__(self, team_data: dict) -> None:
+        self._data = team_data
+        for k, v in self._data.items(): # unpack self._team_data json response and assign as attributes
+            setattr(self, k.lower(), v)
+        self.players = []
+
+    def get_player(self, key: str):
+        import re
+        if re.search(r"\d", key):
+            _players_by_id = {ply.id: ply for ply in self.players}
+            return _players_by_id[key]
+        else:
+            _players_by_name = {ply.full_name: ply for ply in self.players}
+            return _players_by_name[key]
