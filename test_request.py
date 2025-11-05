@@ -114,5 +114,27 @@ def get_team(team: str) -> list:
         print(r)
 
 
-fc_chicken = fc_stats(output='json')
-print(pd.read_json(fc_chicken))
+# fc_chicken = fc_stats(output='json')
+# print(pd.read_json(fc_chicken))
+
+teams_list = get_league('6805db0cac48194de3cd3fea')['Teams']
+# print(teams_list)
+
+teams_str = '['
+
+for t in teams_list:
+    if t != teams_list[-1]:
+        teams_str += f'{t},'
+    else:
+        teams_str += f'{t}]'
+
+# print(teams_str)
+
+teams_url = f'{base_url}teams/{teams_str}'
+
+print('------------- url ------------')
+print(teams_url)
+print('------------------------------')
+teams_r = requests.get(teams_url)
+print(teams_r)
+# print(teams_r.json())

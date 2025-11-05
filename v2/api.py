@@ -76,6 +76,11 @@ class APIHandler:
         except Exception:
             return pd.NA
 
+    def get_league(self,league_id: str) -> None:
+        r1 = requests.get(f'{self.base_url}/league/{league_id}').json()
+        teams = r1['Teams']
+        r2 = requests.get(f'{self.base_url}/teams/')
+
 
     # attempting to get derived stats from freecashe.ws so i dont have to calculate them myself
     def fc_team_stats(self, season: int = None, team_id: str = None, stats_type: str = None) -> pd.DataFrame:
