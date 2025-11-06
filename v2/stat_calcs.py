@@ -9,8 +9,6 @@ class MMOLBStats:
         self.team_pitching = self.handler.fc_team_stats(stats_type='pitching')
         self.league_hitting = self.handler.fc_league_stats(stats_type='hitting')
         self.league_pitching = self.handler.fc_league_stats(stats_type='pitching')
-        # for output in [self.team_hitting,self.team_pitching,self.league_hitting,self.league_pitching]:
-            # print(output)
 
 # ---------- helpers ----------
     @staticmethod

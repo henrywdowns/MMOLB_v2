@@ -24,3 +24,7 @@ class League:
         else:
             _teams_by_name = {tm.name: tm for tm in self.teams}
             return _teams_by_name[key]
+        
+    def league_statistics(self):
+        import pandas as pd
+        

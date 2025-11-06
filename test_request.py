@@ -132,11 +132,8 @@ for t in teams_list:
 
 teams_url = f'{base_url}teams?ids={teams_str}'
 
-print('------------- url ------------')
-print(teams_url)
-print('------------------------------')
-teams_r = requests.get(teams_url)
-print(teams_r)
-pprint.pprint(teams_r.json())
+players_test = f'{base_url}players?ids=6887d48018e81770515bb904,6841bb7be63d9bb87288a05f'
 
-print(get_league('6805db0cac48194de3cd3fea'))
+r = requests.get(players_test)
+
+print(r.json())

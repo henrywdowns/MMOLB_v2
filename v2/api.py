@@ -28,9 +28,8 @@ class APIHandler:
         self.team_id = team_id
         self.team_obj = self.get_team(team_id)
 
-    def clear_cache():
-        requests_cache.clear()
-
+    def clear_cache(self):
+        self.session.cache.clear()
         print('Cache has been cleared.')
 
     def help(self,attrs: bool = False,methods: bool = False, printout=True) -> list:
@@ -93,6 +92,28 @@ class APIHandler:
         conn.close()
         return df
 
+    def batch_players(self, player_ids: list = None) -> dict:  
+        players_list = []
+        if all(players_list) == None:
+            return None   
+        for page in self.paginate(player_ids):
+            players_str = ''
+            for p in page:
+                if p != None:
+                    if p != page[-1]:
+                        players_str += f'{p},'
+                    else:
+                        players_str += p
+                else:
+                    pass
+            players_url = f'{self.base_url}/players?ids={players_str}'
+            batch = self.session.get(f'{players_url}').json()
+            try:
+                players_list += batch['players']
+            except Exception as e:
+                print(e)
+                print(player_ids)
+        return players_list
 
     def safe_get_player_attr(self, player_name, attr):
         try:
@@ -101,10 +122,7 @@ class APIHandler:
         except Exception:
             return None
 
-    def get_league(self,league_id: str = None, populate: str = None) -> League: # THIS NEEDS TO BE PAGINATED BEFORE IT WILL WORK
-        # take a list and split it into a list of lists w/ max length = page_length
-        
-        def paginate(id_list: list, page_length: int = 100) -> list:
+    def paginate(self,id_list: list, page_length: int = 100) -> list:
             page_list = []
             sub_list = []
 
@@ -117,8 +135,10 @@ class APIHandler:
                 page_list.append(sub_list)
             return page_list
         
-        # concat ids w/ comma delimiter, compile proper batch api call, build LightTeam object for each
-        def batch_teams(page):
+    # concat ids w/ comma delimiter, compile proper batch api call, build LightTeam object for each
+    def batch_teams(self, team_ids_list: list):
+        league_list = []
+        for page in self.paginate(team_ids_list):
             teams_str = ''
             for t in page:
                 if t != page[-1]:
@@ -126,11 +146,11 @@ class APIHandler:
                 else:
                     teams_str += t
             teams_url = f'{self.base_url}/teams?ids={teams_str}'
-            r2 = self.session.get(f'{teams_url}')
-            return r2
+            batch = self.session.get(f'{teams_url}').json()
+            league_list += batch['teams']
+        return league_list
 
-        league_list = []
-
+    def get_league(self,league_id: str = None, populate: str = None) -> League: # THIS NEEDS TO BE PAGINATED BEFORE IT WILL WORK
         # default to API obj default league if not specified
         if league_id is None:
             league_id = self.team_obj.league
@@ -139,17 +159,12 @@ class APIHandler:
         r1 = self.session.get(f'{self.base_url}/league/{league_id}').json()
         teams = r1['Teams']
 
-        # paginate the request, roll it together, and build the League object
-        teams = paginate(teams)
-        for page in teams:
-            batch = batch_teams(page).json()
-            league_list += batch['teams']
+        # run the batch teams api call and build the League object
+        league_list = self.batch_teams(teams)
         league = League(r1)
         league.teams = [LightTeam(team_data=td) for td in league_list]
 
-        print(league.teams[0].player_ids)
-
-
+        # teams are found and now i need to populate the teams with players. TODO: replace this nonsense with batch players pull
         try:
             team_to_pop = league.get_team(populate)
         except:
@@ -168,9 +183,12 @@ class APIHandler:
         elif populate in ['all','All','ALL']: # do the big populate
             for team_obj in tqdm(league.teams,desc='Loading teams'):
                 team_to_pop = league.get_team(team_obj.name)
-                player_objs = []
-                for player_id in tqdm(team_to_pop.player_ids.values(), desc=f'Getting players for {team_to_pop.name}'):
-                    player_objs.append(self.get_player_data(player_id))
+                player_ids_list = []
+                for player_id in team_to_pop.player_ids.values():
+                    print(player_id)
+                    player_ids_list.append(player_id)
+                print(player_ids_list)
+                player_objs = self.batch_players(player_ids_list)
                 team_to_pop.players = player_objs
         else:
             raise ValueError('"Populate" keyword must be "all", a team name, a team ID, or None.')
