@@ -139,3 +139,4 @@ teams_r = requests.get(teams_url)
 print(teams_r)
 pprint.pprint(teams_r.json())
 
+print(get_league('6805db0cac48194de3cd3fea'))

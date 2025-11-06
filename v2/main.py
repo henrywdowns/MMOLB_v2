@@ -6,9 +6,5 @@ import pprint
 if __name__ == '__main__':
     handler = APIHandler()
     chk = handler.get_team()
-    liberty = handler.get_league()
-    # # robin = chk.get_player('Robin Stoica')
-    # # robin.help()
-    # # print(handler.fc_team_stats)
-    # # chk.run_stats()
-    print(liberty.teams)
+    liberty = handler.get_league(populate='all')
+    print(liberty.size)

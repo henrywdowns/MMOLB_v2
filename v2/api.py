@@ -1,13 +1,16 @@
 import requests
+import requests_cache
 import pandas as pd
 import psycopg2
 from team import Team, LightTeam
 from player import Player
 from league import League
 from io import StringIO
+from tqdm import tqdm
 
 class APIHandler:
     def __init__(self,team_id: str ='680e477a7d5b06095ef46ad1',default_season: int = 7) -> None:
+        requests_cache.install_cache("mmolb_http_cache", backend="sqlite", expire_after=None)
         self.base_url = r'https://mmolb.com/api'
         self.cashews = r'https://freecashe.ws/'
         self.team = r'team'
@@ -17,7 +20,11 @@ class APIHandler:
         self.team_id = team_id
         self.team_obj = self.get_team(team_id)
 
-    def help(self,attrs: bool = False,methods: bool = False, printout=True):
+    def clear_cache():
+        requests_cache.clear()
+        print('Cache has been cleared.')
+
+    def help(self,attrs: bool = False,methods: bool = False, printout=True) -> list:
         if printout: print('======== API Handler Class Help ========')
         _attrs = [k for k in self.__dict__.keys()]
         _methods = [name for name in dir(self) if callable(getattr(self, name)) and not name.startswith("__")]
@@ -27,11 +34,17 @@ class APIHandler:
         if printout: print(attrs_methods)
         return attrs_methods
 
-    def get_player_data(self,id):
+    def get_player_data(self,id) -> dict:
         r = requests.get(f'{self.base_url}/player/{id}')
-        return r.json()
+        try:
+            return r.json()
+        except Exception as e:
+            if id == None:
+                pass
+            else:
+                raise KeyError
 
-    def get_team(self,team_id: str = None) -> dict:
+    def get_team(self,team_id: str = None) -> Team:
         # build the team object
         if not team_id:
             team_id = self.team_id
@@ -41,7 +54,7 @@ class APIHandler:
         # build the players
         player_ids = [plyr['PlayerID'] for plyr in team.player_data]
         player_objects = []
-        for id in player_ids:
+        for id in tqdm(player_ids,desc='Getting player data'):
             player_objects.append(Player(self.get_player_data(id)))
         
         # insert them into team data
@@ -76,27 +89,84 @@ class APIHandler:
             player = self.team_obj.get_player(player_name)
             return getattr(player, attr, pd.NA)
         except Exception:
-            return pd.NA
+            return None
 
-    def get_league(self,league_id: str = None) -> None: # THIS NEEDS TO BE PAGINATED BEFORE IT WILL WORK
-        # request league data, come back with a list of team IDs
+    def get_league(self,league_id: str = None, populate: str = None) -> League: # THIS NEEDS TO BE PAGINATED BEFORE IT WILL WORK
+        # take a list and split it into a list of lists w/ max length = page_length
+        
+        def paginate(id_list: list, page_length: int = 100) -> list:
+            page_list = []
+            sub_list = []
+
+            for item in id_list:
+                if len(sub_list) >= page_length:
+                    page_list.append(sub_list)
+                    sub_list = []
+                sub_list.append(item)
+            if len(sub_list) > 0: # dont want to append [] if sub_list is somehow empty
+                page_list.append(sub_list)
+            return page_list
+        
+        # concat ids w/ comma delimiter, compile proper batch api call, build LightTeam object for each
+        def batch_teams(page):
+            teams_str = ''
+            for t in page:
+                if t != page[-1]:
+                    teams_str += f'{t},'
+                else:
+                    teams_str += t
+            teams_url = f'{self.base_url}/teams?ids={teams_str}'
+            r2 = requests.get(f'{teams_url}')
+            return r2
+
+        league_list = []
+
+        # default to API obj default league if not specified
         if league_id is None:
             league_id = self.team_obj.league
+
+        # request league data, come back with a list of team IDs
         r1 = requests.get(f'{self.base_url}/league/{league_id}').json()
         teams = r1['Teams']
-        # concat ids w/ comma delimiter, compile proper batch api call, build LightTeam object for each
-        teams_str = ''
-        for t in teams:
-            if t != teams[-1]:
-                teams_str += f'{t},'
-            else:
-                teams_str += t
-        teams_url = f'{self.base_url}/teams?ids={teams_str}'
-        r2 = requests.get(f'{teams_url}')
-        league = League(r2)
-        league.teams = [LightTeam(team_data=td) for td in league._data]
+
+        # paginate the request, roll it together, and build the League object
+        teams = paginate(teams)
+        for page in teams:
+            batch = batch_teams(page).json()
+            league_list += batch['teams']
+        league = League(r1)
+        league.teams = [LightTeam(team_data=td) for td in league_list]
+
+        print(league.teams[0].player_ids)
+
+
+        try:
+            team_to_pop = league.get_team(populate)
+        except:
+            team_to_pop = False
+
+        # building the players can be expensive, so optionally populate them. 
+        if populate is None:
+                pass
+        elif team_to_pop != False: # if the team can be searched, it exists. populate just that.
+            player_objs = []
+ 
+            for player_id in tqdm(team_to_pop.player_ids.values(), desc=f'Getting players for {team_to_pop.name}'):
+                player_objs.append(self.get_player_data(player_id))
+            team_to_pop.players = player_objs
+
+        elif populate in ['all','All','ALL']: # do the big populate
+            for team_obj in tqdm(league.teams,desc='Loading teams'):
+                team_to_pop = league.get_team(team_obj.name)
+                player_objs = []
+                for player_id in tqdm(team_to_pop.player_ids.values(), desc=f'Getting players for {team_to_pop.name}'):
+                    player_objs.append(self.get_player_data(player_id))
+                team_to_pop.players = player_objs
+        else:
+            raise ValueError('"Populate" keyword must be "all", a team name, a team ID, or None.')
 
         return league
+
 
     # attempting to get derived stats from freecashe.ws so i dont have to calculate them myself
     def fc_team_stats(self, season: int = None, team_id: str = None, stats_type: str = None) -> pd.DataFrame:

@@ -48,7 +48,18 @@ class LightTeam: # lighter weight class for batch requests
         self._data = team_data
         for k, v in self._data.items(): # unpack self._team_data json response and assign as attributes
             setattr(self, k.lower(), v)
+        self.player_ids = self.players
         self.players = []
+
+    def help(self,attrs: bool = False,methods: bool = False, printout = True):
+        if printout: print('======== LightTeam Class Help ========')
+        _attrs = [k for k in self.__dict__.keys()]
+        _methods = [name for name in dir(self) if callable(getattr(self, name)) and not name.startswith("__")]
+        attrs_methods = [_attrs,_methods]
+        if attrs: attrs_methods = _attrs
+        elif methods: attrs_methods = _methods
+        if printout: print(attrs_methods)
+        return attrs_methods
 
     def get_player(self, key: str):
         import re
@@ -58,3 +69,4 @@ class LightTeam: # lighter weight class for batch requests
         else:
             _players_by_name = {ply.full_name: ply for ply in self.players}
             return _players_by_name[key]
+        
