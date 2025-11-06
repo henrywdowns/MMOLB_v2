@@ -10,7 +10,15 @@ from tqdm import tqdm
 
 class APIHandler:
     def __init__(self,team_id: str ='680e477a7d5b06095ef46ad1',default_season: int = 7) -> None:
-        requests_cache.install_cache("mmolb_http_cache", backend="sqlite", expire_after=None)
+        #requests_cache.install_cache("mmolb_http_cache", backend="sqlite", expire_after=None)
+        self.session = requests_cache.CachedSession(
+            ".cache/mmolb_http_cache",
+            backend="sqlite",
+            expire_after=None,          # persist indefinitely unless you clear
+            allowable_codes=(200, 204, 404, 500),  # cache “empty”/not-found responses too
+            cache_control=False,        # don’t let server disable caching
+            stale_if_error=True,        # serve cached value if upstream blips
+        )
         self.base_url = r'https://mmolb.com/api'
         self.cashews = r'https://freecashe.ws/'
         self.team = r'team'
@@ -22,6 +30,7 @@ class APIHandler:
 
     def clear_cache():
         requests_cache.clear()
+
         print('Cache has been cleared.')
 
     def help(self,attrs: bool = False,methods: bool = False, printout=True) -> list:
@@ -35,12 +44,13 @@ class APIHandler:
         return attrs_methods
 
     def get_player_data(self,id) -> dict:
-        r = requests.get(f'{self.base_url}/player/{id}')
+        r = self.session.get(f'{self.base_url}/player/{id}')
         try:
             return r.json()
         except Exception as e:
             if id == None:
-                pass
+                if r == 500:
+                    self.session.cache.save_response(r)
             else:
                 raise KeyError
 
@@ -48,7 +58,7 @@ class APIHandler:
         # build the team object
         if not team_id:
             team_id = self.team_id
-        r = requests.get(f'{self.base_url}/team/{team_id}')
+        r = self.session.get(f'{self.base_url}/team/{team_id}')
         team = Team(r.json(),api_handler=self)
         
         # build the players
@@ -116,7 +126,7 @@ class APIHandler:
                 else:
                     teams_str += t
             teams_url = f'{self.base_url}/teams?ids={teams_str}'
-            r2 = requests.get(f'{teams_url}')
+            r2 = self.session.get(f'{teams_url}')
             return r2
 
         league_list = []
@@ -126,7 +136,7 @@ class APIHandler:
             league_id = self.team_obj.league
 
         # request league data, come back with a list of team IDs
-        r1 = requests.get(f'{self.base_url}/league/{league_id}').json()
+        r1 = self.session.get(f'{self.base_url}/league/{league_id}').json()
         teams = r1['Teams']
 
         # paginate the request, roll it together, and build the League object
@@ -184,7 +194,7 @@ class APIHandler:
             case _:
                 raise ValueError("stats_type must be 'batting' or 'pitching'")
 
-        r = requests.get(
+        r = self.session.get(
             "https://freecashe.ws/api/stats",
             params={
                 "season": season,
@@ -215,7 +225,7 @@ class APIHandler:
             case _:
                 raise ValueError("stats_type must be 'batting' or 'pitching'")
 
-        r = requests.get(
+        r = self.session.get(
             "https://freecashe.ws/api/stats",
             params={
                 "season": season,
