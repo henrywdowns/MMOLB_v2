@@ -163,7 +163,6 @@ class MMOLBStats:
         lp = self.basic_pitching("league")
 
         hitting  = pd.concat({"team": th, "league": lh})
-        print(hitting)
         pitching = pd.concat({"team": tp, "league": lp})
 
         hp_cols = ["BA+","OBP+","SLG+","OPS+","BABIP+","ISO+"]

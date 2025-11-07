@@ -25,9 +25,17 @@ class _TeamCommon:
             _players_by_name = {ply.full_name: ply for ply in self.players}
             return _players_by_name[key]
         
-    def run_stats(self):
-        team_stats = MMOLBStats(self._data, api_handler=self.api_handler, _team_type = self.__class__.__name__)
-        return team_stats.master_summary()
+    def run_stats(self,truncate=True):
+        team_stats = MMOLBStats(self._data, api_handler=self.api_handler, _class_type = self.__class__.__name__)
+        df_dict = team_stats.master_summary()
+        for k, df in df_dict.items():
+            if k in ['hitting', 'pitching'] and truncate:
+                df_dict[k] = df[df['team_id'] == self._id]
+                if k == 'hitting':
+                    df_dict[k] = df[df['positiontype'] == 'Batter'] 
+                else:
+                    df_dict[k] = df[df['positiontype'] == 'Pitcher']
+        return df_dict
 
 class Team(_TeamCommon):
     def __init__(self, team_data: dict, api_handler) -> None:

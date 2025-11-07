@@ -112,7 +112,6 @@ class APIHandler:
                 players_list += batch['players']
             except Exception as e:
                 print(e)
-                print(player_ids)
         return players_list
 
     def safe_get_player_attr(self, player_name, attr):
@@ -184,9 +183,7 @@ class APIHandler:
                 team_to_pop = league.get_team(team_obj.name)
                 player_ids_list = []
                 for player_id in team_to_pop.player_ids.values():
-                    print(player_id)
                     player_ids_list.append(player_id)
-                print(player_ids_list)
                 player_objs = self.batch_players(player_ids_list)
                 team_to_pop.players = player_objs
         else:
