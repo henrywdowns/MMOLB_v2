@@ -1,8 +1,12 @@
 import pandas as pd
 
+# big shoutout to chatgpt for this one. i fuckin hate writing out every derived metric ever lol
+# for league usage, it's a little hacky. you run it for a component team within the League object, then just call league methods.
+
 class MMOLBStats:
-    def __init__(self,team_data,api_handler) -> None:
+    def __init__(self,team_data,api_handler,_class_type) -> None:
         self.team_data = team_data
+        self._class_type = _class_type
         self.league_id = getattr(team_data, 'league', None)
         self.handler = api_handler
         self.team_hitting = self.handler.fc_team_stats(stats_type='hitting')

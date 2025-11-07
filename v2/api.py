@@ -162,8 +162,8 @@ class APIHandler:
         # run the batch teams api call and build the League object
         league_list = self.batch_teams(teams)
         league = League(r1)
-        league.teams = [LightTeam(team_data=td) for td in league_list]
-
+        league.teams = [LightTeam(team_data=td,api_handler=self) for td in league_list]
+        league.__setattr__('_populate_status',populate)
         # teams are found and now i need to populate the teams with players. TODO: replace this nonsense with batch players pull
         try:
             team_to_pop = league.get_team(populate)
@@ -175,7 +175,6 @@ class APIHandler:
                 pass
         elif team_to_pop != False: # if the team can be searched, it exists. populate just that.
             player_objs = []
- 
             for player_id in tqdm(team_to_pop.player_ids.values(), desc=f'Getting players for {team_to_pop.name}'):
                 player_objs.append(self.get_player_data(player_id))
             team_to_pop.players = player_objs
@@ -227,6 +226,8 @@ class APIHandler:
 
         team_df = pd.read_csv(StringIO(r.text))
         team_df['positiontype'] = team_df["player_name"].apply(lambda n: self.safe_get_player_attr(n, "positiontype"))
+
+        return team_df
     
     def fc_league_stats(self, season: int = None, league_id: str = None, stats_type: str = None) -> pd.DataFrame:
         season = season or self.default_season

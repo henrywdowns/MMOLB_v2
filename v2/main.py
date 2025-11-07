@@ -5,11 +5,9 @@ import pprint
 
 if __name__ == '__main__':
     handler = APIHandler()
-    handler.clear_cache()
     chk = handler.get_team()
-    # chk_light = handler.get_league(populate='Spicy Chicken Crunchwraps').get_team('Spicy Chicken Crunchwraps')
-    # print(chk.players)
-    liberty = handler.get_league(populate='All')
-    print(liberty.size)
-    print(liberty.get_team('Spicy Chicken Crunchwraps'))
-    # print(chk_light.players)
+    chk_league = handler.get_league(populate='Spicy Chicken Crunchwraps')
+    chk_light = chk_league.get_team('Spicy Chicken Crunchwraps')
+    league_performance = chk_league.league_statistics()
+    hitting_df = league_performance['hitting'].sort_values(['team_name','player_name'],ascending=True,axis=0)
+    pitching_df = league_performance['pitching'].sort_values(['team_name','player_name'],ascending=True,axis=0)

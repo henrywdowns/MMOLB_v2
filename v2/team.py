@@ -2,6 +2,9 @@ from player import Player
 from stat_calcs import MMOLBStats
 
 class _TeamCommon:
+    def __init__(self, team_data, api_handler):
+        self._data = team_data
+        self.api_handler = api_handler
     # shared helpers only (no behavior changes)
     def help(self, attrs: bool = False, methods: bool = False, printout=True):
         if printout: print(f'======== {self.__class__.__name__} Class Help ========')
@@ -21,12 +24,14 @@ class _TeamCommon:
         else:
             _players_by_name = {ply.full_name: ply for ply in self.players}
             return _players_by_name[key]
-
+        
+    def run_stats(self):
+        team_stats = MMOLBStats(self._data, api_handler=self.api_handler, _team_type = self.__class__.__name__)
+        return team_stats.master_summary()
 
 class Team(_TeamCommon):
     def __init__(self, team_data: dict, api_handler) -> None:
-        self._data = team_data
-        self.api_handler = api_handler
+        super().__init__(team_data, api_handler)
         for k, v in self._data.items():
             setattr(self, k.lower(), v)
         self.player_data = self.players  # unchanged, gets changed in APIHandler
@@ -42,13 +47,9 @@ class Team(_TeamCommon):
             roster = {roster_type: roster.get(roster_type)}
         return roster
 
-    def run_stats(self):
-        team_stats = MMOLBStats(self._data, api_handler=self.api_handler)
-        return team_stats.master_summary()
-
-
 class LightTeam(_TeamCommon):  # lighter weight class for batch requests
-    def __init__(self, team_data: dict) -> None:
+    def __init__(self, team_data: dict, api_handler) -> None:
+        super().__init__(team_data, api_handler)
         self._data = team_data
         for k, v in self._data.items():
             setattr(self, k.lower(), v)
