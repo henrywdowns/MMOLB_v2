@@ -330,7 +330,6 @@ def best_boons_for_player(
 
     return detail_df, ranking_df
 
-
 if __name__ == '__main__':
-    # player_boon_effects(dogs_id,"Archer's Mark")
-    best_boons_for_player(chicken_id,'6841e93ef7b5d3bf791d6ce0')
+    player_boon_effects(dogs_id,"Demonic")
+    best_boons_for_player(dogs_id,'68884a23ea7acc171a96890e',export=False)

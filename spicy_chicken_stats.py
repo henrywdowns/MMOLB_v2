@@ -23,12 +23,10 @@ sample of team_data['Players']:
 """
 
 class Team:
-    def __init__(self,team_id=chicken_id) -> None:
+    def __init__(self,team_id = chicken_id,season: int = None,cache=False) -> None:
         self.id = team_id
-        self.stored_locally = False
-        self.team_stored_data = None
-        check_local = self.store_local(get_team_id=team_id)
-        self.team_data = requests.get(f'{base_url}/{team_id}').json()
+        self.team_data = self.check_cache() if cache else requests.get(f'{base_url}/{team_id}').json()
+        self.season = season
         self.league = self.team_data['League']
         try:
             self.record = self.team_data['Record']['Regular Season']
@@ -57,10 +55,16 @@ class Team:
             'Catcher': ['caught_stealing', 'runners_caught_stealing', 'assists']
 
 }
-        if not self.stored_locally:
-            self.store_local(team_object=self)
-            self.stored_locally = True
-        print(f'Team {self.name} successfully initialized.')
+        # if not self.stored_locally:
+        #     self.store_local(team_object=self)
+        #     self.stored_locally = True
+        # print(f'Team {self.name} successfully initialized.')
+
+    def check_cache(self):
+        cache = Utils.access_json('teams.json')
+        team_data = cache[self.id]
+        return team_data
+
 
     def get_player(self,name: str = None,id: int = None) -> dict:
         if not name:
@@ -667,5 +671,5 @@ class Player:
         Utils.write_json('derived_stats.json', derived_stats)
 
 if __name__ == '__main__':
-    beetles = Team(lady_beetles)
+    beetles = Team(chicken_id)
     #print(beetles.team_data)
