@@ -1,0 +1,190 @@
+boon,stat,contrib
+Air Elemental,obp,0.1122
+Air Elemental,era,0.0
+Air Elemental,fip,0.0
+Air Elemental,whip,0.0
+Air Elemental,avg,-0.0557
+Air Elemental,ops,-4.5783
+Air Elemental,slg,-9.2589
+Amphibian,era,0.0
+Amphibian,fip,0.0
+Amphibian,whip,0.0
+Amphibian,obp,-2.1234
+Amphibian,avg,-2.1255
+Amphibian,ops,-5.8017
+Amphibian,slg,-9.4722
+Angelic,avg,2.7934
+Angelic,obp,0.8256
+Angelic,era,0.0
+Angelic,fip,0.0
+Angelic,whip,0.0
+Angelic,ops,-6.8618
+Angelic,slg,-15.787
+Archer's Mark,slg,2.5291
+Archer's Mark,ops,0.8299
+Archer's Mark,era,0.0
+Archer's Mark,fip,0.0
+Archer's Mark,whip,0.0
+Archer's Mark,obp,-0.8728
+Archer's Mark,avg,-2.089
+Calculated,avg,1.6761
+Calculated,obp,0.4954
+Calculated,era,0.0
+Calculated,fip,0.0
+Calculated,whip,0.0
+Calculated,ops,-4.1171
+Calculated,slg,-9.4722
+Clean,avg,5.4937
+Clean,obp,3.757
+Clean,ops,1.6846
+Clean,era,0.0
+Clean,fip,0.0
+Clean,slg,0.0
+Clean,whip,0.0
+Demonic,slg,15.787
+Demonic,ops,6.8618
+Demonic,era,0.0
+Demonic,fip,0.0
+Demonic,whip,0.0
+Demonic,obp,-0.8256
+Demonic,avg,-2.7934
+Draconic,slg,2.342
+Draconic,era,0.0
+Draconic,fip,0.0
+Draconic,whip,0.0
+Draconic,ops,-2.8077
+Draconic,obp,-5.7711
+Draconic,avg,-7.9219
+Earth Elemental,slg,4.9242
+Earth Elemental,ops,2.5879
+Earth Elemental,era,0.0
+Earth Elemental,fip,0.0
+Earth Elemental,whip,0.0
+Earth Elemental,obp,-0.2792
+Earth Elemental,avg,-0.9065
+Fae,era,0.0
+Fae,fip,0.0
+Fae,whip,0.0
+Fae,avg,-2.9349
+Fae,obp,-3.1427
+Fae,ops,-9.6695
+Fae,slg,-15.787
+Fire Elemental,slg,1.4386
+Fire Elemental,era,0.0
+Fire Elemental,fip,0.0
+Fire Elemental,whip,0.0
+Fire Elemental,ops,-0.5916
+Fire Elemental,avg,-1.5859
+Fire Elemental,obp,-1.6856
+Geometry Expert,era,0.0
+Geometry Expert,fip,0.0
+Geometry Expert,whip,0.0
+Geometry Expert,obp,-2.291
+Geometry Expert,avg,-2.6694
+Geometry Expert,ops,-4.249
+Geometry Expert,slg,-6.5177
+Giant,slg,9.9595
+Giant,ops,6.49
+Giant,avg,4.449
+Giant,obp,3.5391
+Giant,era,0.0
+Giant,fip,0.0
+Giant,whip,0.0
+Insectoid,slg,11.402
+Insectoid,ops,6.6968
+Insectoid,obp,2.7357
+Insectoid,avg,2.505
+Insectoid,era,0.0
+Insectoid,fip,0.0
+Insectoid,whip,0.0
+Mer,avg,0.5515
+Mer,era,0.0
+Mer,fip,0.0
+Mer,whip,0.0
+Mer,obp,-0.2088
+Mer,ops,-3.0547
+Mer,slg,-5.3221
+One With All,slg,3.4965
+One With All,ops,1.9077
+One With All,era,0.0
+One With All,fip,0.0
+One With All,whip,0.0
+One With All,obp,-1.1381
+One With All,avg,-2.2359
+Psychic,era,0.0
+Psychic,fip,0.0
+Psychic,whip,0.0
+Psychic,obp,-5.187
+Psychic,avg,-6.3066
+Psychic,ops,-8.0265
+Psychic,slg,-10.86
+Scooter,era,0.0
+Scooter,fip,0.0
+Scooter,whip,0.0
+Scooter,obp,-1.5112
+Scooter,avg,-1.746
+Scooter,ops,-4.9066
+Scooter,slg,-7.5424
+Shiny,slg,0.542
+Shiny,ops,0.355
+Shiny,era,0.0
+Shiny,fip,0.0
+Shiny,whip,0.0
+Shiny,obp,-0.0703
+Shiny,avg,-0.3646
+Soul in the Machine,avg,5.7283
+Soul in the Machine,obp,3.9683
+Soul in the Machine,ops,2.8077
+Soul in the Machine,era,0.0
+Soul in the Machine,fip,0.0
+Soul in the Machine,slg,0.0
+Soul in the Machine,whip,0.0
+Spectral,avg,2.5994
+Spectral,obp,1.1077
+Spectral,era,0.0
+Spectral,fip,0.0
+Spectral,whip,0.0
+Spectral,ops,-5.1297
+Spectral,slg,-11.039
+Stormrider,slg,1.4052
+Stormrider,era,0.0
+Stormrider,fip,0.0
+Stormrider,ops,0.0
+Stormrider,whip,0.0
+Stormrider,obp,-0.8439
+Stormrider,avg,-0.9516
+Tenacious Badger,slg,8.9302
+Tenacious Badger,ops,5.4467
+Tenacious Badger,avg,3.8176
+Tenacious Badger,obp,3.0941
+Tenacious Badger,era,0.0
+Tenacious Badger,fip,0.0
+Tenacious Badger,whip,0.0
+The Light,avg,4.3455
+The Light,obp,2.7863
+The Light,ops,0.1319
+The Light,era,0.0
+The Light,fip,0.0
+The Light,whip,0.0
+The Light,slg,-2.9545
+UFO,slg,4.9018
+UFO,ops,0.2231
+UFO,era,0.0
+UFO,fip,0.0
+UFO,whip,0.0
+UFO,obp,-3.4627
+UFO,avg,-5.297
+Undead,avg,3.7266
+Undead,obp,1.8969
+Undead,era,0.0
+Undead,fip,0.0
+Undead,whip,0.0
+Undead,ops,-3.1795
+Undead,slg,-5.8276
+Water Elemental,era,0.0
+Water Elemental,fip,0.0
+Water Elemental,whip,0.0
+Water Elemental,obp,-3.5391
+Water Elemental,avg,-4.449
+Water Elemental,ops,-6.49
+Water Elemental,slg,-9.9595
