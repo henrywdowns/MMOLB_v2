@@ -1,9 +1,11 @@
+import pprint
 from .stat_calcs import MMOLBStats
 
 class _TeamCommon:
     def __init__(self, team_data, api_handler):
         self._data = team_data
         self.api_handler = api_handler
+        self.attributes = None
     # shared helpers only (no behavior changes)
     def help(self, attrs: bool = False, methods: bool = False, printout=True):
         if printout: print(f'======== {self.__class__.__name__} Class Help ========')
@@ -35,13 +37,39 @@ class _TeamCommon:
                 else:
                     df_dict[k] = df[df['positiontype'] == 'Pitcher']
         return df_dict
+    
+    def _get_attributes(self) -> dict:
+        player_attrs = {} # key = player full name, value = stats
+        if self.__class__.__name__ == 'LightTeam': # this works much more smoothly for LightTeam since it's all immediately available
+            for player in self.players:
+                attrs = player['Talk']
+                attrs_dict = {
+                    'total_attr_dict': {k.capitalize(): {} for k in attrs.keys()}, # total attributes
+                    'base_attr_dict': {k.capitalize(): {} for k in attrs.keys()}, # base attributes
+                    'equip_attr_dict': {k.capitalize(): {} for k in attrs.keys()} # total minus base attributes
+                }
 
-class Team(_TeamCommon):
+                for cat in attrs.keys():
+                    stars = attrs[cat]['stars'] # it's called stars, but we now have fine-grain numbers. bye stars! 
+                    attrs_dict['total_attr_dict'][cat] = {k: v['total'] for k, v in stars.items()}
+                    attrs_dict['base_attr_dict'][cat] = {k: v['base_total'] for k, v in stars.items()}
+                    attrs_dict['equip_attr_dict'][cat] = {k:round(v['total']-v['base_total'],2) for k, v in stars.items()}
+
+                full_name = f'{player['FirstName']} {player['LastName']}'
+                player_attrs[full_name] = attrs_dict
+            return player_attrs
+        elif self.__class__.__name__ == 'Team': # might as well build it into Team. just iterate through players and access the right attributes.
+            for player in self.players:
+                player_attrs[player.full_name] = player.attributes
+            return player_attrs
+
+class Team(_TeamCommon): # really a vehicle for looking for extremely team-specific stats. LightTeam is better for anything player-focused.
     def __init__(self, team_data: dict, api_handler) -> None:
         super().__init__(team_data, api_handler)
         for k, v in self._data.items():
             setattr(self, k.lower(), v)
-        self.player_data = self.players  # unchanged, gets changed in APIHandler
+        self.player_data = self.players  # original player data from the json response.
+        # use self.players for Player objects. the APIHandler overwrites self.players with Player objects after initialization.
 
     def get_roster(self, roster_type: str = None) -> dict:
         t = self._data
@@ -54,11 +82,11 @@ class Team(_TeamCommon):
             roster = {roster_type: roster.get(roster_type)}
         return roster
 
-class LightTeam(_TeamCommon):  # lighter weight class for batch requests
+class LightTeam(_TeamCommon):  # lighter weight class for batch requests. delivers far more player information far faster, but has less team data.
     def __init__(self, team_data: dict, api_handler) -> None:
         super().__init__(team_data, api_handler)
         self._data = team_data
         for k, v in self._data.items():
             setattr(self, k.lower(), v)
         self.player_ids = self.players
-        self.players = []
+        self.players = [] # objects. created after instantiation in APIHandler
