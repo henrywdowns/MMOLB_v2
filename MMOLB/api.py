@@ -66,7 +66,7 @@ class APIHandler:
         
         # insert them into team data
         team.players = player_objects
-        team.attributes = team._get_attributes()
+        team.attributes = team.get_attributes()
 
         self.team_obj = team
         return team
@@ -176,7 +176,7 @@ class APIHandler:
             for player_id in tqdm(team_to_pop.player_ids.values(), desc=f'Getting players for {team_to_pop.name}'):
                 player_objs.append(self.get_player_data(player_id))
             team_to_pop.players = player_objs
-            team_to_pop.attributes = team_to_pop._get_attributes()
+            team_to_pop.attributes = team_to_pop.get_attributes()
 
         elif populate in ['all','All','ALL']: # do the big populate
             for team_obj in tqdm(league.teams,desc='Loading teams'):
@@ -186,7 +186,7 @@ class APIHandler:
                     player_ids_list.append(player_id)
                 player_objs = self.batch_players(player_ids_list)
                 team_to_pop.players = player_objs
-                team_to_pop.attributes = team_to_pop._get_attributes()
+                team_to_pop.attributes = team_to_pop.get_attributes()
         else:
             raise ValueError('"Populate" keyword must be "all", a team name, a team ID, or None.')
 

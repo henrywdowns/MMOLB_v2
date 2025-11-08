@@ -1,6 +1,6 @@
 import pandas as pd
 import requests
-from utils import Utils
+from MMOLB.utils import Utils
 import pprint
 from io import StringIO
 

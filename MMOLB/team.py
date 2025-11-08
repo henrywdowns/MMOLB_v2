@@ -1,5 +1,6 @@
 import pprint
 from .stat_calcs import MMOLBStats
+import pandas as pd
 
 class _TeamCommon:
     def __init__(self, team_data, api_handler):
@@ -38,30 +39,56 @@ class _TeamCommon:
                     df_dict[k] = df[df['positiontype'] == 'Pitcher']
         return df_dict
     
-    def _get_attributes(self) -> dict:
-        player_attrs = {} # key = player full name, value = stats
-        if self.__class__.__name__ == 'LightTeam': # this works much more smoothly for LightTeam since it's all immediately available
+    import pandas as pd
+
+    def get_attributes(self, flat=False):
+        # flat returns an analytics-ready df
+        player_attrs = {}
+
+        if self.__class__.__name__ == 'LightTeam':
             for player in self.players:
-                attrs = player['Talk']
-                attrs_dict = {
-                    'total_attr_dict': {k.capitalize(): {} for k in attrs.keys()}, # total attributes
-                    'base_attr_dict': {k.capitalize(): {} for k in attrs.keys()}, # base attributes
-                    'equip_attr_dict': {k.capitalize(): {} for k in attrs.keys()} # total minus base attributes
-                }
+                try:
+                    attrs = player['Talk']
+                    attrs_dict = {
+                        kind: {k.capitalize(): {} for k in attrs.keys()}
+                        for kind in ('total_attr_dict', 'base_attr_dict', 'equip_attr_dict')
+                    }
 
-                for cat in attrs.keys():
-                    stars = attrs[cat]['stars'] # it's called stars, but we now have fine-grain numbers. bye stars! 
-                    attrs_dict['total_attr_dict'][cat] = {k: v['total'] for k, v in stars.items()}
-                    attrs_dict['base_attr_dict'][cat] = {k: v['base_total'] for k, v in stars.items()}
-                    attrs_dict['equip_attr_dict'][cat] = {k:round(v['total']-v['base_total'],2) for k, v in stars.items()}
+                    for cat, stars in attrs.items():
+                        attrs_dict['total_attr_dict'][cat] = {k: v['total'] for k, v in stars['stars'].items()}
+                        attrs_dict['base_attr_dict'][cat] = {k: v['base_total'] for k, v in stars['stars'].items()}
+                        attrs_dict['equip_attr_dict'][cat] = {k: round(v['total']-v['base_total'],2) for k, v in stars['stars'].items()}
 
-                full_name = f'{player['FirstName']} {player['LastName']}'
-                player_attrs[full_name] = attrs_dict
-            return player_attrs
-        elif self.__class__.__name__ == 'Team': # might as well build it into Team. just iterate through players and access the right attributes.
+                    full_name = f"{player['FirstName']} {player['LastName']}"
+                    player_attrs[full_name] = attrs_dict
+                except Exception as e:
+                    print(e)
+                    pass
+
+        elif self.__class__.__name__ == 'Team':
             for player in self.players:
                 player_attrs[player.full_name] = player.attributes
+
+        if not flat:
             return player_attrs
+
+        # flatten for analytics
+        rows = []
+        for player_name, attr_groups in player_attrs.items():
+            for group_name, categories in attr_groups.items():
+                for category_name, stats in categories.items():
+                    for stat_name, value in stats.items():
+                        rows.append({
+                            "team": self.name,
+                            "player": player_name,
+                            "group": group_name.replace('_attr_dict',''),
+                            "category": category_name,
+                            "stat": stat_name,
+                            "value": value
+                        })
+
+        return pd.DataFrame(rows)
+
 
 class Team(_TeamCommon): # really a vehicle for looking for extremely team-specific stats. LightTeam is better for anything player-focused.
     def __init__(self, team_data: dict, api_handler) -> None:

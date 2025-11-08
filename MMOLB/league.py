@@ -1,4 +1,5 @@
 from tqdm import tqdm
+import pandas as pd
 
 class League:
     def __init__(self, league_data: dict) -> None:
@@ -42,23 +43,13 @@ class League:
             tm_ids_names = {tm._id: tm.name for tm in self.teams}
             df.insert(loc=3, column='team_name', value=df['team_id'].map(tm_ids_names))
         return league_stats
-
-
-    # this might be unnecessary if i can just tap the freecashews api for the whole league  
-    # def league_statistics(self):
-    #     import pandas as pd
-    #     combined = {
-    #         "hitting": [],
-    #         "pitching": [],
-    #         "team_plus_minus": [],
-    #         "league_means": [],   # may just take 1 row, but no harm in concatenating
-    #     }
-    #     for t in tqdm(self.teams,desc=f'Pulling performance for {t}'):
-    #         team_stats_dict = t.run_stats()
-    #         for k, v in team_stats_dict:
-    #             combined[k].append(v)
-
-    #     for key in combined:
-    #         combined[key] = pd.concat(combined[key], ignore_index=True)
-
-    #     return combined
+    
+    def league_attributes(self):
+        if getattr(self,'_populate_status').lower() == 'all':
+            league_attrs = pd.concat(
+                [team.get_attributes(flat=True) for team in self.teams],
+                ignore_index=True
+            )
+            return league_attrs
+        else:
+            raise RuntimeError('You must populate League object with all (populate=\'all\') to check league attributes. Access Team or LightTeam attributes instead if only looking at one team.')
