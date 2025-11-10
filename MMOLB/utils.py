@@ -11,7 +11,7 @@ class Utils:
         from datetime import datetime as dt
         match scope:
             case 'date':
-                date_str = dt.strftime('%Y%m%d')
+                date_str = dt.strftime(dt.now(),'%Y%m%d')
             case 'datetime':
                 date_str = dt.strftime('%Y%m%d%H%M%S')
             case _:
@@ -20,7 +20,7 @@ class Utils:
             split_filename = filename.split('/')
             date_str = f'{date_str}_{split_filename[-1]}'
             split_filename[-1] = date_str
-            final_date_str = split_filename.join('/')
+            final_date_str =r'/'.join( split_filename)
         else:
             final_date_str = f'{date_str}_{filename}'
         return final_date_str        

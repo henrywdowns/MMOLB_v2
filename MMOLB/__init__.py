@@ -4,5 +4,6 @@ from .player import Player
 from .stat_calcs import MMOLBStats
 from .league import League
 from .utils import Utils
+from .deep_frier import DeepFrier
 
-__all__ = ["APIHandler", "Team", "Player", "StatCalcs", "League","Utils"]
+__all__ = ["APIHandler", "Team", "Player", "StatCalcs", "League","Utils","DeepFrier"]

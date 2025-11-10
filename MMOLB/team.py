@@ -41,7 +41,7 @@ class _TeamCommon:
     
     import pandas as pd
 
-    def get_attributes(self, flat=False):
+    def get_attributes(self, flat=False, debug=False):
         # flat returns an analytics-ready df
         player_attrs = {}
 
@@ -62,8 +62,11 @@ class _TeamCommon:
                     full_name = f"{player['FirstName']} {player['LastName']}"
                     player_attrs[full_name] = attrs_dict
                 except Exception as e:
-                    print(e)
-                    pass
+                    if debug:
+                        print(e)
+                    else:
+                        pass
+                        
 
         elif self.__class__.__name__ == 'Team':
             for player in self.players:

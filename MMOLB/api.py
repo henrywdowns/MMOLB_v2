@@ -31,7 +31,7 @@ class APIHandler:
         print('Cache has been cleared.')
 
     def help(self,attrs: bool = False,methods: bool = False, printout=True) -> list:
-        if printout: print('======== API Handler Class Help ========')
+        if printout: print(f'======== {self.__class__.__name__} Class Help ========')
         _attrs = [k for k in self.__dict__.keys()]
         _methods = [name for name in dir(self) if callable(getattr(self, name)) and not name.startswith("__")]
         attrs_methods = [_attrs,_methods]
@@ -91,7 +91,7 @@ class APIHandler:
         conn.close()
         return df
 
-    def batch_players(self, player_ids: list = None) -> dict:  
+    def batch_players(self, player_ids: list = None, debug=False) -> dict:  
         players_list = []
         if all(players_list) == None:
             return None   
@@ -110,7 +110,10 @@ class APIHandler:
             try:
                 players_list += batch['players']
             except Exception as e:
-                print(e)
+                if debug:
+                    print(e)
+                else:
+                    pass
         return players_list
 
     def safe_get_player_attr(self, player_name, attr):
@@ -179,7 +182,7 @@ class APIHandler:
             team_to_pop.attributes = team_to_pop.get_attributes()
 
         elif populate in ['all','All','ALL']: # do the big populate
-            for team_obj in tqdm(league.teams,desc='Loading teams'):
+            for team_obj in tqdm(league.teams,desc='      Loading teams'):
                 team_to_pop = league.get_team(team_obj.name)
                 player_ids_list = []
                 for player_id in team_to_pop.player_ids.values():
