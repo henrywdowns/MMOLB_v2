@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mmolb"
+version = "0.1.0"
+description = "My baseball data package"
+authors = [
+    {name = "Henry Downs", email = "henrywdowns@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[tool.setuptools.packages.find]
+where = ["MMOLB"]

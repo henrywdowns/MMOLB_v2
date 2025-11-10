@@ -5,6 +5,25 @@ from typing import Optional
 class Utils:
     def __init__(self) -> None:
         pass
+
+    @staticmethod
+    def date_filename(filename,scope='date') -> str:
+        from datetime import datetime as dt
+        match scope:
+            case 'date':
+                date_str = dt.strftime('%Y%m%d')
+            case 'datetime':
+                date_str = dt.strftime('%Y%m%d%H%M%S')
+            case _:
+                raise ValueError('Scope must be either "date" or "datetime".')
+        if '/' in filename:
+            split_filename = filename.split('/')
+            date_str = f'{date_str}_{split_filename[-1]}'
+            split_filename[-1] = date_str
+            final_date_str = split_filename.join('/')
+        else:
+            final_date_str = f'{date_str}_{filename}'
+        return final_date_str        
     
     @staticmethod
     def access_json(filename: str) -> dict:
