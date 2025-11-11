@@ -5,7 +5,8 @@ import statsmodels.api as sm
 class DeepFrier:
     def __init__(self,league,filename=None,diff_threshold=None):
         self._filename = filename
-        self._data = pd.read_csv(self._filename,index_col=None) if filename else None
+        self._attributes_data: pd.DataFrame = league.league_attributes()
+        self._stats_data: pd.DataFrame = league.league_statistics()
         self.league = league
         self.diff_threshold = diff_threshold
 
@@ -25,7 +26,7 @@ class DeepFrier:
         return df
     
     def describe_attr_categories(self) -> dict:
-        df = self._data
+        df = self.attributes_data
         outputs = {}
         categories = list(df['category'].unique())
         for cat in categories:
@@ -73,12 +74,12 @@ class DeepFrier:
             league_obj = self.league
         
         # utility thingy to automate independent variables in argument for ease of use
-        attrs_df: pd.DataFrame = league_obj.league_attributes() 
+        attrs_df: pd.DataFrame = self._attributes_data
         if not independent_variables:
             independent_variables = self._cat_stat_dict(attrs_df)
 
         # at long last we start extracting and transforming data from League object
-        stats_df:pd.DataFrame = league_obj.league_statistics()[category]
+        stats_df = self._stats_data[category]
         attrs_filter = attrs_df[(attrs_df['category'].str.lower() == category) & (attrs_df['group'] == scope)]
 
         # need to re-pivot the attrs_df to make stat column's values into columns

@@ -8,5 +8,4 @@ frier = DeepFrier(liberty)
 model = frier.attrs_regression('pitching',dependent_variable='FIP',sm_summary=True,detailed_output=True)
 # print(model)
 
-
 print(model['summary_text'])
