@@ -29,8 +29,8 @@ class League:
             return _teams_by_name[key]
         
     def league_statistics(self):
-        # hacky method that passes a component team into MMOLBStats and returns just the league stuff
-        from stat_calcs import MMOLBStats
+        # hacky method that passes a component team into MMOLBStats and returns just the league stuff since freecashe.ws passes both JSONs on the team endpoint
+        from MMOLB import MMOLBStats
         component_team = self.teams[0]
         stats_obj = MMOLBStats(component_team,component_team.api_handler,self.__class__.__name__)
         league_stats = {
@@ -42,7 +42,7 @@ class League:
             df['league_id'] = self._id
             tm_ids_names = {tm._id: tm.name for tm in self.teams}
             df.insert(loc=3, column='team_name', value=df['team_id'].map(tm_ids_names))
-            df['team_win_diff'] = df['team_name'].apply(lambda x: self.teams[self.get_team(x)].record['Wins']-self.teams[self.get_team(x)].record['Losses'])
+            df['team_win_diff'] = df['team_name'].apply(lambda x: self.get_team(x).record['Regular Season']['Wins']-self.get_team(x).record['Regular Season']['Losses'])
         return league_stats
     
     def league_attributes(self):
