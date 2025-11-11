@@ -5,7 +5,9 @@ from MMOLB import APIHandler, DeepFrier
 handler = APIHandler()
 liberty = handler.get_league(populate='all')
 frier = DeepFrier(liberty)
-model = frier.attrs_regression('pitching',dependent_variable='FIP',sm_summary=True,detailed_output=True)
-# print(model)
-
+batting_attrs = frier._cat_stat_dict('Batting')
+combos = []
+model = frier.attrs_regression('batting',dependent_variable='OBP',sm_summary=True,detailed_output=True)
 print(model['summary_text'])
+inters = frier.attrs_interaction('batting','OBP',['Insight','Determination','Discipline','Vision'])
+print(inters['feature_coefs'])
