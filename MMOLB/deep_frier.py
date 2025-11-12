@@ -102,6 +102,18 @@ class DeepFrier:
             "features": list(X.columns)
         }
     
+    @with_sm_summary
+    def interaction_regression(self, category, dependent_variable: str, interaction_variables: list = [], scope='total'):        
+        merged_df, X, y = self._prepare_data(category, dependent_variable, [], scope, self.league)
+
+        base_independents = self._cat_stat_dict[category]
+        if False:
+            for item_x in interaction_variables:
+                for item_y in interaction_variables:
+                    if item_x
+
+        
+    
     def attrs_interaction(self, category, dependent_variable: str, independent_variables: list = [], scope='total',degree=2):
         from sklearn.preprocessing import PolynomialFeatures, StandardScaler
         from sklearn.pipeline import Pipeline
