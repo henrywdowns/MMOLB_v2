@@ -167,8 +167,15 @@ class DeepFrier:
         coef_series = pd.Series(pipe.named_steps["enet"].coef_, index=expanded_names)
         interactions = coef_series[coef_series.index.str.contains(r"\*")].sort_values(key=abs,ascending=False)
 
+        interactions_df = interactions.reset_index()
+        interactions_df.columns = ['Attributes','Values']
+
+        interactions_dict = interactions_df.to_dict()
+        interactions_dict = {k:v for k,v in zip(interactions_dict['Attributes'].values(),interactions_dict['Values'].values())}
+
         return {
             "pipeline": pipe,
             "feature_coefs": coef_series.sort_values(key=abs, ascending=False),
-            "interactions":interactions
+            "interactions":interactions_df,
+            "inter_dict":interactions_dict
         }
