@@ -85,24 +85,46 @@ class DeepFrier:
 
 
     def with_sm_summary(method):
-        # decorator: if user passes sm_summary=True, attach statsmodels OLS results.
+        import numpy as np
         @functools.wraps(method)
-        def wrapper(self, *args, sm_summary: bool = False, detailed_output = False, **kwargs):
+        def wrapper(self, *args, sm_summary: bool = False, detailed_output=False, **kwargs):
             out = method(self, *args, **kwargs)
-
             if not sm_summary:
                 return out
 
             X_train = out["X_train"]
             y_train = out["y_train"]
+            model = out.get("model", None)
 
-            X_train_const = sm.add_constant(X_train, has_constant='add')
-            res = sm.OLS(y_train, X_train_const).fit(cov_type="HC3")
+            # Use pipeline preprocessing but KEEP column names
+            Xt = X_train.copy()
+            if isinstance(model, Pipeline):
+                # apply all steps except final estimator
+                steps = list(model.named_steps.items())[:-1]
+                for _, step in steps:
+                    Xt = step.transform(Xt)
+            else:
+                Xt = Xt.apply(pd.to_numeric, errors="coerce").to_numpy()
+
+            # ---> IMPORTANT: restore names <---
+            if isinstance(Xt, np.ndarray):
+                Xt = pd.DataFrame(Xt, columns=X_train.columns, index=X_train.index)
+
+            # y as 1D float Series aligned to X
+            y = pd.to_numeric(getattr(y_train, "squeeze", lambda: y_train)(), errors="coerce")
+            mask = y.notna() & Xt.notna().all(axis=1)
+            X_named = Xt.loc[mask].astype(float)
+            y_named = y.loc[mask].astype(float)
+
+            # Now statsmodels will keep ['const', *feature names]
+            X_const = sm.add_constant(X_named, has_constant="add")
+            res = sm.OLS(y_named, X_const).fit(cov_type="HC3")
 
             out["sm_results"] = res
             out["summary_text"] = res.summary().as_text()
-            return out if detailed_output else out['sm_results'].summary()
+            return out if detailed_output else out["sm_results"].summary()
         return wrapper
+
 
     @with_sm_summary
     def attrs_regression(self, category, dependent_variable: str, independent_variables: list = [], scope='total'):
