@@ -59,9 +59,9 @@ class _TeamCommon:
                     }
 
                     for cat, stars in attrs.items():
-                        attrs_dict['total_attr_dict'][cat] = {k: v['total']*100 for k, v in stars['stars'].items()}
-                        attrs_dict['base_attr_dict'][cat] = {k: v['base_total']*100 for k, v in stars['stars'].items()}
-                        attrs_dict['equip_attr_dict'][cat] = {k: round(v['total']-v['base_total'],2)*100 for k, v in stars['stars'].items()}
+                        attrs_dict['total_attr_dict'][cat] = {k: v['total'] for k, v in stars['stars'].items()}
+                        attrs_dict['base_attr_dict'][cat] = {k: v['base_total'] for k, v in stars['stars'].items()}
+                        attrs_dict['equip_attr_dict'][cat] = {k: round(v['total']-v['base_total'],2) for k, v in stars['stars'].items()}
 
                     full_name = f"{player['FirstName']} {player['LastName']}"
                     player_attrs[full_name] = attrs_dict

@@ -110,9 +110,9 @@ class DeepFrier:
 
         X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=4)
         model = Pipeline([
-            ("imputer", SimpleImputer),
+            ("imputer", SimpleImputer()),
             ("scaler", StandardScaler(with_mean=True, with_std=True)),
-            ("lr", LinearRegression)
+            ("lr", LinearRegression())
         ])
         
         model.fit(X_train,y_train)
@@ -147,9 +147,9 @@ class DeepFrier:
         # from here it's the same as before
         X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=4)
         model = Pipeline([
-            ("imputer", SimpleImputer),
+            ("imputer", SimpleImputer()),
             ("scaler", StandardScaler(with_mean=True, with_std=True)),
-            ("lr", LinearRegression)
+            ("lr", LinearRegression())
         ])
         model.fit(X_train,y_train)
 
@@ -206,3 +206,24 @@ class DeepFrier:
             st_devs[ind] = round(merged_df[ind].std(),2)
 
         return st_devs
+    
+    @staticmethod
+    def reorder_regression_coefs(res,p_threshold=0.05, descending=True):
+        # pass statsmodels regression output as an arg, get tiered sort
+        # first segment by significant/insignificant p-value, then order by coef desc
+        # significance defined as p < 0.05 by default.
+        df = pd.DataFrame({
+            "coef": res.params,
+            "std_err": res.bse,
+            "t": res.tvalues,
+            "pval": res.pvalues,
+        })
+
+        # significance tier
+        df["tier"] = df["pval"].lt(p_threshold).map({True: "significant", False: "insignificant"})
+        df["_tier_rank"] = df["pval"].lt(p_threshold).map({True: 0, False: 1})
+
+        # sort within tier by coefficient (desc by default)
+        df = df.sort_values(["_tier_rank", "coef"], ascending=[True, not descending]).drop(columns="_tier_rank")
+
+        return df[["tier", "coef", "std_err", "t", "pval"]]

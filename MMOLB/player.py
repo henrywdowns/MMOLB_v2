@@ -26,8 +26,8 @@ class Player:
 
         for cat in attrs.keys():
             stars = attrs[cat]['stars']
-            attrs_dict['total_attr_dict'][cat] = {k: v['total']*100 for k, v in stars.items()}
-            attrs_dict['base_attr_dict'][cat] = {k: v['base_total']*100 for k, v in stars.items()}
-            attrs_dict['equip_attr_dict'][cat] = {k:round(v['total']-v['base_total'],2)*100 for k, v in stars.items()}
+            attrs_dict['total_attr_dict'][cat] = {k: v['total'] for k, v in stars.items()}
+            attrs_dict['base_attr_dict'][cat] = {k: v['base_total'] for k, v in stars.items()}
+            attrs_dict['equip_attr_dict'][cat] = {k:round(v['total']-v['base_total'],2) for k, v in stars.items()}
 
         return attrs_dict

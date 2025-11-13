@@ -7,6 +7,8 @@ handler = APIHandler()
 liberty = handler.get_league(populate='all')
 frier = DeepFrier(liberty)
 model = frier.attrs_regression('batting',dependent_variable='OBP',sm_summary=True,detailed_output=True)
-print(model['summary_text'])
+summary = model['summary_text']
+
+print(frier.reorder_regression_coefs(model['sm_results']))
 # inters = frier.attrs_interaction('batting','OBP',['Insight','Determination','Discipline','Vision'])
 # print(frier.attrs_hypotheticals('batting','OBP'))
