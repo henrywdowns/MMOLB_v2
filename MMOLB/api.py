@@ -51,7 +51,7 @@ class APIHandler:
             else:
                 raise KeyError
 
-    def get_team(self,team_id: str = None) -> Team:
+    def get_team(self,team_id: str = None, just_checking:bool = False) -> Team:
         # build the team object
         if not team_id:
             team_id = self.team_id
@@ -61,8 +61,13 @@ class APIHandler:
         # build the players
         player_ids = [plyr['PlayerID'] for plyr in team.player_data]
         player_objects = []
-        for id in tqdm(player_ids,desc='Getting player data'):
-            player_objects.append(Player(self.get_player_data(id)))
+        
+        if not just_checking:
+            for id in tqdm(player_ids,desc='Getting player data'):
+                player_objects.append(Player(self.get_player_data(id)))
+        else:
+            for id in player_ids:
+                player_objects.append(Player(self.get_player_data(id)))
         
         # insert them into team data
         team.players = player_objects
@@ -167,7 +172,7 @@ class APIHandler:
         league.__setattr__('_populate_status',populate)
         # teams are found and now i need to populate the teams with players. TODO: replace this nonsense with batch players pull
         try:
-            team_to_pop = league.get_team(populate)
+            team_to_pop = league.get_team(populate,just_checking=True)
         except:
             team_to_pop = False
 
@@ -190,9 +195,9 @@ class APIHandler:
                 player_objs = self.batch_players(player_ids_list)
                 team_to_pop.players = player_objs
                 team_to_pop.attributes = team_to_pop.get_attributes()
+
         else:
             raise ValueError('"Populate" keyword must be "all", a team name, a team ID, or None.')
-
         return league
 
 

@@ -7,7 +7,8 @@ class _TeamCommon:
         self._data = team_data
         self.api_handler = api_handler
         self.attributes = None
-    # shared helpers only (no behavior changes)
+
+    # shared attrs + funcs only (nothing specific)
     def help(self, attrs: bool = False, methods: bool = False, printout=True):
         if printout: print(f'======== {self.__class__.__name__} Class Help ========')
         _attrs = [k for k in self.__dict__.keys()]
@@ -24,7 +25,10 @@ class _TeamCommon:
             _players_by_id = {ply.id: ply for ply in self.players}
             return _players_by_id[key]
         else:
-            _players_by_name = {ply.full_name: ply for ply in self.players}
+            if self.__class__.__name__ == 'Team':
+                _players_by_name = {ply.full_name: ply for ply in self.players}
+            elif self.__class__.__name__ == 'LightTeam':
+                _players_by_name = {f'{ply['FirstName']} {ply['LastName']}': ply for ply in self.players}
             return _players_by_name[key]
         
     def run_stats(self,truncate=True):
@@ -55,9 +59,9 @@ class _TeamCommon:
                     }
 
                     for cat, stars in attrs.items():
-                        attrs_dict['total_attr_dict'][cat] = {k: v['total'] for k, v in stars['stars'].items()}
-                        attrs_dict['base_attr_dict'][cat] = {k: v['base_total'] for k, v in stars['stars'].items()}
-                        attrs_dict['equip_attr_dict'][cat] = {k: round(v['total']-v['base_total'],2) for k, v in stars['stars'].items()}
+                        attrs_dict['total_attr_dict'][cat] = {k: v['total']*100 for k, v in stars['stars'].items()}
+                        attrs_dict['base_attr_dict'][cat] = {k: v['base_total']*100 for k, v in stars['stars'].items()}
+                        attrs_dict['equip_attr_dict'][cat] = {k: round(v['total']-v['base_total'],2)*100 for k, v in stars['stars'].items()}
 
                     full_name = f"{player['FirstName']} {player['LastName']}"
                     player_attrs[full_name] = attrs_dict
@@ -119,4 +123,4 @@ class LightTeam(_TeamCommon):  # lighter weight class for batch requests. delive
         for k, v in self._data.items():
             setattr(self, k.lower(), v)
         self.player_ids = self.players
-        self.players = [] # objects. created after instantiation in APIHandler
+        self.players = [] # big dict of players. created after instantiation in APIHandler

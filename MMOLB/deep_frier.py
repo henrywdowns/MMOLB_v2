@@ -3,26 +3,30 @@ import functools
 import statsmodels.api as sm
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.impute import SimpleImputer
 
 class DeepFrier:
-    def __init__(self,league,filename=None,diff_threshold=None):
+    def __init__(self,league,filename=None,diff_threshold=None) -> None:
         self._filename = filename
+        self.league = league
         self._attributes_data: pd.DataFrame = league.league_attributes()
         self._stats_data: pd.DataFrame = league.league_statistics()
-        self.league = league
         self.diff_threshold = diff_threshold
 
     def _prepare_data(self, category, dependent_variable, independent_variables, scope, league_obj, merged_df_inject = None):
-        if merged_df_inject is None: # skip all this if passing in a merged df. right now purely for including interactions in regressions
+        if merged_df_inject is None: # skip data extraction and transformation if passing in a merged df. assumes injection is already properly prepared.
+            # default to class attributes
+            if not league_obj: league_obj = self.league
+            attrs_df = self._attributes_data
+
             # account for commonly interchangeable terminology
             match category.lower():
                 case 'batting' | 'hitting':
                     category = 'batting'
                 case _:
                     category = category.lower()        
-            # default to class attributes
-            if not league_obj: league_obj = self.league
-            attrs_df = self._attributes_data
 
             # include all attributes in category by default, filter both datasets by category, filter by attributes scope (total, base, or equip)
             if not independent_variables:
@@ -32,14 +36,20 @@ class DeepFrier:
             
             # pivot attrs data to give each independent variable its own col
             attrs_piv = attrs_filter.pivot_table(
-                index=['team','player','group','category','team_win_diff'],
+                index=['team','player','group','category','team_win_diff','position_type'],
                 columns='stat', values='value'
             ).reset_index()
 
             # inner join
             merged_df = attrs_piv.merge(stats_df,left_on=['player','team'],right_on=['player_name','team_name'])
+            if category == 'batting':
+                merged_df = merged_df[merged_df['position_type'] == 'Batter']
+            elif category == 'pitching':
+                merged_df = merged_df[merged_df['position_type'] == 'Pitcher']
         else:
             merged_df = merged_df_inject
+
+        merged_df = merged_df.dropna(subset=[dependent_variable])
         X = merged_df[independent_variables]
         y = merged_df[dependent_variable]
         return merged_df, X, y
@@ -70,6 +80,7 @@ class DeepFrier:
         return outputs
     
     def _cat_stat_dict(self,df) -> dict:
+        # mainly for attrs. input data, output dict of all attribute names
         return {category: list(set(df.loc[df['category'] == category, 'stat'])) for category in df['category'].unique()}
 
 
@@ -86,7 +97,7 @@ class DeepFrier:
             y_train = out["y_train"]
 
             X_train_const = sm.add_constant(X_train, has_constant='add')
-            res = sm.OLS(y_train, X_train_const).fit()
+            res = sm.OLS(y_train, X_train_const).fit(cov_type="HC3")
 
             out["sm_results"] = res
             out["summary_text"] = res.summary().as_text()
@@ -95,11 +106,15 @@ class DeepFrier:
 
     @with_sm_summary
     def attrs_regression(self, category, dependent_variable: str, independent_variables: list = [], scope='total'):
-
-        merged_df, X, y = self._prepare_data(category, dependent_variable, independent_variables, scope, self.league)
+        merged_df, X, y = self._prepare_data(category, dependent_variable, independent_variables, league_obj=self.league,scope=scope)
 
         X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=4)
-        model = LinearRegression()
+        model = Pipeline([
+            ("imputer", SimpleImputer),
+            ("scaler", StandardScaler(with_mean=True, with_std=True)),
+            ("lr", LinearRegression)
+        ])
+        
         model.fit(X_train,y_train)
         # wait it's done?
 
@@ -131,7 +146,11 @@ class DeepFrier:
 
         # from here it's the same as before
         X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=4)
-        model = LinearRegression()
+        model = Pipeline([
+            ("imputer", SimpleImputer),
+            ("scaler", StandardScaler(with_mean=True, with_std=True)),
+            ("lr", LinearRegression)
+        ])
         model.fit(X_train,y_train)
 
         return {
@@ -143,7 +162,6 @@ class DeepFrier:
 
     def attrs_interaction(self, category, dependent_variable: str, independent_variables: list = [], scope='total',degree=2):
         from sklearn.preprocessing import PolynomialFeatures, StandardScaler
-        from sklearn.pipeline import Pipeline
         from sklearn.linear_model import ElasticNetCV
 
         merged_df, X, y = self._prepare_data(category, dependent_variable, independent_variables, scope, self.league)
@@ -179,3 +197,12 @@ class DeepFrier:
             "interactions":interactions_df,
             "inter_dict":interactions_dict
         }
+    
+    def attrs_hypotheticals(self,category,dependent_var,independent_vars = [], scope='total'):
+        merged_df, dep_var, ind_vars = self._prepare_data(category,dependent_var,independent_vars,scope=scope,league_obj=self.league)
+        independent_vars = independent_vars or self._cat_stat_dict(self._attributes_data)[category.capitalize()]
+        st_devs = {}
+        for ind in independent_vars:
+            st_devs[ind] = round(merged_df[ind].std(),2)
+
+        return st_devs

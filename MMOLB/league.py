@@ -45,17 +45,20 @@ class League:
             df['team_win_diff'] = df['team_name'].apply(lambda x: self.get_team(x).record['Regular Season']['Wins']-self.get_team(x).record['Regular Season']['Losses'])
         return league_stats
     
-    def league_attributes(self,attr_scale_integer=True):
+    def league_attributes(self):
         # NOTE: use index=False when making this a csv or it will save the index as a new col.
         if getattr(self,'_populate_status').lower() == 'all':
             league_attrs = pd.concat(
                 [team.get_attributes(flat=True) for team in self.teams],
                 ignore_index=True
             )
-            league_attrs['values'] = league_attrs['value']*100 if attr_scale_integer else league_attrs['values']
             league_attrs['team_win_diff'] = league_attrs['team'].apply(
-    lambda x: self.get_team(x).record['Regular Season']['Wins'] - self.get_team(x).record['Regular Season']['Losses']
-)
+                lambda x: self.get_team(x).record['Regular Season']['Wins'] - self.get_team(x).record['Regular Season']['Losses']
+            )
+            league_attrs['position_type'] = [
+                self.get_team(t).get_player(p)['PositionType']
+                for t, p in zip(league_attrs['team'], league_attrs['player'])
+            ]
             return league_attrs
         else:
             raise RuntimeError('You must populate League object with all (populate=\'all\') to check league attributes. Access Team or LightTeam attributes instead if only looking at one team.')
