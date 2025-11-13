@@ -212,18 +212,46 @@ class DeepFrier:
         # pass statsmodels regression output as an arg, get tiered sort
         # first segment by significant/insignificant p-value, then order by coef desc
         # significance defined as p < 0.05 by default.
+
+        import numpy as np
+
         df = pd.DataFrame({
             "coef": res.params,
             "std_err": res.bse,
             "t": res.tvalues,
-            "pval": res.pvalues,
+            "pval_num": res.pvalues,   # keep numeric for sorting
         })
 
-        # significance tier
-        df["tier"] = df["pval"].lt(p_threshold).map({True: "significant", False: "insignificant"})
-        df["_tier_rank"] = df["pval"].lt(p_threshold).map({True: 0, False: 1})
+        # 3-tier labeling: significant < marginal < insignificant
+        def tier_from_p(p):
+            if p < 0.05:
+                return "significant"
+            elif p < 0.10:
+                return "marginal"
+            else:
+                return "insignificant"
 
-        # sort within tier by coefficient (desc by default)
-        df = df.sort_values(["_tier_rank", "coef"], ascending=[True, not descending]).drop(columns="_tier_rank")
+        df["tier"] = df["pval_num"].apply(tier_from_p)
+        tier_rank = {"significant": 0, "marginal": 1, "insignificant": 2}
+        df["_tier_rank"] = df["tier"].map(tier_rank)
+
+        # sort: tier first, then numeric p-value, then coef
+        df = df.sort_values(
+            ["_tier_rank", "pval_num", "coef"],
+            ascending=[True, True, not descending]
+        ).drop(columns="_tier_rank")
+
+        # pretty-print p-values AFTER sorting
+        def format_p(p):
+            if p < 1e-3:  return "<0.001 ***"
+            if p < 1e-2:  return f"{p:.3f} **"
+            if p < 0.05:  return f"{p:.3f} *"
+            if p < 0.10:  return f"{p:.3f} ·"
+            return f"{p:.3f}"
+
+        df["pval"] = df["pval_num"].apply(format_p)
+        df = df.drop(columns="pval_num").round({"coef": 6, "std_err": 6, "t": 3})
 
         return df[["tier", "coef", "std_err", "t", "pval"]]
+
+
