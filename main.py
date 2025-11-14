@@ -5,10 +5,4 @@ import pprint
 
 if __name__ == '__main__':
     handler = APIHandler()
-    liberty = handler.get_league(populate='all')
-    chk = handler.get_team()
-    chk_light = liberty.get_team('Spicy Chicken Crunchwraps')
-    df = liberty.league_attributes()
-    df.to_csv('df_outputs/20251108_League_Attrs.csv')
-    print(df.head())
-    print(df.describe())
+    il = handler.get_all_leagues('lesser')

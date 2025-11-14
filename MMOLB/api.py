@@ -4,6 +4,7 @@ import psycopg2
 from .team import Team, LightTeam
 from .player import Player
 from .league import League
+from .interleague import Interleague
 from io import StringIO
 from tqdm import tqdm
 
@@ -75,6 +76,51 @@ class APIHandler:
 
         self.team_obj = team
         return team
+
+    def get_all_leagues(self,scope='lesser') -> Interleague:
+        league_ids = {
+            "GreaterLeagues": [
+                "6805db0cac48194de3cd3fe4",
+                "6805db0cac48194de3cd3fe5"
+            ],
+            "LesserLeagues": [
+                "6805db0cac48194de3cd3fe7",
+                "6805db0cac48194de3cd3fe8",
+                "6805db0cac48194de3cd3fe9",
+                "6805db0cac48194de3cd3fea",
+                "6805db0cac48194de3cd3feb",
+                "6805db0cac48194de3cd3fec",
+                "6805db0cac48194de3cd3fed",
+                "6805db0cac48194de3cd3fee",
+                "6805db0cac48194de3cd3fef",
+                "6805db0cac48194de3cd3ff0",
+                "6805db0cac48194de3cd3ff1",
+                "6805db0cac48194de3cd3ff2",
+                "6805db0cac48194de3cd3ff3",
+                "6805db0cac48194de3cd3ff4",
+                "6805db0cac48194de3cd3ff5",
+                "6805db0cac48194de3cd3ff6"
+            ]
+        }
+        league_objs = {
+            'lesser': [],
+            'greater': []
+        }
+
+        if scope in ('lesser','both'):
+            for league in tqdm(league_ids["LesserLeagues"],desc=f'Loading Lesser Leagues...'):
+                league_objs['lesser'].append(self.get_league(league,populate='all'))
+        if scope in ('greater','both'):
+            for league in tqdm(league_ids["GreaterLeagues"],desc=f'Loading Greater Leagues...'):
+                league_objs['greater'].append(self.get_league(league,populate='all'))
+
+        if scope not in ('lesser', 'greater', 'both'):
+            raise ValueError('InterLeague scope must be "lesser", "greater", or "both".')
+
+
+        il = Interleague(lesser_leagues=league_objs["lesser"],greater_leagues=league_objs['greater'])
+
+        return il
 
     # this db is really granular and complex and i'd rather avoid using if possible. way too much work.
     def connect_beiju(self) -> None:

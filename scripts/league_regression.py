@@ -6,12 +6,14 @@ from MMOLB import APIHandler, DeepFrier
 handler = APIHandler()
 liberty = handler.get_league(populate='all')
 frier = DeepFrier(liberty)
-model = frier.interaction_regression('batting',dependent_variable='OPS',interaction_variables=[],sm_summary=True,detailed_output=True)
-summary = model['summary_text']
+
+kpis = frier.attrs_regression('batting','team_win_diff',['OBP','SLG','BA','BABIP','ISO'],sm_summary=True,detailed_output=True)
+
+print(frier.reorder_regression_coefs(kpis['sm_results']))
 
 
-#TODO: OPS is broken 
-
-print(frier.reorder_regression_coefs(model['sm_results']))
+# model = frier.interaction_regression('batting',dependent_variable='OPS',interaction_variables=[],sm_summary=True,detailed_output=True)
+# summary = model['summary_text']
+# print(frier.reorder_regression_coefs(model['sm_results']))
 # inters = frier.attrs_interaction('batting','OBP',['Insight','Determination','Discipline','Vision'])
 # print(frier.attrs_hypotheticals('batting','OBP'))

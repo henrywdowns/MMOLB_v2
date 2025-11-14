@@ -41,14 +41,14 @@ class DeepFrier:
             ).reset_index()
 
             # inner join
-            merged_df = attrs_piv.merge(stats_df,left_on=['player','team'],right_on=['player_name','team_name'])
+            merged_df = attrs_piv.merge(stats_df.drop(columns='team_win_diff'),left_on=['player','team'],right_on=['player_name','team_name'])
             if category == 'batting':
                 merged_df = merged_df[merged_df['position_type'] == 'Batter']
             elif category == 'pitching':
                 merged_df = merged_df[merged_df['position_type'] == 'Pitcher']
         else:
             merged_df = merged_df_inject
-
+        print(merged_df.columns)
         merged_df = merged_df.dropna(subset=[dependent_variable])
         X = merged_df[independent_variables]
         y = merged_df[dependent_variable]
