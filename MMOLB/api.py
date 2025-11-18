@@ -77,7 +77,7 @@ class APIHandler:
         self.team_obj = team
         return team
 
-    def get_all_leagues(self,scope='lesser') -> Interleague:
+    def get_all_leagues(self,scope='lesser', lesser_sample_size=16) -> Interleague:
         league_ids = {
             "GreaterLeagues": [
                 "6805db0cac48194de3cd3fe4",
@@ -106,6 +106,11 @@ class APIHandler:
             'lesser': [],
             'greater': []
         }
+
+        if lesser_sample_size < 16:
+            import random
+            league_ids['LesserLeagues'] = random.sample(league_ids['LesserLeagues'],lesser_sample_size)
+            print(f'Sample of {lesser_sample_size} taken from lesser league. Pulling {len(league_ids['LesserLeagues'])} leagues.')
 
         if scope in ('lesser','both'):
             for league in tqdm(league_ids["LesserLeagues"],desc=f'Loading Lesser Leagues...'):
@@ -241,7 +246,7 @@ class APIHandler:
                 player_objs = self.batch_players(player_ids_list)
                 team_to_pop.players = player_objs
                 team_to_pop.attributes = team_to_pop.get_attributes()
-
+            setattr(league,'names_by_id',{t._id:t.name for t in league.teams})
         else:
             raise ValueError('"Populate" keyword must be "all", a team name, a team ID, or None.')
         return league
