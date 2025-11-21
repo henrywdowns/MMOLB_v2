@@ -2,10 +2,17 @@ from .league import League
 import pandas as pd
 
 class Interleague:
+    # Example usage: self._lesser_data['attrs'] or self._lesser_data['stats']. These will be Interleague's main exports.
+
     def __init__(self, lesser_leagues: list = None, greater_leagues: list = None):
         self.lesser_leagues = lesser_leagues
         self.greater_leagues = greater_leagues
         self._lesser_data, self._greater_data = self.compile_data(separate=True)
+
+    
+    def ready_to_fry(self):
+        cols = ['team','player','group','category','stat','value','values','team_win_diff']
+
 
     def compile_data(self, separate=False):
         lesser = {'attrs': None, 'stats': None}

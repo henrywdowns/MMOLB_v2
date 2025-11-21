@@ -8,11 +8,26 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.impute import SimpleImputer
 
 class DeepFrier:
-    def __init__(self,league,filename=None,diff_threshold=None) -> None:
-        self._filename = filename
+    def __init__(self,league,diff_threshold=None,interleague=False) -> None:
         self.league = league
-        self._attributes_data: pd.DataFrame = league.league_attributes()
-        self._stats_data: pd.DataFrame = league.league_statistics()
+        if interleague:
+            attrs_list = []
+            stats_list = []
+            if getattr(league, "lesser_leagues", None):
+                attrs_list.append(league._lesser_data["attrs"])
+                stats_list.append(league._lesser_data["stats"])
+
+            if getattr(league, "greater_leagues", None):
+                attrs_list.append(league._greater_data["attrs"])
+                stats_list.append(league._greater_data["stats"])
+            self._attributes_data = pd.concat(attrs_list, ignore_index=True)
+            self._stats_data = {
+                k: pd.concat([d[k] for d in stats_list if k in d], ignore_index=True)
+                for k in set().union(*(d.keys() for d in stats_list))
+            }
+        else:
+            self._attributes_data: pd.DataFrame = league.league_attributes()
+            self._stats_data: pd.DataFrame = league.league_statistics()
         self.diff_threshold = diff_threshold
 
     def _prepare_data(self, category, dependent_variable, independent_variables, scope, league_obj, merged_df_inject = None):
