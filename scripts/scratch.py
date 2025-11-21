@@ -7,7 +7,7 @@ import pprint
 
 
 handler = APIHandler()
-il = handler.get_all_leagues()
+il = handler.get_all_leagues(lesser_sample_size=2)
 fry = DeepFrier(il,interleague=True)
 
 fip_reg = fry.attrs_regression('hitting','OPS',sm_summary=True,detailed_output=True)

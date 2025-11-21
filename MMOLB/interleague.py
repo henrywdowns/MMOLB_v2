@@ -1,3 +1,6 @@
+import polars as pl
+import pyarrow as pa
+import pyarrow.compute as pc
 from .league import League
 import pandas as pd
 import datetime as dt
