@@ -1,4 +1,5 @@
 import pandas as pd
+import polars as pl
 import functools
 import statsmodels.api as sm
 from sklearn.linear_model import LinearRegression
@@ -6,11 +7,17 @@ from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.impute import SimpleImputer
+import datetime as dt
 
 class DeepFrier:
-    def __init__(self,league,diff_threshold=None,interleague=False) -> None:
+    def __init__(self,league,diff_threshold=None,interleague=False,debug=True) -> None:
+        self.debug = debug
+        if self.debug:
+            self.init_start = dt.datetime.now()
+            print(f'DeepFrier initializion began at {self.init_start}')
         self.league = league
         if interleague:
+            # interleague objects carry their data a little differently.
             attrs_list = []
             stats_list = []
             if getattr(league, "lesser_leagues", None):
@@ -20,15 +27,16 @@ class DeepFrier:
             if getattr(league, "greater_leagues", None):
                 attrs_list.append(league._greater_data["attrs"])
                 stats_list.append(league._greater_data["stats"])
+
             self._attributes_data = pd.concat(attrs_list, ignore_index=True)
-            self._stats_data = {
-                k: pd.concat([d[k] for d in stats_list if k in d], ignore_index=True)
-                for k in set().union(*(d.keys() for d in stats_list))
-            }
+            self._stats_data = {k:v for k,v in  pd.concat(stats_list, ignore_index=True).groupby('stat_type')}
         else:
             self._attributes_data: pd.DataFrame = league.league_attributes()
             self._stats_data: pd.DataFrame = league.league_statistics()
         self.diff_threshold = diff_threshold
+
+        if self.debug: 
+            print(f'DeepFrier initialized. Elapsed time: {dt.datetime.now()-self.init_start}')
 
     def _prepare_data(self, category, dependent_variable, independent_variables, scope, league_obj, merged_df_inject = None):
         if merged_df_inject is None: # skip data extraction and transformation if passing in a merged df. assumes injection is already properly prepared.
@@ -143,6 +151,7 @@ class DeepFrier:
 
     @with_sm_summary
     def attrs_regression(self, category, dependent_variable: str, independent_variables: list = [], scope='total'):
+        reg_start = dt.datetime.now()
         merged_df, X, y = self._prepare_data(category, dependent_variable, independent_variables, league_obj=self.league,scope=scope)
 
         X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=4)
@@ -156,6 +165,8 @@ class DeepFrier:
         # wait it's done?
 
         # yes
+        if self.debug:
+            print(f'attrs_regression() complete. Elapsed processing time: {dt.datetime.now() - reg_start}')
         return {
             "model": model,
             "X_train": X_train, "y_train": y_train,

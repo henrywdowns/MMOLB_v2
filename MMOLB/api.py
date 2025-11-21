@@ -7,9 +7,14 @@ from .league import League
 from .interleague import Interleague
 from io import StringIO
 from tqdm import tqdm
+import datetime as dt
 
 class APIHandler:
-    def __init__(self,team_id: str ='680e477a7d5b06095ef46ad1',default_season: int = 7) -> None:
+    def __init__(self,team_id: str ='680e477a7d5b06095ef46ad1',default_season: int = 7, debug: bool = True) -> None:
+        self.debug = debug
+        if self.debug:
+            self.init_start = dt.datetime.now()
+            print(f'APIHandler initialization began at {self.init_start}')
         self.session = requests_cache.CachedSession(
             ".cache/mmolb_http_cache",
             backend="sqlite",
@@ -26,6 +31,7 @@ class APIHandler:
         self.default_season = default_season
         self.team_id = team_id
         self.team_obj = self.get_team(team_id)
+
 
     def clear_cache(self):
         self.session.cache.clear()
@@ -123,8 +129,9 @@ class APIHandler:
             raise ValueError('InterLeague scope must be "lesser", "greater", or "both".')
 
 
-        il = Interleague(lesser_leagues=league_objs["lesser"],greater_leagues=league_objs['greater'])
-
+        il = Interleague(lesser_leagues=league_objs["lesser"],greater_leagues=league_objs['greater'],debug=self.debug)
+        if self.debug:
+            print(f'Interleague object created and initialized. Elapsed time: {dt.datetime.now() - self.init_start}')
         return il
 
     # this db is really granular and complex and i'd rather avoid using if possible. way too much work.

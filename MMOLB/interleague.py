@@ -1,20 +1,42 @@
 from .league import League
 import pandas as pd
+import datetime as dt
 
 class Interleague:
     # Example usage: self._lesser_data['attrs'] or self._lesser_data['stats']. These will be Interleague's main exports.
-
-    def __init__(self, lesser_leagues: list = None, greater_leagues: list = None):
+    def __init__(self, lesser_leagues: list = None, greater_leagues: list = None, debug = True):
+        self.debug = debug
+        if self.debug:
+            self.init_start = dt.datetime.now()
+            print(f'Interleague object initialization began at {self.init_start}')
         self.lesser_leagues = lesser_leagues
         self.greater_leagues = greater_leagues
         self._lesser_data, self._greater_data = self.compile_data(separate=True)
+        if self.debug:
+            print(f'Interleague object initialization complete. Elapsed processing time: {dt.datetime.now() - self.init_start}')
 
     
     def ready_to_fry(self):
         cols = ['team','player','group','category','stat','value','values','team_win_diff']
 
+    def _build_team_maps(self):
+        leagues = (self.lesser_leagues or []) + (self.greater_leagues or [])
+        names_by_id = {}
+        win_diff_by_id = {}
+        for lg in leagues:
+            for tm in lg.teams:
+                names_by_id[tm._id] = tm.name
+                try:
+                    win_diff_by_id[tm._id] = tm.record['Regular Season']['Wins'] - tm.record['Regular Season']['Losses']
+                except Exception:
+                    # keep it sparse if record missing
+                    pass
+        return names_by_id, win_diff_by_id
+
 
     def compile_data(self, separate=False):
+        if self.debug:
+            compile_start = dt.datetime.now()
         lesser = {'attrs': None, 'stats': None}
         greater = {'attrs': None, 'stats': None}
 
@@ -63,5 +85,6 @@ class Interleague:
             [df for df in (lesser['stats'], greater['stats']) if df is not None],
             ignore_index=True
         ) if (lesser['stats'] is not None or greater['stats'] is not None) else None
-
+        if self.debug:
+            print(f'Finished compiling interleague data. Processing time: {dt.datetime.now() - compile_start}')
         return {'attrs': combined_attrs, 'stats': combined_stats}
