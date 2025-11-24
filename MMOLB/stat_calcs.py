@@ -67,6 +67,7 @@ class MMOLBStats:
         df["ERA"]  = self._safe_div(df["earned_runs"] * 9, df["IP"])
         df["WHIP"] = self._safe_div(df["walks"] + df["hits_allowed"], df["IP"])
 
+        df["H9"]  = self._safe_div(df["hits_allowed"] * 9, df["IP"])
         df["K9"]  = self._safe_div(df["strikeouts"] * 9, df["IP"])
         df["BB9"] = self._safe_div(df["walks"] * 9, df["IP"])
         df["HR9"] = self._safe_div(df["home_runs_allowed"] * 9, df["IP"])

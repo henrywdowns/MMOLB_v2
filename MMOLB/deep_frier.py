@@ -9,6 +9,19 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.impute import SimpleImputer
 import datetime as dt
 
+"""
+Quickstart:
+Create an APIHandler()
+Populate a league or interleague object
+Put it in the deep frier: frier = DeepFrier(league)
+Run regressions like so: batting_kpis = frier.attrs_regression('hitting',dependent_var, ['independent','vars','optional'])
+leaving independent vars empty will default to all attributes. dont forget to include 'pitching' or 'hitting' as your first arg.
+
+access the results like so: 
+for something very human-readable: print(frier.reorder_regression_coefs(batting_kpis['sm_results']))
+for the standard OLS printout we know and love: print(batting_kpis['summary_text'])
+"""
+
 class DeepFrier:
     def __init__(self,league,diff_threshold=None,interleague=False,debug=True) -> None:
         self.debug = debug
@@ -151,8 +164,19 @@ class DeepFrier:
 
     @with_sm_summary
     def attrs_regression(self, category, dependent_variable: str, independent_variables: list = [], scope='total'):
+        import numpy as np
         reg_start = dt.datetime.now()
         merged_df, X, y = self._prepare_data(category, dependent_variable, independent_variables, league_obj=self.league,scope=scope)
+
+        X = (X.replace({pd.NA: np.nan})
+           .replace([np.inf, -np.inf], np.nan)
+           .astype(np.float64))
+        
+        y = (pd.to_numeric(y, errors='coerce')
+           .replace([np.inf, -np.inf], np.nan))
+        ok = ~y.isna()
+        X, y = X.loc[ok], y.loc[ok].astype(np.float64)
+
 
         X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=4)
         model = Pipeline([
