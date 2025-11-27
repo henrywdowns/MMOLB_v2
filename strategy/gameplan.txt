@@ -1,0 +1,34 @@
+Overall strategy:
+
+batting: balance of OBP and ISO
+pitching: 
+
+====================================================================================
+
+key regression findings:
+
+batting:
+win diff heavily tied to team ISO, BB%
+- ISO tied to MUSCLE, LIFT ; secondarily VISION, INTIMIDATION, DETERMINATION
+- BB% tied to DISCIPLINE, CONTACT(?); secondarily DETERMINATION
+
+pitching:
+win diff most tied to team K9, BB9
+- K9 tied to VELOCITY, ROTATION
+- BB9 heavily tied to ROTATION, CONTROL, PERSUASION
+
+====================================================================================
+
+batting details:
+
+i want to start with guys on base to set the table for sluggers to RBI; repeat this every 3-4 batters
+
+1 Alfred Tanner - want him to be passive but has active stats. so he'll be a leadoff ISO/BA guy
+2 Clarence Meyers - has no batting prowess. high discipline and cunning. walk man.
+3 Mamie Mitra - slugger and RBI machine. muscle, lift, vision focus priority
+4 Edna Santiago - somewhat neutral stats but still slugging oriented. fuck it, she slugs too
+5 Nate Flowers - on-base boy. high discipline, high determination, high wisdom. all-knowing to boost all this and hopefully walk/single. maybe some determ -> viz.
+6 Rick Somersbyshire - smack em and attack em. it's rick. no possible other plan. try to move into % muscle items and lift.
+7 Jesse McNamara - pretty whatever even stats and no boons. move into walks for now
+8 Charles Lyberth - unnecessarily high discipline. distribute into contact + determination
+9 Eluna Shin - WIS into DISC and CONTACT
