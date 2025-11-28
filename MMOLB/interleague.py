@@ -5,6 +5,8 @@ from .league import League
 import pandas as pd
 import datetime as dt
 
+#TODO: save interleague data as .csv and reroute pulls when present
+
 class Interleague:
     # Example usage: self._lesser_data['attrs'] or self._lesser_data['stats']. These will be Interleague's main exports.
     def __init__(self, lesser_leagues: list = None, greater_leagues: list = None, debug = True):

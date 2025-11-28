@@ -4,5 +4,5 @@ but he can count on most pitchers having middling control
 
 so we crank up discipline and cunning to capitalize on early walks and set the table for third in the lineup
 
-20251127: resetting and just fully cranking discipline. cunning is already naturally high for some reason.
-          i'll plan to slowly up stealth and greed to try and put a runner on third as early in the game as possible.
+20251127: resetting items and just fully cranking discipline. cunning is already naturally high for some reason.
+          i'll plan to slowly beef up stealth and greed to try and put a runner on third as early in the game as possible.
